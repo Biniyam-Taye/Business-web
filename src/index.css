@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #0b1120; /* Very dark blue for primary elements */
+  --accent-blue: #2563eb; /* Vibrant blue */
+  --bg-main: #fcfcfc; /* Main background */
+  --bg-offwhite: #f8fafc;
+  --text-main: #0b1120;
+  --text-muted: #64748b;
+  --card-dark: #121826;
+  --card-blue: #2563eb;
+  --card-light: #ffffff;
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Typography styles */
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.text-lead {
+  font-size: 1.125rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-dark {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-dark:hover {
+  background-color: #1a2333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* specific sections */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  padding: 6px 16px;
+  color: white;
+  font-size: 0.85rem;
+}
+
+/* Stats Progress dots */
+.progress-dots {
+  display: flex;
+  gap: 4px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  opacity: 0.2;
+}
+.dot.active {
+  opacity: 1;
+}
+
+/* Grid Layouts */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 64px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Complex Cutout Shapes for Hero Image */
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 48px;
+  overflow: hidden;
+  background: #ffb533; /* Vibrant orange/yellow */
+}
+
+.cutout-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background-color: var(--bg-main);
+  border-bottom-left-radius: 40px;
+  z-index: 10;
+}
+.cutout-tr::before, .cutout-tr::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+}
+.cutout-tr::before {
+  top: 0;
+  left: -40px;
+  border-top-right-radius: 40px;
+  box-shadow: 20px -20px 0 20px var(--bg-main);
+}
+.cutout-tr::after {
+  bottom: -40px;
+  right: 0;
+  border-top-right-radius: 40px;
+  box-shadow: 20px -20px 0 20px var(--bg-main);
+}
+
+.cutout-bl {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100px;
+  height: 280px;
+  background-color: var(--bg-main);
+  border-top-right-radius: 48px;
+  z-index: 10;
+}
+.cutout-bl::before, .cutout-bl::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+}
+.cutout-bl::before {
+  top: -40px;
+  left: 0;
+  border-bottom-left-radius: 40px;
+  box-shadow: -20px 20px 0 20px var(--bg-main);
+}
+.cutout-bl::after {
+  bottom: 0;
+  right: -40px;
+  border-bottom-left-radius: 40px;
+  box-shadow: -20px 20px 0 20px var(--bg-main);
+}
