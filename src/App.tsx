@@ -187,143 +187,145 @@ export default function App() {
         </section>
       </div>
 
-      {/* Problem -> Solution Section */}
-      <section className="container" style={{ marginTop: '100px', marginBottom: '80px', position: 'relative' }}>
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, color: '#111', letterSpacing: '-0.02em', marginBottom: '16px' }}>
-            Tech should scale your business, <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>not slow it down.</span>
-          </h2>
-          <p style={{ fontSize: '1.1rem', color: '#555', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
-            Most businesses get stuck with rigid tools or mismanaged development cycles. We fix that.
-          </p>
-        </div>
+      {/* Problem → Solution Section — Premium Redesign */}
+      <section style={{ padding: '120px 0', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
+        <div className="container">
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', position: 'relative' }}>
-          {/* Desktop Split Screen Layout */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
-            
-            {/* Problem Side */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
+          {/* Section Label + Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '80px' }}
+          >
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)',
+              borderRadius: '9999px', padding: '6px 18px', marginBottom: '24px'
+            }}>
+              <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-blue)' }} />
+              <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-blue)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                Why NexTech
+              </span>
+            </div>
+            <h2 style={{
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)', fontWeight: 800,
+              color: '#0a0a0a', letterSpacing: '-0.03em', lineHeight: 1.1,
+              margin: '0 auto 20px', maxWidth: '700px'
+            }}>
+              Most businesses are{' '}
+              <span style={{ background: 'linear-gradient(135deg, #ef4444, #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>stuck.</span>
+              <br />We get them{' '}
+              <span style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>moving.</span>
+            </h2>
+            <p style={{ fontSize: '1.1rem', color: '#6b7280', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
+              Sound familiar? Here's what we hear from SMBs every day — and exactly how we solve it.
+            </p>
+          </motion.div>
+
+          {/* Split Panel Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2px', borderRadius: '28px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}>
+
+            {/* LEFT — Problems */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              style={{
-                background: '#fafafa',
-                border: '1px solid rgba(0,0,0,0.05)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '48px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '32px'
-              }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              style={{ background: '#ffffff', padding: '56px 52px', display: 'flex', flexDirection: 'column' }}
             >
-              <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#ff4d4f', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                The Frustration
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '40px' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(239,68,68,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <XCircle color="#ef4444" size={18} strokeWidth={2} />
+                </div>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ef4444', textTransform: 'uppercase', letterSpacing: '0.08em' }}>The Problem</span>
               </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {[
-                  { title: "Manual tasks are draining your team", desc: "You're losing hours to repetitive data entry and disjointed systems." },
-                  { title: "Off-the-shelf tools don't fit", desc: "Pre-built software forces you to change your workflow instead of adapting to it." },
-                  { title: "AI feels out of reach", desc: "You know AI can help, but it feels like a confusing buzzword rather than a practical tool." }
-                ].map((item, i) => (
-                  <div key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                    <XCircle color="#ff4d4f" size={24} style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <div>
-                      <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#111', marginBottom: '6px' }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: 1.5 }}>{item.desc}</p>
-                    </div>
+              {[
+                { num: '01', title: "You're bleeding time on manual work", desc: "Hours lost every week on repetitive tasks that should be automated. Your team deserves better." },
+                { num: '02', title: "Generic software holds you back", desc: "Off-the-shelf tools weren't built for your business. You end up working around them, not with them." },
+                { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible — until now." },
+              ].map((item, i, arr) => (
+                <div key={i} style={{ display: 'flex', gap: '20px', paddingBottom: i < arr.length - 1 ? '32px' : '0', marginBottom: i < arr.length - 1 ? '32px' : '0', borderBottom: i < arr.length - 1 ? '1px solid #f3f4f6' : 'none' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d1d5db', letterSpacing: '0.05em', minWidth: '28px', paddingTop: '4px' }}>{item.num}</div>
+                  <div>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#111', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
+                    <p style={{ fontSize: '0.92rem', color: '#6b7280', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </motion.div>
 
-            {/* Solution Side */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
+            {/* RIGHT — Solutions */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              style={{
-                background: '#111',
-                color: '#fff',
-                borderRadius: 'var(--radius-lg)',
-                padding: '48px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '32px',
-                boxShadow: '0 24px 48px rgba(0,0,0,0.1)'
-              }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+              style={{ background: '#0d0d14', padding: '56px 52px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                The Reality We Deliver
+              <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '240px', height: '240px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '40px', position: 'relative' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(74,222,128,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <CheckCircle2 color="#4ade80" size={18} strokeWidth={2} />
+                </div>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.08em' }}>The NexTech Fix</span>
               </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {[
-                  { title: "Custom Web & App Dev", desc: "Software built specifically around your business needs, so you never have to compromise your workflow." },
-                  { title: "Seamless Systems Integration", desc: "We connect your tools into one cohesive ecosystem, eliminating manual data entry forever." },
-                  { title: "Practical AI Automation", desc: "Turn hours of work into seconds. We implement AI that directly boosts your bottom line." }
-                ].map((item, i) => (
-                  <div key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                    <div style={{ background: 'rgba(74, 222, 128, 0.1)', borderRadius: '50%', padding: '6px' }}>
-                      <CheckCircle2 color="#4ade80" size={20} style={{ flexShrink: 0 }} />
-                    </div>
-                    <div>
-                      <h4 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#fff', marginBottom: '6px' }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5 }}>{item.desc}</p>
-                    </div>
+              {[
+                { num: '01', title: "Custom-built software, zero compromise", desc: "We design and build exactly what your business needs. No workarounds. Pure efficiency from day one." },
+                { num: '02', title: "One ecosystem. Everything connected.", desc: "Your apps, tools, and data all talk to each other. One source of truth. Zero manual syncing." },
+                { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from — immediately." },
+              ].map((item, i, arr) => (
+                <div key={i} style={{ display: 'flex', gap: '20px', position: 'relative', paddingBottom: i < arr.length - 1 ? '32px' : '0', marginBottom: i < arr.length - 1 ? '32px' : '0', borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.05em', minWidth: '28px', paddingTop: '4px' }}>{item.num}</div>
+                  <div>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
+                    <p style={{ fontSize: '0.92rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                style={{
+                  marginTop: '48px', alignSelf: 'flex-start',
+                  background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                  color: '#fff', border: 'none', borderRadius: '14px',
+                  padding: '16px 32px', fontSize: '1rem', fontWeight: 700,
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                  cursor: 'pointer', letterSpacing: '-0.01em',
+                  boxShadow: '0 12px 28px rgba(37,99,235,0.35)'
+                }}
+              >
+                Let's build your solution
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <ArrowUpRight size={16} strokeWidth={2.5} />
+                </div>
+              </motion.button>
             </motion.div>
           </div>
 
-          {/* Bridge / Transition Element */}
-          <div className="transition-bridge" style={{ 
-            position: 'absolute', 
-            top: '50%', 
-            left: '50%', 
-            transform: 'translate(-50%, -50%)',
-            zIndex: 10,
-            pointerEvents: 'none',
-            display: 'flex',
-            justifyContent: 'center'
-          }}>
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              style={{ 
-                background: 'var(--accent-blue)',
-                color: '#fff',
-                padding: '16px 32px',
-                borderRadius: '9999px',
-                fontWeight: 700,
-                fontSize: '1.05rem',
-                boxShadow: '0 12px 24px rgba(37,99,235,0.3)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '12px',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              That's where we come in <ArrowRight size={20} />
-            </motion.div>
-          </div>
-        </div>
+          {/* Bottom Trust Strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', marginTop: '56px', flexWrap: 'wrap' }}
+          >
+            {[
+              { stat: '3×', label: 'Faster than traditional agencies' },
+              { stat: '98%', label: 'Client satisfaction rate' },
+              { stat: '50+', label: 'SMBs transformed' },
+            ].map((s, i) => (
+              <div key={i} style={{ textAlign: 'center', padding: '0 24px', borderRight: i < 2 ? '1px solid #e5e7eb' : 'none' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.03em' }}>{s.stat}</div>
+                <div style={{ fontSize: '0.82rem', color: '#9ca3af', marginTop: '4px' }}>{s.label}</div>
+              </div>
+            ))}
+          </motion.div>
 
-        <style>{`
-          @media (max-width: 768px) {
-            .transition-bridge {
-              position: relative !important;
-              top: 0 !important;
-              left: 0 !important;
-              transform: none !important;
-              margin-top: -16px;
-              margin-bottom: -16px;
-            }
-          }
-        `}</style>
+        </div>
       </section>
 
 
