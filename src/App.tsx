@@ -352,131 +352,149 @@ export default function App() {
           </motion.div>
 
           {/* Top Bento Grid — Highlight + 2 side cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gridTemplateRows: 'auto auto', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gridTemplateRows: 'auto auto', gap: '24px' }}>
 
             {/* HIGHLIGHT — AI-Powered Development */}
             <motion.div
-              initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.65, ease: 'easeOut' }}
-              whileHover={{ y: -4, boxShadow: '0 24px 56px rgba(37,99,235,0.13)' }}
-              style={{ gridRow: '1 / 3', background: 'linear-gradient(145deg, #f0f7ff 0%, #f5f0ff 100%)', border: '1px solid #e0ebff', borderLeft: '4px solid #2563eb', borderRadius: '24px', padding: '52px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', cursor: 'pointer', boxShadow: '0 8px 32px rgba(37,99,235,0.07)', transition: 'all 0.3s ease' }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, boxShadow: '0 40px 80px rgba(37,99,235,0.12)' }}
+              style={{ gridRow: '1 / 3', background: '#fff', borderRadius: '32px', padding: '56px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', cursor: 'pointer', boxShadow: '0 20px 48px rgba(0,0,0,0.05)', transition: 'all 0.4s ease', position: 'relative', overflow: 'hidden', border: '1px solid rgba(226,232,240,0.8)' }}
             >
-              <div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'linear-gradient(135deg,#2563eb,#7c3aed)', borderRadius: '12px', padding: '10px 16px', marginBottom: '32px', boxShadow: '0 8px 20px rgba(37,99,235,0.25)' }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at top right, rgba(59,130,246,0.12) 0%, transparent 40%), radial-gradient(circle at bottom left, rgba(139,92,246,0.12) 0%, transparent 40%)', zIndex: 0, pointerEvents: 'none' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'linear-gradient(135deg, #2563eb, #8b5cf6)', borderRadius: '12px', padding: '10px 16px', marginBottom: '32px', boxShadow: '0 8px 16px rgba(37,99,235,0.25)' }}>
                   <Zap color="#fff" size={20} strokeWidth={2.5} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#fff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Most Popular</span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#fff', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Most Popular</span>
                 </div>
-                <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#7c3aed', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>AI-Powered Development</div>
-                <h3 style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.1rem)', fontWeight: 800, color: '#0b1120', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '20px' }}>
+                <h3 style={{ fontSize: 'clamp(1.8rem, 2.5vw, 2.4rem)', fontWeight: 800, color: '#0b1120', lineHeight: 1.15, letterSpacing: '-0.03em', marginBottom: '20px' }}>
                   Your business,<br />running on autopilot.
                 </h3>
-                <p style={{ fontSize: '1rem', color: '#4b5563', lineHeight: 1.75, maxWidth: '420px' }}>
+                <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: 1.7, maxWidth: '420px', fontWeight: 400 }}>
                   We embed AI directly into your web and app workflows — automating the tasks that drain your team and surfacing insights that grow your revenue. Smarter software, zero complexity.
                 </p>
               </div>
-              <div style={{ marginTop: '40px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+              <div style={{ marginTop: '48px', position: 'relative', zIndex: 1 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
                   {['Automates repetitive daily work', 'Learns from your business data', 'Cuts operational costs up to 60%'].map((b, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#dbeafe', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <CheckCircle2 color="#2563eb" size={12} strokeWidth={3} />
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'linear-gradient(135deg, #eff6ff, #dbeafe)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 2px 6px rgba(37,99,235,0.15)' }}>
+                        <CheckCircle2 color="#2563eb" size={14} strokeWidth={3} />
                       </div>
-                      <span style={{ fontSize: '0.9rem', color: '#374151', fontWeight: 500 }}>{b}</span>
+                      <span style={{ fontSize: '0.95rem', color: '#334155', fontWeight: 600 }}>{b}</span>
                     </div>
                   ))}
                 </div>
                 <motion.button
-                  whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-                  style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', color: '#fff', border: 'none', borderRadius: '12px', padding: '14px 28px', fontSize: '0.95rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', boxShadow: '0 8px 20px rgba(37,99,235,0.3)' }}
+                  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                  style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', color: '#fff', border: 'none', borderRadius: '14px', padding: '16px 32px', fontSize: '1rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', boxShadow: '0 12px 28px rgba(37,99,235,0.3)', transition: 'box-shadow 0.3s ease' }}
                 >
-                  Start with AI <ArrowUpRight size={16} strokeWidth={2.5} />
+                  Start with AI <ArrowUpRight size={18} strokeWidth={2.5} />
                 </motion.button>
               </div>
             </motion.div>
 
             {/* Web Development */}
             <motion.div
-              initial={{ opacity: 0, y: -24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-              whileHover={{ y: -4, boxShadow: '0 16px 40px rgba(16,185,129,0.1)' }}
-              style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderTop: '3px solid #10b981', borderRadius: '20px', padding: '36px 32px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              whileHover={{ y: -6, boxShadow: '0 32px 64px rgba(16,185,129,0.12)' }}
+              style={{ background: '#fff', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '32px', padding: '40px', cursor: 'pointer', transition: 'all 0.4s ease', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             >
-              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#d1fae5', border: '1px solid #a7f3d0', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Globe color="#10b981" size={22} strokeWidth={2} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at top right, rgba(16,185,129,0.1) 0%, transparent 50%)', zIndex: 0, pointerEvents: 'none' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'linear-gradient(135deg, #10b981, #059669)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', boxShadow: '0 10px 20px rgba(16,185,129,0.25)' }}>
+                  <Globe color="#fff" size={28} strokeWidth={2} />
+                </div>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0b1120', marginBottom: '12px', letterSpacing: '-0.02em' }}>Web Development</h4>
+                <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6, margin: '0 0 16px' }}>A fast, beautiful website that turns visitors into paying customers — not just traffic.</p>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(16,185,129,0.1)', padding: '6px 12px', borderRadius: '8px' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#059669', fontWeight: 700 }}>↑ More leads. Less bounce.</span>
+                </div>
               </div>
-              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0b1120', marginBottom: '8px', letterSpacing: '-0.01em' }}>Web Development</h4>
-              <p style={{ fontSize: '0.88rem', color: '#4b5563', lineHeight: 1.65, margin: '0 0 12px' }}>A fast, beautiful website that turns visitors into paying customers — not just traffic.</p>
-              <p style={{ fontSize: '0.82rem', color: '#10b981', fontWeight: 600, margin: 0 }}>↑ More leads. Less bounce.</p>
             </motion.div>
 
             {/* App Development */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, ease: 'easeOut', delay: 0.18 }}
-              whileHover={{ y: -4, boxShadow: '0 16px 40px rgba(249,115,22,0.1)' }}
-              style={{ background: '#fff7ed', border: '1px solid #fed7aa', borderTop: '3px solid #f97316', borderRadius: '20px', padding: '36px 32px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              whileHover={{ y: -6, boxShadow: '0 32px 64px rgba(249,115,22,0.12)' }}
+              style={{ background: '#fff', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '32px', padding: '40px', cursor: 'pointer', transition: 'all 0.4s ease', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
             >
-              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffedd5', border: '1px solid #fdba74', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Smartphone color="#f97316" size={22} strokeWidth={2} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at bottom right, rgba(249,115,22,0.1) 0%, transparent 50%)', zIndex: 0, pointerEvents: 'none' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'linear-gradient(135deg, #f97316, #ea580c)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', boxShadow: '0 10px 20px rgba(249,115,22,0.25)' }}>
+                  <Smartphone color="#fff" size={28} strokeWidth={2} />
+                </div>
+                <h4 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0b1120', marginBottom: '12px', letterSpacing: '-0.02em' }}>App Development</h4>
+                <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6, margin: '0 0 16px' }}>Native mobile experiences that keep your users coming back every single day.</p>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(249,115,22,0.1)', padding: '6px 12px', borderRadius: '8px' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#ea580c', fontWeight: 700 }}>↑ More retention. More revenue.</span>
+                </div>
               </div>
-              <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0b1120', marginBottom: '8px', letterSpacing: '-0.01em' }}>App Development</h4>
-              <p style={{ fontSize: '0.88rem', color: '#4b5563', lineHeight: 1.65, margin: '0 0 12px' }}>Native mobile experiences that keep your users coming back every single day.</p>
-              <p style={{ fontSize: '0.82rem', color: '#f97316', fontWeight: 600, margin: 0 }}>↑ More retention. More revenue.</p>
             </motion.div>
           </div>
 
           {/* Bottom Row — 3 equal cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginTop: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginTop: '24px' }}>
 
             {/* Database */}
             <motion.div
-              initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.55, ease: 'easeOut', delay: 0.05 }}
-              whileHover={{ y: -4, boxShadow: '0 16px 40px rgba(236,72,153,0.1)' }}
-              style={{ background: '#fff0f9', border: '1px solid #fbcfe8', borderTop: '3px solid #ec4899', borderRadius: '20px', padding: '36px 32px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              whileHover={{ y: -6, boxShadow: '0 32px 64px rgba(236,72,153,0.12)' }}
+              style={{ background: '#fff', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '32px', padding: '40px', cursor: 'pointer', transition: 'all 0.4s ease', position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#fce7f3', border: '1px solid #f9a8d4', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Database color="#ec4899" size={22} strokeWidth={2} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(236,72,153,0.06) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'linear-gradient(135deg, #f472b6, #db2777)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 10px 20px rgba(236,72,153,0.2)' }}>
+                  <Database color="#fff" size={24} strokeWidth={2} />
+                </div>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0b1120', marginBottom: '10px', letterSpacing: '-0.01em' }}>Smart Database</h4>
+                <p style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.6, margin: '0 0 16px' }}>Clean, scalable data architecture that grows with your business, never against it.</p>
+                <span style={{ fontSize: '0.9rem', color: '#db2777', fontWeight: 700 }}>↑ Zero data headaches.</span>
               </div>
-              <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0b1120', marginBottom: '8px' }}>Smart Database</h4>
-              <p style={{ fontSize: '0.88rem', color: '#4b5563', lineHeight: 1.65, margin: '0 0 12px' }}>Clean, scalable data architecture that grows with your business, never against it.</p>
-              <p style={{ fontSize: '0.82rem', color: '#ec4899', fontWeight: 600, margin: 0 }}>↑ Zero data headaches.</p>
             </motion.div>
 
             {/* Deployment */}
             <motion.div
-              initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.55, ease: 'easeOut', delay: 0.12 }}
-              whileHover={{ y: -4, boxShadow: '0 16px 40px rgba(37,99,235,0.1)' }}
-              style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderTop: '3px solid #3b82f6', borderRadius: '20px', padding: '36px 32px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              whileHover={{ y: -6, boxShadow: '0 32px 64px rgba(59,130,246,0.12)' }}
+              style={{ background: '#fff', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '32px', padding: '40px', cursor: 'pointer', transition: 'all 0.4s ease', position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#dbeafe', border: '1px solid #93c5fd', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Cloud color="#3b82f6" size={22} strokeWidth={2} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(59,130,246,0.06) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'linear-gradient(135deg, #60a5fa, #2563eb)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 10px 20px rgba(59,130,246,0.2)' }}>
+                  <Cloud color="#fff" size={24} strokeWidth={2} />
+                </div>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0b1120', marginBottom: '10px', letterSpacing: '-0.01em' }}>Deploy & Scale</h4>
+                <p style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.6, margin: '0 0 16px' }}>We handle hosting, deployment, and uptime so you can focus 100% on your growth.</p>
+                <span style={{ fontSize: '0.9rem', color: '#2563eb', fontWeight: 700 }}>↑ Launch fast. Stay live.</span>
               </div>
-              <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0b1120', marginBottom: '8px' }}>Deploy & Scale</h4>
-              <p style={{ fontSize: '0.88rem', color: '#4b5563', lineHeight: 1.65, margin: '0 0 12px' }}>We handle hosting, deployment, and uptime so you can focus 100% on your growth.</p>
-              <p style={{ fontSize: '0.82rem', color: '#3b82f6', fontWeight: 600, margin: 0 }}>↑ Launch fast. Stay live.</p>
             </motion.div>
 
             {/* UX/UI Design */}
             <motion.div
-              initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.55, ease: 'easeOut', delay: 0.2 }}
-              whileHover={{ y: -4, boxShadow: '0 16px 40px rgba(124,58,237,0.1)' }}
-              style={{ background: 'linear-gradient(135deg, #faf5ff, #eff6ff)', border: '1px solid #e9d5ff', borderTop: '3px solid #7c3aed', borderRadius: '20px', padding: '36px 32px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+              whileHover={{ y: -6, boxShadow: '0 32px 64px rgba(139,92,246,0.12)' }}
+              style={{ background: '#fff', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '32px', padding: '40px', cursor: 'pointer', transition: 'all 0.4s ease', position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#f3e8ff', border: '1px solid #d8b4fe', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Palette color="#7c3aed" size={22} strokeWidth={2} />
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'radial-gradient(circle at center, rgba(139,92,246,0.06) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'linear-gradient(135deg, #a78bfa, #7c3aed)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 10px 20px rgba(139,92,246,0.2)' }}>
+                  <Palette color="#fff" size={24} strokeWidth={2} />
+                </div>
+                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#0b1120', marginBottom: '10px', letterSpacing: '-0.01em' }}>UX/UI Design</h4>
+                <p style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.6, margin: '0 0 16px' }}>Interfaces so intuitive your customers never need a support call or a tutorial.</p>
+                <span style={{ fontSize: '0.9rem', color: '#7c3aed', fontWeight: 700 }}>↑ Less churn. More love.</span>
               </div>
-              <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0b1120', marginBottom: '8px' }}>UX/UI Design</h4>
-              <p style={{ fontSize: '0.88rem', color: '#4b5563', lineHeight: 1.65, margin: '0 0 12px' }}>Interfaces so intuitive your customers never need a support call or a tutorial.</p>
-              <p style={{ fontSize: '0.82rem', color: '#7c3aed', fontWeight: 600, margin: 0 }}>↑ Less churn. More love.</p>
             </motion.div>
           </div>
 
         </div>
       </section>
-
     </div>
   );
 }

@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #0b1120; /* Very dark blue for primary elements */
-  --accent-blue: #2563eb; /* Vibrant blue */
-  --bg-main: #fcfcfc; /* Main background */
+  --primary-color: #0b1120;
+  /* Very dark blue for primary elements */
+  --accent-blue: #2563eb;
+  /* Vibrant blue */
+  --bg-main: #fcfcfc;
+  /* Main background */
   --bg-offwhite: #f8fafc;
   --text-main: #0b1120;
   --text-muted: #64748b;
@@ -55,7 +58,10 @@ button {
 }
 
 /* Typography styles */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: var(--text-main);
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -75,7 +81,7 @@ h1, h2, h3, h4 {
 
 .text-lead {
   font-size: 1.125rem;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin: 0 auto;
   font-weight: 300;
@@ -115,10 +121,11 @@ h1, h2, h3, h4 {
   background-color: var(--primary-color);
   color: white;
 }
+
 .btn-dark:hover {
   background-color: #1a2333;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .btn-glass {
@@ -127,6 +134,7 @@ h1, h2, h3, h4 {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
 }
+
 .btn-glass:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
@@ -148,6 +156,7 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 4px;
 }
+
 .dot {
   width: 8px;
   height: 8px;
@@ -155,6 +164,7 @@ h1, h2, h3, h4 {
   background-color: var(--accent-blue);
   opacity: 0.2;
 }
+
 .dot.active {
   opacity: 1;
 }
@@ -194,7 +204,8 @@ h1, h2, h3, h4 {
   height: 560px;
   border-radius: 48px;
   overflow: hidden;
-  background: #ffb533; /* Vibrant orange/yellow */
+  background: #ffb533;
+  /* Vibrant orange/yellow */
 }
 
 .cutout-tr {
@@ -207,19 +218,23 @@ h1, h2, h3, h4 {
   border-bottom-left-radius: 40px;
   z-index: 10;
 }
-.cutout-tr::before, .cutout-tr::after {
+
+.cutout-tr::before,
+.cutout-tr::after {
   content: '';
   position: absolute;
   background: transparent;
   width: 40px;
   height: 40px;
 }
+
 .cutout-tr::before {
   top: 0;
   left: -40px;
   border-top-right-radius: 40px;
   box-shadow: 20px -20px 0 20px var(--bg-main);
 }
+
 .cutout-tr::after {
   bottom: -40px;
   right: 0;
@@ -237,19 +252,23 @@ h1, h2, h3, h4 {
   border-top-right-radius: 48px;
   z-index: 10;
 }
-.cutout-bl::before, .cutout-bl::after {
+
+.cutout-bl::before,
+.cutout-bl::after {
   content: '';
   position: absolute;
   background: transparent;
   width: 40px;
   height: 40px;
 }
+
 .cutout-bl::before {
   top: -40px;
   left: 0;
   border-bottom-left-radius: 40px;
   box-shadow: -20px 20px 0 20px var(--bg-main);
 }
+
 .cutout-bl::after {
   bottom: 0;
   right: -40px;
