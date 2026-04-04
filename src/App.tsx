@@ -16,7 +16,7 @@ export default function App() {
   return (
     <div className="app-container">
       {/* Navigation */}
-      <div style={{ position: 'sticky', top: '24px', zIndex: 100, display: 'flex', justifyContent: 'center', padding: '0 24px', pointerEvents: 'none' }}>
+      <div style={{ position: 'sticky', top: '16px', zIndex: 100, display: 'flex', justifyContent: 'center', padding: '0 24px', pointerEvents: 'none' }}>
         <motion.nav
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -82,7 +82,7 @@ export default function App() {
       </div>
 
       {/* Hero Wrapper */}
-      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '48px 0 100px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '16px 0 100px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
         {/* Hero Background Clean Theme */}
         <div style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
@@ -103,8 +103,9 @@ export default function App() {
               <span style={{ color: 'var(--accent-blue)' }}>business</span>
             </h1>
 
-            <p style={{ marginTop: '24px', fontSize: '1.05rem', color: '#555', lineHeight: 1.6, maxWidth: '400px' }}>
-              Data-driven insights for tech startups and executives.
+            <p style={{ marginTop: '24px', fontSize: '1.05rem', color: '#555', lineHeight: 1.8, maxWidth: '480px' }}>
+              We design, build, and scale custom digital products for ambitious startups and executives —
+              engineered for speed, built for growth.
             </p>
 
             {/* CTA Buttons */}
@@ -180,7 +181,7 @@ export default function App() {
           </div>
 
           {/* Right Column (Complex Cutout Image) */}
-          <div style={{ flex: '1 1 500px', position: 'relative', minHeight: '560px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ flex: '1 1 500px', position: 'relative', minHeight: '560px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-20px' }}>
             <div className="hero-img-wrapper">
               <img
                 src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80"
@@ -251,82 +252,118 @@ export default function App() {
             </p>
           </motion.div>
 
-          {/* Split Panel Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2px', borderRadius: '28px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}>
+          {/* Split Panel Dual-Card Layout */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
 
             {/* LEFT — Problems */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              style={{ background: '#ffffff', padding: '56px 52px', display: 'flex', flexDirection: 'column' }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                 background: '#ffffff',
+                 borderRadius: '32px',
+                 padding: '56px 48px',
+                 boxShadow: '0 20px 60px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02)',
+                 border: '1px solid #f1f5f9',
+                 display: 'flex', flexDirection: 'column'
+              }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '40px' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(239,68,68,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <XCircle color="#ef4444" size={18} strokeWidth={2} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'linear-gradient(135deg, #fef2f2, #fee2e2)', border: '1px solid #fca5a5', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 16px rgba(239,68,68,0.1)' }}>
+                  <XCircle color="#ef4444" size={20} strokeWidth={2.5} />
                 </div>
-                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ef4444', textTransform: 'uppercase', letterSpacing: '0.08em' }}>The Problem</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ef4444', textTransform: 'uppercase', letterSpacing: '0.1em' }}>The Problem</span>
               </div>
-              {[
-                { num: '01', title: "You're bleeding time on manual work", desc: "Hours lost every week on repetitive tasks that should be automated. Your team deserves better." },
-                { num: '02', title: "Generic software holds you back", desc: "Off-the-shelf tools weren't built for your business. You end up working around them, not with them." },
-                { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible — until now." },
-              ].map((item, i, arr) => (
-                <div key={i} style={{ display: 'flex', gap: '20px', paddingBottom: i < arr.length - 1 ? '32px' : '0', marginBottom: i < arr.length - 1 ? '32px' : '0', borderBottom: i < arr.length - 1 ? '1px solid #f3f4f6' : 'none' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#d1d5db', letterSpacing: '0.05em', minWidth: '28px', paddingTop: '4px' }}>{item.num}</div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#111', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
-                    <p style={{ fontSize: '0.92rem', color: '#6b7280', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {[
+                  { num: '01', title: "You're bleeding time on manual work", desc: "Hours lost every week on repetitive tasks that should be automated. Your team deserves better." },
+                  { num: '02', title: "Generic software holds you back", desc: "Off-the-shelf tools weren't built for your business. You end up working around them, not with them." },
+                  { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible — until now." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ x: 8, backgroundColor: '#f8fafc' }}
+                    style={{ padding: '24px', borderRadius: '20px', transition: 'background-color 0.3s ease', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
+                    onMouseOver={(e) => e.currentTarget.style.borderColor = '#f1f5f9'}
+                    onMouseOut={(e) => e.currentTarget.style.borderColor = 'transparent'}
+                  >
+                    <div style={{ position: 'absolute', right: '-10px', top: '-10px', fontSize: '6rem', fontWeight: 900, color: '#f1f5f9', opacity: 0.5, lineHeight: 1, pointerEvents: 'none', zIndex: 0 }}>{item.num}</div>
+                    <div style={{ position: 'relative', zIndex: 1 }}>
+                      <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
+                      <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
             {/* RIGHT — Solutions */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-              style={{ background: '#0d0d14', padding: '56px 52px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+              style={{
+                 background: 'linear-gradient(145deg, #0f172a 0%, #020617 100%)',
+                 borderRadius: '32px',
+                 padding: '56px 48px',
+                 boxShadow: '0 30px 60px rgba(37,99,235,0.15), inset 0 1px 0 rgba(255,255,255,0.1)',
+                 border: '1px solid rgba(37,99,235,0.2)',
+                 display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden'
+              }}
             >
-              <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '240px', height: '240px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '40px', position: 'relative' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(74,222,128,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <CheckCircle2 color="#4ade80" size={18} strokeWidth={2} />
+              {/* Glowing Orbs */}
+              <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(74,222,128,0.1) 0%, transparent 70%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px', position: 'relative' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(74,222,128,0.2), rgba(34,197,94,0.1))', border: '1px solid rgba(74,222,128,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 16px rgba(74,222,128,0.1)' }}>
+                  <CheckCircle2 color="#4ade80" size={20} strokeWidth={2.5} />
                 </div>
-                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.08em' }}>The NexTech Fix</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.1em' }}>The NexTech Fix</span>
               </div>
-              {[
-                { num: '01', title: "Custom-built software, zero compromise", desc: "We design and build exactly what your business needs. No workarounds. Pure efficiency from day one." },
-                { num: '02', title: "One ecosystem. Everything connected.", desc: "Your apps, tools, and data all talk to each other. One source of truth. Zero manual syncing." },
-                { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from — immediately." },
-              ].map((item, i, arr) => (
-                <div key={i} style={{ display: 'flex', gap: '20px', position: 'relative', paddingBottom: i < arr.length - 1 ? '32px' : '0', marginBottom: i < arr.length - 1 ? '32px' : '0', borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.05em', minWidth: '28px', paddingTop: '4px' }}>{item.num}</div>
-                  <div>
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
-                    <p style={{ fontSize: '0.92rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative' }}>
+                {[
+                  { num: '01', title: "Custom-built software, zero compromise", desc: "We design and build exactly what your business needs. No workarounds. Pure efficiency from day one." },
+                  { num: '02', title: "One ecosystem. Everything connected.", desc: "Your apps, tools, and data all talk to each other. One source of truth. Zero manual syncing." },
+                  { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from — immediately." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ x: 8, backgroundColor: 'rgba(37,99,235,0.12)' }}
+                    style={{ padding: '24px', borderRadius: '20px', transition: 'all 0.3s ease', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
+                    onMouseOver={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.3)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(37,99,235,0.15)'; }}
+                    onMouseOut={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.boxShadow = 'none'; }}
+                  >
+                     <div style={{ position: 'absolute', right: '-10px', top: '-10px', fontSize: '6rem', fontWeight: 900, color: 'rgba(255,255,255,0.03)', opacity: 1, lineHeight: 1, pointerEvents: 'none', zIndex: 0 }}>{item.num}</div>
+                    <div style={{ position: 'relative', zIndex: 1 }}>
+                      <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fafc', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
+                      <p style={{ fontSize: '0.95rem', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
               <motion.button
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.03, boxShadow: '0 15px 35px rgba(37,99,235,0.4)' }}
                 whileTap={{ scale: 0.98 }}
                 style={{
-                  marginTop: '48px', alignSelf: 'flex-start',
-                  background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
-                  color: '#fff', border: 'none', borderRadius: '14px',
-                  padding: '16px 32px', fontSize: '1rem', fontWeight: 700,
+                  marginTop: '40px', alignSelf: 'flex-start',
+                  background: 'linear-gradient(135deg, #2563eb, #3b82f6)',
+                  color: '#fff', border: 'none', borderRadius: '16px',
+                  padding: '16px 32px', fontSize: '1.05rem', fontWeight: 700,
                   display: 'flex', alignItems: 'center', gap: '12px',
                   cursor: 'pointer', letterSpacing: '-0.01em',
-                  boxShadow: '0 12px 28px rgba(37,99,235,0.35)'
+                  boxShadow: '0 12px 28px rgba(37,99,235,0.3)',
+                  position: 'relative', zIndex: 2
                 }}
               >
                 Let's build your solution
-                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <ArrowUpRight size={16} strokeWidth={2.5} />
                 </div>
               </motion.button>
