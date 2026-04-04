@@ -399,7 +399,7 @@ export default function App() {
 
       {/* Tech Business Stats Section (Moved after Section 2) */}
       <section style={{ padding: '32px 0', borderTop: '1px solid #e2e8f0', background: '#fafafa', position: 'relative', overflow: 'hidden' }}>
-        
+
         {/* Left Decorative Space */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '25vw', background: 'radial-gradient(circle at 0% 50%, rgba(37,99,235,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <motion.div
@@ -451,7 +451,7 @@ export default function App() {
       {/* ── Features / Services Section ── */}
       <section style={{ padding: '120px 0 140px', background: '#F8F9FA' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
-          
+
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -472,105 +472,243 @@ export default function App() {
           </motion.div>
 
           {/* Cards Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', alignItems: 'stretch' }}>
-            
-            {/* Card 1 */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '24px', alignItems: 'stretch' }}>
+
+            {/* Card 1 - AI Web Apps */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              style={{ background: '#CCFF00', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '600px' }}
+              style={{ background: '#CCFF00', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px' }}>Software</span>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px' }}>Bestseller</span>
+                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px' }}>AI Powered</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#CCFF00', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
                   </div>
                 </div>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '24px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Custom<br />Software</h3>
-                <p style={{ fontSize: '0.95rem', color: '#333', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '32px' }}>For scaling brands and enterprise operations. Premium code, vivid UIs.</p>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>AI Web Apps</h3>
+                <p style={{ fontSize: '0.95rem', color: '#333', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '24px' }}>Intelligent web applications that leverage machine learning to adapt, optimize, and grow with you.</p>
               </div>
-              <div style={{ height: '240px', width: '100%', padding: '0 16px 16px 16px' }}>
-                 <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                   <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Software" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                 </div>
+              <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
+                <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                  <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Web Apps" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
               </div>
             </motion.div>
 
-            {/* Card 2 */}
+            {/* Card 2 - Application Development */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              style={{ background: '#F4EEE5', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '600px' }}
+              style={{ background: '#F4EEE5', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>AI Integrations</span>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Trending</span>
+                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Native</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#E0D8CC', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
                   </div>
                 </div>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '24px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>AI &<br />Automation</h3>
-                <p style={{ fontSize: '0.95rem', color: '#444', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '32px' }}>Smart logic woven with your unique workflow. Perfect for saving time and scaling.</p>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Application<br />Development</h3>
+                <p style={{ fontSize: '0.95rem', color: '#444', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '24px' }}>High-performance native mobile and desktop applications built for enterprise-level scaling.</p>
               </div>
-              <div style={{ height: '240px', width: '100%', padding: '0 16px 16px 16px' }}>
-                 <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                   <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80" alt="Automation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                 </div>
+              <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
+                <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Application Dev" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
               </div>
             </motion.div>
 
-            {/* Card 3 */}
+            {/* Card 3 - SaaS Development */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-              style={{ background: '#F4EEE5', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '600px' }}
+              style={{ background: '#45BAEB', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Cloud</span>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Enterprise</span>
-                  </div>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#E0D8CC', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/></svg>
+                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>B2B & B2C</span>
                   </div>
                 </div>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '24px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Cloud &<br />Databases</h3>
-                <p style={{ fontSize: '0.95rem', color: '#444', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '32px' }}>Secure systems that start every morning with zero downtime — from beginner to global.</p>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>SaaS<br />Development</h3>
+                <p style={{ fontSize: '0.95rem', color: '#111', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '24px' }}>End-to-end SaaS platforms specifically engineered to drive deep user engagement and recurring revenue.</p>
               </div>
-              <div style={{ height: '240px', width: '100%', padding: '0 16px 16px 16px' }}>
-                 <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                   <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Cloud Data" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                 </div>
+              <div style={{ height: '180px', width: '100%', position: 'relative' }}>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '70%', background: '#ffb480', zIndex: 0 }} />
+                <div style={{ position: 'relative', width: '100%', height: '100%', padding: '0 16px 16px 16px', zIndex: 1 }}>
+                  <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="SaaS Dev" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                </div>
               </div>
             </motion.div>
 
-            {/* Card 4 */}
+            {/* Card 4 - UI/UX Design */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-              style={{ background: '#45BAEB', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '600px' }}
+              style={{ background: '#E0E7FF', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>UI/UX Design</span>
+                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Creative</span>
+                  </div>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#C7D2FE', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
                   </div>
                 </div>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '24px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Product &<br />Interfaces</h3>
-                <p style={{ fontSize: '0.95rem', color: '#111', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '32px' }}>Award-winning interfaces of your product shipped directly to your customers worldwide.</p>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>UI/UX Design</h3>
+                <p style={{ fontSize: '0.95rem', color: '#312E81', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '24px' }}>Award-winning interfaces shipped directly to your users. Pixel-perfect, responsive, and always stunning.</p>
               </div>
-              <div style={{ height: '200px', width: '100%', position: 'relative' }}>
-                 {/* Two-tone bottom mimicking screenshot */}
-                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '70%', background: '#ffb480', zIndex: 0 }} />
-                 <div style={{ position: 'relative', width: '100%', height: '100%', padding: '0 16px 16px 16px', zIndex: 1 }}>
-                    <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                      <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Design" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                 </div>
+              <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
+                <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                  <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="Design" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 5 - Automation Systems */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+              style={{ background: '#FFEDD5', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
+            >
+              <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Workflow</span>
+                  </div>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#FDBA74', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                  </div>
+                </div>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Automation<br />Systems</h3>
+                <p style={{ fontSize: '0.95rem', color: '#9A3412', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '24px' }}>Smart business logic woven directly into your existing tools. Let code do the repetitive work.</p>
+              </div>
+              <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
+                <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Automation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 6 - API & Backend */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
+              style={{ background: '#0F172A', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
+            >
+              <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Infrastructure</span>
+                  </div>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#334155', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                  </div>
+                </div>
+                <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#fff', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>API & Backend</h3>
+                <p style={{ fontSize: '0.95rem', color: '#94A3B8', lineHeight: 1.6, fontWeight: 500, margin: 0, paddingBottom: '24px' }}>Impervious backend architectures, custom APIs, and databases starting every morning with zero downtime.</p>
+              </div>
+              <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
+                <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Backend" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Meet the Team Section ── */}
+      <section style={{ padding: '120px 0', background: '#EAE8E3', color: '#111' }}>
+        <div className="container" style={{ maxWidth: '1400px' }}>
+          
+          {/* Header Block */}
+          <div style={{ marginBottom: '40px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M2 12h20" /></svg>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <span style={{ border: '1px solid currentColor', borderRadius: '30px', padding: '4px 12px', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em' }}>WHO</span>
+                <span style={{ border: '1px solid currentColor', borderRadius: '30px', padding: '4px 12px', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em' }}>WE</span>
+                <span style={{ border: '1px solid currentColor', borderRadius: '30px', padding: '4px 12px', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em' }}>ARE</span>
+              </div>
+            </div>
+            
+            <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.04em', margin: 0, textTransform: 'uppercase' }}>
+              A TEAM OF<br/>TECH EXPERTS
+            </h2>
+          </div>
+
+          {/* Hairline Divider */}
+          <div style={{ width: '100%', height: '1px', background: 'rgba(0,0,0,0.1)', marginBottom: '50px' }} />
+
+          {/* Two-column Description */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '48px', marginBottom: '100px' }}>
+            <div>
+              <p style={{ margin: 0, fontSize: '1rem', fontWeight: 800, lineHeight: 1.6, textTransform: 'uppercase', maxWidth: '420px', letterSpacing: '0.02em', color: '#111' }}>
+                NEXTECH STARTED AS A PROJECT TO BUILD SOFTWARE AND MANAGE DIGITAL INFRASTRUCTURE FOR SELECT CLIENTS.
+              </p>
+            </div>
+            <div>
+              <p style={{ margin: 0, fontSize: '0.95rem', color: '#444', lineHeight: 1.7, maxWidth: '600px', fontWeight: 500 }}>
+                We built advanced architecture to optimize the scale for our earliest enterprise partners. But, due to the sheer difficulty of installing, securing, and maintaining custom nodes natively, our boutique technical agency grew crazy fast.
+                <br/><br/>
+                We quickly realized that generic code doesn't work for modern scaling because it halts flexibility. We turned our platform into a dedicated suite so that any company could launch and own their entire digital backbone with zero headaches. We handle the infrastructure, you handle the growth.
+              </p>
+            </div>
+          </div>
+
+          {/* Team Cards Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+            
+            {/* Person 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', paddingBottom: '32px', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}
+            >
+              <div style={{ background: '#F3F4F6', height: '420px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="CEO" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+              </div>
+              <div style={{ padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                <span style={{ border: '1px solid #111', borderRadius: '24px', padding: '6px 18px', fontSize: '0.9rem', fontWeight: 800, marginBottom: '10px' }}>
+                  Marcus Bowen
+                </span>
+                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: 600, paddingLeft: '8px' }}>Founder & CEO</span>
+              </div>
+            </motion.div>
+
+            {/* Person 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', paddingBottom: '32px', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}
+            >
+              <div style={{ background: '#F3F4F6', height: '420px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="CTO" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+              </div>
+              <div style={{ padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                <span style={{ border: '1px solid #111', borderRadius: '24px', padding: '6px 18px', fontSize: '0.9rem', fontWeight: 800, marginBottom: '10px' }}>
+                  Elena Rodriguez
+                </span>
+                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: 600, paddingLeft: '8px' }}>Partner & CTO</span>
+              </div>
+            </motion.div>
+
+            {/* Person 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+              style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', paddingBottom: '32px', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}
+            >
+              <div style={{ background: '#F3F4F6', height: '420px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Head of Design" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+              </div>
+              <div style={{ padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                <span style={{ border: '1px solid #111', borderRadius: '24px', padding: '6px 18px', fontSize: '0.9rem', fontWeight: 800, marginBottom: '10px' }}>
+                  David Chen
+                </span>
+                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: 600, paddingLeft: '8px' }}>Chief of Design</span>
               </div>
             </motion.div>
 
