@@ -630,22 +630,22 @@ export default function App() {
         <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(249,115,22,0.03) 0%, transparent 70%)', filter: 'blur(60px)' }} />
 
         <div className="container" style={{ maxWidth: '1400px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', gap: '80px', alignItems: 'center', position: 'relative', zIndex: 1 }}>
-          
+
           {/* Left Side Info */}
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '8px 24px', marginBottom: '24px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }} />
               <span style={{ fontSize: '0.875rem', fontWeight: 800, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>WHY CHOOSE US</span>
             </div>
-            
+
             <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
               We engineer <span style={{ color: '#F97316' }}>unfair</span><br /> market advantages.
             </h2>
-            
+
             <p style={{ fontSize: '1.15rem', color: '#64748b', lineHeight: 1.6, marginBottom: '48px', fontWeight: 400 }}>
               Stop settling for generic templates. We construct bespoke, high-performance digital infrastructure designed exclusively to crush your competitors and scale globally without friction.
             </p>
-            
+
             <div style={{ display: 'flex', gap: '40px', borderTop: '1px solid #e2e8f0', paddingTop: '40px' }}>
               <div>
                 <h4 style={{ fontSize: '3rem', fontWeight: 800, margin: '0 0 4px 0', color: '#0f172a', lineHeight: 1 }}>99.9<span style={{ color: '#3b82f6' }}>%</span></h4>
@@ -660,11 +660,11 @@ export default function App() {
 
           {/* Right Side Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            
+
             {/* Feature 1: Fast Performance */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(245,158,11,0.25)', background: 'rgba(245,158,11,0.15)', borderColor: 'rgba(245,158,11,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(245,158,11,0.1)', borderRadius: '20px', color: '#f59e0b', flexShrink: 0 }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
               </div>
               <div>
                 <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Fast Performance</h4>
@@ -675,7 +675,7 @@ export default function App() {
             {/* Feature 2: Clean UI/UX */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(236,72,153,0.25)', background: 'rgba(236,72,153,0.15)', borderColor: 'rgba(236,72,153,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(236,72,153,0.1)', borderRadius: '20px', color: '#ec4899', flexShrink: 0 }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></svg>
               </div>
               <div>
                 <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Clean UI/UX</h4>
@@ -686,7 +686,7 @@ export default function App() {
             {/* Feature 3: Scalable Systems */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(59,130,246,0.25)', background: 'rgba(59,130,246,0.15)', borderColor: 'rgba(59,130,246,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(59,130,246,0.1)', borderRadius: '20px', color: '#3b82f6', flexShrink: 0 }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
               </div>
               <div>
                 <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Scalable Systems</h4>
@@ -697,7 +697,7 @@ export default function App() {
             {/* Feature 4: Secure & Reliable */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(16,185,129,0.25)', background: 'rgba(16,185,129,0.15)', borderColor: 'rgba(16,185,129,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(16,185,129,0.1)', borderRadius: '20px', color: '#10b981', flexShrink: 0 }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>
               </div>
               <div>
                 <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Secure & Reliable</h4>
@@ -715,19 +715,19 @@ export default function App() {
 
           {/* Centered Header Block matching user reference */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '80px' }}>
-            
+
             {/* Top Pill */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '8px 24px', marginBottom: '24px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }} />
               <span style={{ fontSize: '0.875rem', fontWeight: 800, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>MEET THE TEAM</span>
             </div>
-            
+
             {/* Gradient Title */}
             <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
               Great software requires <span style={{ color: '#F97316' }}>experts.</span><br />
               Come meet <span style={{ background: 'linear-gradient(to right, #3b82f6, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ours.</span>
             </h2>
-            
+
             {/* Centered Subtext */}
             <p style={{ margin: 0, fontSize: '1.2rem', color: '#6b7280', lineHeight: 1.6, maxWidth: '600px', fontWeight: 400 }}>
               Sound familiar? Here's who we hear from enterprises every day — and exactly how our leaders solve it.
@@ -736,7 +736,7 @@ export default function App() {
 
           {/* Team Cards Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
-            
+
             {/* Person 1 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -744,10 +744,10 @@ export default function App() {
             >
               <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="CEO" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                
+
                 {/* Overlay Container */}
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  
+
                   {/* Frosted Glass Name Pill Card */}
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                     <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Marcus Bowen</h3>
@@ -761,28 +761,28 @@ export default function App() {
                     <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
                       CEO who focuses on enterprise strategy & global scaling.
                     </p>
-                    
+
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div style={{ display: 'flex', gap: '16px', color: '#475569', fontSize: '0.85rem', fontWeight: 700 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                           312
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
                           48
                         </div>
                       </div>
-                      
+
                       <div style={{ position: 'relative' }}>
                         <button onClick={() => setActiveFollowId(activeFollowId === 'p1' ? null : 'p1')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                           Follow <span style={{ fontSize: '1.2rem', lineHeight: 0.5, marginBottom: '2px' }}>+</span>
                         </button>
-                        
+
                         {activeFollowId === 'p1' && (
                           <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ position: 'absolute', bottom: 'calc(100% + 8px)', right: 0, background: '#fff', padding: '8px', borderRadius: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
-                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
                             <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
                           </motion.div>
                         )}
@@ -800,10 +800,10 @@ export default function App() {
             >
               <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="CTO" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                
+
                 {/* Overlay Container */}
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  
+
                   {/* Frosted Glass Name Pill Card */}
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                     <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Elena Rodriguez</h3>
@@ -817,28 +817,28 @@ export default function App() {
                     <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
                       CTO who focuses on robust cloud systems & infrastructure.
                     </p>
-                    
+
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div style={{ display: 'flex', gap: '16px', color: '#475569', fontSize: '0.85rem', fontWeight: 700 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                           8.4k
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
                           142
                         </div>
                       </div>
-                      
+
                       <div style={{ position: 'relative' }}>
                         <button onClick={() => setActiveFollowId(activeFollowId === 'p2' ? null : 'p2')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                           Follow <span style={{ fontSize: '1.2rem', lineHeight: 0.5, marginBottom: '2px' }}>+</span>
                         </button>
-                        
+
                         {activeFollowId === 'p2' && (
                           <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ position: 'absolute', bottom: 'calc(100% + 8px)', right: 0, background: '#fff', padding: '8px', borderRadius: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
-                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
                             <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
                           </motion.div>
                         )}
@@ -856,10 +856,10 @@ export default function App() {
             >
               <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
                 <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Head of Design" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                
+
                 {/* Overlay Container */}
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  
+
                   {/* Frosted Glass Name Pill Card */}
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                     <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>David Chen</h3>
@@ -873,28 +873,28 @@ export default function App() {
                     <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
                       Product Designer who focuses on simplicity & usability.
                     </p>
-                    
+
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div style={{ display: 'flex', gap: '16px', color: '#475569', fontSize: '0.85rem', fontWeight: 700 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                           12.1k
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
                           412
                         </div>
                       </div>
-                      
+
                       <div style={{ position: 'relative' }}>
                         <button onClick={() => setActiveFollowId(activeFollowId === 'p3' ? null : 'p3')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
                           Follow <span style={{ fontSize: '1.2rem', lineHeight: 0.5, marginBottom: '2px' }}>+</span>
                         </button>
-                        
+
                         {activeFollowId === 'p3' && (
                           <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ position: 'absolute', bottom: 'calc(100% + 8px)', right: 0, background: '#fff', padding: '8px', borderRadius: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
-                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
                             <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
                           </motion.div>
                         )}
@@ -908,6 +908,226 @@ export default function App() {
           </div>
         </div>
       </section>
+      {/* ── Call To Action / Contact Section ── */}
+      <section style={{ padding: '140px 0', background: '#ffffff', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
+
+        {/* Soft Decorative Glows */}
+        <div style={{ position: 'absolute', top: '10%', right: '10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(249,115,22,0.03) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+
+        <div className="container" style={{ maxWidth: '1400px', position: 'relative', zIndex: 1 }}>
+
+          <div style={{ textAlign: 'center', marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '8px 24px', marginBottom: '24px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }} />
+              <span style={{ fontSize: '0.875rem', fontWeight: 800, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>GET IN TOUCH</span>
+            </div>
+
+            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
+              Ready to build something <span style={{ color: '#F97316' }}>extraordinary?</span>
+            </h2>
+            <p style={{ margin: 0, fontSize: '1.2rem', color: '#64748b', lineHeight: 1.6, maxWidth: '600px', fontWeight: 400 }}>
+              Let's craft the future of your infrastructure. Drop us a message or visit our engineering hub in Arba Minch.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 500px), 1fr))', gap: '64px', alignItems: 'stretch' }}>
+
+            {/* Left Column: Info & Map */}
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+
+              {/* Contact Info Cards */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+                <motion.div
+                  whileHover={{ x: [0, -4, 4, -4, 4, 0], transition: { duration: 0.4 } }}
+                  style={{ padding: '24px', background: '#f8fafc', borderRadius: '24px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', cursor: 'pointer' }}
+                >
+                  <div style={{ width: '48px', height: '48px', borderRadius: '16px', background: '#e0f2fe', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                  </div>
+                  <div>
+                    <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Phone</p>
+                    <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#0f172a', fontWeight: 700 }}>+251 900 000 000</h4>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ x: [0, -4, 4, -4, 4, 0], transition: { duration: 0.4 } }}
+                  style={{ padding: '24px', background: '#f8fafc', borderRadius: '24px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', cursor: 'pointer' }}
+                >
+                  <div style={{ width: '48px', height: '48px', borderRadius: '16px', background: '#ffedd5', color: '#ea580c', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                  </div>
+                  <div>
+                    <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Email</p>
+                    <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>hello@nextech.com</h4>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Map Embed Container */}
+              <div style={{ flex: 1, minHeight: '340px', borderRadius: '32px', overflow: 'hidden', padding: '12px', background: '#fff', border: '1px solid #f1f5f9', boxShadow: '0 10px 40px rgba(0,0,0,0.03)' }}>
+                <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                  <iframe
+                    src="https://maps.google.com/maps?q=Arba%20Minch,%20Ethiopia&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+
+            </motion.div>
+
+            {/* Right Column: Interactive CTA Form */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                style={{ background: '#fff', padding: '48px', borderRadius: '32px', border: '1px solid #f1f5f9', boxShadow: '0 20px 60px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', gap: '24px' }}
+              >
+                <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                  <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>First Name</label>
+                    <input type="text" placeholder="John" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                  </div>
+                  <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Last Name</label>
+                    <input type="text" placeholder="Doe" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Email Address</label>
+                  <input type="email" placeholder="john@company.com" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Project Details</label>
+                  <textarea placeholder="Tell us about your next big idea..." rows={5} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', resize: 'vertical', minHeight: '140px', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)', fontFamily: 'inherit' }}></textarea>
+                </div>
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                  style={{ marginTop: '8px', padding: '20px', borderRadius: '16px', border: 'none', background: 'linear-gradient(135deg, #3b82f6, #2563eb)', color: '#fff', fontSize: '1.1rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', boxShadow: '0 10px 25px rgba(59,130,246,0.3)' }}
+                >
+                  Send Message
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
+                </motion.button>
+
+                <p style={{ margin: '8px 0 0 0', fontSize: '0.85rem', color: '#94a3b8', textAlign: 'center' }}>
+                  Your data is completely safe with us. We don't do spam.
+                </p>
+              </form>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer Section ── */}
+      <footer style={{ background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b' }}>
+        <div className="container" style={{ maxWidth: '1400px' }}>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px', marginBottom: '80px' }}>
+            
+            {/* Brand Column */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6, #2563eb)' }}></div>
+                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>NexTech</span>
+              </div>
+              <p style={{ margin: 0, color: '#94a3b8', lineHeight: 1.6, fontSize: '0.95rem', maxWidth: '300px' }}>
+                Engineering unfair market advantages through world-class software and globally scalable cloud infrastructure.
+              </p>
+              <div style={{ display: 'flex', gap: '16px' }}>
+                <a href="#" style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#0f172a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', transition: 'all 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#3b82f6'; e.currentTarget.style.background = '#1e293b'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.background = '#0f172a'; }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg></a>
+                <a href="#" style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#0f172a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', transition: 'all 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#3b82f6'; e.currentTarget.style.background = '#1e293b'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.background = '#0f172a'; }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg></a>
+                <a href="#" style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#0f172a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', transition: 'all 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#3b82f6'; e.currentTarget.style.background = '#1e293b'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.background = '#0f172a'; }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg></a>
+              </div>
+            </div>
+
+            {/* Links Columns Container */}
+            <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', flex: 2, justifyContent: 'space-between' }}>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Solutions</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Enterprise Scale</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Cloud Architecture</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>API Development</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>DevOps Services</a>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Company</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>About Us</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Careers <span style={{ background: '#22c55e', color: '#fff', fontSize: '0.65rem', padding: '2px 6px', borderRadius: '10px', marginLeft: '6px', fontWeight: 700 }}>HIRING</span></a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Press & Media</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Contact</a>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Legal</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Privacy Policy</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Terms of Service</a>
+                  <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Security Structure</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Featured Insight Container */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Latest Engineering Insight</h4>
+              
+              <motion.a 
+                href="#"
+                whileHover={{ scale: 1.02, y: -4 }}
+                style={{ textDecoration: 'none', padding: '20px', background: 'linear-gradient(145deg, #0f172a, #020617)', border: '1px solid #1e293b', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', overflow: 'hidden', position: 'relative' }}
+              >
+                {/* Neon Glow Strip */}
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '2px', background: 'linear-gradient(90deg, transparent, #3b82f6, transparent)' }}></div>
+
+                {/* Tags */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '0.05em', background: 'rgba(59, 130, 246, 0.1)', padding: '4px 8px', borderRadius: '6px' }}>ARCHITECTURE</span>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>4 min read</span>
+                </div>
+                
+                {/* Article Title */}
+                <h5 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', lineHeight: 1.5 }}>
+                  Scaling microservices seamlessly with edge Kubernetes logic.
+                </h5>
+                
+                {/* Read Link */}
+                <div style={{ display: 'flex', alignItems: 'center', color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600, marginTop: '2px', transition: 'color 0.2s' }}>
+                  Read Article <svg style={{ marginLeft: '6px' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </motion.a>
+            </div>
+
+          </div>
+
+          {/* Bottom Row */}
+          <div style={{ borderTop: '1px solid #1e293b', paddingTop: '32px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+            <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
+              © {new Date().getFullYear()} NexTech. All rights reserved.
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem' }}>
+              Designed visually in <span style={{ color: '#f8fafc', fontWeight: 500 }}>Arba Minch</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+
     </div>
   );
 }
