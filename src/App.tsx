@@ -450,7 +450,7 @@ export default function App() {
       </section>
 
       {/* ── Features / Services Section ── */}
-      <section style={{ padding: '120px 0 140px', background: '#F8F9FA' }}>
+      <section style={{ padding: '120px 0 60px', background: '#F8F9FA' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
 
           {/* Header */}
@@ -623,6 +623,92 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── Why Choose Us Section ── */}
+      <section style={{ padding: '80px 0 140px', background: '#ffffff', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
+        {/* Soft Background Glows matching the light theme */}
+        <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(249,115,22,0.03) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+
+        <div className="container" style={{ maxWidth: '1400px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', gap: '80px', alignItems: 'center', position: 'relative', zIndex: 1 }}>
+          
+          {/* Left Side Info */}
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '8px 24px', marginBottom: '24px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }} />
+              <span style={{ fontSize: '0.875rem', fontWeight: 800, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>WHY CHOOSE US</span>
+            </div>
+            
+            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
+              We engineer <span style={{ color: '#F97316' }}>unfair</span><br /> market advantages.
+            </h2>
+            
+            <p style={{ fontSize: '1.15rem', color: '#64748b', lineHeight: 1.6, marginBottom: '48px', fontWeight: 400 }}>
+              Stop settling for generic templates. We construct bespoke, high-performance digital infrastructure designed exclusively to crush your competitors and scale globally without friction.
+            </p>
+            
+            <div style={{ display: 'flex', gap: '40px', borderTop: '1px solid #e2e8f0', paddingTop: '40px' }}>
+              <div>
+                <h4 style={{ fontSize: '3rem', fontWeight: 800, margin: '0 0 4px 0', color: '#0f172a', lineHeight: 1 }}>99.9<span style={{ color: '#3b82f6' }}>%</span></h4>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '0.95rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Guaranteed Uptime</p>
+              </div>
+              <div>
+                <h4 style={{ fontSize: '3rem', fontWeight: 800, margin: '0 0 4px 0', color: '#0f172a', lineHeight: 1 }}>2.4<span style={{ color: '#3b82f6' }}>x</span></h4>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '0.95rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Faster Deployment</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Side Cards */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            
+            {/* Feature 1: Fast Performance */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+              <div style={{ padding: '16px', background: 'rgba(245,158,11,0.1)', borderRadius: '20px', color: '#f59e0b', flexShrink: 0 }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div>
+                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Fast Performance</h4>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '0.95rem', lineHeight: 1.6 }}>Optimized edge delivery, automated asset compression, and sub-50ms latency across global distribution networks.</p>
+              </div>
+            </motion.div>
+
+            {/* Feature 2: Clean UI/UX */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+              <div style={{ padding: '16px', background: 'rgba(236,72,153,0.1)', borderRadius: '20px', color: '#ec4899', flexShrink: 0 }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              </div>
+              <div>
+                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Clean UI/UX</h4>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '0.95rem', lineHeight: 1.6 }}>Intuitive, pixel-perfect interfaces designed entirely to maximize user engagement and reduce operational friction.</p>
+              </div>
+            </motion.div>
+
+            {/* Feature 3: Scalable Systems */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+              <div style={{ padding: '16px', background: 'rgba(59,130,246,0.1)', borderRadius: '20px', color: '#3b82f6', flexShrink: 0 }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <div>
+                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Scalable Systems</h4>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '0.95rem', lineHeight: 1.6 }}>Future-proof codebases and elastic serverless environments engineered to handle 1 to 1,000,000+ users effortlessly.</p>
+              </div>
+            </motion.div>
+
+            {/* Feature 4: Secure & Reliable */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+              <div style={{ padding: '16px', background: 'rgba(16,185,129,0.1)', borderRadius: '20px', color: '#10b981', flexShrink: 0 }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div>
+                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Secure & Reliable</h4>
+                <p style={{ margin: 0, color: '#64748b', fontSize: '0.95rem', lineHeight: 1.6 }}>End-to-end encryption, SOC2 compliance-ready infrastructure, and automated vulnerability scanning right out of the box.</p>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── Meet the Team Section ── */}
       <section style={{ padding: '120px 0', background: '#fafafa', color: '#111' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
@@ -631,9 +717,9 @@ export default function App() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '80px' }}>
             
             {/* Top Pill */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '6px 18px', marginBottom: '24px' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#3b82f6' }} />
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>MEET THE TEAM</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '8px 24px', marginBottom: '24px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }} />
+              <span style={{ fontSize: '0.875rem', fontWeight: 800, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>MEET THE TEAM</span>
             </div>
             
             {/* Gradient Title */}
@@ -663,7 +749,7 @@ export default function App() {
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   
                   {/* Frosted Glass Name Pill Card */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '16px', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                     <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Marcus Bowen</h3>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -671,7 +757,7 @@ export default function App() {
                   </div>
 
                   {/* Frosted Glass Content Card */}
-                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '20px' }}>
+                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                     <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
                       CEO who focuses on enterprise strategy & global scaling.
                     </p>
@@ -719,7 +805,7 @@ export default function App() {
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   
                   {/* Frosted Glass Name Pill Card */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '16px', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                     <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Elena Rodriguez</h3>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -727,7 +813,7 @@ export default function App() {
                   </div>
 
                   {/* Frosted Glass Content Card */}
-                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '20px' }}>
+                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                     <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
                       CTO who focuses on robust cloud systems & infrastructure.
                     </p>
@@ -775,7 +861,7 @@ export default function App() {
                 <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   
                   {/* Frosted Glass Name Pill Card */}
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '16px', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                     <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>David Chen</h3>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -783,7 +869,7 @@ export default function App() {
                   </div>
 
                   {/* Frosted Glass Content Card */}
-                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '20px' }}>
+                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                     <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
                       Product Designer who focuses on simplicity & usability.
                     </p>
