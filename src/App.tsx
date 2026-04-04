@@ -36,6 +36,7 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, pr
 export default function App() {
   const [mounted, setMounted] = useState(false);
   const [activeNav, setActiveNav] = useState('About Us');
+  const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
   const navLinks = ['About Us', 'Solutions', 'Team', 'Events', 'Contacts'];
 
   useEffect(() => {
@@ -687,9 +688,19 @@ export default function App() {
                         </div>
                       </div>
                       
-                      <button style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                        Follow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                      </button>
+                      <div style={{ position: 'relative' }}>
+                        <button onClick={() => setActiveFollowId(activeFollowId === 'p1' ? null : 'p1')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                          Follow <span style={{ fontSize: '1.2rem', lineHeight: 0.5, marginBottom: '2px' }}>+</span>
+                        </button>
+                        
+                        {activeFollowId === 'p1' && (
+                          <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ position: 'absolute', bottom: 'calc(100% + 8px)', right: 0, background: '#fff', padding: '8px', borderRadius: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+                          </motion.div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -733,9 +744,19 @@ export default function App() {
                         </div>
                       </div>
                       
-                      <button style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                        Follow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                      </button>
+                      <div style={{ position: 'relative' }}>
+                        <button onClick={() => setActiveFollowId(activeFollowId === 'p2' ? null : 'p2')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                          Follow <span style={{ fontSize: '1.2rem', lineHeight: 0.5, marginBottom: '2px' }}>+</span>
+                        </button>
+                        
+                        {activeFollowId === 'p2' && (
+                          <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ position: 'absolute', bottom: 'calc(100% + 8px)', right: 0, background: '#fff', padding: '8px', borderRadius: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+                          </motion.div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -779,9 +800,19 @@ export default function App() {
                         </div>
                       </div>
                       
-                      <button style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                        Follow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                      </button>
+                      <div style={{ position: 'relative' }}>
+                        <button onClick={() => setActiveFollowId(activeFollowId === 'p3' ? null : 'p3')} style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                          Follow <span style={{ fontSize: '1.2rem', lineHeight: 0.5, marginBottom: '2px' }}>+</span>
+                        </button>
+                        
+                        {activeFollowId === 'p3' && (
+                          <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} style={{ position: 'absolute', bottom: 'calc(100% + 8px)', right: 0, background: '#fff', padding: '8px', borderRadius: '20px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style={{ display: 'flex', padding: '8px', borderRadius: '50%', background: '#f1f5f9', color: '#0f172a' }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+                          </motion.div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
