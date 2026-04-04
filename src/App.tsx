@@ -623,42 +623,28 @@ export default function App() {
       </section>
 
       {/* ── Meet the Team Section ── */}
-      <section style={{ padding: '120px 0', background: '#EAE8E3', color: '#111' }}>
+      <section style={{ padding: '120px 0', background: '#fafafa', color: '#111' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
-          
-          {/* Header Block */}
-          <div style={{ marginBottom: '40px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M2 12h20" /></svg>
-              <div style={{ display: 'flex', gap: '6px' }}>
-                <span style={{ border: '1px solid currentColor', borderRadius: '30px', padding: '4px 12px', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em' }}>WHO</span>
-                <span style={{ border: '1px solid currentColor', borderRadius: '30px', padding: '4px 12px', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em' }}>WE</span>
-                <span style={{ border: '1px solid currentColor', borderRadius: '30px', padding: '4px 12px', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em' }}>ARE</span>
-              </div>
+
+          {/* Centered Header Block matching user reference */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '80px' }}>
+            
+            {/* Top Pill */}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '6px 18px', marginBottom: '24px' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#3b82f6' }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>MEET THE TEAM</span>
             </div>
             
-            <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.04em', margin: 0, textTransform: 'uppercase' }}>
-              A TEAM OF<br/>TECH EXPERTS
+            {/* Gradient Title */}
+            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
+              Great software requires <span style={{ color: '#F97316' }}>experts.</span><br />
+              Come meet <span style={{ background: 'linear-gradient(to right, #3b82f6, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ours.</span>
             </h2>
-          </div>
-
-          {/* Hairline Divider */}
-          <div style={{ width: '100%', height: '1px', background: 'rgba(0,0,0,0.1)', marginBottom: '50px' }} />
-
-          {/* Two-column Description */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '48px', marginBottom: '100px' }}>
-            <div>
-              <p style={{ margin: 0, fontSize: '1rem', fontWeight: 800, lineHeight: 1.6, textTransform: 'uppercase', maxWidth: '420px', letterSpacing: '0.02em', color: '#111' }}>
-                NEXTECH STARTED AS A PROJECT TO BUILD SOFTWARE AND MANAGE DIGITAL INFRASTRUCTURE FOR SELECT CLIENTS.
-              </p>
-            </div>
-            <div>
-              <p style={{ margin: 0, fontSize: '0.95rem', color: '#444', lineHeight: 1.7, maxWidth: '600px', fontWeight: 500 }}>
-                We built advanced architecture to optimize the scale for our earliest enterprise partners. But, due to the sheer difficulty of installing, securing, and maintaining custom nodes natively, our boutique technical agency grew crazy fast.
-                <br/><br/>
-                We quickly realized that generic code doesn't work for modern scaling because it halts flexibility. We turned our platform into a dedicated suite so that any company could launch and own their entire digital backbone with zero headaches. We handle the infrastructure, you handle the growth.
-              </p>
-            </div>
+            
+            {/* Centered Subtext */}
+            <p style={{ margin: 0, fontSize: '1.2rem', color: '#6b7280', lineHeight: 1.6, maxWidth: '600px', fontWeight: 400 }}>
+              Sound familiar? Here's who we hear from enterprises every day — and exactly how our leaders solve it.
+            </p>
           </div>
 
           {/* Team Cards Grid */}
@@ -667,48 +653,138 @@ export default function App() {
             {/* Person 1 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', paddingBottom: '32px', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}
+              style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
             >
-              <div style={{ background: '#F3F4F6', height: '420px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="CEO" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
-              </div>
-              <div style={{ padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <span style={{ border: '1px solid #111', borderRadius: '24px', padding: '6px 18px', fontSize: '0.9rem', fontWeight: 800, marginBottom: '10px' }}>
-                  Marcus Bowen
-                </span>
-                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: 600, paddingLeft: '8px' }}>Founder & CEO</span>
+              <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="CEO" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                
+                {/* Overlay Container */}
+                <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  
+                  {/* Name Floating Directly on Image */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '8px' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#111', textShadow: '0 2px 14px rgba(255,255,255,0.7)' }}>Marcus Bowen</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                  </div>
+
+                  {/* Frosted Glass Content Card */}
+                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '20px' }}>
+                    <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
+                      CEO who focuses on enterprise strategy & global scaling.
+                    </p>
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div style={{ display: 'flex', gap: '16px', color: '#475569', fontSize: '0.85rem', fontWeight: 700 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          312
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          48
+                        </div>
+                      </div>
+                      
+                      <button style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                        Follow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
             {/* Person 2 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', paddingBottom: '32px', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}
+              style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
             >
-              <div style={{ background: '#F3F4F6', height: '420px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="CTO" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
-              </div>
-              <div style={{ padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <span style={{ border: '1px solid #111', borderRadius: '24px', padding: '6px 18px', fontSize: '0.9rem', fontWeight: 800, marginBottom: '10px' }}>
-                  Elena Rodriguez
-                </span>
-                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: 600, paddingLeft: '8px' }}>Partner & CTO</span>
+              <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="CTO" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                
+                {/* Overlay Container */}
+                <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  
+                  {/* Name Floating Directly on Image */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '8px' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#111', textShadow: '0 2px 14px rgba(255,255,255,0.7)' }}>Elena Rodriguez</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                  </div>
+
+                  {/* Frosted Glass Content Card */}
+                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '20px' }}>
+                    <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
+                      CTO who focuses on robust cloud systems & infrastructure.
+                    </p>
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div style={{ display: 'flex', gap: '16px', color: '#475569', fontSize: '0.85rem', fontWeight: 700 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          8.4k
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          142
+                        </div>
+                      </div>
+                      
+                      <button style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                        Follow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
             {/* Person 3 */}
             <motion.div
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-              style={{ background: '#fff', borderRadius: '24px', overflow: 'hidden', paddingBottom: '32px', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}
+              style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
             >
-              <div style={{ background: '#F3F4F6', height: '420px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Head of Design" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
-              </div>
-              <div style={{ padding: '32px 32px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                <span style={{ border: '1px solid #111', borderRadius: '24px', padding: '6px 18px', fontSize: '0.9rem', fontWeight: 800, marginBottom: '10px' }}>
-                  David Chen
-                </span>
-                <span style={{ fontSize: '0.9rem', color: '#6b7280', fontWeight: 600, paddingLeft: '8px' }}>Chief of Design</span>
+              <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Head of Design" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                
+                {/* Overlay Container */}
+                <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  
+                  {/* Name Floating Directly on Image */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '8px' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#111', textShadow: '0 2px 14px rgba(255,255,255,0.7)' }}>David Chen</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                  </div>
+
+                  {/* Frosted Glass Content Card */}
+                  <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderRadius: '20px' }}>
+                    <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
+                      Product Designer who focuses on simplicity & usability.
+                    </p>
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div style={{ display: 'flex', gap: '16px', color: '#475569', fontSize: '0.85rem', fontWeight: 700 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                          12.1k
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          412
+                        </div>
+                      </div>
+                      
+                      <button style={{ padding: '8px 16px', borderRadius: '20px', border: 'none', background: '#fff', color: '#0f172a', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+                        Follow <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
