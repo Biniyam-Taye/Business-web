@@ -662,7 +662,7 @@ export default function App() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             
             {/* Feature 1: Fast Performance */}
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(245,158,11,0.25)', background: 'rgba(245,158,11,0.15)', borderColor: 'rgba(245,158,11,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(245,158,11,0.1)', borderRadius: '20px', color: '#f59e0b', flexShrink: 0 }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               </div>
@@ -673,7 +673,7 @@ export default function App() {
             </motion.div>
 
             {/* Feature 2: Clean UI/UX */}
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(236,72,153,0.25)', background: 'rgba(236,72,153,0.15)', borderColor: 'rgba(236,72,153,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(236,72,153,0.1)', borderRadius: '20px', color: '#ec4899', flexShrink: 0 }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
               </div>
@@ -684,7 +684,7 @@ export default function App() {
             </motion.div>
 
             {/* Feature 3: Scalable Systems */}
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(59,130,246,0.25)', background: 'rgba(59,130,246,0.15)', borderColor: 'rgba(59,130,246,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(59,130,246,0.1)', borderRadius: '20px', color: '#3b82f6', flexShrink: 0 }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               </div>
@@ -695,7 +695,7 @@ export default function App() {
             </motion.div>
 
             {/* Feature 4: Secure & Reliable */}
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} style={{ background: '#fff', border: '1px solid #f1f5f9', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }} whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.06)' }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} style={{ background: '#fff', border: '2px solid transparent', borderRadius: '32px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '20px', boxShadow: 'inset 0 0 0 1px #f1f5f9, 0 10px 40px rgba(0,0,0,0.03)', transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} whileHover={{ scale: 1.04, y: -8, boxShadow: 'inset 0 0 0 0px transparent, 0 30px 60px rgba(16,185,129,0.25)', background: 'rgba(16,185,129,0.15)', borderColor: 'rgba(16,185,129,0.8)' }}>
               <div style={{ padding: '16px', background: 'rgba(16,185,129,0.1)', borderRadius: '20px', color: '#10b981', flexShrink: 0 }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
