@@ -82,7 +82,7 @@ export default function App() {
       </div>
 
       {/* Hero Wrapper */}
-      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '120px 0 140px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '48px 0 100px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
         {/* Hero Background Clean Theme */}
         <div style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
