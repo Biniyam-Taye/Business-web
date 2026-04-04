@@ -114,7 +114,7 @@ export default function App() {
       </div>
 
       {/* Hero Wrapper */}
-      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '16px 0 48px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+      <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '100px 0 72px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
         {/* Hero Background Clean Theme */}
         <div style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
@@ -125,19 +125,21 @@ export default function App() {
         <section className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center', justifyContent: 'space-between', zIndex: 1, position: 'relative' }}>
           {/* Left Column */}
           <div style={{ flex: '0 1 550px' }}>
-            <h1 style={{ fontSize: 'clamp(3.4rem, 5.5vw, 5.2rem)', fontWeight: 700, lineHeight: 1.05, color: '#000', letterSpacing: '-0.04em', margin: 0 }}>
-              We build{' '}
-              <span style={{ position: 'relative', display: 'inline-block', color: 'var(--accent-blue)' }}>
-                scalable tech
-                <span style={{ position: 'absolute', bottom: '10px', left: 0, width: '100%', height: '8px', background: 'var(--accent-blue)', opacity: 0.2, zIndex: -1, borderRadius: '4px' }}></span>
-              </span><br />
-              that grows your<br />
-              <span style={{ color: 'var(--accent-blue)' }}>business</span>
+            <h1 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.03em', margin: 0, color: '#0f172a' }}>
+              We Turn Ideas Into{' '}
+              <span style={{
+                background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 55%, #F97316 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                High-Performance
+              </span>
+              <br />Digital Infrastructure.
             </h1>
 
-            <p style={{ marginTop: '24px', fontSize: '1.05rem', color: '#555', lineHeight: 1.8, maxWidth: '480px' }}>
-              We design, build, and scale custom digital products for ambitious startups and executives —
-              engineered for speed, built for growth.
+            <p style={{ marginTop: '28px', fontSize: '1.1rem', color: '#64748b', lineHeight: 1.75, maxWidth: '460px', fontWeight: 400 }}>
+              From early-stage startups to scaling enterprises — we engineer the software, systems, and strategy your business needs to move fast and grow without limits.
             </p>
 
             {/* CTA Buttons */}
@@ -213,7 +215,7 @@ export default function App() {
           </div>
 
           {/* Right Column (Complex Cutout Image) */}
-          <div style={{ flex: '1 1 500px', position: 'relative', minHeight: '560px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-20px' }}>
+          <div style={{ flex: '1 1 500px', position: 'relative', minHeight: '720px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-140px', alignSelf: 'stretch' }}>
             <div className="hero-img-wrapper">
               <img
                 src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80"
@@ -1030,9 +1032,9 @@ export default function App() {
       {/* ── Footer Section ── */}
       <footer style={{ background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px', marginBottom: '80px' }}>
-            
+
             {/* Brand Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -1051,7 +1053,7 @@ export default function App() {
 
             {/* Links Columns Container */}
             <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', flex: 2, justifyContent: 'space-between' }}>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Solutions</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -1085,8 +1087,8 @@ export default function App() {
             {/* Featured Insight Container */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Latest Engineering Insight</h4>
-              
-              <motion.a 
+
+              <motion.a
                 href="#"
                 whileHover={{ scale: 1.02, y: -4 }}
                 style={{ textDecoration: 'none', padding: '20px', background: 'linear-gradient(145deg, #0f172a, #020617)', border: '1px solid #1e293b', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', overflow: 'hidden', position: 'relative' }}
@@ -1099,15 +1101,15 @@ export default function App() {
                   <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '0.05em', background: 'rgba(59, 130, 246, 0.1)', padding: '4px 8px', borderRadius: '6px' }}>ARCHITECTURE</span>
                   <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>4 min read</span>
                 </div>
-                
+
                 {/* Article Title */}
                 <h5 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', lineHeight: 1.5 }}>
                   Scaling microservices seamlessly with edge Kubernetes logic.
                 </h5>
-                
+
                 {/* Read Link */}
                 <div style={{ display: 'flex', alignItems: 'center', color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600, marginTop: '2px', transition: 'color 0.2s' }}>
-                  Read Article <svg style={{ marginLeft: '6px' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  Read Article <svg style={{ marginLeft: '6px' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </div>
               </motion.a>
             </div>
