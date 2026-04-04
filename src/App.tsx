@@ -94,14 +94,13 @@ export default function App() {
           {/* Left Column */}
           <div style={{ flex: '0 1 550px' }}>
             <h1 style={{ fontSize: 'clamp(3.4rem, 5.5vw, 5.2rem)', fontWeight: 700, lineHeight: 1.05, color: '#000', letterSpacing: '-0.04em', margin: 0 }}>
-              Digital consult<br />
-              that{' '}
+              We build{' '}
               <span style={{ position: 'relative', display: 'inline-block', color: 'var(--accent-blue)' }}>
-                leads
+                scalable tech
                 <span style={{ position: 'absolute', bottom: '10px', left: 0, width: '100%', height: '8px', background: 'var(--accent-blue)', opacity: 0.2, zIndex: -1, borderRadius: '4px' }}></span>
-              </span>{' '}
-              you<br />
-              to your <span style={{ color: 'var(--accent-blue)' }}>goals</span>
+              </span><br />
+              that grows your<br />
+              <span style={{ color: 'var(--accent-blue)' }}>business</span>
             </h1>
 
             <p style={{ marginTop: '24px', fontSize: '1.05rem', color: '#555', lineHeight: 1.6, maxWidth: '400px' }}>
@@ -118,8 +117,8 @@ export default function App() {
                 border: 'none', cursor: 'pointer', boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                 transition: 'all 0.3s ease'
               }}
-              onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.03)')}
-              onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}>
+                onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+                onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}>
                 Get Started <ArrowRight size={18} color="#aaa" />
               </button>
 
@@ -199,8 +198,12 @@ export default function App() {
               {/* Bottom Left Cutout */}
               <div className="cutout-bl">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%', paddingBottom: '16px', gap: '12px' }}>
-                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="profile" style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid var(--bg-main)' }} />
-                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="profile" style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid var(--bg-main)' }} />
+                  <div className="icon-vibrate" style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#111', border: '2px solid var(--bg-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.25)', cursor: 'pointer' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                  <div className="icon-vibrate" style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#111', border: '2px solid var(--bg-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.25)', cursor: 'pointer' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
                   <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#111', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', marginTop: '4px', transition: 'transform 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
                     <ArrowUpRight size={24} />
                   </div>
@@ -404,7 +407,7 @@ export default function App() {
               }}
             >
               <div style={{ position: 'absolute', top: 0, right: 0, width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%)', zIndex: 0 }} />
-              
+
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'linear-gradient(135deg, #2563eb, #7c3aed)', borderRadius: '12px', padding: '10px 18px', marginBottom: '32px', boxShadow: '0 8px 16px rgba(37,99,235,0.2)' }}>
                   <Zap color="#fff" size={20} strokeWidth={2.5} />
@@ -418,7 +421,7 @@ export default function App() {
                   We embed AI directly into your web and app workflows — automating the tasks that drain your team and surfacing insights that grow your revenue. Smarter software, zero complexity.
                 </p>
               </div>
-              
+
               <div style={{ marginTop: '48px', position: 'relative', zIndex: 1 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '40px' }}>
                   {['Automates repetitive daily work', 'Learns from your business data', 'Cuts operational costs up to 60%'].map((b, i) => (
