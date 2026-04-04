@@ -278,16 +278,141 @@ h4 {
 
 /* Vibrate on hover */
 @keyframes vibrate {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  15%  { transform: translate(-2px, 1px) rotate(-1deg); }
-  30%  { transform: translate(2px, -1px) rotate(1deg); }
-  45%  { transform: translate(-2px, 1px) rotate(0deg); }
-  60%  { transform: translate(2px, -1px) rotate(-1deg); }
-  75%  { transform: translate(-1px, 1px) rotate(1deg); }
-  90%  { transform: translate(1px, -1px) rotate(0deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  15% {
+    transform: translate(-2px, 1px) rotate(-1deg);
+  }
+
+  30% {
+    transform: translate(2px, -1px) rotate(1deg);
+  }
+
+  45% {
+    transform: translate(-2px, 1px) rotate(0deg);
+  }
+
+  60% {
+    transform: translate(2px, -1px) rotate(-1deg);
+  }
+
+  75% {
+    transform: translate(-1px, 1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, -1px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 .icon-vibrate:hover {
   animation: vibrate 0.4s linear;
+}
+
+/* Problem Cards Advanced Hover Effects */
+.problem-card {
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+}
+
+.problem-card.card-blue:hover {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4) !important;
+}
+
+.problem-card.card-blue:hover h4,
+.problem-card.card-blue:hover .watermark {
+  color: #ffffff !important;
+}
+
+.problem-card.card-blue:hover p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.problem-card.card-orange:hover {
+  background-color: #f5602a !important;
+  border-color: #f5602a !important;
+  box-shadow: 0 15px 35px rgba(245, 96, 42, 0.4) !important;
+}
+
+.problem-card.card-orange:hover h4,
+.problem-card.card-orange:hover .watermark {
+  color: #ffffff !important;
+}
+
+.problem-card.card-orange:hover p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* CTA Vibrate Button Design */
+.cta-vibrate-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+}
+
+.cta-vibrate-btn .btn-icon-wrapper {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cta-vibrate-btn:hover {
+  background-color: #f5602a;
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(245, 96, 42, 0.4);
+  animation: vibrate 0.4s linear;
+}
+
+.cta-vibrate-btn:hover .btn-icon-wrapper {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Solution Vibrate Card */
+.solution-vibrate-card:hover {
+  background-color: #f5602a !important;
+  border-color: #f5602a !important;
+  box-shadow: 0 10px 30px rgba(245, 96, 42, 0.4) !important;
+  animation: vibrate 0.4s linear;
+}
+
+.solution-vibrate-card:hover .card-title {
+  color: #ffffff !important;
+}
+
+.solution-vibrate-card:hover .card-desc {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.solution-vibrate-card:hover .bg-watermark {
+  color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Responsive fixes for Stats row */
+@media (max-width: 768px) {
+  .stat-divider {
+    display: none !important;
+  }
 }

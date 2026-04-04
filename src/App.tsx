@@ -2,6 +2,37 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Zap, Smartphone, Database, Cloud, Palette } from 'lucide-react';
 
+const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!inView) return;
+    let start = 0;
+    const duration = 2000;
+    const fps = 60;
+    const increment = value / (duration / (1000 / fps));
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 1000 / fps);
+
+    return () => clearInterval(timer);
+  }, [inView, value]);
+
+  return (
+    <motion.span onViewportEnter={() => setInView(true)} viewport={{ once: true }}>
+      {prefix}{count}{suffix}
+    </motion.span>
+  );
+};
+
 export default function App() {
   const [mounted, setMounted] = useState(false);
   const [activeNav, setActiveNav] = useState('About Us');
@@ -200,10 +231,10 @@ export default function App() {
               <div className="cutout-bl">
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%', paddingBottom: '16px', gap: '12px' }}>
                   <div className="icon-vibrate" style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#111', border: '2px solid var(--bg-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.25)', cursor: 'pointer' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                   </div>
                   <div className="icon-vibrate" style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#111', border: '2px solid var(--bg-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.25)', cursor: 'pointer' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                   </div>
                   <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#111', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', marginTop: '4px', transition: 'transform 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}>
                     <ArrowUpRight size={24} />
@@ -216,8 +247,10 @@ export default function App() {
         </section>
       </div>
 
+
+
       {/* Problem → Solution Section — Premium Redesign */}
-      <section style={{ padding: '120px 0', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
+      <section style={{ padding: '120px 0 40px', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
         <div className="container">
 
           {/* Section Label + Headline */}
@@ -262,12 +295,12 @@ export default function App() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                 background: '#ffffff',
-                 borderRadius: '32px',
-                 padding: '56px 48px',
-                 boxShadow: '0 20px 60px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02)',
-                 border: '1px solid #f1f5f9',
-                 display: 'flex', flexDirection: 'column'
+                background: '#ffffff',
+                borderRadius: '32px',
+                padding: '56px 48px',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02)',
+                border: '1px solid #f1f5f9',
+                display: 'flex', flexDirection: 'column'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px' }}>
@@ -282,21 +315,22 @@ export default function App() {
                   { num: '01', title: "You're bleeding time on manual work", desc: "Hours lost every week on repetitive tasks that should be automated. Your team deserves better." },
                   { num: '02', title: "Generic software holds you back", desc: "Off-the-shelf tools weren't built for your business. You end up working around them, not with them." },
                   { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible — until now." },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ x: 8, backgroundColor: '#f8fafc' }}
-                    style={{ padding: '24px', borderRadius: '20px', transition: 'background-color 0.3s ease', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
-                    onMouseOver={(e) => e.currentTarget.style.borderColor = '#f1f5f9'}
-                    onMouseOut={(e) => e.currentTarget.style.borderColor = 'transparent'}
-                  >
-                    <div style={{ position: 'absolute', right: '-10px', top: '-10px', fontSize: '6rem', fontWeight: 900, color: '#f1f5f9', opacity: 0.5, lineHeight: 1, pointerEvents: 'none', zIndex: 0 }}>{item.num}</div>
-                    <div style={{ position: 'relative', zIndex: 1 }}>
-                      <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                ].map((item, i) => {
+                  const theme = i % 2 === 0 ? 'card-blue' : 'card-orange';
+                  return (
+                    <motion.div
+                      key={i}
+                      whileHover={{ x: 8 }}
+                      className={`problem-card ${theme}`}
+                      style={{ padding: '24px', borderRadius: '20px', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
+                    >
+                      <div style={{ position: 'relative', zIndex: 1 }}>
+                        <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px', lineHeight: 1.3, transition: 'color 0.3s ease' }}>{item.title}</h4>
+                        <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: 1.6, margin: 0, transition: 'color 0.3s ease' }}>{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
 
@@ -307,17 +341,15 @@ export default function App() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
               style={{
-                 background: 'linear-gradient(145deg, #0f172a 0%, #020617 100%)',
-                 borderRadius: '32px',
-                 padding: '56px 48px',
-                 boxShadow: '0 30px 60px rgba(37,99,235,0.15), inset 0 1px 0 rgba(255,255,255,0.1)',
-                 border: '1px solid rgba(37,99,235,0.2)',
-                 display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden'
+                background: '#040a15',
+                borderRadius: '32px',
+                padding: '56px 48px',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.15)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden'
               }}
             >
-              {/* Glowing Orbs */}
-              <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
-              <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(74,222,128,0.1) 0%, transparent 70%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
+              {/* Removed Glowing Orbs to maintain one constant color background */}
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '48px', position: 'relative' }}>
                 <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(74,222,128,0.2), rgba(34,197,94,0.1))', border: '1px solid rgba(74,222,128,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 16px rgba(74,222,128,0.1)' }}>
@@ -334,62 +366,85 @@ export default function App() {
                 ].map((item, i) => (
                   <motion.div
                     key={i}
-                    whileHover={{ x: 8, backgroundColor: 'rgba(37,99,235,0.12)' }}
+                    whileHover={{ x: 8 }}
+                    className="solution-vibrate-card"
                     style={{ padding: '24px', borderRadius: '20px', transition: 'all 0.3s ease', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
-                    onMouseOver={(e) => { e.currentTarget.style.borderColor = 'rgba(37,99,235,0.3)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(37,99,235,0.15)'; }}
-                    onMouseOut={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.boxShadow = 'none'; }}
                   >
-                     <div style={{ position: 'absolute', right: '-10px', top: '-10px', fontSize: '6rem', fontWeight: 900, color: 'rgba(255,255,255,0.03)', opacity: 1, lineHeight: 1, pointerEvents: 'none', zIndex: 0 }}>{item.num}</div>
+                    <div className="bg-watermark" style={{ position: 'absolute', right: '-10px', top: '-10px', fontSize: '6rem', fontWeight: 900, color: 'rgba(255,255,255,0.03)', opacity: 1, lineHeight: 1, pointerEvents: 'none', zIndex: 0, transition: 'color 0.3s ease' }}>{item.num}</div>
                     <div style={{ position: 'relative', zIndex: 1 }}>
-                      <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fafc', marginBottom: '8px', lineHeight: 1.3 }}>{item.title}</h4>
-                      <p style={{ fontSize: '0.95rem', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+                      <h4 className="card-title" style={{ fontSize: '1.15rem', fontWeight: 800, color: '#f8fafc', marginBottom: '8px', lineHeight: 1.3, transition: 'color 0.3s ease' }}>{item.title}</h4>
+                      <p className="card-desc" style={{ fontSize: '0.95rem', color: '#94a3b8', lineHeight: 1.6, margin: 0, transition: 'color 0.3s ease' }}>{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.03, boxShadow: '0 15px 35px rgba(37,99,235,0.4)' }}
-                whileTap={{ scale: 0.98 }}
+              <button
+                className="cta-vibrate-btn"
                 style={{
                   marginTop: '40px', alignSelf: 'flex-start',
-                  background: 'linear-gradient(135deg, #2563eb, #3b82f6)',
-                  color: '#fff', border: 'none', borderRadius: '16px',
-                  padding: '16px 32px', fontSize: '1.05rem', fontWeight: 700,
-                  display: 'flex', alignItems: 'center', gap: '12px',
-                  cursor: 'pointer', letterSpacing: '-0.01em',
-                  boxShadow: '0 12px 28px rgba(37,99,235,0.3)',
-                  position: 'relative', zIndex: 2
+                  display: 'flex', alignItems: 'center', gap: '12px'
                 }}
               >
                 Let's build your solution
-                <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="btn-icon-wrapper">
                   <ArrowUpRight size={16} strokeWidth={2.5} />
                 </div>
-              </motion.button>
+              </button>
             </motion.div>
           </div>
 
-          {/* Bottom Trust Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', marginTop: '56px', flexWrap: 'wrap' }}
-          >
-            {[
-              { stat: '3×', label: 'Faster than traditional agencies' },
-              { stat: '98%', label: 'Client satisfaction rate' },
-              { stat: '50+', label: 'SMBs transformed' },
-            ].map((s, i) => (
-              <div key={i} style={{ textAlign: 'center', padding: '0 24px', borderRight: i < 2 ? '1px solid #e5e7eb' : 'none' }}>
-                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.03em' }}>{s.stat}</div>
-                <div style={{ fontSize: '0.82rem', color: '#9ca3af', marginTop: '4px' }}>{s.label}</div>
-              </div>
-            ))}
-          </motion.div>
+        </div>
+      </section>
 
+      {/* Tech Business Stats Section (Moved after Section 2) */}
+      <section style={{ padding: '32px 0', borderTop: '1px solid #e2e8f0', background: '#fafafa', position: 'relative', overflow: 'hidden' }}>
+        
+        {/* Left Decorative Space */}
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '25vw', background: 'radial-gradient(circle at 0% 50%, rgba(37,99,235,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <motion.div
+          animate={{ y: [0, -8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          style={{ position: 'absolute', left: '6vw', top: '50%', marginTop: '-24px', opacity: 0.25, pointerEvents: 'none' }}
+        >
+          <Database size={48} color="#2563eb" strokeWidth={2.5} />
+        </motion.div>
+
+        {/* Right Decorative Space */}
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '25vw', background: 'radial-gradient(circle at 100% 50%, rgba(245,96,42,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <motion.div
+          animate={{ y: [0, 8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          style={{ position: 'absolute', right: '6vw', top: '50%', marginTop: '-24px', opacity: 0.25, pointerEvents: 'none' }}
+        >
+          <Cloud size={48} color="#f5602a" strokeWidth={2.5} />
+        </motion.div>
+
+        <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 1 }}>
+          <div className="stats-row" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', alignItems: 'center', textAlign: 'center', gap: '30px' }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="stat-card" style={{ flex: '1 1 200px' }}>
+              <h3 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#0f172a', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                <AnimatedNumber value={3} suffix="x" />
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>Faster than traditional agencies</p>
+            </motion.div>
+
+            <div className="stat-divider" style={{ width: '1px', height: '48px', backgroundColor: '#e2e8f0' }} />
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="stat-card" style={{ flex: '1 1 200px' }}>
+              <h3 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#0f172a', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                <AnimatedNumber value={98} suffix="%" />
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>Client satisfaction rate</p>
+            </motion.div>
+
+            <div className="stat-divider" style={{ width: '1px', height: '48px', backgroundColor: '#e2e8f0' }} />
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="stat-card" style={{ flex: '1 1 200px' }}>
+              <h3 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#0f172a', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                <AnimatedNumber value={50} suffix="+" />
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>SMBs transformed</p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
