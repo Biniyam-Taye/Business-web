@@ -108,21 +108,46 @@ export default function App() {
               Data-driven insights for tech startups and executives.
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginTop: '40px' }}>
+            {/* CTA Buttons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '40px', flexWrap: 'wrap' }}>
               <button style={{
                 background: '#111', color: '#fff',
                 padding: '16px 24px', borderRadius: '40px',
                 fontSize: '1rem', fontWeight: 500,
                 display: 'flex', alignItems: 'center', gap: '40px',
-                border: 'none', cursor: 'pointer', boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
-              }}>
-                Reinforce your team <ArrowRight size={18} color="#aaa" />
+                border: 'none', cursor: 'pointer', boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+              onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}>
+                Get Started <ArrowRight size={18} color="#aaa" />
               </button>
 
-              <div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#111' }}>$150.00</div>
-                <div style={{ fontSize: '0.85rem', color: '#888' }}>per month</div>
-              </div>
+              <button
+                style={{
+                  background: 'var(--accent-blue)', color: '#fff',
+                  padding: '16px 24px', borderRadius: '40px',
+                  fontSize: '1rem', fontWeight: 500,
+                  display: 'flex', alignItems: 'center', gap: '40px',
+                  border: '2px solid var(--accent-blue)', cursor: 'pointer',
+                  boxShadow: '0 8px 20px rgba(37,99,235,0.28)',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={e => {
+                  e.currentTarget.style.background = '#fff';
+                  e.currentTarget.style.color = 'var(--accent-blue)';
+                  e.currentTarget.style.transform = 'scale(1.03)';
+                  (e.currentTarget.querySelector('svg') as SVGElement | null)?.setAttribute('color', 'var(--accent-blue)');
+                }}
+                onMouseOut={e => {
+                  e.currentTarget.style.background = 'var(--accent-blue)';
+                  e.currentTarget.style.color = '#fff';
+                  e.currentTarget.style.transform = 'scale(1)';
+                  (e.currentTarget.querySelector('svg') as SVGElement | null)?.setAttribute('color', '#fff');
+                }}
+              >
+                View Projects <ArrowRight size={18} color="#fff" />
+              </button>
             </div>
 
             <hr style={{ border: 'none', borderTop: '1px solid #e5e5e5', margin: '48px 0 32px 0' }} />
