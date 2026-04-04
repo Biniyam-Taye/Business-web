@@ -125,7 +125,14 @@ export default function App() {
         <section className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center', justifyContent: 'space-between', zIndex: 1, position: 'relative' }}>
           {/* Left Column */}
           <div style={{ flex: '0 1 550px' }}>
-            <h1 style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.03em', margin: 0, color: '#0f172a' }}>
+
+            {/* Hero Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.03em', margin: 0, color: '#0f172a' }}
+            >
               We Turn Ideas Into{' '}
               <span style={{
                 background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 55%, #F97316 100%)',
@@ -136,14 +143,25 @@ export default function App() {
                 High-Performance
               </span>
               <br />Digital Infrastructure.
-            </h1>
+            </motion.h1>
 
-            <p style={{ marginTop: '28px', fontSize: '1.1rem', color: '#64748b', lineHeight: 1.75, maxWidth: '460px', fontWeight: 400 }}>
+            {/* Hero Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 35 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              style={{ marginTop: '28px', fontSize: '1.1rem', color: '#64748b', lineHeight: 1.75, maxWidth: '460px', fontWeight: 400 }}
+            >
               From early-stage startups to scaling enterprises — we engineer the software, systems, and strategy your business needs to move fast and grow without limits.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '40px', flexWrap: 'wrap' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.0, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '40px', flexWrap: 'wrap' }}
+            >
               <button style={{
                 background: '#111', color: '#fff',
                 padding: '16px 24px', borderRadius: '40px',
@@ -182,40 +200,52 @@ export default function App() {
               >
                 View Projects <ArrowRight size={18} color="#fff" />
               </button>
-            </div>
+            </motion.div>
 
-            <hr style={{ border: 'none', borderTop: '1px solid #e5e5e5', margin: '48px 0 32px 0' }} />
+            {/* Brand / Partner Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.0, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <hr style={{ border: 'none', borderTop: '1px solid #e5e5e5', margin: '48px 0 32px 0' }} />
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyItems: 'space-between', gap: '32px' }}>
-              <p style={{ fontSize: '0.85rem', color: '#555', maxWidth: '300px', lineHeight: 1.5, margin: 0, flex: 1 }}>
-                We provide our services to many worldwide leading companies.
-              </p>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', background: '#fff', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                  <ArrowRight size={16} color="#111" style={{ transform: 'rotate(180deg)' }} />
-                </button>
-                <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', background: '#fff', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                  <ArrowRight size={16} color="#111" />
-                </button>
+              <div style={{ display: 'flex', alignItems: 'center', justifyItems: 'space-between', gap: '32px' }}>
+                <p style={{ fontSize: '0.85rem', color: '#555', maxWidth: '300px', lineHeight: 1.5, margin: 0, flex: 1 }}>
+                  We provide our services to many worldwide leading companies.
+                </p>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', background: '#fff', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                    <ArrowRight size={16} color="#111" style={{ transform: 'rotate(180deg)' }} />
+                  </button>
+                  <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: 'none', background: '#fff', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                    <ArrowRight size={16} color="#111" />
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '32px', marginTop: '24px' }}>
-              {/* Logos */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '1.2rem', color: '#111' }}>
-                <div style={{ width: '20px', height: '14px', background: '#111', borderRadius: '10px 10px 0 0' }}></div> Headway
+              <div style={{ display: 'flex', alignItems: 'center', gap: '32px', marginTop: '24px' }}>
+                {/* Logos */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '1.2rem', color: '#111' }}>
+                  <div style={{ width: '20px', height: '14px', background: '#111', borderRadius: '10px 10px 0 0' }}></div> Headway
+                </div>
+                <div style={{ fontWeight: 800, fontSize: '1.2rem', color: '#111', letterSpacing: '-0.05em' }}>
+                  G&STC
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, fontSize: '1.1rem', color: '#111' }}>
+                  <div style={{ width: '20px', height: '20px', borderRadius: '50%', border: '2px solid #111', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>$</div> SteadyMD
+                </div>
               </div>
-              <div style={{ fontWeight: 800, fontSize: '1.2rem', color: '#111', letterSpacing: '-0.05em' }}>
-                G&STC
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, fontSize: '1.1rem', color: '#111' }}>
-                <div style={{ width: '20px', height: '20px', borderRadius: '50%', border: '2px solid #111', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>$</div> SteadyMD
-              </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column (Complex Cutout Image) */}
-          <div style={{ flex: '1 1 500px', position: 'relative', minHeight: '720px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-140px', alignSelf: 'stretch' }}>
+          <motion.div
+            initial={{ opacity: 0, x: 120 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.4, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            style={{ flex: '1 1 500px', position: 'relative', minHeight: '720px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-140px', alignSelf: 'stretch' }}
+          >
             <div className="hero-img-wrapper">
               <img
                 src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80"
@@ -246,7 +276,7 @@ export default function App() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
         </section>
       </div>
 
@@ -258,9 +288,10 @@ export default function App() {
 
           {/* Section Label + Headline */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             style={{ textAlign: 'center', marginBottom: '80px' }}
           >
             <div style={{
@@ -293,10 +324,10 @@ export default function App() {
 
             {/* LEFT — Problems */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 background: '#ffffff',
                 borderRadius: '32px',
@@ -323,6 +354,10 @@ export default function App() {
                   return (
                     <motion.div
                       key={i}
+                      initial={{ opacity: 0, x: -40 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 1.0, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                       whileHover={{ x: 8 }}
                       className={`problem-card ${theme}`}
                       style={{ padding: '24px', borderRadius: '20px', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
@@ -339,10 +374,10 @@ export default function App() {
 
             {/* RIGHT — Solutions */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
               style={{
                 background: '#040a15',
                 borderRadius: '32px',
@@ -369,6 +404,10 @@ export default function App() {
                 ].map((item, i) => (
                   <motion.div
                     key={i}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 1.0, delay: 0.15 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ x: 8 }}
                     className="solution-vibrate-card"
                     style={{ padding: '24px', borderRadius: '20px', transition: 'all 0.3s ease', position: 'relative', overflow: 'hidden', border: '1px solid transparent' }}
@@ -457,8 +496,10 @@ export default function App() {
 
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             style={{ textAlign: 'center', marginBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '6px 18px', marginBottom: '24px' }}>
@@ -479,7 +520,10 @@ export default function App() {
 
             {/* Card 1 - AI Web Apps */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              initial={{ opacity: 0, x: -70, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.1, delay: 0.0, ease: [0.16, 1, 0.3, 1] }}
               style={{ background: '#CCFF00', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -503,7 +547,10 @@ export default function App() {
 
             {/* Card 2 - Application Development */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              initial={{ opacity: 0, x: 70, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               style={{ background: '#F4EEE5', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -527,7 +574,10 @@ export default function App() {
 
             {/* Card 3 - SaaS Development */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+              initial={{ opacity: 0, x: -70, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               style={{ background: '#45BAEB', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -551,7 +601,10 @@ export default function App() {
 
             {/* Card 4 - UI/UX Design */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+              initial={{ opacity: 0, x: 70, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               style={{ background: '#E0E7FF', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -575,7 +628,10 @@ export default function App() {
 
             {/* Card 5 - Automation Systems */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, x: -70, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               style={{ background: '#FFEDD5', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -599,7 +655,10 @@ export default function App() {
 
             {/* Card 6 - API & Backend */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
+              initial={{ opacity: 0, x: 70, scale: 0.96 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               style={{ background: '#0F172A', borderRadius: '32px', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', minHeight: '460px' }}
             >
               <div style={{ padding: '32px 32px 0 32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
