@@ -37,7 +37,7 @@ export default function App() {
   const [mounted, setMounted] = useState(false);
   const [activeNav, setActiveNav] = useState('About Us');
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
-  const navLinks = ['About Us', 'Solutions', 'Team', 'Events', 'Contacts'];
+  const navLinks = ['About Us', 'Projects', 'Team', 'Events', 'Contacts'];
 
   useEffect(() => {
     setMounted(true);
@@ -372,7 +372,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* RIGHT — Solutions */}
+            {/* RIGHT — Projects */}
             <motion.div
               initial={{ opacity: 0, x: 80 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -428,7 +428,7 @@ export default function App() {
                   display: 'flex', alignItems: 'center', gap: '12px'
                 }}
               >
-                Let's build your solution
+                Let's build your project
                 <div className="btn-icon-wrapper">
                   <ArrowUpRight size={16} strokeWidth={2.5} />
                 </div>
@@ -1114,7 +1114,7 @@ export default function App() {
             <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', flex: 2, justifyContent: 'space-between' }}>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Solutions</h4>
+                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Projects</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Enterprise Scale</a>
                   <a href="#" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Cloud Architecture</a>
