@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Zap, Smartphone, Database, Cloud, Palette } from 'lucide-react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import ProjectsPage from './Projects';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -34,16 +36,31 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, pr
 };
 
 export default function App() {
+  return (
+    <BrowserRouter>
+      <MainLayout />
+    </BrowserRouter>
+  );
+}
+
+function MainLayout() {
   const [mounted, setMounted] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState('About Us');
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
   const navLinks = ['About Us', 'Projects', 'Team', 'Events', 'Contacts'];
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (location.pathname === '/projects') {
+      setActiveNav('Projects');
+    } else if (location.pathname === '/') {
+      setActiveNav('About Us');
+    }
+  }, [location.pathname]);
 
-  if (!mounted) return null;
+  if (!mounted)  return null;
 
   return (
     <div className="app-container">
@@ -76,7 +93,11 @@ export default function App() {
               <div
                 key={link}
                 style={{ position: 'relative', cursor: 'pointer', padding: '10px 24px', borderRadius: '9999px' }}
-                onClick={() => setActiveNav(link)}
+                onClick={() => {
+                  setActiveNav(link);
+                  if (link === 'Projects') navigate('/projects');
+                  else if (link === 'About Us') navigate('/');
+                }}
               >
                 {activeNav === link && (
                   <motion.div
@@ -113,6 +134,10 @@ export default function App() {
         </motion.nav>
       </div>
 
+      <Routes>
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/" element={
+          <>
       {/* Hero Wrapper */}
       <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '100px 0 72px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
         {/* Hero Background Clean Theme */}
@@ -1087,6 +1112,10 @@ export default function App() {
           </div>
         </div>
       </section>
+
+          </>
+        } />
+      </Routes>
 
       {/* ── Footer Section ── */}
       <footer style={{ background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b' }}>
