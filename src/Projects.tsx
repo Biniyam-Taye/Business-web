@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+const PROJECTS_PER_PAGE = 2;
+
 export default function Projects() {
   const projects = [
     {
@@ -49,6 +53,18 @@ export default function Projects() {
       roles: ["E-commerce", "3D Rendering", "Payment Gateways"]
     }
   ];
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE);
+  const paginatedProjects = projects.slice(
+    (currentPage - 1) * PROJECTS_PER_PAGE,
+    currentPage * PROJECTS_PER_PAGE
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '160px', color: '#0f172a' }}>
@@ -120,7 +136,7 @@ export default function Projects() {
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
           
-          {projects.map((project, idx) => (
+          {paginatedProjects.map((project, idx) => (
             <div key={idx} style={{ 
               display: 'flex', 
               flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
@@ -275,6 +291,103 @@ export default function Projects() {
           ))}
 
         </div>
+      </div>
+
+      {/* ── PAGINATION ── */}
+      {totalPages > 1 && (
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          padding: '32px 24px 20px',
+        }}>
+
+          {/* Prev Button */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              border: currentPage === 1 ? '1px solid #e2e8f0' : '1px solid #2563eb',
+              background: currentPage === 1 ? '#f8fafc' : '#eff6ff',
+              color: currentPage === 1 ? '#cbd5e1' : '#2563eb',
+              cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+              boxShadow: currentPage === 1 ? 'none' : '0 2px 8px rgba(37,99,235,0.15)',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
+            const isActive = page === currentPage;
+            return (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                style={{
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '12px',
+                  border: isActive ? 'none' : '1px solid #e2e8f0',
+                  background: isActive ? '#2563eb' : '#ffffff',
+                  color: isActive ? '#ffffff' : '#475569',
+                  fontWeight: isActive ? 800 : 600,
+                  fontSize: '0.95rem',
+                  cursor: 'pointer',
+                  boxShadow: isActive
+                    ? '0 4px 14px rgba(37,99,235,0.35)'
+                    : '0 2px 8px rgba(0,0,0,0.04)',
+                  transition: 'all 0.2s ease',
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                {page}
+              </button>
+            );
+          })}
+
+          {/* Next Button */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '44px',
+              height: '44px',
+              borderRadius: '12px',
+              border: currentPage === totalPages ? '1px solid #e2e8f0' : '1px solid #2563eb',
+              background: currentPage === totalPages ? '#f8fafc' : '#eff6ff',
+              color: currentPage === totalPages ? '#cbd5e1' : '#2563eb',
+              cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+              boxShadow: currentPage === totalPages ? 'none' : '0 2px 8px rgba(37,99,235,0.15)',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+
+        </div>
+      )}
+
+      {/* Page info */}
+      <div style={{ textAlign: 'center', paddingBottom: '32px' }}>
+        <span style={{ fontSize: '0.85rem', color: '#94a3b8', fontWeight: 600 }}>
+          Showing {((currentPage - 1) * PROJECTS_PER_PAGE) + 1}–{Math.min(currentPage * PROJECTS_PER_PAGE, projects.length)} of {projects.length} projects
+        </span>
       </div>
 
     </div>
