@@ -75,14 +75,14 @@ export default function Projects() {
       <div style={{
         background: '#ffffff',
         borderBottom: '1px solid #e2e8f0',
-        paddingTop: '120px',
-        paddingBottom: '56px',
+        paddingTop: '112px',
+        paddingBottom: '64px',
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '64px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'space-between', gap: '36px', flexWrap: 'wrap' }}>
 
             {/* LEFT: Label + Title + Description */}
-            <div style={{ flex: '1 1 500px' }}>
+            <div style={{ flex: '1 1 620px', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '5px 16px', marginBottom: '20px' }}>
                 <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Our Works</span>
@@ -102,17 +102,36 @@ export default function Projects() {
               <p style={{
                 fontSize: '1rem',
                 color: '#64748b',
-                maxWidth: '480px',
+                maxWidth: '560px',
                 margin: 0,
                 lineHeight: 1.65,
                 fontWeight: 400,
               }}>
                 Digital platforms, enterprise software, and high-performance systems engineered to give businesses an unfair advantage.
               </p>
+
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '20px' }}>
+                {['Enterprise-Grade Security', 'Scalable Cloud Architecture', 'Conversion-Focused UX'].map((item) => (
+                  <span key={item} style={{ padding: '8px 14px', borderRadius: '9999px', border: '1px solid #e2e8f0', background: '#f8fafc', color: '#334155', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.01em' }}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginTop: '22px' }}>
+                <div style={{ background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', border: '1px solid #dbeafe', borderRadius: '14px', padding: '14px 16px' }}>
+                  <p style={{ margin: 0, fontSize: '0.74rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2563eb', fontWeight: 800 }}>Fast Delivery</p>
+                  <p style={{ margin: '6px 0 0 0', fontSize: '0.9rem', lineHeight: 1.5, color: '#334155' }}>High-impact products launched in weeks, not months.</p>
+                </div>
+                <div style={{ background: 'linear-gradient(140deg, #fff7ed 0%, #ffffff 100%)', border: '1px solid #fed7aa', borderRadius: '14px', padding: '14px 16px' }}>
+                  <p style={{ margin: 0, fontSize: '0.74rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#ea580c', fontWeight: 800 }}>Business Growth</p>
+                  <p style={{ margin: '6px 0 0 0', fontSize: '0.9rem', lineHeight: 1.5, color: '#334155' }}>Systems engineered to improve revenue and operational speed.</p>
+                </div>
+              </div>
             </div>
 
             {/* RIGHT: Compact 2x2 stat grid */}
-            <div style={{ flex: '0 1 360px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+            <div style={{ flex: '1 1 360px', alignSelf: 'center', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 16px 40px rgba(15,23,42,0.08)' }}>
               {[
                 { value: '50+', label: 'Projects Shipped' },
                 { value: '98%', label: 'Client Satisfaction' },
@@ -121,7 +140,7 @@ export default function Projects() {
               ].map((stat, i) => (
                 <div key={i} style={{
                   background: '#ffffff',
-                  padding: '24px 20px',
+                  padding: '26px 22px',
                   textAlign: 'left',
                 }}>
                   <div style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1 }}>{stat.value}</div>
