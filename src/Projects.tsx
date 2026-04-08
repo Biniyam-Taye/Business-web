@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const PROJECTS_PER_PAGE = 2;
 
 export default function Projects() {
   const navigate = useNavigate();
+  const springEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const projects = [
     {
       id: "01",
@@ -82,7 +84,13 @@ export default function Projects() {
           <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'space-between', gap: '36px', flexWrap: 'wrap' }}>
 
             {/* LEFT: Label + Title + Description */}
-            <div style={{ flex: '1 1 620px', display: 'flex', flexDirection: 'column' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.9, ease: springEase }}
+              style={{ flex: '1 1 620px', display: 'flex', flexDirection: 'column' }}
+            >
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '5px 16px', marginBottom: '20px' }}>
                 <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Our Works</span>
@@ -110,15 +118,27 @@ export default function Projects() {
                 Digital platforms, enterprise software, and high-performance systems engineered to give businesses an unfair advantage.
               </p>
 
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '20px' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.75, delay: 0.15, ease: springEase }}
+                style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '20px' }}
+              >
                 {['Enterprise-Grade Security', 'Scalable Cloud Architecture', 'Conversion-Focused UX'].map((item) => (
                   <span key={item} style={{ padding: '8px 14px', borderRadius: '9999px', border: '1px solid #e2e8f0', background: '#f8fafc', color: '#334155', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.01em' }}>
                     {item}
                   </span>
                 ))}
-              </div>
+              </motion.div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginTop: '22px' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.85, delay: 0.25, ease: springEase }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginTop: '22px' }}
+              >
                 <div style={{ background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', border: '1px solid #dbeafe', borderRadius: '14px', padding: '14px 16px' }}>
                   <p style={{ margin: 0, fontSize: '0.74rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2563eb', fontWeight: 800 }}>Fast Delivery</p>
                   <p style={{ margin: '6px 0 0 0', fontSize: '0.9rem', lineHeight: 1.5, color: '#334155' }}>High-impact products launched in weeks, not months.</p>
@@ -127,11 +147,17 @@ export default function Projects() {
                   <p style={{ margin: 0, fontSize: '0.74rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#ea580c', fontWeight: 800 }}>Business Growth</p>
                   <p style={{ margin: '6px 0 0 0', fontSize: '0.9rem', lineHeight: 1.5, color: '#334155' }}>Systems engineered to improve revenue and operational speed.</p>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* RIGHT: Compact 2x2 stat grid */}
-            <div style={{ flex: '1 1 360px', alignSelf: 'center', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 16px 40px rgba(15,23,42,0.08)' }}>
+            <motion.div
+              initial={{ opacity: 0, x: 44 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 1.05, delay: 0.15, ease: springEase }}
+              style={{ flex: '1 1 360px', alignSelf: 'center', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 16px 40px rgba(15,23,42,0.08)' }}
+            >
               {[
                 { value: '50+', label: 'Projects Shipped' },
                 { value: '98%', label: 'Client Satisfaction' },
@@ -147,7 +173,7 @@ export default function Projects() {
                   <div style={{ fontSize: '0.78rem', color: 'rgba(15, 23, 42, 0.62)', marginTop: '6px', fontWeight: 500, letterSpacing: '0.03em', textTransform: 'uppercase' }}>{stat.label}</div>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -158,7 +184,13 @@ export default function Projects() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
           
           {paginatedProjects.map((project, idx) => (
-            <div key={idx} style={{ 
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.95, delay: idx * 0.12, ease: springEase }}
+              style={{ 
               display: 'flex', 
               flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
               flexWrap: 'wrap',
@@ -172,7 +204,13 @@ export default function Projects() {
             }}>
               
               {/* Image Side */}
-              <div className="project-image-frame" style={{ 
+              <motion.div
+                className="project-image-frame"
+                initial={{ opacity: 0, scale: 0.94, x: idx % 2 !== 0 ? 28 : -28 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 1, delay: 0.18 + idx * 0.1, ease: springEase }}
+                style={{ 
                 flex: '1 1 400px',
                 minWidth: '300px',
                 height: '450px', 
@@ -205,13 +243,25 @@ export default function Projects() {
                 }}>
                   {project.id}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Text Side */}
-              <div style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.9, delay: 0.22 + idx * 0.1, ease: springEase }}
+                style={{ flex: '1 1 500px', display: 'flex', flexDirection: 'column' }}
+              >
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
                   {project.roles.map(role => (
-                    <span key={role} style={{ 
+                    <motion.span
+                      key={role}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.45, ease: springEase }}
+                      style={{ 
                       padding: '6px 14px', 
                       background: '#f8fafc',
                       border: '1px solid #e2e8f0',
@@ -222,7 +272,7 @@ export default function Projects() {
                       letterSpacing: '0.02em',
                     }}>
                       {role}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
 
@@ -235,7 +285,14 @@ export default function Projects() {
                 </p>
 
                 {/* Problem, Solution, Use Case */}
-                <div className="project-detail-card-wrap" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px', background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #f1f5f9' }}>
+                <motion.div
+                  className="project-detail-card-wrap"
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.32 + idx * 0.08, ease: springEase }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px', background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #f1f5f9' }}
+                >
                   
                   <div className="project-detail-row card-danger" style={{ display: 'flex', gap: '16px' }}>
                     <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#fee2e2', color: '#ef4444', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -271,11 +328,18 @@ export default function Projects() {
                     </div>
                   </div>
 
-                </div>
+                </motion.div>
 
                 {/* Buttons Component */}
                 <div style={{ display: 'flex', gap: '16px', marginTop: 'auto', flexWrap: 'wrap' }}>
-                  <button className="btn-primary-hover project-btn-primary" style={{ 
+                  <motion.button
+                    className="btn-primary-hover project-btn-primary"
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.65, delay: 0.38 + idx * 0.08, ease: springEase }}
+                    whileTap={{ scale: 0.98 }}
+                    style={{ 
                     padding: '14px 28px', 
                     background: '#0f172a', 
                     color: '#ffffff', 
@@ -292,10 +356,15 @@ export default function Projects() {
                   }}>
                     View Live Space
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
                     className="btn-secondary-hover project-btn-secondary"
                     onClick={() => navigate(`/projects/${project.id}`)}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.72, delay: 0.45 + idx * 0.08, ease: springEase }}
+                    whileTap={{ scale: 0.98 }}
                     style={{ 
                     padding: '14px 28px', 
                     background: '#ffffff', 
@@ -308,11 +377,11 @@ export default function Projects() {
                     transition: 'all 0.2s ease'
                   }}>
                     Read Case Study
-                  </button>
+                  </motion.button>
                 </div>
 
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
 
         </div>
@@ -329,10 +398,14 @@ export default function Projects() {
         }}>
 
           {/* Prev Button */}
-          <button
+          <motion.button
             className={`project-pagination-btn ${currentPage === 1 ? 'is-disabled' : ''}`}
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, ease: springEase }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -351,16 +424,20 @@ export default function Projects() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
-          </button>
+          </motion.button>
 
           {/* Page Numbers */}
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => {
             const isActive = page === currentPage;
             return (
-              <button
+              <motion.button
                 className={`project-pagination-btn project-page-number ${isActive ? 'is-active' : ''}`}
                 key={page}
                 onClick={() => handlePageChange(page)}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: page * 0.05, ease: springEase }}
                 style={{
                   width: '44px',
                   height: '44px',
@@ -379,15 +456,19 @@ export default function Projects() {
                 }}
               >
                 {page}
-              </button>
+              </motion.button>
             );
           })}
 
           {/* Next Button */}
-          <button
+          <motion.button
             className={`project-pagination-btn ${currentPage === totalPages ? 'is-disabled' : ''}`}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.12, ease: springEase }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -406,7 +487,7 @@ export default function Projects() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="9 18 15 12 9 6" />
             </svg>
-          </button>
+          </motion.button>
 
         </div>
       )}
