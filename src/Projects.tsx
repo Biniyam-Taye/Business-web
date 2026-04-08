@@ -53,25 +53,27 @@ export default function Projects() {
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '160px', color: '#0f172a' }}>
 
-      {/* ── NEW HERO SECTION ── */}
+      {/* ── HERO SECTION (Light Mode) ── */}
       <div style={{
-        background: '#040a15',
+        background: 'linear-gradient(160deg, #ffffff 0%, #f0f4ff 60%, #fff7f0 100%)',
         position: 'relative',
         overflow: 'hidden',
         paddingTop: '140px',
         paddingBottom: '0',
+        borderBottom: '1px solid #e2e8f0',
       }}>
-        {/* Ambient background glows */}
-        <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        {/* Ambient soft glows */}
+        <div style={{ position: 'absolute', top: '-15%', left: '-8%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '30%', right: '15%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(168,85,247,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px', position: 'relative', zIndex: 1 }}>
 
           {/* Top label */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '48px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px', padding: '8px 22px' }}>
-              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#F97316', boxShadow: '0 0 8px rgba(249,115,22,0.8)' }} />
-              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Case Studies & Projects</span>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '8px 22px' }}>
+              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#F97316', boxShadow: '0 0 6px rgba(249,115,22,0.5)' }} />
+              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Case Studies & Projects</span>
             </div>
           </div>
 
@@ -83,11 +85,11 @@ export default function Projects() {
             lineHeight: 1.0,
             textAlign: 'center',
             margin: '0 0 32px 0',
-            color: '#ffffff',
+            color: '#0f172a',
           }}>
             Work That <br />
             <span style={{
-              background: 'linear-gradient(135deg, #3b82f6 0%, #a855f7 50%, #F97316 100%)',
+              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #F97316 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -97,7 +99,7 @@ export default function Projects() {
           <p style={{
             textAlign: 'center',
             fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-            color: 'rgba(255,255,255,0.5)',
+            color: '#64748b',
             maxWidth: '600px',
             margin: '0 auto 64px auto',
             lineHeight: 1.7,
@@ -111,25 +113,27 @@ export default function Projects() {
             display: 'flex',
             justifyContent: 'center',
             gap: '0',
-            borderTop: '1px solid rgba(255,255,255,0.07)',
-            borderBottom: '1px solid rgba(255,255,255,0.07)',
+            borderTop: '1px solid #e2e8f0',
             marginBottom: '0',
             flexWrap: 'wrap',
+            background: 'rgba(255,255,255,0.7)',
+            backdropFilter: 'blur(8px)',
+            borderRadius: '24px 24px 0 0',
           }}>
             {[
-              { value: '50+', label: 'Projects Shipped' },
-              { value: '98%', label: 'Client Satisfaction' },
-              { value: '4', label: 'Industries Served' },
-              { value: '3x', label: 'Avg. Speed Gain' },
+              { value: '50+', label: 'Projects Shipped', color: '#2563eb' },
+              { value: '98%', label: 'Client Satisfaction', color: '#7c3aed' },
+              { value: '4',   label: 'Industries Served', color: '#F97316' },
+              { value: '3x',  label: 'Avg. Speed Gain',   color: '#059669' },
             ].map((stat, i) => (
               <div key={i} style={{
                 flex: '1 1 180px',
                 padding: '32px 24px',
                 textAlign: 'center',
-                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+                borderRight: i < 3 ? '1px solid #f1f5f9' : 'none',
               }}>
-                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#ffffff', lineHeight: 1 }}>{stat.value}</div>
-                <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', marginTop: '8px', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{stat.label}</div>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.04em', color: stat.color, lineHeight: 1 }}>{stat.value}</div>
+                <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginTop: '8px', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{stat.label}</div>
               </div>
             ))}
           </div>
