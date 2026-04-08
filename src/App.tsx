@@ -4,6 +4,7 @@ import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Zap, Smartphone
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
+import ServicesPage from './Services';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -50,12 +51,14 @@ function MainLayout() {
   const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState('About Us');
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
-  const navLinks = ['About Us', 'Projects', 'Team', 'Events', 'Contacts'];
+  const navLinks = ['About Us', 'Projects', 'Services', 'Events', 'Contacts'];
 
   useEffect(() => {
     setMounted(true);
     if (location.pathname.startsWith('/projects')) {
       setActiveNav('Projects');
+    } else if (location.pathname === '/services') {
+      setActiveNav('Services');
     } else if (location.pathname === '/') {
       setActiveNav('About Us');
     }
@@ -97,6 +100,7 @@ function MainLayout() {
                 onClick={() => {
                   setActiveNav(link);
                   if (link === 'Projects') navigate('/projects');
+                  else if (link === 'Services') navigate('/services');
                   else if (link === 'About Us') navigate('/');
                 }}
               >
@@ -138,6 +142,7 @@ function MainLayout() {
       <Routes>
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/" element={
           <>
       {/* Hero Wrapper */}
