@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PROJECTS_PER_PAGE = 2;
 
 export default function Projects() {
+  const navigate = useNavigate();
   const projects = [
     {
       id: "01",
@@ -112,18 +114,18 @@ export default function Projects() {
             {/* RIGHT: Compact 2x2 stat grid */}
             <div style={{ flex: '0 1 360px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
               {[
-                { value: '50+', label: 'Projects Shipped', color: '#2563eb' },
-                { value: '98%', label: 'Client Satisfaction', color: '#7c3aed' },
-                { value: '4',   label: 'Industries Served', color: '#F97316' },
-                { value: '3x',  label: 'Avg. Speed Gain',  color: '#059669' },
+                { value: '50+', label: 'Projects Shipped' },
+                { value: '98%', label: 'Client Satisfaction' },
+                { value: '4',   label: 'Industries Served' },
+                { value: '3x',  label: 'Avg. Speed Gain' },
               ].map((stat, i) => (
                 <div key={i} style={{
                   background: '#ffffff',
                   padding: '24px 20px',
                   textAlign: 'left',
                 }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.04em', color: stat.color, lineHeight: 1 }}>{stat.value}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '6px', fontWeight: 600, letterSpacing: '0.03em', textTransform: 'uppercase' }}>{stat.label}</div>
+                  <div style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1 }}>{stat.value}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'rgba(15, 23, 42, 0.62)', marginTop: '6px', fontWeight: 500, letterSpacing: '0.03em', textTransform: 'uppercase' }}>{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -151,7 +153,7 @@ export default function Projects() {
             }}>
               
               {/* Image Side */}
-              <div style={{ 
+              <div className="project-image-frame" style={{ 
                 flex: '1 1 400px',
                 minWidth: '300px',
                 height: '450px', 
@@ -161,7 +163,8 @@ export default function Projects() {
                 boxShadow: '0 25px 50px rgba(0,0,0,0.08)',
                 border: '8px solid #f8fafc'
               }}>
-                <img 
+                <img
+                  className="project-image-hover"
                   src={project.image} 
                   alt={project.title} 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
@@ -213,10 +216,10 @@ export default function Projects() {
                 </p>
 
                 {/* Problem, Solution, Use Case */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px', background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #f1f5f9' }}>
+                <div className="project-detail-card-wrap" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px', background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #f1f5f9' }}>
                   
-                  <div style={{ display: 'flex', gap: '16px' }}>
-                    <div style={{ flexShrink: 0, width: '32px', height: '32px', background: '#fee2e2', color: '#ef4444', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div className="project-detail-row card-danger" style={{ display: 'flex', gap: '16px' }}>
+                    <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#fee2e2', color: '#ef4444', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     </div>
                     <div>
@@ -225,10 +228,10 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div style={{ width: '100%', height: '1px', background: '#e2e8f0' }} />
+                  <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0' }} />
 
-                  <div style={{ display: 'flex', gap: '16px' }}>
-                    <div style={{ flexShrink: 0, width: '32px', height: '32px', background: '#dcfce7', color: '#22c55e', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div className="project-detail-row card-success" style={{ display: 'flex', gap: '16px' }}>
+                    <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#dcfce7', color: '#22c55e', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
                     <div>
@@ -237,10 +240,10 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div style={{ width: '100%', height: '1px', background: '#e2e8f0' }} />
+                  <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0' }} />
 
-                  <div style={{ display: 'flex', gap: '16px' }}>
-                    <div style={{ flexShrink: 0, width: '32px', height: '32px', background: '#dbeafe', color: '#3b82f6', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div className="project-detail-row card-info" style={{ display: 'flex', gap: '16px' }}>
+                    <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#dbeafe', color: '#3b82f6', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
                     <div>
@@ -253,7 +256,7 @@ export default function Projects() {
 
                 {/* Buttons Component */}
                 <div style={{ display: 'flex', gap: '16px', marginTop: 'auto', flexWrap: 'wrap' }}>
-                  <button style={{ 
+                  <button className="btn-primary-hover project-btn-primary" style={{ 
                     padding: '14px 28px', 
                     background: '#0f172a', 
                     color: '#ffffff', 
@@ -271,7 +274,10 @@ export default function Projects() {
                     View Live Space
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </button>
-                  <button style={{ 
+                  <button
+                    className="btn-secondary-hover project-btn-secondary"
+                    onClick={() => navigate(`/projects/${project.id}`)}
+                    style={{ 
                     padding: '14px 28px', 
                     background: '#ffffff', 
                     color: '#0f172a', 
@@ -305,6 +311,7 @@ export default function Projects() {
 
           {/* Prev Button */}
           <button
+            className={`project-pagination-btn ${currentPage === 1 ? 'is-disabled' : ''}`}
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
             style={{
@@ -332,6 +339,7 @@ export default function Projects() {
             const isActive = page === currentPage;
             return (
               <button
+                className={`project-pagination-btn project-page-number ${isActive ? 'is-active' : ''}`}
                 key={page}
                 onClick={() => handlePageChange(page)}
                 style={{
@@ -358,6 +366,7 @@ export default function Projects() {
 
           {/* Next Button */}
           <button
+            className={`project-pagination-btn ${currentPage === totalPages ? 'is-disabled' : ''}`}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
             style={{

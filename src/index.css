@@ -410,6 +410,129 @@ h4 {
   color: rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Projects page advanced hover effects */
+.project-image-frame {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.project-image-hover {
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+}
+
+.project-image-frame:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 65px rgba(15, 23, 42, 0.2) !important;
+}
+
+.project-image-frame:hover .project-image-hover {
+  transform: scale(1.08);
+  filter: saturate(1.12) contrast(1.04);
+}
+
+.project-btn-primary,
+.project-btn-secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-btn-primary::before,
+.project-btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.project-btn-primary:hover::before,
+.project-btn-secondary:hover::before {
+  left: 140%;
+}
+
+.project-btn-primary:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.32) !important;
+}
+
+.project-btn-secondary:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  background: #eff6ff !important;
+  border-color: #93c5fd !important;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2) !important;
+}
+
+.project-pagination-btn:not(.is-disabled):hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25) !important;
+}
+
+.project-pagination-btn.project-page-number:not(.is-active):hover {
+  background: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border-color: #93c5fd !important;
+}
+
+.project-detail-card-wrap {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.project-detail-card-wrap:hover {
+  transform: translateY(-6px);
+  border-color: #dbeafe !important;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
+}
+
+.project-detail-row {
+  border-radius: 12px;
+  padding: 10px;
+  margin: -10px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-detail-row:hover {
+  transform: translateX(6px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.project-detail-row.card-danger:hover {
+  background: rgba(254, 226, 226, 0.65);
+}
+
+.project-detail-row.card-success:hover {
+  background: rgba(220, 252, 231, 0.75);
+}
+
+.project-detail-row.card-info:hover {
+  background: rgba(219, 234, 254, 0.75);
+}
+
+.project-detail-icon {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-detail-row:hover .project-detail-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.project-detail-divider {
+  transition: opacity 0.25s ease;
+}
+
+.project-detail-card-wrap:hover .project-detail-divider {
+  opacity: 0.65;
+}
+
 /* Responsive fixes for Stats row */
 @media (max-width: 768px) {
   .stat-divider {

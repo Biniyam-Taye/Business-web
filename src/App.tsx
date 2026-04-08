@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Zap, Smartphone, Database, Cloud, Palette } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectsPage from './Projects';
+import ProjectCaseStudy from './ProjectCaseStudy';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -53,7 +54,7 @@ function MainLayout() {
 
   useEffect(() => {
     setMounted(true);
-    if (location.pathname === '/projects') {
+    if (location.pathname.startsWith('/projects')) {
       setActiveNav('Projects');
     } else if (location.pathname === '/') {
       setActiveNav('About Us');
@@ -136,6 +137,7 @@ function MainLayout() {
 
       <Routes>
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
         <Route path="/" element={
           <>
       {/* Hero Wrapper */}
