@@ -53,91 +53,66 @@ export default function Projects() {
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '160px', color: '#0f172a' }}>
 
-      {/* ── HERO SECTION (Light Mode) ── */}
+      {/* ── COMPACT PAGE HEADER ── */}
       <div style={{
-        background: 'linear-gradient(160deg, #ffffff 0%, #f0f4ff 60%, #fff7f0 100%)',
-        position: 'relative',
-        overflow: 'hidden',
-        paddingTop: '140px',
-        paddingBottom: '0',
+        background: '#ffffff',
         borderBottom: '1px solid #e2e8f0',
+        paddingTop: '120px',
+        paddingBottom: '56px',
       }}>
-        {/* Ambient soft glows */}
-        <div style={{ position: 'absolute', top: '-15%', left: '-8%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', top: '30%', right: '15%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(168,85,247,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '64px', flexWrap: 'wrap' }}>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px', position: 'relative', zIndex: 1 }}>
-
-          {/* Top label */}
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '48px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '8px 22px' }}>
-              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#F97316', boxShadow: '0 0 6px rgba(249,115,22,0.5)' }} />
-              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Case Studies & Projects</span>
-            </div>
-          </div>
-
-          {/* Big headline */}
-          <h1 style={{
-            fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
-            fontWeight: 800,
-            letterSpacing: '-0.04em',
-            lineHeight: 1.0,
-            textAlign: 'center',
-            margin: '0 0 32px 0',
-            color: '#0f172a',
-          }}>
-            Work That <br />
-            <span style={{
-              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #F97316 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>Speaks Louder.</span>
-          </h1>
-
-          <p style={{
-            textAlign: 'center',
-            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-            color: '#64748b',
-            maxWidth: '600px',
-            margin: '0 auto 64px auto',
-            lineHeight: 1.7,
-            fontWeight: 400,
-          }}>
-            Explore digital platforms, enterprise software, and high-performance systems engineered to give brands an unfair market advantage.
-          </p>
-
-          {/* Stat strip */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '0',
-            borderTop: '1px solid #e2e8f0',
-            marginBottom: '0',
-            flexWrap: 'wrap',
-            background: 'rgba(255,255,255,0.7)',
-            backdropFilter: 'blur(8px)',
-            borderRadius: '24px 24px 0 0',
-          }}>
-            {[
-              { value: '50+', label: 'Projects Shipped', color: '#2563eb' },
-              { value: '98%', label: 'Client Satisfaction', color: '#7c3aed' },
-              { value: '4',   label: 'Industries Served', color: '#F97316' },
-              { value: '3x',  label: 'Avg. Speed Gain',   color: '#059669' },
-            ].map((stat, i) => (
-              <div key={i} style={{
-                flex: '1 1 180px',
-                padding: '32px 24px',
-                textAlign: 'center',
-                borderRight: i < 3 ? '1px solid #f1f5f9' : 'none',
-              }}>
-                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.04em', color: stat.color, lineHeight: 1 }}>{stat.value}</div>
-                <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginTop: '8px', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{stat.label}</div>
+            {/* LEFT: Label + Title + Description */}
+            <div style={{ flex: '1 1 500px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '5px 16px', marginBottom: '20px' }}>
+                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Our Works</span>
               </div>
-            ))}
-          </div>
 
+              <h1 style={{
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontWeight: 800,
+                letterSpacing: '-0.04em',
+                lineHeight: 1.1,
+                margin: '0 0 16px 0',
+                color: '#0f172a',
+              }}>
+                Work That <span style={{ color: '#F97316' }}>Speaks.</span>
+              </h1>
+
+              <p style={{
+                fontSize: '1rem',
+                color: '#64748b',
+                maxWidth: '480px',
+                margin: 0,
+                lineHeight: 1.65,
+                fontWeight: 400,
+              }}>
+                Digital platforms, enterprise software, and high-performance systems engineered to give businesses an unfair advantage.
+              </p>
+            </div>
+
+            {/* RIGHT: Compact 2x2 stat grid */}
+            <div style={{ flex: '0 1 360px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+              {[
+                { value: '50+', label: 'Projects Shipped', color: '#2563eb' },
+                { value: '98%', label: 'Client Satisfaction', color: '#7c3aed' },
+                { value: '4',   label: 'Industries Served', color: '#F97316' },
+                { value: '3x',  label: 'Avg. Speed Gain',  color: '#059669' },
+              ].map((stat, i) => (
+                <div key={i} style={{
+                  background: '#ffffff',
+                  padding: '24px 20px',
+                  textAlign: 'left',
+                }}>
+                  <div style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.04em', color: stat.color, lineHeight: 1 }}>{stat.value}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '6px', fontWeight: 600, letterSpacing: '0.03em', textTransform: 'uppercase' }}>{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+          </div>
         </div>
       </div>
 
