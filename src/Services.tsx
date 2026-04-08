@@ -137,7 +137,7 @@ export default function Services() {
           <p style={{ margin: '0 0 20px 0', color: '#64748b', maxWidth: '740px', lineHeight: 1.7 }}>
             Every service module includes strategy, implementation, and measurable outcomes.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
             {offerings.map((item, idx) => (
               <motion.article
                 key={item.title}
@@ -146,12 +146,25 @@ export default function Services() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.7, delay: idx * 0.06, ease }}
                 whileHover={{ y: -8 }}
-                style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '18px', padding: '22px', boxShadow: '0 10px 26px rgba(15,23,42,0.05)' }}
+                style={{
+                  background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '20px',
+                  padding: '22px',
+                  boxShadow: '0 10px 26px rgba(15,23,42,0.05)',
+                  minHeight: '325px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
               >
-                <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: '#eff6ff', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>{item.icon}</div>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #f97316 100%)' }} />
+                <div style={{ width: '44px', height: '44px', borderRadius: '14px', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px', border: '1px solid #bfdbfe' }}>{item.icon}</div>
                 <h3 style={{ margin: 0, fontSize: '1.1rem' }}>{item.title}</h3>
-                <p style={{ margin: '10px 0 12px 0', color: '#64748b', lineHeight: 1.7, fontSize: '0.95rem' }}>{item.desc}</p>
-                <div style={{ display: 'grid', gap: '8px' }}>
+                <p style={{ margin: '10px 0 12px 0', color: '#64748b', lineHeight: 1.7, fontSize: '0.95rem', minHeight: '82px' }}>{item.desc}</p>
+                <div style={{ display: 'grid', gap: '8px', marginTop: 'auto' }}>
                   {item.points.map((p) => (
                     <div key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', marginTop: '6px', background: '#2563eb', flexShrink: 0 }} />
