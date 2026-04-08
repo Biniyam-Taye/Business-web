@@ -52,23 +52,89 @@ export default function Projects() {
 
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '160px', color: '#0f172a' }}>
-      
-      {/* Page Header (Matches Homepage Styling) */}
-      <div className="container" style={{ maxWidth: '1200px', paddingTop: '160px', paddingBottom: '80px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>
-        
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '6px 18px', marginBottom: '24px' }}>
-          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
-          <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Our Works</span>
-        </div>
-        
-        <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.04em', lineHeight: 1.1, maxWidth: '800px', margin: 0 }}>
-          Digital Infrastructure <span style={{ color: '#F97316' }}>Redefined.</span>
-        </h1>
-        
-        <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '650px', marginTop: '24px', lineHeight: 1.6, fontWeight: 400 }}>
-          Explore our showcase of digital platforms, enterprise software, and high-performance applications designed to give businesses an unfair market advantage.
-        </p>
 
+      {/* ── NEW HERO SECTION ── */}
+      <div style={{
+        background: '#040a15',
+        position: 'relative',
+        overflow: 'hidden',
+        paddingTop: '140px',
+        paddingBottom: '0',
+      }}>
+        {/* Ambient background glows */}
+        <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 65%)', pointerEvents: 'none' }} />
+
+        <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px', position: 'relative', zIndex: 1 }}>
+
+          {/* Top label */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '48px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px', padding: '8px 22px' }}>
+              <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#F97316', boxShadow: '0 0 8px rgba(249,115,22,0.8)' }} />
+              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Case Studies & Projects</span>
+            </div>
+          </div>
+
+          {/* Big headline */}
+          <h1 style={{
+            fontSize: 'clamp(3.5rem, 8vw, 6.5rem)',
+            fontWeight: 800,
+            letterSpacing: '-0.04em',
+            lineHeight: 1.0,
+            textAlign: 'center',
+            margin: '0 0 32px 0',
+            color: '#ffffff',
+          }}>
+            Work That <br />
+            <span style={{
+              background: 'linear-gradient(135deg, #3b82f6 0%, #a855f7 50%, #F97316 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>Speaks Louder.</span>
+          </h1>
+
+          <p style={{
+            textAlign: 'center',
+            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+            color: 'rgba(255,255,255,0.5)',
+            maxWidth: '600px',
+            margin: '0 auto 64px auto',
+            lineHeight: 1.7,
+            fontWeight: 400,
+          }}>
+            Explore digital platforms, enterprise software, and high-performance systems engineered to give brands an unfair market advantage.
+          </p>
+
+          {/* Stat strip */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '0',
+            borderTop: '1px solid rgba(255,255,255,0.07)',
+            borderBottom: '1px solid rgba(255,255,255,0.07)',
+            marginBottom: '0',
+            flexWrap: 'wrap',
+          }}>
+            {[
+              { value: '50+', label: 'Projects Shipped' },
+              { value: '98%', label: 'Client Satisfaction' },
+              { value: '4', label: 'Industries Served' },
+              { value: '3x', label: 'Avg. Speed Gain' },
+            ].map((stat, i) => (
+              <div key={i} style={{
+                flex: '1 1 180px',
+                padding: '32px 24px',
+                textAlign: 'center',
+                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+              }}>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.04em', color: '#ffffff', lineHeight: 1 }}>{stat.value}</div>
+                <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', marginTop: '8px', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </div>
 
       {/* Projects List - New Side-by-Side Card Layout */}
