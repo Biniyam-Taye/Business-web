@@ -43,15 +43,18 @@ const addOns = [
 const faqs = [
   {
     q: 'Can pricing be customized to my business size?',
-    a: 'Yes. Each package can be adjusted based on your workflow, integrations, and expected growth. We always share a transparent scope and cost breakdown before work starts.',
+    a: 'Yes. Every plan is customizable based on your current stage, technical complexity, and team capacity. We shape scope around your priorities so you only pay for what creates real value.',
+    points: ['Scope can be expanded or reduced by module', 'Integrations and automation are priced by complexity', 'You receive a transparent line-by-line quote before kickoff'],
   },
   {
     q: 'Do you offer phased payment terms?',
-    a: 'Yes. Most projects are split into milestone-based payments so you can review progress and approve each phase with confidence.',
+    a: 'Yes. Most projects use milestone-based billing so payment aligns with actual delivery progress. This keeps execution transparent and lowers risk for both sides.',
+    points: ['Typical split: 40% kickoff, 40% build phase, 20% final launch', 'Each payment follows a review and approval checkpoint', 'Invoices and deliverables are mapped clearly per milestone'],
   },
   {
     q: 'What happens after launch?',
-    a: 'We provide post-launch monitoring, optimization, and support retainers. You can choose a lightweight maintenance plan or a growth-focused monthly package.',
+    a: 'After launch, we continue with structured support to keep performance stable and improve outcomes over time. You can choose maintenance-only support or an active growth package.',
+    points: ['Bug fixes and reliability monitoring', 'Performance tuning and user-experience improvements', 'Ongoing roadmap implementation through monthly sprints'],
   },
 ];
 
@@ -221,17 +224,70 @@ export default function Pricing() {
 
       <section style={{ padding: '50px 0 14px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ borderRadius: '20px', border: '1px solid #e2e8f0', background: '#ffffff', padding: '20px' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.55rem, 2.4vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
-              Optional <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Add-Ons</span>
-            </h2>
-            <p style={{ margin: '8px 0 14px 0', color: '#64748b', lineHeight: 1.7 }}>Extend any plan with specialized modules based on your priorities.</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px' }}>
-              {addOns.map(([name, price]) => (
-                <div key={name} style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc', padding: '12px' }}>
-                  <span style={{ fontWeight: 700 }}>{name}</span>
-                  <span style={{ color: '#1d4ed8', fontWeight: 800 }}>{price}</span>
-                </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            style={{
+              borderRadius: '20px',
+              border: '1px solid #dbeafe',
+              background: 'linear-gradient(150deg, #ffffff 0%, #f8fbff 100%)',
+              padding: '20px',
+              boxShadow: '0 14px 34px rgba(15,23,42,0.06)',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+              <div>
+                <h2 style={{ margin: 0, fontSize: 'clamp(1.55rem, 2.4vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
+                  Optional <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Add-Ons</span>
+                </h2>
+                <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.7 }}>Extend any plan with specialized modules based on your priorities.</p>
+              </div>
+              <span style={{ borderRadius: '999px', border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', padding: '6px 12px', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                Flexible Upgrades
+              </span>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px', marginTop: '14px' }}>
+              {addOns.map(([name, price], idx) => (
+                <motion.div
+                  key={name}
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  transition={{ duration: 0.2 }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    gap: '12px',
+                    border: idx === 0 ? '1px solid #93c5fd' : '1px solid #e2e8f0',
+                    borderRadius: '14px',
+                    background: idx === 0 ? 'linear-gradient(145deg, #ffffff 0%, #eff6ff 100%)' : '#ffffff',
+                    padding: '12px',
+                    alignItems: 'center',
+                    boxShadow: idx === 0 ? '0 10px 24px rgba(37,99,235,0.14)' : '0 8px 18px rgba(15,23,42,0.04)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span
+                      style={{
+                        width: '28px',
+                        height: '28px',
+                        borderRadius: '9px',
+                        background: idx === 0 ? '#2563eb' : '#0f172a',
+                        color: '#fff',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Sparkles size={14} />
+                    </span>
+                    <span style={{ fontWeight: 800, color: '#0f172a' }}>{name}</span>
+                  </div>
+                  <span style={{ color: '#1d4ed8', fontWeight: 900, fontSize: '1rem', letterSpacing: '-0.01em' }}>{price}</span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -264,7 +320,19 @@ export default function Pricing() {
 
       <section style={{ padding: '50px 0 14px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ borderRadius: '20px', border: '1px solid #e2e8f0', background: '#ffffff', padding: '20px' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{
+              borderRadius: '20px',
+              border: '1px solid #dbeafe',
+              background: 'linear-gradient(150deg, #ffffff 0%, #f8fbff 100%)',
+              padding: '20px',
+              boxShadow: '0 14px 34px rgba(15,23,42,0.07)',
+            }}
+          >
             <h2 style={{ margin: 0, fontSize: 'clamp(1.55rem, 2.4vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
               Pricing <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>FAQs</span>
             </h2>
@@ -272,15 +340,51 @@ export default function Pricing() {
               {faqs.map((f, idx) => {
                 const open = openFaq === idx;
                 return (
-                  <div key={f.q} style={{ border: '1px solid #e2e8f0', borderRadius: '12px', overflow: 'hidden', background: open ? '#ffffff' : '#f8fafc' }}>
-                    <button type="button" onClick={() => setOpenFaq((prev) => (prev === idx ? null : idx))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'left', padding: '12px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ fontWeight: 800 }}>{f.q}</span>
+                  <div
+                    key={f.q}
+                    style={{
+                      border: open ? '1px solid #93c5fd' : '1px solid #e2e8f0',
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                      background: open ? '#ffffff' : '#f8fafc',
+                      boxShadow: open ? '0 10px 26px rgba(37,99,235,0.12)' : 'none',
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq((prev) => (prev === idx ? null : idx))}
+                      style={{
+                        width: '100%',
+                        border: 'none',
+                        background: 'transparent',
+                        textAlign: 'left',
+                        padding: '13px 12px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        gap: '10px',
+                      }}
+                    >
+                      <span style={{ fontWeight: 900, fontSize: '1rem', color: '#020617' }}>{f.q}</span>
                       <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
                         <ChevronDown size={16} />
                       </motion.span>
                     </button>
                     <motion.div initial={false} animate={open ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }} transition={{ duration: 0.25 }} style={{ overflow: 'hidden' }}>
-                      <p style={{ margin: 0, padding: '0 12px 12px 12px', color: '#64748b', lineHeight: 1.7 }}>{f.a}</p>
+                      <div style={{ padding: '0 12px 12px 12px' }}>
+                        <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '10px' }}>
+                          <p style={{ margin: 0, color: '#475569', lineHeight: 1.75, fontSize: '0.95rem' }}>{f.a}</p>
+                          <div style={{ display: 'grid', gap: '7px', marginTop: '10px' }}>
+                            {f.points.map((point) => (
+                              <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
+                                <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: '#2563eb', marginTop: '6px', flexShrink: 0 }} />
+                                <span style={{ lineHeight: 1.55 }}>{point}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
                   </div>
                 );
