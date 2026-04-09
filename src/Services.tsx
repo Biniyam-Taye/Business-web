@@ -173,6 +173,7 @@ const titleOnDarkStyle: CSSProperties = {
 export default function Services() {
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [hoveredServiceCard, setHoveredServiceCard] = useState<number | null>(null);
 
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#0f172a', paddingBottom: '140px' }}>
@@ -228,42 +229,67 @@ export default function Services() {
             Every service module includes strategy, implementation, and measurable outcomes.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
-            {offerings.map((item, idx) => (
-              <motion.article
-                key={item.title}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.7, delay: idx * 0.06, ease }}
-                whileHover={{ y: -8 }}
-                style={{
-                  background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '20px',
-                  padding: '22px',
-                  boxShadow: '0 10px 26px rgba(15,23,42,0.05)',
-                  minHeight: '325px',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #f97316 100%)' }} />
-                <div style={{ width: '44px', height: '44px', borderRadius: '14px', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px', border: '1px solid #bfdbfe' }}>{item.icon}</div>
-                <h3 style={{ ...titleBaseStyle, fontSize: '1.1rem', lineHeight: 1.25 }}>{item.title}</h3>
-                <p style={{ margin: '10px 0 12px 0', color: '#64748b', lineHeight: 1.7, fontSize: '0.95rem', minHeight: '82px' }}>{item.desc}</p>
-                <div style={{ display: 'grid', gap: '8px', marginTop: 'auto' }}>
-                  {item.points.map((p) => (
-                    <div key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
-                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', marginTop: '6px', background: '#2563eb', flexShrink: 0 }} />
-                      <span>{p}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.article>
-            ))}
+            {offerings.map((item, idx) => {
+              const isHovered = hoveredServiceCard === idx;
+              return (
+                <motion.article
+                  key={item.title}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.7, delay: idx * 0.06, ease }}
+                  whileHover={{ y: -10, scale: 1.01 }}
+                  onHoverStart={() => setHoveredServiceCard(idx)}
+                  onHoverEnd={() => setHoveredServiceCard(null)}
+                  style={{
+                    background: isHovered ? 'linear-gradient(160deg, #0f172a 0%, #1e293b 58%, #334155 100%)' : 'linear-gradient(180deg, #ffffff 0%, #fbfdff 100%)',
+                    border: isHovered ? '1px solid rgba(241,78,57,0.6)' : '1px solid #e2e8f0',
+                    borderRadius: '22px',
+                    padding: '18px',
+                    boxShadow: isHovered ? '0 24px 44px rgba(15,23,42,0.32)' : '0 12px 28px rgba(15,23,42,0.06)',
+                    minHeight: '340px',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    color: isHovered ? '#ffffff' : '#0f172a',
+                  }}
+                >
+                  <div style={{ position: 'absolute', inset: 0, background: isHovered ? 'linear-gradient(130deg, rgba(241,78,57,0.18) 0%, rgba(241,78,57,0) 55%)' : 'linear-gradient(130deg, rgba(241,78,57,0.06) 0%, rgba(241,78,57,0) 55%)', pointerEvents: 'none' }} />
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #F14E39 0%, #fb923c 100%)' }} />
+                  {isHovered && <div style={{ position: 'absolute', top: '-72px', right: '-56px', width: '190px', height: '190px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(241,78,57,0.35) 0%, rgba(241,78,57,0) 72%)' }} />}
+
+                  <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                    <div style={{ width: '46px', height: '46px', borderRadius: '14px', background: isHovered ? 'rgba(241,78,57,0.18)' : 'linear-gradient(135deg, #fff1ef 0%, #ffe2de 100%)', color: isHovered ? '#ffffff' : '#F14E39', display: 'flex', alignItems: 'center', justifyContent: 'center', border: isHovered ? '1px solid rgba(241,78,57,0.45)' : '1px solid #ffc8c0' }}>{item.icon}</div>
+                    <span style={{ borderRadius: '999px', padding: '5px 10px', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.03em', background: isHovered ? 'rgba(241,78,57,0.2)' : '#fff4f2', color: isHovered ? '#ffd8d2' : '#c2412f', border: isHovered ? '1px solid rgba(241,78,57,0.4)' : '1px solid #ffd3cc' }}>
+                      Included
+                    </span>
+                  </div>
+
+                  <h3 style={{ ...titleBaseStyle, position: 'relative', fontSize: '1.1rem', lineHeight: 1.25, color: isHovered ? '#ffffff' : '#020617' }}>{item.title}</h3>
+                  <p style={{ position: 'relative', margin: '10px 0 12px 0', color: isHovered ? 'rgba(226,232,240,0.95)' : '#64748b', lineHeight: 1.7, fontSize: '0.95rem', minHeight: '82px' }}>{item.desc}</p>
+                  <div style={{ display: 'grid', gap: '8px', marginTop: 'auto' }}>
+                    {item.points.map((p) => (
+                      <div key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: isHovered ? '#ffffff' : '#334155', fontSize: '0.9rem' }}>
+                        <span style={{ width: '18px', height: '18px', borderRadius: '6px', marginTop: '1px', background: isHovered ? 'rgba(241,78,57,0.18)' : '#fff4f2', border: isHovered ? '1px solid rgba(241,78,57,0.45)' : '1px solid #ffd3cc', color: isHovered ? '#ffd8d2' : '#F14E39', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', lineHeight: 1, flexShrink: 0 }}>✓</span>
+                        <span>{p}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <motion.div
+                    initial={false}
+                    animate={{ opacity: isHovered ? 1 : 0.9, y: isHovered ? 0 : 2 }}
+                    transition={{ duration: 0.2 }}
+                    style={{ marginTop: '14px', borderTop: isHovered ? '1px solid rgba(241,78,57,0.4)' : '1px solid #e2e8f0', paddingTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                  >
+                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isHovered ? '#cbd5e1' : '#64748b' }}>Delivery-ready module</span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 800, color: isHovered ? '#ffd8d2' : '#F14E39' }}>Explore</span>
+                  </motion.div>
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </section>
