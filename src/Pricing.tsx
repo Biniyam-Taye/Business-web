@@ -170,7 +170,19 @@ export default function Pricing() {
                   </span>
                 </div>
                 <p style={{ margin: '10px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.88)' : '#64748b', lineHeight: 1.65, minHeight: '74px' }}>{plan.description}</p>
-                <div style={{ marginTop: '12px', padding: '12px', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0', borderRadius: '14px', background: hoveredPlan === idx ? 'rgba(255,255,255,0.12)' : '#ffffff' }}>
+                <motion.div
+                  whileHover={{
+                    x: [0, -1.5, 1.5, -1.5, 1.5, 0],
+                    transition: { duration: 0.28, ease: 'easeInOut' },
+                  }}
+                  style={{
+                    marginTop: '12px',
+                    padding: '12px',
+                    border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0',
+                    borderRadius: '14px',
+                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.12)' : '#ffffff',
+                  }}
+                >
                   <p
                     style={{
                       margin: 0,
@@ -185,7 +197,7 @@ export default function Pricing() {
                     {plan.price}
                   </p>
                   <p style={{ margin: '3px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.82)' : '#64748b', fontSize: '0.84rem' }}>{plan.period}</p>
-                </div>
+                </motion.div>
                 <div style={{ marginTop: '11px', display: 'grid', gap: '8px' }}>
                   {plan.features.map((f) => (
                     <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: hoveredPlan === idx ? 'rgba(255,255,255,0.93)' : '#334155', fontSize: '0.9rem' }}>
