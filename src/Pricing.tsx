@@ -171,7 +171,19 @@ export default function Pricing() {
                 </div>
                 <p style={{ margin: '10px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.88)' : '#64748b', lineHeight: 1.65, minHeight: '74px' }}>{plan.description}</p>
                 <div style={{ marginTop: '12px', padding: '12px', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0', borderRadius: '14px', background: hoveredPlan === idx ? 'rgba(255,255,255,0.12)' : '#ffffff' }}>
-                  <p style={{ margin: 0, fontSize: '1.55rem', fontWeight: 900, letterSpacing: '-0.03em', color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.price}</p>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 'clamp(2rem, 2.5vw, 2.3rem)',
+                      fontWeight: 900,
+                      letterSpacing: '-0.04em',
+                      lineHeight: 1.05,
+                      color: hoveredPlan === idx ? '#ffffff' : '#020617',
+                      textShadow: hoveredPlan === idx ? '0 8px 24px rgba(2,6,23,0.35)' : '0 2px 8px rgba(15,23,42,0.08)',
+                    }}
+                  >
+                    {plan.price}
+                  </p>
                   <p style={{ margin: '3px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.82)' : '#64748b', fontSize: '0.84rem' }}>{plan.period}</p>
                 </div>
                 <div style={{ marginTop: '11px', display: 'grid', gap: '8px' }}>
