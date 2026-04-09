@@ -647,18 +647,71 @@ export default function Services() {
 
       <section style={{ padding: '66px 0 20px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, ease }} style={{ background: 'linear-gradient(145deg, #0f172a, #020617)', border: '1px solid #1e293b', borderRadius: '22px', padding: '28px', color: '#ffffff' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', lineHeight: 1.2 }}>Ready to transform your operations with better systems?</h2>
-            <p style={{ margin: '10px 0 0 0', color: '#94a3b8', maxWidth: '760px', lineHeight: 1.7 }}>
-              Share your goals and we will propose a focused implementation plan with clear milestones, timeline, and value targets.
-            </p>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '20px' }}>
-              <button className="project-btn-primary" style={{ border: 'none', background: '#2563eb', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Book Strategy Call <ArrowUpRight size={16} />
-              </button>
-              <button className="project-btn-secondary" style={{ border: '1px solid #334155', background: '#0b1220', color: '#f8fafc', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Download Service Guide <ArrowRight size={16} />
-              </button>
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.85, ease }}
+            style={{
+              position: 'relative',
+              overflow: 'hidden',
+              borderRadius: '24px',
+              border: '1px solid #dbeafe',
+              background: 'linear-gradient(120deg, #ffffff 0%, #f8fbff 48%, #eff6ff 100%)',
+              boxShadow: '0 20px 44px rgba(15,23,42,0.08)',
+              padding: '26px',
+            }}
+          >
+            <div style={{ position: 'absolute', top: '-80px', right: '-60px', width: '260px', height: '260px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0) 72%)' }} />
+            <div style={{ position: 'absolute', bottom: '-120px', left: '-80px', width: '280px', height: '280px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.13) 0%, rgba(249,115,22,0) 72%)' }} />
+
+            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.3fr 0.7fr', gap: '16px' }}>
+              <div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', padding: '6px 12px', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                  <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: '#2563eb' }} />
+                  Next step
+                </div>
+                <h2 style={{ margin: '14px 0 0 0', fontSize: 'clamp(1.75rem, 3vw, 2.45rem)', lineHeight: 1.16, letterSpacing: '-0.03em' }}>
+                  Launch faster with a modern delivery partner.
+                </h2>
+                <p style={{ margin: '10px 0 0 0', color: '#475569', maxWidth: '720px', lineHeight: 1.75 }}>
+                  Share your target outcomes and constraints. We will return a practical implementation path with milestones, scope boundaries, and a timeline
+                  your team can execute confidently.
+                </p>
+
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '14px' }}>
+                  {['Architecture-first planning', 'Transparent sprint execution', 'Post-launch optimization'].map((chip) => (
+                    <span key={chip} style={{ borderRadius: '999px', border: '1px solid #dbeafe', background: '#ffffff', color: '#1e3a8a', padding: '6px 11px', fontSize: '0.78rem', fontWeight: 700 }}>
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '18px' }}>
+                  <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    Book Strategy Call <ArrowUpRight size={16} />
+                  </button>
+                  <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    Get Service Deck <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gap: '10px', alignContent: 'start' }}>
+                {[
+                  ['< 24h', 'Initial response window', <Workflow size={16} />],
+                  ['95%', 'On-time sprint delivery', <ShieldCheck size={16} />],
+                  ['Cloud-ready', 'Built for scale from day one', <Cloud size={16} />],
+                ].map((item) => (
+                  <div key={item[0] as string} style={{ borderRadius: '14px', border: '1px solid #dbeafe', background: 'rgba(255,255,255,0.86)', backdropFilter: 'blur(4px)', padding: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#1d4ed8' }}>
+                      <strong style={{ fontSize: '0.95rem' }}>{item[0]}</strong>
+                      <span style={{ display: 'inline-flex' }}>{item[2] as ReactNode}</span>
+                    </div>
+                    <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '0.84rem', lineHeight: 1.5 }}>{item[1]}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
