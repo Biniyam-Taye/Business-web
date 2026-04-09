@@ -57,62 +57,49 @@ const faqs = [
 
 export default function Pricing() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [hoveredPlan, setHoveredPlan] = useState<number | null>(1);
 
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#0f172a', paddingBottom: '120px' }}>
       <section style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', paddingTop: '114px', paddingBottom: '70px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              borderRadius: '24px',
-              border: '1px solid #dbeafe',
-              background: 'linear-gradient(125deg, #0b1220 0%, #0f172a 52%, #172554 100%)',
-              boxShadow: '0 24px 50px rgba(2,6,23,0.3)',
-              padding: '24px',
-              color: '#ffffff',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,130,246,0.35) 0%, rgba(59,130,246,0) 72%)' }} />
-            <div style={{ position: 'absolute', bottom: '-90px', left: '-70px', width: '260px', height: '260px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,85,247,0.28) 0%, rgba(168,85,247,0) 72%)' }} />
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} style={{ position: 'relative' }}>
+            <div style={{ position: 'absolute', top: '-40px', right: '0', width: '240px', height: '240px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.11) 0%, rgba(37,99,235,0) 72%)', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', bottom: '-70px', left: '-50px', width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,96,42,0.1) 0%, rgba(245,96,42,0) 72%)', pointerEvents: 'none' }} />
 
-            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '16px' }}>
+            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '24px', alignItems: 'start' }}>
               <div>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', border: '1px solid rgba(191,219,254,0.45)', background: 'rgba(37,99,235,0.16)', padding: '7px 14px', color: '#bfdbfe', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', border: '1px solid #bfdbfe', background: '#eff6ff', padding: '7px 14px', color: '#1d4ed8', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                   <Sparkles size={14} /> Pricing
                 </span>
-                <h1 style={{ margin: '14px 0 0 0', fontSize: 'clamp(2.05rem, 4.6vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.08, color: '#ffffff' }}>
-                  Choose the right plan and <span style={{ color: '#fb923c' }}>launch with confidence.</span>
+                <h1 style={{ margin: '14px 0 0 0', fontSize: 'clamp(2.1rem, 4.6vw, 3.7rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.08 }}>
+                  Choose the right plan and <span style={{ color: '#f5602a' }}>launch with confidence.</span>
                 </h1>
-                <p style={{ margin: '14px 0 0 0', color: '#cbd5e1', lineHeight: 1.75, maxWidth: '730px' }}>
+                <p style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '760px' }}>
                   Clear packages, clear scope, and clear delivery milestones. Pick a plan that fits your stage, then scale with add-ons as your needs evolve.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '20px' }}>
-                  <button className="project-btn-primary" style={{ border: 'none', background: '#ffffff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
                     Get Pricing Consultation <ArrowUpRight size={16} />
                   </button>
-                  <button className="project-btn-secondary" style={{ border: '1px solid rgba(148,163,184,0.5)', background: 'rgba(15,23,42,0.45)', color: '#e2e8f0', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
                     Compare Plans <ArrowRight size={16} />
                   </button>
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gap: '10px', alignContent: 'start' }}>
+              <div style={{ display: 'grid', gap: '10px' }}>
                 {[
                   ['From ETB 120,000', 'Project-based starting package'],
                   ['40 / 40 / 20', 'Milestone payment structure'],
                   ['Weekly Updates', 'Transparent sprint delivery'],
                 ].map((item, idx) => (
-                  <div key={item[0]} style={{ borderRadius: '14px', border: '1px solid rgba(148,163,184,0.35)', background: 'rgba(15,23,42,0.48)', padding: '12px' }}>
-                    <p style={{ margin: 0, fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff' }}>
-                      {idx === 0 ? <Zap size={15} color="#93c5fd" /> : <ShieldCheck size={15} color="#93c5fd" />}
+                  <div key={item[0]} style={{ borderRadius: '14px', border: '1px solid #dbeafe', background: '#ffffff', padding: '12px', boxShadow: '0 8px 20px rgba(15,23,42,0.05)' }}>
+                    <p style={{ margin: 0, fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', color: '#0f172a' }}>
+                      {idx === 0 ? <Zap size={15} color="#2563eb" /> : <ShieldCheck size={15} color="#2563eb" />}
                       {item[0]}
                     </p>
-                    <p style={{ margin: '5px 0 0 0', color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.5 }}>{item[1]}</p>
+                    <p style={{ margin: '5px 0 0 0', color: '#64748b', fontSize: '0.88rem', lineHeight: 1.5 }}>{item[1]}</p>
                   </div>
                 ))}
               </div>
@@ -138,29 +125,59 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.06 }}
+                whileHover={{ y: -8, scale: 1.01 }}
+                onHoverStart={() => setHoveredPlan(idx)}
+                onHoverEnd={() => setHoveredPlan((prev) => (prev === idx ? 1 : prev))}
                 style={{
                   borderRadius: '20px',
-                  border: plan.featured ? '1px solid #2563eb' : '1px solid #e2e8f0',
-                  background: plan.featured ? 'linear-gradient(160deg, #ffffff 0%, #eff6ff 100%)' : '#ffffff',
-                  boxShadow: plan.featured ? '0 16px 34px rgba(37,99,235,0.16)' : '0 10px 24px rgba(15,23,42,0.05)',
+                  border: hoveredPlan === idx ? '1px solid rgba(96,165,250,0.55)' : plan.featured ? '1px solid #2563eb' : '1px solid #e2e8f0',
+                  background:
+                    hoveredPlan === idx
+                      ? 'linear-gradient(155deg, #3b82f6 0%, #4f46e5 55%, #7c3aed 100%)'
+                      : plan.featured
+                        ? 'linear-gradient(160deg, #ffffff 0%, #eff6ff 100%)'
+                        : '#ffffff',
+                  boxShadow:
+                    hoveredPlan === idx
+                      ? '0 24px 46px rgba(59,130,246,0.35)'
+                      : plan.featured
+                        ? '0 16px 34px rgba(37,99,235,0.16)'
+                        : '0 10px 24px rgba(15,23,42,0.05)',
                   padding: '20px',
+                  color: hoveredPlan === idx ? '#ffffff' : '#0f172a',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
+                {hoveredPlan === idx && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '-70px',
+                      right: '-60px',
+                      width: '180px',
+                      height: '180px',
+                      borderRadius: '50%',
+                      background: 'radial-gradient(circle, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 72%)',
+                      pointerEvents: 'none',
+                    }}
+                  />
+                )}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.08rem', fontWeight: 900 }}>{plan.name}</h3>
-                  <span style={{ borderRadius: '999px', padding: '5px 9px', fontSize: '0.72rem', fontWeight: 800, background: plan.featured ? '#dbeafe' : '#f1f5f9', color: plan.featured ? '#1d4ed8' : '#334155' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.08rem', fontWeight: 900, color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.name}</h3>
+                  <span style={{ borderRadius: '999px', padding: '5px 9px', fontSize: '0.72rem', fontWeight: 800, background: hoveredPlan === idx ? 'rgba(255,255,255,0.2)' : plan.featured ? '#dbeafe' : '#f1f5f9', color: hoveredPlan === idx ? '#ffffff' : plan.featured ? '#1d4ed8' : '#334155', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.28)' : 'none' }}>
                     {plan.badge}
                   </span>
                 </div>
-                <p style={{ margin: '10px 0 0 0', color: '#64748b', lineHeight: 1.65, minHeight: '74px' }}>{plan.description}</p>
-                <div style={{ marginTop: '12px', padding: '12px', border: '1px solid #e2e8f0', borderRadius: '14px', background: '#ffffff' }}>
-                  <p style={{ margin: 0, fontSize: '1.55rem', fontWeight: 900, letterSpacing: '-0.03em' }}>{plan.price}</p>
-                  <p style={{ margin: '3px 0 0 0', color: '#64748b', fontSize: '0.84rem' }}>{plan.period}</p>
+                <p style={{ margin: '10px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.88)' : '#64748b', lineHeight: 1.65, minHeight: '74px' }}>{plan.description}</p>
+                <div style={{ marginTop: '12px', padding: '12px', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0', borderRadius: '14px', background: hoveredPlan === idx ? 'rgba(255,255,255,0.12)' : '#ffffff' }}>
+                  <p style={{ margin: 0, fontSize: '1.55rem', fontWeight: 900, letterSpacing: '-0.03em', color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.price}</p>
+                  <p style={{ margin: '3px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.82)' : '#64748b', fontSize: '0.84rem' }}>{plan.period}</p>
                 </div>
                 <div style={{ marginTop: '11px', display: 'grid', gap: '8px' }}>
                   {plan.features.map((f) => (
-                    <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
-                      <span style={{ width: '20px', height: '20px', borderRadius: '7px', background: '#0f172a', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: hoveredPlan === idx ? 'rgba(255,255,255,0.93)' : '#334155', fontSize: '0.9rem' }}>
+                      <span style={{ width: '20px', height: '20px', borderRadius: '7px', background: hoveredPlan === idx ? '#ffffff' : '#0f172a', color: hoveredPlan === idx ? '#4f46e5' : '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                         <Check size={13} />
                       </span>
                       <span>{f}</span>
@@ -168,7 +185,9 @@ export default function Pricing() {
                   ))}
                 </div>
                 <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #e2e8f0', paddingTop: '10px' }}>
-                  <span style={{ color: '#64748b', fontSize: '0.84rem' }}>Estimated timeline: <strong style={{ color: '#0f172a' }}>{plan.timeline}</strong></span>
+                  <span style={{ color: hoveredPlan === idx ? 'rgba(255,255,255,0.88)' : '#64748b', fontSize: '0.84rem' }}>
+                    Estimated timeline: <strong style={{ color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.timeline}</strong>
+                  </span>
                 </div>
               </motion.article>
             ))}
