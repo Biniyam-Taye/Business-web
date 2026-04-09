@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -143,6 +143,33 @@ const faqs = [
   },
 ];
 
+const titleBaseStyle: CSSProperties = {
+  margin: 0,
+  fontWeight: 900,
+  color: '#020617',
+  letterSpacing: '-0.03em',
+  lineHeight: 1.12,
+};
+
+const accentOrangeStyle: CSSProperties = {
+  color: '#f5602a',
+};
+
+const accentBlueStyle: CSSProperties = {
+  background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  backgroundClip: 'text',
+};
+
+const titleOnDarkStyle: CSSProperties = {
+  margin: 0,
+  fontWeight: 900,
+  color: '#ffffff',
+  letterSpacing: '-0.02em',
+  lineHeight: 1.15,
+};
+
 export default function Services() {
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -157,8 +184,10 @@ export default function Services() {
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb' }} />
                 <span style={{ fontSize: '0.75rem', letterSpacing: '0.08em', fontWeight: 800, textTransform: 'uppercase', color: '#2563eb' }}>Our Services</span>
               </div>
-              <h1 style={{ margin: 0, fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.03em', fontSize: 'clamp(2.2rem, 4.4vw, 3.5rem)' }}>
-                Comprehensive technology services designed for <span style={{ color: '#f97316' }}>long-term business growth.</span>
+              <h1 style={{ ...titleBaseStyle, fontSize: 'clamp(2.2rem, 4.4vw, 3.5rem)' }}>
+                Comprehensive technology services for{' '}
+                <span style={accentOrangeStyle}>business growth</span> and{' '}
+                <span style={accentBlueStyle}>modern scale.</span>
               </h1>
               <p style={{ margin: '18px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '640px' }}>
                 We help teams move from idea to fully-operational products with robust architecture, beautiful UX, and measurable performance outcomes.
@@ -192,8 +221,8 @@ export default function Services() {
 
       <section style={{ padding: '74px 0 20px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ margin: '0 0 8px 0', fontSize: 'clamp(1.9rem, 3vw, 2.8rem)' }}>
-            End-to-End Service Coverage
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ ...titleBaseStyle, marginBottom: '8px', fontSize: 'clamp(1.9rem, 3vw, 2.8rem)' }}>
+            End-to-End Service <span style={accentBlueStyle}>Coverage</span>
           </motion.h2>
           <p style={{ margin: '0 0 20px 0', color: '#64748b', maxWidth: '740px', lineHeight: 1.7 }}>
             Every service module includes strategy, implementation, and measurable outcomes.
@@ -223,7 +252,7 @@ export default function Services() {
               >
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #f97316 100%)' }} />
                 <div style={{ width: '44px', height: '44px', borderRadius: '14px', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px', border: '1px solid #bfdbfe' }}>{item.icon}</div>
-                <h3 style={{ margin: 0, fontSize: '1.1rem' }}>{item.title}</h3>
+                <h3 style={{ ...titleBaseStyle, fontSize: '1.1rem', lineHeight: 1.25 }}>{item.title}</h3>
                 <p style={{ margin: '10px 0 12px 0', color: '#64748b', lineHeight: 1.7, fontSize: '0.95rem', minHeight: '82px' }}>{item.desc}</p>
                 <div style={{ display: 'grid', gap: '8px', marginTop: 'auto' }}>
                   {item.points.map((p) => (
@@ -242,7 +271,9 @@ export default function Services() {
       <section style={{ padding: '62px 0 14px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px', boxShadow: '0 14px 34px rgba(15,23,42,0.05)' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>How We Deliver</h2>
+            <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
+              How We <span style={accentBlueStyle}>Deliver</span>
+            </h2>
             <p style={{ margin: '10px 0 16px 0', color: '#64748b', lineHeight: 1.7, maxWidth: '760px' }}>
               Structured delivery with milestone ownership, transparent reporting, and production-grade quality controls.
             </p>
@@ -280,7 +311,7 @@ export default function Services() {
                     </span>
                   </div>
                   <div>
-                    <h3 style={{ margin: 0, fontSize: '1rem' }}>{step.title}</h3>
+                    <h3 style={{ ...titleBaseStyle, fontSize: '1rem', lineHeight: 1.25 }}>{step.title}</h3>
                     <p style={{ margin: '4px 0 8px 0', color: '#64748b', lineHeight: 1.6 }}>{step.text}</p>
                     <div style={{ display: 'grid', gap: '6px' }}>
                       {step.deliverables.map((deliverable) => (
@@ -319,7 +350,9 @@ export default function Services() {
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0.08) 0%, rgba(2,6,23,0.78) 100%)' }} />
                 <div style={{ position: 'absolute', left: '20px', right: '20px', bottom: '16px' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.35rem', color: '#ffffff' }}>Tech Stack & Architecture</h3>
+                  <h3 style={{ ...titleOnDarkStyle, fontSize: '1.35rem' }}>
+                    Tech Stack & <span style={accentOrangeStyle}>Architecture</span>
+                  </h3>
                   <p style={{ margin: '6px 0 0 0', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
                     Scalable foundations selected for performance, maintainability, and growth.
                   </p>
@@ -355,7 +388,9 @@ export default function Services() {
                 <div style={{ marginTop: '16px', borderTop: '1px solid #e2e8f0', paddingTop: '16px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: '14px', alignItems: 'start' }}>
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '1.05rem', letterSpacing: '-0.01em' }}>A blueprint that scales with you</h4>
+                      <h4 style={{ ...titleBaseStyle, fontSize: '1.05rem', letterSpacing: '-0.02em' }}>
+                        A blueprint that <span style={accentBlueStyle}>scales with you</span>
+                      </h4>
                       <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.65 }}>
                         We design systems for clarity and change: clean modules, secure boundaries, and observability built-in—so teams ship faster without
                         breaking production.
@@ -473,7 +508,9 @@ export default function Services() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.65) 100%)' }} />
-                  <h3 style={{ position: 'absolute', left: '16px', bottom: '14px', margin: 0, fontSize: '1.25rem', color: '#ffffff' }}>Industries We Serve</h3>
+                  <h3 style={{ ...titleOnDarkStyle, position: 'absolute', left: '16px', bottom: '14px', fontSize: '1.25rem' }}>
+                    Industries We <span style={accentOrangeStyle}>Serve</span>
+                  </h3>
                 </div>
                 <div style={{ padding: '14px' }}>
                   <p style={{ margin: '0 0 10px 0', color: '#64748b', lineHeight: 1.6 }}>
@@ -514,7 +551,9 @@ export default function Services() {
               </div>
 
               <div style={{ background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', border: '1px solid #dbeafe', borderRadius: '20px', padding: '16px' }}>
-                <h4 style={{ margin: 0, fontSize: '1rem', color: '#1e3a8a' }}>Why this model works</h4>
+                <h4 style={{ ...titleBaseStyle, fontSize: '1rem', color: '#1e3a8a' }}>
+                  Why this model <span style={accentBlueStyle}>works</span>
+                </h4>
                 <div style={{ display: 'grid', gap: '7px', marginTop: '8px' }}>
                   {['Lower technical debt', 'Faster release cycles', 'Easier long-term scaling'].map((point) => (
                     <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
@@ -532,7 +571,9 @@ export default function Services() {
       <section style={{ padding: '62px 0 12px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>Engagement Models</h2>
+            <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
+              Engagement <span style={accentOrangeStyle}>Models</span>
+            </h2>
             <p style={{ margin: '8px 0 16px 0', color: '#64748b', maxWidth: '760px', lineHeight: 1.7 }}>
               Flexible collaboration models designed for different delivery needs.
             </p>
@@ -543,7 +584,7 @@ export default function Services() {
                 ['Advisory + Build', 'Best for teams needing architecture leadership and implementation.'],
               ].map((m, idx) => (
                 <motion.div key={m[0]} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: idx * 0.08, ease }} style={{ border: '1px solid #e2e8f0', borderRadius: '14px', background: '#f8fafc', padding: '14px' }}>
-                  <h3 style={{ margin: 0, fontSize: '1rem' }}>{m[0]}</h3>
+                  <h3 style={{ ...titleBaseStyle, fontSize: '1rem', lineHeight: 1.25 }}>{m[0]}</h3>
                   <p style={{ margin: '6px 0 0 0', color: '#64748b', lineHeight: 1.6, fontSize: '0.92rem' }}>{m[1]}</p>
                 </motion.div>
               ))}
@@ -555,7 +596,9 @@ export default function Services() {
       <section style={{ padding: '62px 0 16px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>Frequently Asked Questions</h2>
+            <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
+              Frequently Asked <span style={accentBlueStyle}>Questions</span>
+            </h2>
             <div style={{ display: 'grid', gap: '10px', marginTop: '16px' }}>
               {faqs.map((f, idx) => {
                 const isOpen = openFaq === idx;
@@ -671,8 +714,8 @@ export default function Services() {
                   <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: '#2563eb' }} />
                   Next step
                 </div>
-                <h2 style={{ margin: '14px 0 0 0', fontSize: 'clamp(1.75rem, 3vw, 2.45rem)', lineHeight: 1.16, letterSpacing: '-0.03em' }}>
-                  Launch faster with a modern delivery partner.
+                <h2 style={{ ...titleBaseStyle, marginTop: '14px', fontSize: 'clamp(1.75rem, 3vw, 2.45rem)', lineHeight: 1.16 }}>
+                  Launch faster with a <span style={accentBlueStyle}>modern delivery</span> partner.
                 </h2>
                 <p style={{ margin: '10px 0 0 0', color: '#475569', maxWidth: '720px', lineHeight: 1.75 }}>
                   Share your target outcomes and constraints. We will return a practical implementation path with milestones, scope boundaries, and a timeline
