@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
   ArrowUpRight,
   Bot,
+  ChevronDown,
   Cloud,
   Code2,
   Database,
@@ -126,20 +128,24 @@ const industries = [
 const faqs = [
   {
     q: 'How long does a typical project take?',
-    a: 'Most projects run between 6 and 16 weeks depending on complexity, integrations, and scope depth.',
+    a: 'Most projects run between 6 and 16 weeks depending on complexity, integrations, and scope depth. Smaller MVPs can launch faster, while enterprise builds need additional planning, security hardening, and staged rollout.',
+    points: ['MVP scope: ~6-8 weeks', 'Mid-size platforms: ~10-14 weeks', 'Complex enterprise delivery: ~14-16+ weeks'],
   },
   {
     q: 'Do you work with existing systems?',
-    a: 'Yes. We often integrate or modernize existing platforms while maintaining business continuity.',
+    a: 'Yes. We frequently integrate with existing tools, APIs, and databases so your team can improve systems without disrupting daily operations. Our approach is modernization in phases, not risky full replacements.',
+    points: ['API and legacy system integration', 'Gradual migration with minimal downtime', 'Backward compatibility for critical workflows'],
   },
   {
     q: 'Can you support after launch?',
-    a: 'Absolutely. We provide ongoing maintenance, enhancement sprints, and support retainers.',
+    a: 'Absolutely. After launch, we stay involved with performance monitoring, bug fixes, and prioritized enhancement sprints. You get reliable technical ownership as your product and business continue to evolve.',
+    points: ['Monitoring and incident response', 'Monthly optimization and feature sprints', 'Flexible support retainers for growth'],
   },
 ];
 
 export default function Services() {
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#0f172a', paddingBottom: '140px' }}>
@@ -551,12 +557,89 @@ export default function Services() {
           <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
             <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>Frequently Asked Questions</h2>
             <div style={{ display: 'grid', gap: '10px', marginTop: '16px' }}>
-              {faqs.map((f, idx) => (
-                <motion.div key={f.q} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55, delay: idx * 0.07, ease }} style={{ border: '1px solid #e2e8f0', borderRadius: '12px', padding: '14px', background: '#f8fafc' }}>
-                  <h3 style={{ margin: 0, fontSize: '1rem' }}>{f.q}</h3>
-                  <p style={{ margin: '6px 0 0 0', color: '#64748b', lineHeight: 1.6 }}>{f.a}</p>
-                </motion.div>
-              ))}
+              {faqs.map((f, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <motion.div
+                    key={f.q}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55, delay: idx * 0.07, ease }}
+                    style={{
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '14px',
+                      background: isOpen ? '#ffffff' : '#f8fafc',
+                      boxShadow: isOpen ? '0 10px 26px rgba(15,23,42,0.06)' : 'none',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq((prev) => (prev === idx ? null : idx))}
+                      aria-expanded={isOpen}
+                      style={{
+                        width: '100%',
+                        textAlign: 'left',
+                        border: 'none',
+                        background: 'transparent',
+                        padding: '14px 14px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '12px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                        <span style={{ fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>{f.q}</span>
+                        <span style={{ fontSize: '0.85rem', color: '#64748b', lineHeight: 1.5 }}>
+                          {isOpen ? 'Tap to hide answer' : 'Tap to view brief answer'}
+                        </span>
+                      </span>
+                      <span
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '12px',
+                          border: '1px solid #e2e8f0',
+                          background: isOpen ? '#0f172a' : '#ffffff',
+                          color: isOpen ? '#ffffff' : '#0f172a',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
+                          <ChevronDown size={16} />
+                        </motion.span>
+                      </span>
+                    </button>
+
+                    <motion.div
+                      initial={false}
+                      animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div style={{ padding: '0 14px 14px 14px' }}>
+                        <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '10px' }}>
+                          <p style={{ margin: 0, color: '#64748b', lineHeight: 1.75, fontSize: '0.95rem' }}>{f.a}</p>
+                          <div style={{ display: 'grid', gap: '7px', marginTop: '10px' }}>
+                            {f.points.map((point) => (
+                              <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
+                                <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: '#2563eb', marginTop: '6px', flexShrink: 0 }} />
+                                <span style={{ lineHeight: 1.55 }}>{point}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
