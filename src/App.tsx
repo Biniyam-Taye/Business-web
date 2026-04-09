@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-ro
 import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
 import ServicesPage from './Services';
+import PricingPage from './Pricing';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -51,7 +52,7 @@ function MainLayout() {
   const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState('About Us');
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
-  const navLinks = ['About Us', 'Projects', 'Services', 'Events', 'Contacts'];
+  const navLinks = ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts'];
 
   useEffect(() => {
     setMounted(true);
@@ -59,6 +60,8 @@ function MainLayout() {
       setActiveNav('Projects');
     } else if (location.pathname === '/services') {
       setActiveNav('Services');
+    } else if (location.pathname === '/pricing') {
+      setActiveNav('Pricing');
     } else if (location.pathname === '/') {
       setActiveNav('About Us');
     }
@@ -105,6 +108,7 @@ function MainLayout() {
                   setActiveNav(link);
                   if (link === 'Projects') navigate('/projects');
                   else if (link === 'Services') navigate('/services');
+                  else if (link === 'Pricing') navigate('/pricing');
                   else if (link === 'About Us') navigate('/');
                 }}
               >
@@ -147,6 +151,7 @@ function MainLayout() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/" element={
           <>
       {/* Hero Wrapper */}
