@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
@@ -52,20 +53,74 @@ const offerings = [
 ];
 
 const processSteps = [
-  { id: '01', title: 'Discovery', text: 'We align business goals, user outcomes, and technical constraints into a clear roadmap.' },
-  { id: '02', title: 'Planning & Design', text: 'We define architecture, user flows, priorities, and delivery milestones.' },
-  { id: '03', title: 'Build', text: 'Our team develops in iterative sprints with transparent weekly progress updates.' },
-  { id: '04', title: 'QA & Launch', text: 'We harden quality, run final validations, and launch with confidence.' },
-  { id: '05', title: 'Growth Optimization', text: 'We monitor, optimize, and evolve the product based on performance and feedback.' },
+  {
+    id: '01',
+    title: 'Discovery',
+    text: 'We align business goals, user outcomes, and technical constraints into a clear roadmap.',
+    duration: 'Week 1',
+    deliverables: ['Stakeholder interviews', 'Current-state audit', 'Success metrics definition'],
+  },
+  {
+    id: '02',
+    title: 'Planning & Design',
+    text: 'We define architecture, user flows, priorities, and delivery milestones.',
+    duration: 'Week 2-3',
+    deliverables: ['Technical architecture', 'UX wireframes and UI direction', 'Sprint backlog and milestones'],
+  },
+  {
+    id: '03',
+    title: 'Build',
+    text: 'Our team develops in iterative sprints with transparent weekly progress updates.',
+    duration: 'Week 4-10',
+    deliverables: ['Feature implementation', 'API and integrations', 'Weekly demo and review cycles'],
+  },
+  {
+    id: '04',
+    title: 'QA & Launch',
+    text: 'We harden quality, run final validations, and launch with confidence.',
+    duration: 'Week 11-12',
+    deliverables: ['Quality and security checks', 'Performance validation', 'Release execution plan'],
+  },
+  {
+    id: '05',
+    title: 'Growth Optimization',
+    text: 'We monitor, optimize, and evolve the product based on performance and feedback.',
+    duration: 'Post-launch',
+    deliverables: ['Analytics insights', 'Optimization sprints', 'Roadmap iteration and support'],
+  },
 ];
 
 const industries = [
-  'Fintech & Banking',
-  'Healthcare & Clinics',
-  'E-commerce & Retail',
-  'Logistics & Supply Chain',
-  'Education & Training',
-  'Enterprise Operations',
+  {
+    name: 'Fintech & Banking',
+    detail: 'Secure transaction systems',
+    image: 'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Healthcare & Clinics',
+    detail: 'Patient-first digital workflows',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'E-commerce & Retail',
+    detail: 'High-conversion shopping journeys',
+    image: 'https://images.unsplash.com/photo-1607082350899-7e105aa886ae?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Logistics & Supply Chain',
+    detail: 'Tracking and route intelligence',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Education & Training',
+    detail: 'Scalable learning platforms',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    name: 'Enterprise Operations',
+    detail: 'Workflow and reporting automation',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+  },
 ];
 
 const faqs = [
@@ -180,11 +235,18 @@ export default function Services() {
 
       <section style={{ padding: '62px 0 14px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
+          <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px', boxShadow: '0 14px 34px rgba(15,23,42,0.05)' }}>
             <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>How We Deliver</h2>
             <p style={{ margin: '10px 0 16px 0', color: '#64748b', lineHeight: 1.7, maxWidth: '760px' }}>
-              Structured delivery with clear milestones, weekly reporting, and production-grade quality controls.
+              Structured delivery with milestone ownership, transparent reporting, and production-grade quality controls.
             </p>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '14px' }}>
+              {['Weekly Progress Reports', 'Sprint-Based Delivery', 'QA + Performance Validation', 'Post-Launch Optimization'].map((chip) => (
+                <span key={chip} style={{ borderRadius: '999px', border: '1px solid #dbeafe', background: '#eff6ff', color: '#1d4ed8', padding: '6px 12px', fontSize: '0.76rem', fontWeight: 700, letterSpacing: '0.02em' }}>
+                  {chip}
+                </span>
+              ))}
+            </div>
             <div style={{ display: 'grid', gap: '10px' }}>
               {processSteps.map((step, idx) => (
                 <motion.div
@@ -193,12 +255,38 @@ export default function Services() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.65, delay: idx * 0.08, ease }}
-                  style={{ display: 'grid', gridTemplateColumns: '92px 1fr', gap: '12px', alignItems: 'center', border: '1px solid #e2e8f0', borderRadius: '14px', padding: '14px 16px', background: '#f8fafc' }}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '92px 1fr auto',
+                    gap: '12px',
+                    alignItems: 'flex-start',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '16px',
+                    padding: '15px 16px',
+                    background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)',
+                    boxShadow: '0 8px 20px rgba(15,23,42,0.03)',
+                  }}
                 >
-                  <div style={{ fontSize: '1.5rem', color: '#2563eb', fontWeight: 800 }}>{step.id}</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div style={{ fontSize: '1.5rem', color: '#2563eb', fontWeight: 800 }}>{step.id}</div>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#1d4ed8', letterSpacing: '0.06em', textTransform: 'uppercase', border: '1px solid #bfdbfe', background: '#eff6ff', borderRadius: '999px', padding: '4px 8px', width: 'fit-content' }}>
+                      {step.duration}
+                    </span>
+                  </div>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '1rem' }}>{step.title}</h3>
-                    <p style={{ margin: '4px 0 0 0', color: '#64748b', lineHeight: 1.6 }}>{step.text}</p>
+                    <p style={{ margin: '4px 0 8px 0', color: '#64748b', lineHeight: 1.6 }}>{step.text}</p>
+                    <div style={{ display: 'grid', gap: '6px' }}>
+                      {step.deliverables.map((deliverable) => (
+                        <div key={deliverable} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.88rem', color: '#334155' }}>
+                          <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: '#3b82f6', marginTop: '6px', flexShrink: 0 }} />
+                          <span>{deliverable}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ alignSelf: 'center', width: '34px', height: '34px', borderRadius: '10px', background: '#0f172a', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', fontWeight: 700 }}>
+                    {idx + 1}
                   </div>
                 </motion.div>
               ))}
@@ -209,38 +297,226 @@ export default function Services() {
 
       <section style={{ padding: '62px 0 12px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
-            <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.75, ease }} style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '18px', padding: '22px', color: '#f8fafc' }}>
-              <h3 style={{ margin: 0, fontSize: '1.3rem' }}>Tech Stack & Architecture</h3>
-              <p style={{ margin: '8px 0 14px 0', color: '#94a3b8', lineHeight: 1.7 }}>
-                We choose the right stack for your goals, team capability, and long-term maintainability.
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px' }}>
-                {[
-                  ['Frontend', <LayoutPanelTop size={16} />],
-                  ['Backend', <Database size={16} />],
-                  ['Cloud', <Cloud size={16} />],
-                  ['Automation', <Workflow size={16} />],
-                ].map(([name, icon]) => (
-                  <div key={String(name)} style={{ border: '1px solid #334155', borderRadius: '10px', padding: '10px', background: '#020617', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ color: '#60a5fa', display: 'inline-flex' }}>{icon as JSX.Element}</span>
-                    <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>{name}</span>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 1fr', gap: '14px' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease }}
+              style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 12px 30px rgba(15,23,42,0.05)' }}
+            >
+              <div style={{ position: 'relative', height: '230px' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80"
+                  alt="Technology architecture"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0.08) 0%, rgba(2,6,23,0.78) 100%)' }} />
+                <div style={{ position: 'absolute', left: '20px', right: '20px', bottom: '16px' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.35rem', color: '#ffffff' }}>Tech Stack & Architecture</h3>
+                  <p style={{ margin: '6px 0 0 0', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
+                    Scalable foundations selected for performance, maintainability, and growth.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ padding: '18px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px' }}>
+                  {[
+                    ['Frontend', <LayoutPanelTop size={16} />],
+                    ['Backend', <Database size={16} />],
+                    ['Cloud', <Cloud size={16} />],
+                    ['Automation', <Workflow size={16} />],
+                  ].map(([name, icon]) => (
+                    <div
+                      key={String(name)}
+                      style={{
+                        border: '1px solid #dbeafe',
+                        borderRadius: '12px',
+                        padding: '12px',
+                        background: 'linear-gradient(180deg, #ffffff 0%, #eff6ff 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                      }}
+                    >
+                      <span style={{ color: '#2563eb', display: 'inline-flex' }}>{icon as ReactNode}</span>
+                      <span style={{ fontWeight: 700, fontSize: '0.92rem', color: '#1e293b' }}>{name}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: '16px', borderTop: '1px solid #e2e8f0', paddingTop: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: '14px', alignItems: 'start' }}>
+                    <div>
+                      <h4 style={{ margin: 0, fontSize: '1.05rem', letterSpacing: '-0.01em' }}>A blueprint that scales with you</h4>
+                      <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.65 }}>
+                        We design systems for clarity and change: clean modules, secure boundaries, and observability built-in—so teams ship faster without
+                        breaking production.
+                      </p>
+
+                      <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                        {[
+                          'React / Next.js',
+                          'Node / .NET',
+                          'Postgres',
+                          'Redis',
+                          'Docker',
+                          'CI/CD',
+                          'AWS / Azure',
+                          'Monitoring',
+                        ].map((tag) => (
+                          <span
+                            key={tag}
+                            style={{
+                              borderRadius: '999px',
+                              padding: '6px 10px',
+                              border: '1px solid #e2e8f0',
+                              background: '#f8fafc',
+                              color: '#0f172a',
+                              fontSize: '0.78rem',
+                              fontWeight: 700,
+                              letterSpacing: '0.01em',
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div style={{ marginTop: '14px', display: 'grid', gap: '8px' }}>
+                        {[
+                          'Clear API contracts + versioning strategy',
+                          'Role-based access patterns and audit trails',
+                          'Performance budgets and caching plan',
+                          'Alerts, dashboards, and incident-ready runbooks',
+                        ].map((item) => (
+                          <div key={item} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#334155', fontSize: '0.92rem' }}>
+                            <span style={{ width: '22px', height: '22px', borderRadius: '8px', background: '#0f172a', color: '#ffffff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                              <ShieldCheck size={14} />
+                            </span>
+                            <span style={{ lineHeight: 1.55 }}>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'grid', gap: '10px' }}>
+                      <div style={{ border: '1px solid #e2e8f0', borderRadius: '16px', background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)', padding: '12px' }}>
+                        <p style={{ margin: 0, fontSize: '0.8rem', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 800, color: '#1d4ed8' }}>
+                          Typical deliverables
+                        </p>
+                        <div style={{ display: 'grid', gap: '8px', marginTop: '10px' }}>
+                          {[
+                            'Architecture diagram',
+                            'Data model + migrations',
+                            'API spec + endpoints',
+                            'Deployment pipeline',
+                          ].map((d) => (
+                            <div key={d} style={{ display: 'flex', gap: '8px', alignItems: 'center', color: '#334155', fontSize: '0.9rem' }}>
+                              <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: '#2563eb', flexShrink: 0 }} />
+                              <span style={{ lineHeight: 1.45 }}>{d}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div style={{ border: '1px solid #dbeafe', borderRadius: '16px', background: 'linear-gradient(145deg, #eff6ff 0%, #ffffff 100%)', padding: '12px' }}>
+                        <p style={{ margin: 0, fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em' }}>Get a stack recommendation</p>
+                        <p style={{ margin: '6px 0 0 0', color: '#64748b', lineHeight: 1.55, fontSize: '0.9rem' }}>
+                          Share your goals and constraints—we’ll propose a right-sized architecture and rollout plan.
+                        </p>
+                        <button
+                          className="project-btn-primary"
+                          style={{
+                            marginTop: '10px',
+                            border: 'none',
+                            background: '#0f172a',
+                            color: '#fff',
+                            borderRadius: '12px',
+                            padding: '10px 12px',
+                            fontWeight: 800,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            width: '100%',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          View example architecture <ArrowRight size={16} />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                ))}
+                </div>
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, delay: 0.12, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '18px', padding: '22px' }}>
-              <h3 style={{ margin: 0, fontSize: '1.3rem' }}>Industries We Serve</h3>
-              <p style={{ margin: '8px 0 14px 0', color: '#64748b', lineHeight: 1.7 }}>
-                We adapt implementation style and compliance requirements by domain.
-              </p>
-              <div style={{ display: 'grid', gap: '8px' }}>
-                {industries.map((i) => (
-                  <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', background: '#f8fafc', padding: '10px 12px', color: '#334155', fontWeight: 600, fontSize: '0.92rem' }}>
-                    {i}
+            <motion.div
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.1, ease }}
+              style={{ display: 'grid', gap: '14px' }}
+            >
+              <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 12px 30px rgba(15,23,42,0.05)' }}>
+                <div style={{ position: 'relative', height: '130px' }}>
+                  <img
+                    src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
+                    alt="Industries and teams"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.65) 100%)' }} />
+                  <h3 style={{ position: 'absolute', left: '16px', bottom: '14px', margin: 0, fontSize: '1.25rem', color: '#ffffff' }}>Industries We Serve</h3>
+                </div>
+                <div style={{ padding: '14px' }}>
+                  <p style={{ margin: '0 0 10px 0', color: '#64748b', lineHeight: 1.6 }}>
+                    Domain-specific delivery with compliance and workflow alignment.
+                  </p>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px' }}>
+                    {industries.map((industry) => (
+                      <div
+                        key={industry.name}
+                        style={{
+                          borderRadius: '12px',
+                          border: '1px solid #dbeafe',
+                          overflow: 'hidden',
+                          background: '#ffffff',
+                          boxShadow: '0 8px 20px rgba(15,23,42,0.05)',
+                        }}
+                      >
+                        <div style={{ position: 'relative', height: '86px' }}>
+                          <img
+                            src={industry.image}
+                            alt={industry.name}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          />
+                          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0.05) 0%, rgba(2,6,23,0.48) 100%)' }} />
+                        </div>
+                        <div style={{ padding: '10px' }}>
+                          <p style={{ margin: 0, color: '#0f172a', fontSize: '0.86rem', fontWeight: 700, lineHeight: 1.3 }}>
+                            {industry.name}
+                          </p>
+                          <p style={{ margin: '3px 0 0 0', color: '#64748b', fontSize: '0.75rem', lineHeight: 1.4 }}>
+                            {industry.detail}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+              </div>
+
+              <div style={{ background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', border: '1px solid #dbeafe', borderRadius: '20px', padding: '16px' }}>
+                <h4 style={{ margin: 0, fontSize: '1rem', color: '#1e3a8a' }}>Why this model works</h4>
+                <div style={{ display: 'grid', gap: '7px', marginTop: '8px' }}>
+                  {['Lower technical debt', 'Faster release cycles', 'Easier long-term scaling'].map((point) => (
+                    <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', marginTop: '6px', background: '#2563eb', flexShrink: 0 }} />
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>

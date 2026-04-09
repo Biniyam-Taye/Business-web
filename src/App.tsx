@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Zap, Smartphone, Database, Cloud, Palette } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
