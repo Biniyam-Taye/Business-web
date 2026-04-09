@@ -62,23 +62,60 @@ export default function Pricing() {
     <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#0f172a', paddingBottom: '120px' }}>
       <section style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', paddingTop: '114px', paddingBottom: '70px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', border: '1px solid #bfdbfe', background: '#eff6ff', padding: '7px 14px', color: '#1d4ed8', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-              <Sparkles size={14} /> Pricing
-            </span>
-            <h1 style={{ margin: '14px 0 0 0', fontSize: 'clamp(2.1rem, 4.6vw, 3.7rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.08 }}>
-              Transparent pricing in <span style={{ color: '#f5602a' }}>ETB</span> for <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>modern service delivery.</span>
-            </h1>
-            <p style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '760px' }}>
-              Choose a package that matches your goals today and scales with your business tomorrow. Every plan includes delivery structure, quality checks, and launch guidance.
-            </p>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '20px' }}>
-              <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Get Pricing Consultation <ArrowUpRight size={16} />
-              </button>
-              <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Compare Plans <ArrowRight size={16} />
-              </button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              borderRadius: '24px',
+              border: '1px solid #dbeafe',
+              background: 'linear-gradient(125deg, #0b1220 0%, #0f172a 52%, #172554 100%)',
+              boxShadow: '0 24px 50px rgba(2,6,23,0.3)',
+              padding: '24px',
+              color: '#ffffff',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,130,246,0.35) 0%, rgba(59,130,246,0) 72%)' }} />
+            <div style={{ position: 'absolute', bottom: '-90px', left: '-70px', width: '260px', height: '260px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,85,247,0.28) 0%, rgba(168,85,247,0) 72%)' }} />
+
+            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '16px' }}>
+              <div>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', border: '1px solid rgba(191,219,254,0.45)', background: 'rgba(37,99,235,0.16)', padding: '7px 14px', color: '#bfdbfe', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                  <Sparkles size={14} /> Pricing
+                </span>
+                <h1 style={{ margin: '14px 0 0 0', fontSize: 'clamp(2.05rem, 4.6vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.08, color: '#ffffff' }}>
+                  Choose the right plan and <span style={{ color: '#fb923c' }}>launch with confidence.</span>
+                </h1>
+                <p style={{ margin: '14px 0 0 0', color: '#cbd5e1', lineHeight: 1.75, maxWidth: '730px' }}>
+                  Clear packages, clear scope, and clear delivery milestones. Pick a plan that fits your stage, then scale with add-ons as your needs evolve.
+                </p>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '20px' }}>
+                  <button className="project-btn-primary" style={{ border: 'none', background: '#ffffff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    Get Pricing Consultation <ArrowUpRight size={16} />
+                  </button>
+                  <button className="project-btn-secondary" style={{ border: '1px solid rgba(148,163,184,0.5)', background: 'rgba(15,23,42,0.45)', color: '#e2e8f0', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    Compare Plans <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gap: '10px', alignContent: 'start' }}>
+                {[
+                  ['From ETB 120,000', 'Project-based starting package'],
+                  ['40 / 40 / 20', 'Milestone payment structure'],
+                  ['Weekly Updates', 'Transparent sprint delivery'],
+                ].map((item, idx) => (
+                  <div key={item[0]} style={{ borderRadius: '14px', border: '1px solid rgba(148,163,184,0.35)', background: 'rgba(15,23,42,0.48)', padding: '12px' }}>
+                    <p style={{ margin: 0, fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff' }}>
+                      {idx === 0 ? <Zap size={15} color="#93c5fd" /> : <ShieldCheck size={15} color="#93c5fd" />}
+                      {item[0]}
+                    </p>
+                    <p style={{ margin: '5px 0 0 0', color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.5 }}>{item[1]}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -214,7 +251,7 @@ export default function Pricing() {
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ borderRadius: '22px', border: '1px solid #dbeafe', background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', padding: '24px' }}>
             <h2 style={{ margin: 0, fontSize: 'clamp(1.6rem, 2.5vw, 2.25rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
-              Need a custom quote in <span style={{ color: '#f5602a' }}>ETB</span>?
+              Need a custom quote?
             </h2>
             <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '800px' }}>
               Tell us your required modules, timeline, and integrations. We will send a clear proposal with detailed scope and transparent pricing.
