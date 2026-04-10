@@ -6,6 +6,7 @@ import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
 import ServicesPage from './Services';
 import PricingPage from './Pricing';
+import ContactPage from './Contact';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -62,6 +63,8 @@ function MainLayout() {
       setActiveNav('Services');
     } else if (location.pathname === '/pricing') {
       setActiveNav('Pricing');
+    } else if (location.pathname === '/contact') {
+      setActiveNav('Contacts');
     } else if (location.pathname === '/') {
       setActiveNav('About Us');
     }
@@ -109,6 +112,7 @@ function MainLayout() {
                   if (link === 'Projects') navigate('/projects');
                   else if (link === 'Services') navigate('/services');
                   else if (link === 'Pricing') navigate('/pricing');
+                  else if (link === 'Contacts') navigate('/contact');
                   else if (link === 'About Us') navigate('/');
                 }}
               >
@@ -152,6 +156,7 @@ function MainLayout() {
         <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/" element={
           <>
       {/* Hero Wrapper */}
