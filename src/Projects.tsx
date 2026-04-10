@@ -73,105 +73,171 @@ export default function Projects() {
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '160px', color: '#0f172a' }}>
 
-      {/* ── COMPACT PAGE HEADER ── */}
+      {/* ── PREMIUM PAGE HEADER ── */}
       <div style={{
+        position: 'relative',
         background: '#ffffff',
-        borderBottom: '1px solid #e2e8f0',
-        paddingTop: '112px',
-        paddingBottom: '64px',
+        paddingTop: '160px',
+        paddingBottom: '110px',
+        overflow: 'hidden',
+        borderBottom: '1px solid rgba(15, 23, 42, 0.05)',
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'space-between', gap: '36px', flexWrap: 'wrap' }}>
+        {/* Background Decorative Blurs */}
+        <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40%', height: '60%', background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, rgba(255,255,255,0) 70%)', zIndex: 0, filter: 'blur(50px)' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '40%', height: '60%', background: 'radial-gradient(circle, rgba(249,115,22,0.05) 0%, rgba(255,255,255,0) 70%)', zIndex: 0, filter: 'blur(50px)' }} />
+
+        <div style={{ maxWidth: '1240px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px', position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '60px', flexWrap: 'wrap' }}>
 
             {/* LEFT: Label + Title + Description */}
             <motion.div
-              initial={{ opacity: 0, y: 36 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.9, ease: springEase }}
-              style={{ flex: '1 1 620px', display: 'flex', flexDirection: 'column' }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: springEase }}
+              style={{ flex: '1 1 600px', display: 'flex', flexDirection: 'column' }}
             >
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', borderRadius: '9999px', padding: '5px 16px', marginBottom: '20px' }}>
-                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Our Works</span>
+              <div style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '10px', 
+                background: 'rgba(255, 255, 255, 0.8)', 
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(37, 99, 235, 0.15)', 
+                borderRadius: '9999px', 
+                padding: '6px 20px', 
+                marginBottom: '32px',
+                width: 'fit-content',
+                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.05)'
+              }}>
+                <motion.div 
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
+                  transition={{ repeat: Infinity, duration: 2.5 }}
+                  style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2563eb', boxShadow: '0 0 12px rgba(37,99,235,0.8)' }} 
+                />
+                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Our Works</span>
               </div>
 
               <h1 style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontSize: 'clamp(2.75rem, 5vw, 4.5rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.04em',
-                lineHeight: 1.1,
-                margin: '0 0 16px 0',
+                lineHeight: 1.05,
+                margin: '0 0 24px 0',
                 color: '#0f172a',
               }}>
-                Work That <span style={{ color: '#F97316' }}>Speaks.</span>
+                Work That <br style={{ display: 'none' }} className="md-block" /> 
+                <span style={{ 
+                  background: 'linear-gradient(135deg, #F97316 0%, #ea580c 50%, #c2410c 100%)', 
+                  WebkitBackgroundClip: 'text', 
+                  WebkitTextFillColor: 'transparent',
+                  paddingRight: '10px' 
+                }}>Speaks.</span>
               </h1>
 
               <p style={{
-                fontSize: '1rem',
-                color: '#64748b',
+                fontSize: '1.15rem',
+                color: '#475569',
                 maxWidth: '560px',
                 margin: 0,
-                lineHeight: 1.65,
+                lineHeight: 1.7,
                 fontWeight: 400,
               }}>
-                Digital platforms, enterprise software, and high-performance systems engineered to give businesses an unfair advantage.
+                Digital platforms, enterprise software, and high-performance systems engineered to give businesses an <strong style={{ color: '#0f172a', fontWeight: 700 }}>unfair advantage</strong>.
               </p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.75, delay: 0.15, ease: springEase }}
-                style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '20px' }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: springEase }}
+                style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '36px' }}
               >
                 {['Enterprise-Grade Security', 'Scalable Cloud Architecture', 'Conversion-Focused UX'].map((item) => (
-                  <span key={item} style={{ padding: '8px 14px', borderRadius: '9999px', border: '1px solid #e2e8f0', background: '#f8fafc', color: '#334155', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.01em' }}>
+                  <span key={item} style={{ 
+                    padding: '10px 20px', 
+                    borderRadius: '9999px', 
+                    border: '1px solid rgba(15, 23, 42, 0.06)', 
+                    background: '#f8fafc', 
+                    color: '#334155', 
+                    fontSize: '0.85rem', 
+                    fontWeight: 600, 
+                    boxShadow: '0 2px 8px rgba(15, 23, 42, 0.02)',
+                    transition: 'all 0.3s ease',
+                    cursor: 'default'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(37, 99, 235, 0.3)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(37, 99, 235, 0.08)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.background = '#ffffff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.06)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(15, 23, 42, 0.02)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.background = '#f8fafc';
+                  }}
+                  >
                     {item}
                   </span>
                 ))}
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.85, delay: 0.25, ease: springEase }}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginTop: '22px' }}
-              >
-                <div style={{ background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', border: '1px solid #dbeafe', borderRadius: '14px', padding: '14px 16px' }}>
-                  <p style={{ margin: 0, fontSize: '0.74rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2563eb', fontWeight: 800 }}>Fast Delivery</p>
-                  <p style={{ margin: '6px 0 0 0', fontSize: '0.9rem', lineHeight: 1.5, color: '#334155' }}>High-impact products launched in weeks, not months.</p>
-                </div>
-                <div style={{ background: 'linear-gradient(140deg, #fff7ed 0%, #ffffff 100%)', border: '1px solid #fed7aa', borderRadius: '14px', padding: '14px 16px' }}>
-                  <p style={{ margin: 0, fontSize: '0.74rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#ea580c', fontWeight: 800 }}>Business Growth</p>
-                  <p style={{ margin: '6px 0 0 0', fontSize: '0.9rem', lineHeight: 1.5, color: '#334155' }}>Systems engineered to improve revenue and operational speed.</p>
-                </div>
-              </motion.div>
             </motion.div>
 
-            {/* RIGHT: Compact 2x2 stat grid */}
+            {/* RIGHT: Elevated Stat Grid */}
             <motion.div
-              initial={{ opacity: 0, x: 44 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 1.05, delay: 0.15, ease: springEase }}
-              style={{ flex: '1 1 360px', alignSelf: 'center', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 16px 40px rgba(15,23,42,0.08)' }}
+              initial={{ opacity: 0, scale: 0.92, x: 20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.15, ease: springEase }}
+              style={{ 
+                flex: '1 1 420px', 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
+                gap: '24px',
+                position: 'relative',
+              }}
             >
               {[
-                { value: '50+', label: 'Projects Shipped' },
-                { value: '98%', label: 'Client Satisfaction' },
-                { value: '4',   label: 'Industries Served' },
-                { value: '3x',  label: 'Avg. Speed Gain' },
+                { value: '50+', label: 'Projects Shipped', color: '#2563eb', bg: 'rgba(37, 99, 235, 0.05)' },
+                { value: '98%', label: 'Client Satisfaction', color: '#10b981', bg: 'rgba(16, 185, 129, 0.05)' },
+                { value: '4',   label: 'Industries Served', color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.05)' },
+                { value: '3x',  label: 'Avg. Speed Gain', color: '#f97316', bg: 'rgba(249, 115, 22, 0.05)' },
               ].map((stat, i) => (
-                <div key={i} style={{
+                <motion.div 
+                  key={i} 
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  style={{
                   background: '#ffffff',
-                  padding: '26px 22px',
-                  textAlign: 'left',
+                  padding: '36px 28px',
+                  borderRadius: '24px',
+                  boxShadow: '0 12px 40px rgba(15,23,42,0.06)',
+                  border: '1px solid rgba(15, 23, 42, 0.04)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  cursor: 'default'
                 }}>
-                  <div style={{ fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1 }}>{stat.value}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'rgba(15, 23, 42, 0.62)', marginTop: '6px', fontWeight: 500, letterSpacing: '0.03em', textTransform: 'uppercase' }}>{stat.label}</div>
-                </div>
+                  {/* Subtle background glow for each card */}
+                  <div style={{ position: 'absolute', top: 0, right: 0, width: '120px', height: '120px', background: stat.bg, filter: 'blur(35px)', borderRadius: '50%', transform: 'translate(30%, -30%)' }} />
+                  
+                  <div style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1, position: 'relative', zIndex: 1 }}>
+                    {stat.value}
+                  </div>
+                  <div style={{ 
+                    fontSize: '0.8rem', 
+                    color: '#64748b', 
+                    marginTop: '12px', 
+                    fontWeight: 700, 
+                    letterSpacing: '0.05em', 
+                    textTransform: 'uppercase',
+                    position: 'relative',
+                    zIndex: 1
+                  }}>
+                    {stat.label}
+                  </div>
+                </motion.div>
               ))}
             </motion.div>
 
