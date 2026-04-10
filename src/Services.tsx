@@ -204,10 +204,10 @@ export default function Services() {
             </motion.div>
 
             {/* RIGHT SIDE: Unique Visual Composition */}
-            <motion.div 
-              initial={{ opacity: 0, x: 40 }} 
-              animate={{ opacity: 1, x: 0 }} 
-              transition={{ duration: 1.1, delay: 0.15, ease }} 
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.1, delay: 0.15, ease }}
               style={{ position: 'relative', minHeight: '460px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}
             >
               {/* Background glows */}
@@ -215,7 +215,7 @@ export default function Services() {
               <div style={{ position: 'absolute', left: '5%', bottom: '5%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.10) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(20px)' }} />
 
               {/* Main Image Plate */}
-              <motion.div 
+              <motion.div
                 whileHover={{ rotate: 0, scale: 1.02 }}
                 transition={{ duration: 0.5, ease }}
                 style={{ position: 'absolute', right: '8%', top: '20px', width: '280px', height: '360px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 50px rgba(15,23,42,0.12)', border: '6px solid #ffffff', transform: 'rotate(5deg)', zIndex: 1, transformOrigin: 'center' }}
@@ -225,7 +225,7 @@ export default function Services() {
               </motion.div>
 
               {/* Secondary offset image */}
-              <motion.div 
+              <motion.div
                 whileHover={{ rotate: 0, scale: 1.02, zIndex: 4 }}
                 transition={{ duration: 0.5, ease }}
                 style={{ position: 'absolute', left: '4%', bottom: '30px', width: '280px', height: '220px', borderRadius: '24px', overflow: 'hidden', boxShadow: '-10px 20px 40px rgba(15,23,42,0.15)', border: '6px solid #ffffff', transform: 'rotate(-4deg)', zIndex: 2 }}
@@ -234,8 +234,8 @@ export default function Services() {
               </motion.div>
 
               {/* Floating Badge 1 - Top Left */}
-              <motion.div 
-                animate={{ y: [-6, 6, -6] }} 
+              <motion.div
+                animate={{ y: [-6, 6, -6] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
                 style={{ position: 'absolute', top: '15%', left: '0%', zIndex: 3, background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)', padding: '16px 20px', borderRadius: '20px', boxShadow: '0 12px 30px rgba(15,23,42,0.08)', border: '1px solid rgba(255,255,255,1)', display: 'flex', alignItems: 'center', gap: '14px' }}
               >
@@ -249,8 +249,8 @@ export default function Services() {
               </motion.div>
 
               {/* Floating Badge 2 - Bottom Right */}
-              <motion.div 
-                animate={{ y: [6, -6, 6] }} 
+              <motion.div
+                animate={{ y: [6, -6, 6] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
                 style={{ position: 'absolute', bottom: '15%', right: '-2%', zIndex: 3, background: '#0f172a', backdropFilter: 'blur(12px)', padding: '14px 22px', borderRadius: '20px', boxShadow: '0 16px 40px rgba(15,23,42,0.25)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '14px' }}
               >
@@ -349,7 +349,7 @@ export default function Services() {
                         {item.icon}
                       </div>
                       <span style={{ fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: isHovered ? '#93c5fd' : '#1d4ed8' }}>
-                        Module {String(idx + 1).padStart(2, '0')}
+                        Service {String(idx + 1).padStart(2, '0')}
                       </span>
                     </div>
                     <span
@@ -487,18 +487,18 @@ export default function Services() {
 
         <div className="container" style={{ maxWidth: '1240px', position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
-            
+
             {/* LEFT CARD: TECH STACK - DARK ELITE THEME */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease }}
-              style={{ 
+              style={{
                 background: '#0b1120', // deep rich navy
-                border: '1px solid rgba(255,255,255,0.08)', 
-                borderRadius: '32px', 
-                overflow: 'hidden', 
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '32px',
+                overflow: 'hidden',
                 boxShadow: '0 24px 50px rgba(0,0,0,0.15)',
                 display: 'flex',
                 flexDirection: 'column'
@@ -512,7 +512,7 @@ export default function Services() {
                 />
                 {/* Sleek fade out to dark at the bottom */}
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(11,17,32,0.1) 0%, #0b1120 100%)' }} />
-                
+
                 <div style={{ position: 'absolute', left: '32px', right: '32px', bottom: '16px' }}>
                   <h3 style={{ ...titleOnDarkStyle, fontSize: '2rem', letterSpacing: '-0.03em' }}>
                     Tech Stack & <span style={{ background: 'linear-gradient(135deg, #F97316 0%, #ea580c 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Architecture</span>
@@ -524,7 +524,7 @@ export default function Services() {
               </div>
 
               <div style={{ padding: '0 32px 32px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                
+
                 {/* The 4 core pillars */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginTop: '16px' }}>
                   {[
@@ -557,7 +557,7 @@ export default function Services() {
                 </div>
 
                 <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '24px', alignItems: 'start' }}>
-                  
+
                   {/* Blueprint details */}
                   <div>
                     <h4 style={{ ...titleOnDarkStyle, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
@@ -611,9 +611,9 @@ export default function Services() {
                     <div style={{ border: '1px solid rgba(96,165,250,0.3)', borderRadius: '20px', background: 'linear-gradient(145deg, rgba(37,99,235,0.1) 0%, rgba(11,17,32,0.5) 100%)', padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                       <p style={{ margin: 0, fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em', fontSize: '1rem' }}>Get a recommendation</p>
                       <motion.button style={{
-                          marginTop: '16px', border: 'none', background: '#ffffff', color: '#0f172a', borderRadius: '12px', padding: '12px',
-                          fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', width: '100%', justifyContent: 'center', cursor: 'pointer'
-                        }}
+                        marginTop: '16px', border: 'none', background: '#ffffff', color: '#0f172a', borderRadius: '12px', padding: '12px',
+                        fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', width: '100%', justifyContent: 'center', cursor: 'pointer'
+                      }}
                         whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.96 }}
                       >
@@ -676,8 +676,8 @@ export default function Services() {
                         />
                         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.3) 100%)', pointerEvents: 'none' }} />
                       </div>
-                      <motion.div 
-                        variants={{ hover: { backgroundColor: '#f8fafc' } }} 
+                      <motion.div
+                        variants={{ hover: { backgroundColor: '#f8fafc' } }}
                         style={{ padding: '16px', transition: 'background-color 0.3s ease' }}
                       >
                         <p style={{ margin: 0, color: '#0f172a', fontSize: '0.95rem', fontWeight: 800, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
