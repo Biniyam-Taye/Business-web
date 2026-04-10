@@ -77,7 +77,7 @@ export default function Projects() {
       <div style={{
         position: 'relative',
         background: '#ffffff',
-        paddingTop: '160px',
+        paddingTop: '90px',
         paddingBottom: '110px',
         overflow: 'hidden',
         borderBottom: '1px solid rgba(15, 23, 42, 0.05)',
