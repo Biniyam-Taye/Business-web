@@ -171,7 +171,12 @@ const titleOnDarkStyle: CSSProperties = {
 };
 
 export default function Services() {
+  /** Same springy ease as the home hero; durations/delays are tuned differently here */
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
+  const heroTitle = { duration: 0.95, delay: 0.12, ease };
+  const heroSubtitle = { duration: 0.88, delay: 0.38, ease };
+  const heroCtas = { duration: 0.82, delay: 0.58, ease };
+  const heroVisual = { duration: 1.2, delay: 0.28, ease };
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [hoveredServiceCard, setHoveredServiceCard] = useState<number | null>(null);
 
@@ -180,34 +185,46 @@ export default function Services() {
       <section style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', paddingTop: '114px', paddingBottom: '76px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px', alignItems: 'center' }}>
-            <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-              <div style={{ display: 'inline-flex', gap: '8px', alignItems: 'center', borderRadius: '999px', padding: '6px 14px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', marginBottom: '16px' }}>
-                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb' }} />
-                <span style={{ fontSize: '0.75rem', letterSpacing: '0.08em', fontWeight: 800, textTransform: 'uppercase', color: '#2563eb' }}>Our Services</span>
-              </div>
-              <h1 style={{ ...titleBaseStyle, fontSize: 'clamp(2.2rem, 4.4vw, 3.5rem)' }}>
+            <div>
+              <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.72, delay: 0, ease }}>
+                <div style={{ display: 'inline-flex', gap: '8px', alignItems: 'center', borderRadius: '999px', padding: '6px 14px', background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.15)', marginBottom: '16px' }}>
+                  <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb' }} />
+                  <span style={{ fontSize: '0.75rem', letterSpacing: '0.08em', fontWeight: 800, textTransform: 'uppercase', color: '#2563eb' }}>Our Services</span>
+                </div>
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={heroTitle}
+                style={{ ...titleBaseStyle, fontSize: 'clamp(2.2rem, 4.4vw, 3.5rem)' }}
+              >
                 Comprehensive technology services for{' '}
                 <span style={accentOrangeStyle}>business growth</span> and{' '}
                 <span style={accentBlueStyle}>modern scale.</span>
-              </h1>
-              <p style={{ margin: '18px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '640px' }}>
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 35 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={heroSubtitle}
+                style={{ margin: '18px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '640px' }}
+              >
                 We help teams move from idea to fully-operational products with robust architecture, beautiful UX, and measurable performance outcomes.
-              </p>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '24px' }}>
+              </motion.p>
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={heroCtas} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '24px' }}>
                 <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                   Start a Project <ArrowUpRight size={16} />
                 </button>
                 <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
                   Explore Process <ArrowRight size={16} />
                 </button>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
             {/* RIGHT SIDE: Unique Visual Composition */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 84 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.1, delay: 0.15, ease }}
+              transition={heroVisual}
               style={{ position: 'relative', minHeight: '460px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}
             >
               {/* Background glows */}
@@ -235,8 +252,12 @@ export default function Services() {
 
               {/* Floating Badge 1 - Top Left */}
               <motion.div
-                animate={{ y: [-6, 6, -6] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: [-6, 6, -6] }}
+                transition={{
+                  opacity: { duration: 0.75, delay: 0.55, ease },
+                  y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.55 },
+                }}
                 style={{ position: 'absolute', top: '15%', left: '0%', zIndex: 3, background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)', padding: '16px 20px', borderRadius: '20px', boxShadow: '0 12px 30px rgba(15,23,42,0.08)', border: '1px solid rgba(255,255,255,1)', display: 'flex', alignItems: 'center', gap: '14px' }}
               >
                 <div style={{ width: '44px', height: '44px', borderRadius: '14px', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -250,8 +271,12 @@ export default function Services() {
 
               {/* Floating Badge 2 - Bottom Right */}
               <motion.div
-                animate={{ y: [6, -6, 6] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: [6, -6, 6] }}
+                transition={{
+                  opacity: { duration: 0.75, delay: 0.72, ease },
+                  y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.15 },
+                }}
                 style={{ position: 'absolute', bottom: '15%', right: '-2%', zIndex: 3, background: '#0f172a', backdropFilter: 'blur(12px)', padding: '14px 22px', borderRadius: '20px', boxShadow: '0 16px 40px rgba(15,23,42,0.25)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '14px' }}
               >
                 <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(245,96,42,0.15)', color: '#f5602a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -270,22 +295,34 @@ export default function Services() {
 
       <section style={{ padding: '74px 0 20px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ ...titleBaseStyle, marginBottom: '8px', fontSize: 'clamp(1.9rem, 3vw, 2.8rem)' }}>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.92, ease }}
+            style={{ ...titleBaseStyle, marginBottom: '8px', fontSize: 'clamp(1.9rem, 3vw, 2.8rem)' }}
+          >
             End-to-End Service <span style={accentBlueStyle}>Coverage</span>
           </motion.h2>
-          <p style={{ margin: '0 0 20px 0', color: '#64748b', maxWidth: '740px', lineHeight: 1.7 }}>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.85, delay: 0.1, ease }}
+            style={{ margin: '0 0 20px 0', color: '#64748b', maxWidth: '740px', lineHeight: 1.7 }}
+          >
             Every service module includes strategy, implementation, and measurable outcomes.
-          </p>
+          </motion.p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
             {offerings.map((item, idx) => {
               const isHovered = hoveredServiceCard === idx;
               return (
                 <motion.article
                   key={item.title}
-                  initial={{ opacity: 0, y: 22 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 32, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.7, delay: idx * 0.06, ease }}
+                  transition={{ duration: 0.88, delay: idx * 0.11, ease }}
                   whileHover={{ y: -10, scale: 1.01 }}
                   onHoverStart={() => setHoveredServiceCard(idx)}
                   onHoverEnd={() => setHoveredServiceCard(null)}
@@ -418,7 +455,13 @@ export default function Services() {
 
       <section style={{ padding: '62px 0 14px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px', boxShadow: '0 14px 34px rgba(15,23,42,0.05)' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 1.0, ease }}
+            style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px', boxShadow: '0 14px 34px rgba(15,23,42,0.05)' }}
+          >
             <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
               How We <span style={accentBlueStyle}>Deliver</span>
             </h2>
@@ -436,10 +479,10 @@ export default function Services() {
               {processSteps.map((step, idx) => (
                 <motion.div
                   key={step.id}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -36 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.65, delay: idx * 0.08, ease }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.82, delay: idx * 0.12, ease }}
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '92px 1fr auto',
@@ -716,7 +759,13 @@ export default function Services() {
 
       <section style={{ padding: '62px 0 12px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.95, ease }}
+            style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}
+          >
             <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
               Engagement <span style={accentOrangeStyle}>Models</span>
             </h2>
@@ -729,7 +778,14 @@ export default function Services() {
                 ['Dedicated Team', 'Best for long-term roadmaps requiring continuous iteration.'],
                 ['Advisory + Build', 'Best for teams needing architecture leadership and implementation.'],
               ].map((m, idx) => (
-                <motion.div key={m[0]} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: idx * 0.08, ease }} style={{ border: '1px solid #e2e8f0', borderRadius: '14px', background: '#f8fafc', padding: '14px' }}>
+                <motion.div
+                  key={m[0]}
+                  initial={{ opacity: 0, y: 22, scale: 0.99 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.78, delay: idx * 0.1, ease }}
+                  style={{ border: '1px solid #e2e8f0', borderRadius: '14px', background: '#f8fafc', padding: '14px' }}
+                >
                   <h3 style={{ ...titleBaseStyle, fontSize: '1rem', lineHeight: 1.25 }}>{m[0]}</h3>
                   <p style={{ margin: '6px 0 0 0', color: '#64748b', lineHeight: 1.6, fontSize: '0.92rem' }}>{m[1]}</p>
                 </motion.div>
@@ -741,7 +797,13 @@ export default function Services() {
 
       <section style={{ padding: '62px 0 16px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.85, ease }} style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.95, ease }}
+            style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}
+          >
             <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
               Frequently Asked <span style={accentBlueStyle}>Questions</span>
             </h2>
@@ -754,7 +816,7 @@ export default function Services() {
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.55, delay: idx * 0.07, ease }}
+                    transition={{ duration: 0.68, delay: idx * 0.09, ease }}
                     style={{
                       border: '1px solid #e2e8f0',
                       borderRadius: '14px',
@@ -837,10 +899,10 @@ export default function Services() {
       <section style={{ padding: '66px 0 20px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.85, ease }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 1.05, ease }}
             style={{
               position: 'relative',
               overflow: 'hidden',

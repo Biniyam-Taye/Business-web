@@ -48,7 +48,6 @@ export default function App() {
 }
 
 function MainLayout() {
-  const [mounted, setMounted] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState('About Us');
@@ -56,7 +55,6 @@ function MainLayout() {
   const navLinks = ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts'];
 
   useEffect(() => {
-    setMounted(true);
     if (location.pathname.startsWith('/projects')) {
       setActiveNav('Projects');
     } else if (location.pathname === '/services') {
@@ -74,15 +72,11 @@ function MainLayout() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [location.pathname]);
 
-  if (!mounted)  return null;
-
   return (
     <div className="app-container">
       {/* Navigation */}
       <div style={{ position: 'sticky', top: '16px', zIndex: 100, display: 'flex', justifyContent: 'center', padding: '0 24px', pointerEvents: 'none' }}>
-        <motion.nav
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+        <nav
           style={{
             pointerEvents: 'auto',
             display: 'flex',
@@ -128,9 +122,9 @@ function MainLayout() {
                       background: '#111',
                       borderRadius: '9999px',
                       boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-                      zIndex: 0
+                      zIndex: 0,
                     }}
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                    transition={{ type: 'tween', duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                   />
                 )}
                 <span style={{ position: 'relative', zIndex: 1, color: activeNav === link ? '#fff' : '#444', transition: 'all 0.3s ease' }}>
@@ -148,7 +142,7 @@ function MainLayout() {
           }}>
             Book Demo <ArrowUpRight size={18} strokeWidth={2.5} />
           </button>
-        </motion.nav>
+        </nav>
       </div>
 
       <Routes>
