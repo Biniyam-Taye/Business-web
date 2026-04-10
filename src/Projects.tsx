@@ -90,13 +90,14 @@ export default function Projects() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '60px', flexWrap: 'wrap' }}>
 
             {/* LEFT: Label + Title + Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: springEase }}
+            <div
               style={{ flex: '1 1 600px', display: 'flex', flexDirection: 'column' }}
             >
-              <div style={{ 
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.1, delay: 0.1, ease: springEase }}
+                style={{ 
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 gap: '10px', 
@@ -115,9 +116,13 @@ export default function Projects() {
                   style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2563eb', boxShadow: '0 0 12px rgba(37,99,235,0.8)' }} 
                 />
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Our Works</span>
-              </div>
+              </motion.div>
 
-              <h1 style={{
+              <motion.h1 
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.1, delay: 0.25, ease: springEase }}
+                style={{
                 fontSize: 'clamp(2.75rem, 5vw, 4.5rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.04em',
@@ -132,9 +137,13 @@ export default function Projects() {
                   WebkitTextFillColor: 'transparent',
                   paddingRight: '10px' 
                 }}>Speaks.</span>
-              </h1>
+              </motion.h1>
 
-              <p style={{
+              <motion.p 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.1, delay: 0.4, ease: springEase }}
+                style={{
                 fontSize: '1.15rem',
                 color: '#475569',
                 maxWidth: '560px',
@@ -143,12 +152,12 @@ export default function Projects() {
                 fontWeight: 400,
               }}>
                 Digital platforms, enterprise software, and high-performance systems engineered to give businesses an <strong style={{ color: '#0f172a', fontWeight: 700 }}>unfair advantage</strong>.
-              </p>
+              </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: springEase }}
+                transition={{ duration: 1.0, delay: 0.55, ease: springEase }}
                 style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '36px' }}
               >
                 {['Enterprise-Grade Security', 'Scalable Cloud Architecture', 'Conversion-Focused UX'].map((item) => (
@@ -181,13 +190,10 @@ export default function Projects() {
                   </span>
                 ))}
               </motion.div>
-            </motion.div>
+            </div>
 
             {/* RIGHT: Elevated Stat Grid */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 1.2, delay: 0.15, ease: springEase }}
+            <div
               style={{ 
                 flex: '1 1 420px', 
                 display: 'grid', 
@@ -204,8 +210,16 @@ export default function Projects() {
               ].map((stat, i) => (
                 <motion.div 
                   key={i} 
+                  initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  transition={{ 
+                    duration: 1.1, 
+                    delay: 0.45 + (i * 0.15), 
+                    ease: springEase,
+                    scale: { duration: 0.3 }, 
+                    y: { duration: i * 0.1 } // Note: for entering we rely on the main transition
+                  }}
                   style={{
                   background: '#ffffff',
                   padding: '36px 28px',
@@ -239,7 +253,7 @@ export default function Projects() {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
           </div>
         </div>
