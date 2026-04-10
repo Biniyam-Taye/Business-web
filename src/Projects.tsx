@@ -255,7 +255,8 @@ export default function Projects() {
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.95, delay: idx * 0.12, ease: springEase }}
+              whileHover={{ scale: 1.01, y: -6, boxShadow: '0 30px 60px rgba(15,23,42,0.08)' }}
+              transition={{ duration: 0.95, delay: idx * 0.12, ease: springEase, scale: { duration: 0.4 }, y: { duration: 0.4 } }}
               style={{ 
               display: 'flex', 
               flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
@@ -286,13 +287,18 @@ export default function Projects() {
                 boxShadow: '0 25px 50px rgba(0,0,0,0.08)',
                 border: '8px solid #f8fafc'
               }}>
-                <img
+                <motion.img
                   className="project-image-hover"
                   src={project.image} 
                   alt={project.title} 
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6, ease: springEase }}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                 />
-                <div style={{
+                <motion.div 
+                  whileHover={{ scale: 1.05, backgroundColor: '#0f172a', color: '#ffffff' }}
+                  transition={{ duration: 0.2 }}
+                  style={{
                   position: 'absolute',
                   top: '16px',
                   right: '16px',
@@ -305,10 +311,11 @@ export default function Projects() {
                   color: '#0f172a',
                   letterSpacing: '0.05em',
                   textTransform: 'uppercase',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                  cursor: 'default'
                 }}>
                   {project.id}
-                </div>
+                </motion.div>
               </motion.div>
 
               {/* Text Side */}
@@ -326,16 +333,18 @@ export default function Projects() {
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.45, ease: springEase }}
+                      whileHover={{ y: -3, scale: 1.05, backgroundColor: '#ffffff', borderColor: '#cbd5e1', boxShadow: '0 4px 12px rgba(15,23,42,0.06)', color: '#0f172a' }}
+                      transition={{ duration: 0.45, ease: springEase, scale: { duration: 0.2 }, y: { duration: 0.2 } }}
                       style={{ 
-                      padding: '6px 14px', 
+                      padding: '8px 16px', 
                       background: '#f8fafc',
                       border: '1px solid #e2e8f0',
                       borderRadius: '999px',
-                      fontSize: '0.75rem',
+                      fontSize: '0.78rem',
                       fontWeight: 700,
                       color: '#475569',
                       letterSpacing: '0.02em',
+                      cursor: 'default',
                     }}>
                       {role}
                     </motion.span>
@@ -360,7 +369,12 @@ export default function Projects() {
                   style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px', background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #f1f5f9' }}
                 >
                   
-                  <div className="project-detail-row card-danger" style={{ display: 'flex', gap: '16px' }}>
+                  <motion.div 
+                    className="project-detail-row card-danger" 
+                    whileHover={{ x: 6, backgroundColor: '#ffffff', scale: 1.01, boxShadow: '0 8px 24px rgba(0,0,0,0.04)' }}
+                    transition={{ duration: 0.2 }}
+                    style={{ display: 'flex', gap: '16px', padding: '12px', borderRadius: '12px', margin: '-12px', cursor: 'default' }}
+                  >
                     <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#fee2e2', color: '#ef4444', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     </div>
@@ -368,11 +382,16 @@ export default function Projects() {
                       <h4 style={{ margin: '0 0 4px 0', fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>The Challenge</h4>
                       <p style={{ margin: 0, fontSize: '0.95rem', color: '#64748b', lineHeight: 1.5 }}>{project.problem}</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0' }} />
+                  <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0', margin: '8px 0' }} />
 
-                  <div className="project-detail-row card-success" style={{ display: 'flex', gap: '16px' }}>
+                  <motion.div 
+                    className="project-detail-row card-success" 
+                    whileHover={{ x: 6, backgroundColor: '#ffffff', scale: 1.01, boxShadow: '0 8px 24px rgba(0,0,0,0.04)' }}
+                    transition={{ duration: 0.2 }}
+                    style={{ display: 'flex', gap: '16px', padding: '12px', borderRadius: '12px', margin: '-12px', cursor: 'default' }}
+                  >
                     <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#dcfce7', color: '#22c55e', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
@@ -380,11 +399,16 @@ export default function Projects() {
                       <h4 style={{ margin: '0 0 4px 0', fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>Our Solution</h4>
                       <p style={{ margin: 0, fontSize: '0.95rem', color: '#64748b', lineHeight: 1.5 }}>{project.solution}</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0' }} />
+                  <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0', margin: '8px 0' }} />
 
-                  <div className="project-detail-row card-info" style={{ display: 'flex', gap: '16px' }}>
+                  <motion.div 
+                    className="project-detail-row card-info" 
+                    whileHover={{ x: 6, backgroundColor: '#ffffff', scale: 1.01, boxShadow: '0 8px 24px rgba(0,0,0,0.04)' }}
+                    transition={{ duration: 0.2 }}
+                    style={{ display: 'flex', gap: '16px', padding: '12px', borderRadius: '12px', margin: '-12px', cursor: 'default' }}
+                  >
                     <div className="project-detail-icon" style={{ flexShrink: 0, width: '32px', height: '32px', background: '#dbeafe', color: '#3b82f6', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
@@ -392,7 +416,7 @@ export default function Projects() {
                       <h4 style={{ margin: '0 0 4px 0', fontSize: '0.9rem', fontWeight: 800, color: '#0f172a' }}>Target Use Case</h4>
                       <p style={{ margin: 0, fontSize: '0.95rem', color: '#64748b', lineHeight: 1.5 }}>{project.useCase}</p>
                     </div>
-                  </div>
+                  </motion.div>
 
                 </motion.div>
 
@@ -403,8 +427,9 @@ export default function Projects() {
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.65, delay: 0.38 + idx * 0.08, ease: springEase }}
+                    whileHover={{ scale: 1.02, y: -2, boxShadow: '0 12px 24px rgba(15,23,42,0.25)' }}
                     whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.65, delay: 0.38 + idx * 0.08, ease: springEase, scale: { duration: 0.2 }, y: { duration: 0.2 } }}
                     style={{ 
                     padding: '14px 28px', 
                     background: '#0f172a', 
@@ -429,8 +454,9 @@ export default function Projects() {
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.72, delay: 0.45 + idx * 0.08, ease: springEase }}
+                    whileHover={{ scale: 1.02, y: -2, boxShadow: '0 8px 20px rgba(15,23,42,0.08)', backgroundColor: '#f8fafc' }}
                     whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.72, delay: 0.45 + idx * 0.08, ease: springEase, scale: { duration: 0.2 }, y: { duration: 0.2 } }}
                     style={{ 
                     padding: '14px 28px', 
                     background: '#ffffff', 
