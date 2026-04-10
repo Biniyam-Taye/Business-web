@@ -242,12 +242,14 @@ export default function Services() {
                   onHoverStart={() => setHoveredServiceCard(idx)}
                   onHoverEnd={() => setHoveredServiceCard(null)}
                   style={{
-                    background: isHovered ? 'linear-gradient(160deg, #0f172a 0%, #1e293b 58%, #334155 100%)' : 'linear-gradient(180deg, #ffffff 0%, #fbfdff 100%)',
-                    border: isHovered ? '1px solid rgba(241,78,57,0.6)' : '1px solid #e2e8f0',
-                    borderRadius: '22px',
-                    padding: '18px',
-                    boxShadow: isHovered ? '0 24px 44px rgba(15,23,42,0.32)' : '0 12px 28px rgba(15,23,42,0.06)',
-                    minHeight: '340px',
+                    background: isHovered
+                      ? 'linear-gradient(140deg, #0f172a 0%, #1e293b 46%, #111827 100%)'
+                      : 'linear-gradient(140deg, #ffffff 0%, #f8fbff 56%, #eef5ff 100%)',
+                    border: isHovered ? '1px solid rgba(59,130,246,0.55)' : '1px solid #dbeafe',
+                    borderRadius: '24px',
+                    padding: '20px',
+                    boxShadow: isHovered ? '0 26px 48px rgba(15,23,42,0.34)' : '0 14px 30px rgba(30,41,59,0.08)',
+                    minHeight: '350px',
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -256,25 +258,89 @@ export default function Services() {
                     color: isHovered ? '#ffffff' : '#0f172a',
                   }}
                 >
-                  <div style={{ position: 'absolute', inset: 0, background: isHovered ? 'linear-gradient(130deg, rgba(241,78,57,0.18) 0%, rgba(241,78,57,0) 55%)' : 'linear-gradient(130deg, rgba(241,78,57,0.06) 0%, rgba(241,78,57,0) 55%)', pointerEvents: 'none' }} />
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, #F14E39 0%, #fb923c 100%)' }} />
-                  {isHovered && <div style={{ position: 'absolute', top: '-72px', right: '-56px', width: '190px', height: '190px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(241,78,57,0.35) 0%, rgba(241,78,57,0) 72%)' }} />}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: isHovered
+                        ? 'linear-gradient(135deg, rgba(37,99,235,0.28) 0%, rgba(15,23,42,0) 52%)'
+                        : 'linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(15,23,42,0) 52%)',
+                      pointerEvents: 'none',
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '-84px',
+                      right: '-54px',
+                      width: '220px',
+                      height: '220px',
+                      borderRadius: '50%',
+                      background: isHovered
+                        ? 'radial-gradient(circle, rgba(96,165,250,0.34) 0%, rgba(96,165,250,0) 72%)'
+                        : 'radial-gradient(circle, rgba(147,197,253,0.38) 0%, rgba(147,197,253,0) 74%)',
+                    }}
+                  />
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #2563eb 0%, #7c3aed 100%)' }} />
 
-                  <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                    <div style={{ width: '46px', height: '46px', borderRadius: '14px', background: isHovered ? 'rgba(241,78,57,0.18)' : 'linear-gradient(135deg, #fff1ef 0%, #ffe2de 100%)', color: isHovered ? '#ffffff' : '#F14E39', display: 'flex', alignItems: 'center', justifyContent: 'center', border: isHovered ? '1px solid rgba(241,78,57,0.45)' : '1px solid #ffc8c0' }}>{item.icon}</div>
-                    <span style={{ borderRadius: '999px', padding: '5px 10px', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.03em', background: isHovered ? 'rgba(241,78,57,0.2)' : '#fff4f2', color: isHovered ? '#ffd8d2' : '#c2412f', border: isHovered ? '1px solid rgba(241,78,57,0.4)' : '1px solid #ffd3cc' }}>
-                      Included
+                  <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <div
+                        style={{
+                          width: '48px',
+                          height: '48px',
+                          borderRadius: '15px',
+                          background: isHovered ? 'rgba(59,130,246,0.2)' : 'linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%)',
+                          color: isHovered ? '#bfdbfe' : '#1d4ed8',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          border: isHovered ? '1px solid rgba(96,165,250,0.4)' : '1px solid #bfdbfe',
+                        }}
+                      >
+                        {item.icon}
+                      </div>
+                      <span style={{ fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: isHovered ? '#93c5fd' : '#1d4ed8' }}>
+                        Module {String(idx + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <span
+                      style={{
+                        borderRadius: '999px',
+                        padding: '5px 10px',
+                        fontSize: '0.7rem',
+                        fontWeight: 800,
+                        letterSpacing: '0.04em',
+                        background: isHovered ? 'rgba(15,23,42,0.32)' : '#ffffff',
+                        color: isHovered ? '#cbd5e1' : '#475569',
+                        border: isHovered ? '1px solid rgba(148,163,184,0.35)' : '1px solid #dbeafe',
+                      }}
+                    >
+                      Active Scope
                     </span>
                   </div>
 
-                  <h3 style={{ ...titleBaseStyle, position: 'relative', fontSize: '1.1rem', lineHeight: 1.25, color: isHovered ? '#ffffff' : '#020617' }}>{item.title}</h3>
-                  <p style={{ position: 'relative', margin: '10px 0 12px 0', color: isHovered ? 'rgba(226,232,240,0.95)' : '#64748b', lineHeight: 1.7, fontSize: '0.95rem', minHeight: '82px' }}>{item.desc}</p>
-                  <div style={{ display: 'grid', gap: '8px', marginTop: 'auto' }}>
+                  <h3 style={{ ...titleBaseStyle, position: 'relative', fontSize: '1.14rem', lineHeight: 1.24, color: isHovered ? '#f8fafc' : '#020617' }}>{item.title}</h3>
+                  <p style={{ position: 'relative', margin: '10px 0 14px 0', color: isHovered ? 'rgba(226,232,240,0.94)' : '#475569', lineHeight: 1.68, fontSize: '0.93rem', minHeight: '78px' }}>{item.desc}</p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
                     {item.points.map((p) => (
-                      <div key={p} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: isHovered ? '#ffffff' : '#334155', fontSize: '0.9rem' }}>
-                        <span style={{ width: '18px', height: '18px', borderRadius: '6px', marginTop: '1px', background: isHovered ? 'rgba(241,78,57,0.18)' : '#fff4f2', border: isHovered ? '1px solid rgba(241,78,57,0.45)' : '1px solid #ffd3cc', color: isHovered ? '#ffd8d2' : '#F14E39', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', lineHeight: 1, flexShrink: 0 }}>✓</span>
-                        <span>{p}</span>
-                      </div>
+                      <span
+                        key={p}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          borderRadius: '999px',
+                          padding: '6px 10px',
+                          background: isHovered ? 'rgba(30,41,59,0.62)' : 'rgba(255,255,255,0.86)',
+                          border: isHovered ? '1px solid rgba(148,163,184,0.38)' : '1px solid #dbeafe',
+                          color: isHovered ? '#e2e8f0' : '#334155',
+                          fontSize: '0.8rem',
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {p}
+                      </span>
                     ))}
                   </div>
 
@@ -282,10 +348,17 @@ export default function Services() {
                     initial={false}
                     animate={{ opacity: isHovered ? 1 : 0.9, y: isHovered ? 0 : 2 }}
                     transition={{ duration: 0.2 }}
-                    style={{ marginTop: '14px', borderTop: isHovered ? '1px solid rgba(241,78,57,0.4)' : '1px solid #e2e8f0', paddingTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                    style={{
+                      marginTop: '16px',
+                      borderTop: isHovered ? '1px solid rgba(96,165,250,0.4)' : '1px solid #bfdbfe',
+                      paddingTop: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                    }}
                   >
-                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isHovered ? '#cbd5e1' : '#64748b' }}>Delivery-ready module</span>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 800, color: isHovered ? '#ffd8d2' : '#F14E39' }}>Explore</span>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isHovered ? '#cbd5e1' : '#64748b' }}>Delivery-ready track</span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 800, color: isHovered ? '#93c5fd' : '#2563eb' }}>Explore</span>
                   </motion.div>
                 </motion.article>
               );
