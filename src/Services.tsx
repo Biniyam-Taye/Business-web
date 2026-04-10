@@ -308,12 +308,12 @@ export default function Services() {
                       style={{
                         borderRadius: '999px',
                         padding: '5px 10px',
-                        fontSize: '0.7rem',
+                        fontSize: '0.72rem',
                         fontWeight: 800,
                         letterSpacing: '0.04em',
-                        background: isHovered ? 'rgba(15,23,42,0.32)' : '#ffffff',
-                        color: isHovered ? '#cbd5e1' : '#475569',
-                        border: isHovered ? '1px solid rgba(148,163,184,0.35)' : '1px solid #dbeafe',
+                        background: isHovered ? 'rgba(15,23,42,0.46)' : '#ffffff',
+                        color: isHovered ? '#e2e8f0' : '#334155',
+                        border: isHovered ? '1px solid rgba(148,163,184,0.46)' : '1px solid #bfdbfe',
                       }}
                     >
                       Active Scope
@@ -321,7 +321,7 @@ export default function Services() {
                   </div>
 
                   <h3 style={{ ...titleBaseStyle, position: 'relative', fontSize: '1.14rem', lineHeight: 1.24, color: isHovered ? '#f8fafc' : '#020617' }}>{item.title}</h3>
-                  <p style={{ position: 'relative', margin: '10px 0 14px 0', color: isHovered ? 'rgba(226,232,240,0.94)' : '#475569', lineHeight: 1.68, fontSize: '0.93rem', minHeight: '78px' }}>{item.desc}</p>
+                  <p style={{ position: 'relative', margin: '10px 0 14px 0', color: isHovered ? '#f1f5f9' : '#334155', lineHeight: 1.68, fontSize: '0.95rem', fontWeight: 500, minHeight: '78px' }}>{item.desc}</p>
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
                     {item.points.map((p) => (
@@ -334,8 +334,9 @@ export default function Services() {
                           padding: '6px 10px',
                           background: isHovered ? 'rgba(30,41,59,0.62)' : 'rgba(255,255,255,0.86)',
                           border: isHovered ? '1px solid rgba(148,163,184,0.38)' : '1px solid #dbeafe',
-                          color: isHovered ? '#e2e8f0' : '#334155',
-                          fontSize: '0.8rem',
+                          color: isHovered ? '#f8fafc' : '#1e293b',
+                          fontSize: '0.82rem',
+                          fontWeight: 600,
                           lineHeight: 1.2,
                         }}
                       >
@@ -357,7 +358,7 @@ export default function Services() {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isHovered ? '#cbd5e1' : '#64748b' }}>Delivery-ready track</span>
+                    <span style={{ fontSize: '0.84rem', fontWeight: 800, color: isHovered ? '#e2e8f0' : '#475569' }}>Delivery-ready track</span>
                     <span style={{ fontSize: '0.86rem', fontWeight: 800, color: isHovered ? '#93c5fd' : '#2563eb' }}>Explore</span>
                   </motion.div>
                 </motion.article>
