@@ -203,18 +203,66 @@ export default function Services() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 36 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.05, delay: 0.15, ease }} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#e2e8f0', borderRadius: '20px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
-              {[
-                ['12+', 'Service Modules'],
-                ['50+', 'Projects Delivered'],
-                ['98%', 'Client Satisfaction'],
-                ['24/7', 'Support Readiness'],
-              ].map((s) => (
-                <div key={s[0]} style={{ background: '#ffffff', padding: '24px 20px' }}>
-                  <p style={{ margin: 0, fontSize: '2rem', fontWeight: 800, letterSpacing: '-0.03em' }}>{s[0]}</p>
-                  <p style={{ margin: '4px 0 0 0', fontSize: '0.78rem', color: 'rgba(15,23,42,0.62)', letterSpacing: '0.04em', fontWeight: 500, textTransform: 'uppercase' }}>{s[1]}</p>
+            {/* RIGHT SIDE: Unique Visual Composition */}
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              transition={{ duration: 1.1, delay: 0.15, ease }} 
+              style={{ position: 'relative', minHeight: '460px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}
+            >
+              {/* Background glows */}
+              <div style={{ position: 'absolute', right: '5%', top: '5%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(20px)' }} />
+              <div style={{ position: 'absolute', left: '5%', bottom: '5%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(249,115,22,0.10) 0%, rgba(255,255,255,0) 70%)', filter: 'blur(20px)' }} />
+
+              {/* Main Image Plate */}
+              <motion.div 
+                whileHover={{ rotate: 0, scale: 1.02 }}
+                transition={{ duration: 0.5, ease }}
+                style={{ position: 'absolute', right: '8%', top: '20px', width: '280px', height: '360px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 50px rgba(15,23,42,0.12)', border: '6px solid #ffffff', transform: 'rotate(5deg)', zIndex: 1, transformOrigin: 'center' }}
+              >
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Team at work" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.6) 100%)' }} />
+              </motion.div>
+
+              {/* Secondary offset image */}
+              <motion.div 
+                whileHover={{ rotate: 0, scale: 1.02, zIndex: 4 }}
+                transition={{ duration: 0.5, ease }}
+                style={{ position: 'absolute', left: '4%', bottom: '30px', width: '280px', height: '220px', borderRadius: '24px', overflow: 'hidden', boxShadow: '-10px 20px 40px rgba(15,23,42,0.15)', border: '6px solid #ffffff', transform: 'rotate(-4deg)', zIndex: 2 }}
+              >
+                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" alt="Wireframing interface" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </motion.div>
+
+              {/* Floating Badge 1 - Top Left */}
+              <motion.div 
+                animate={{ y: [-6, 6, -6] }} 
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+                style={{ position: 'absolute', top: '15%', left: '0%', zIndex: 3, background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)', padding: '16px 20px', borderRadius: '20px', boxShadow: '0 12px 30px rgba(15,23,42,0.08)', border: '1px solid rgba(255,255,255,1)', display: 'flex', alignItems: 'center', gap: '14px' }}
+              >
+                <div style={{ width: '44px', height: '44px', borderRadius: '14px', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Code2 size={22} strokeWidth={2.5} />
                 </div>
-              ))}
+                <div>
+                  <p style={{ margin: 0, fontSize: '1.4rem', fontWeight: 900, color: '#0f172a', lineHeight: 1, letterSpacing: '-0.02em' }}>Elite</p>
+                  <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 800, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Engineering</p>
+                </div>
+              </motion.div>
+
+              {/* Floating Badge 2 - Bottom Right */}
+              <motion.div 
+                animate={{ y: [6, -6, 6] }} 
+                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                style={{ position: 'absolute', bottom: '15%', right: '-2%', zIndex: 3, background: '#0f172a', backdropFilter: 'blur(12px)', padding: '14px 22px', borderRadius: '20px', boxShadow: '0 16px 40px rgba(15,23,42,0.25)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '14px' }}
+              >
+                <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(245,96,42,0.15)', color: '#f5602a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <ShieldCheck size={20} strokeWidth={2.5} />
+                </div>
+                <div>
+                  <p style={{ margin: 0, fontSize: '0.85rem', fontWeight: 600, color: '#cbd5e1', lineHeight: 1.3 }}>Enterprise Grade</p>
+                  <p style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', letterSpacing: '0.01em' }}>Secure Scale</p>
+                </div>
+              </motion.div>
+
             </motion.div>
           </div>
         </div>
