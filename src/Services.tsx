@@ -432,238 +432,236 @@ export default function Services() {
         </div>
       </section>
 
-      <section style={{ padding: '62px 0 12px' }}>
-        <div className="container" style={{ maxWidth: '1220px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.25fr 1fr', gap: '14px' }}>
+      {/* ── ELITE SECTION: ARCHITECTURE & INDUSTRIES ── */}
+      <section style={{ padding: '80px 0 40px', position: 'relative' }}>
+        {/* subtle background mesh */}
+        <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '40%', height: '80%', background: 'radial-gradient(circle, rgba(59,130,246,0.03) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
+
+        <div className="container" style={{ maxWidth: '1240px', position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
+            
+            {/* LEFT CARD: TECH STACK - DARK ELITE THEME */}
             <motion.div
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease }}
-              style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 12px 30px rgba(15,23,42,0.05)' }}
+              transition={{ duration: 1, ease }}
+              style={{ 
+                background: '#0b1120', // deep rich navy
+                border: '1px solid rgba(255,255,255,0.08)', 
+                borderRadius: '32px', 
+                overflow: 'hidden', 
+                boxShadow: '0 24px 50px rgba(0,0,0,0.15)',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
             >
-              <div style={{ position: 'relative', height: '230px' }}>
+              <div style={{ position: 'relative', height: '260px' }}>
                 <img
                   src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80"
                   alt="Technology architecture"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0.08) 0%, rgba(2,6,23,0.78) 100%)' }} />
-                <div style={{ position: 'absolute', left: '20px', right: '20px', bottom: '16px' }}>
-                  <h3 style={{ ...titleOnDarkStyle, fontSize: '1.35rem' }}>
-                    Tech Stack & <span style={accentOrangeStyle}>Architecture</span>
+                {/* Sleek fade out to dark at the bottom */}
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(11,17,32,0.1) 0%, #0b1120 100%)' }} />
+                
+                <div style={{ position: 'absolute', left: '32px', right: '32px', bottom: '16px' }}>
+                  <h3 style={{ ...titleOnDarkStyle, fontSize: '2rem', letterSpacing: '-0.03em' }}>
+                    Tech Stack & <span style={{ background: 'linear-gradient(135deg, #F97316 0%, #ea580c 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Architecture</span>
                   </h3>
-                  <p style={{ margin: '6px 0 0 0', color: 'rgba(255,255,255,0.85)', lineHeight: 1.6 }}>
+                  <p style={{ margin: '8px 0 0 0', color: '#94a3b8', lineHeight: 1.6, fontSize: '1.05rem', fontWeight: 400 }}>
                     Scalable foundations selected for performance, maintainability, and growth.
                   </p>
                 </div>
               </div>
 
-              <div style={{ padding: '18px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px' }}>
+              <div style={{ padding: '0 32px 32px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                
+                {/* The 4 core pillars */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginTop: '16px' }}>
                   {[
-                    ['Frontend', <LayoutPanelTop size={16} />],
-                    ['Backend', <Database size={16} />],
-                    ['Cloud', <Cloud size={16} />],
-                    ['Automation', <Workflow size={16} />],
+                    ['Frontend', <LayoutPanelTop size={18} color="#60a5fa" />],
+                    ['Backend', <Database size={18} color="#c084fc" />],
+                    ['Cloud', <Cloud size={18} color="#34d399" />],
+                    ['Automation', <Workflow size={18} color="#f87171" />],
                   ].map(([name, icon]) => (
-                    <div
+                    <motion.div
                       key={String(name)}
+                      whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.15)' }}
                       style={{
-                        border: '1px solid #dbeafe',
-                        borderRadius: '12px',
-                        padding: '12px',
-                        background: 'linear-gradient(180deg, #ffffff 0%, #eff6ff 100%)',
+                        border: '1px solid rgba(255,255,255,0.06)',
+                        borderRadius: '16px',
+                        padding: '16px',
+                        background: 'rgba(255,255,255,0.03)',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '8px',
+                        gap: '12px',
+                        cursor: 'default',
+                        transition: 'border-color 0.3s ease'
                       }}
                     >
-                      <span style={{ color: '#2563eb', display: 'inline-flex' }}>{icon as ReactNode}</span>
-                      <span style={{ fontWeight: 700, fontSize: '0.92rem', color: '#1e293b' }}>{name}</span>
-                    </div>
+                      <div style={{ padding: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', display: 'flex', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
+                        {icon as ReactNode}
+                      </div>
+                      <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#f8fafc', letterSpacing: '0.02em' }}>{name}</span>
+                    </motion.div>
                   ))}
                 </div>
 
-                <div style={{ marginTop: '16px', borderTop: '1px solid #e2e8f0', paddingTop: '16px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 0.85fr', gap: '14px', alignItems: 'start' }}>
-                    <div>
-                      <h4 style={{ ...titleBaseStyle, fontSize: '1.05rem', letterSpacing: '-0.02em' }}>
-                        A blueprint that <span style={accentBlueStyle}>scales with you</span>
-                      </h4>
-                      <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.65 }}>
-                        We design systems for clarity and change: clean modules, secure boundaries, and observability built-in—so teams ship faster without
-                        breaking production.
+                <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '24px', alignItems: 'start' }}>
+                  
+                  {/* Blueprint details */}
+                  <div>
+                    <h4 style={{ ...titleOnDarkStyle, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
+                      A blueprint that <span style={{ color: '#60a5fa' }}>scales with you</span>
+                    </h4>
+                    <p style={{ margin: '12px 0 0 0', color: '#94a3b8', lineHeight: 1.65, fontSize: '0.95rem' }}>
+                      We design systems for clarity and change: clean modules, secure boundaries, and observability built-in—so teams ship faster without breaking production.
+                    </p>
+
+                    <div style={{ marginTop: '24px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                      {['React / Next.js', 'Node / .NET', 'Postgres', 'Redis', 'Docker', 'CI/CD'].map((tag) => (
+                        <span key={tag} style={{
+                          borderRadius: '999px', padding: '6px 14px', border: '1px solid rgba(96,165,250,0.3)',
+                          background: 'rgba(59,130,246,0.1)', color: '#bfdbfe', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.02em',
+                        }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div style={{ marginTop: '28px', display: 'grid', gap: '12px' }}>
+                      {[
+                        'Clear API contracts + versioning',
+                        'Role-based access & audit trails',
+                        'Sub-50ms caching architectures',
+                      ].map((item) => (
+                        <div key={item} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', color: '#cbd5e1', fontSize: '0.88rem' }}>
+                          <span style={{ marginTop: '3px', color: '#60a5fa', flexShrink: 0 }}><ShieldCheck size={16} /></span>
+                          <span style={{ lineHeight: 1.5 }}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Sidebar boxes in dark mode */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', background: 'rgba(255,255,255,0.02)', padding: '20px' }}>
+                      <p style={{ margin: 0, fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 800, color: '#f8fafc' }}>
+                        Typical deliverables
                       </p>
-
-                      <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                        {[
-                          'React / Next.js',
-                          'Node / .NET',
-                          'Postgres',
-                          'Redis',
-                          'Docker',
-                          'CI/CD',
-                          'AWS / Azure',
-                          'Monitoring',
-                        ].map((tag) => (
-                          <span
-                            key={tag}
-                            style={{
-                              borderRadius: '999px',
-                              padding: '6px 10px',
-                              border: '1px solid #e2e8f0',
-                              background: '#f8fafc',
-                              color: '#0f172a',
-                              fontSize: '0.78rem',
-                              fontWeight: 700,
-                              letterSpacing: '0.01em',
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div style={{ marginTop: '14px', display: 'grid', gap: '8px' }}>
-                        {[
-                          'Clear API contracts + versioning strategy',
-                          'Role-based access patterns and audit trails',
-                          'Performance budgets and caching plan',
-                          'Alerts, dashboards, and incident-ready runbooks',
-                        ].map((item) => (
-                          <div key={item} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', color: '#334155', fontSize: '0.92rem' }}>
-                            <span style={{ width: '22px', height: '22px', borderRadius: '8px', background: '#0f172a', color: '#ffffff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                              <ShieldCheck size={14} />
-                            </span>
-                            <span style={{ lineHeight: 1.55 }}>{item}</span>
+                      <div style={{ display: 'grid', gap: '12px', marginTop: '16px' }}>
+                        {['Architecture diagram', 'Data model + migrations', 'API endpoints', 'Deployment pipeline'].map((d) => (
+                          <div key={d} style={{ display: 'flex', gap: '10px', alignItems: 'center', color: '#94a3b8', fontSize: '0.88rem' }}>
+                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#60a5fa', flexShrink: 0, boxShadow: '0 0 8px #60a5fa' }} />
+                            <span style={{ lineHeight: 1.45 }}>{d}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gap: '10px' }}>
-                      <div style={{ border: '1px solid #e2e8f0', borderRadius: '16px', background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)', padding: '12px' }}>
-                        <p style={{ margin: 0, fontSize: '0.8rem', letterSpacing: '0.06em', textTransform: 'uppercase', fontWeight: 800, color: '#1d4ed8' }}>
-                          Typical deliverables
-                        </p>
-                        <div style={{ display: 'grid', gap: '8px', marginTop: '10px' }}>
-                          {[
-                            'Architecture diagram',
-                            'Data model + migrations',
-                            'API spec + endpoints',
-                            'Deployment pipeline',
-                          ].map((d) => (
-                            <div key={d} style={{ display: 'flex', gap: '8px', alignItems: 'center', color: '#334155', fontSize: '0.9rem' }}>
-                              <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: '#2563eb', flexShrink: 0 }} />
-                              <span style={{ lineHeight: 1.45 }}>{d}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div style={{ border: '1px solid #dbeafe', borderRadius: '16px', background: 'linear-gradient(145deg, #eff6ff 0%, #ffffff 100%)', padding: '12px' }}>
-                        <p style={{ margin: 0, fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em' }}>Get a stack recommendation</p>
-                        <p style={{ margin: '6px 0 0 0', color: '#64748b', lineHeight: 1.55, fontSize: '0.9rem' }}>
-                          Share your goals and constraints—we’ll propose a right-sized architecture and rollout plan.
-                        </p>
-                        <button
-                          className="project-btn-primary"
-                          style={{
-                            marginTop: '10px',
-                            border: 'none',
-                            background: '#0f172a',
-                            color: '#fff',
-                            borderRadius: '12px',
-                            padding: '10px 12px',
-                            fontWeight: 800,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            width: '100%',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          View example architecture <ArrowRight size={16} />
-                        </button>
-                      </div>
+                    <div style={{ border: '1px solid rgba(96,165,250,0.3)', borderRadius: '20px', background: 'linear-gradient(145deg, rgba(37,99,235,0.1) 0%, rgba(11,17,32,0.5) 100%)', padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                      <p style={{ margin: 0, fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em', fontSize: '1rem' }}>Get a recommendation</p>
+                      <motion.button style={{
+                          marginTop: '16px', border: 'none', background: '#ffffff', color: '#0f172a', borderRadius: '12px', padding: '12px',
+                          fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', width: '100%', justifyContent: 'center', cursor: 'pointer'
+                        }}
+                        whileHover={{ scale: 1.04 }}
+                        whileTap={{ scale: 0.96 }}
+                      >
+                        View architectures <ArrowRight size={16} />
+                      </motion.button>
                     </div>
                   </div>
+
                 </div>
               </div>
             </motion.div>
 
+            {/* RIGHT CARD: INDUSTRIES - ELEGANT LIGHT THEME */}
             <motion.div
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.1, ease }}
-              style={{ display: 'grid', gap: '14px' }}
+              transition={{ duration: 1, delay: 0.2, ease }}
+              style={{ display: 'grid', gap: '0', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 24px 50px rgba(15,23,42,0.06)' }}
             >
-              <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 12px 30px rgba(15,23,42,0.05)' }}>
-                <div style={{ position: 'relative', height: '130px' }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
-                    alt="Industries and teams"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.65) 100%)' }} />
-                  <h3 style={{ ...titleOnDarkStyle, position: 'absolute', left: '16px', bottom: '14px', fontSize: '1.25rem' }}>
-                    Industries We <span style={accentOrangeStyle}>Serve</span>
-                  </h3>
-                </div>
-                <div style={{ padding: '14px' }}>
-                  <p style={{ margin: '0 0 10px 0', color: '#64748b', lineHeight: 1.6 }}>
-                    Domain-specific delivery with compliance and workflow alignment.
-                  </p>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px' }}>
-                    {industries.map((industry) => (
-                      <div
-                        key={industry.name}
-                        style={{
-                          borderRadius: '12px',
-                          border: '1px solid #dbeafe',
-                          overflow: 'hidden',
-                          background: '#ffffff',
-                          boxShadow: '0 8px 20px rgba(15,23,42,0.05)',
-                        }}
+              {/* Header Image Area */}
+              <div style={{ position: 'relative', height: '200px' }}>
+                <img
+                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
+                  alt="Industries and teams"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.1) 100%)' }} />
+                <h3 style={{ ...titleOnDarkStyle, position: 'absolute', left: '32px', bottom: '24px', fontSize: '2rem' }}>
+                  Industries We <span style={{ color: '#F97316' }}>Serve</span>
+                </h3>
+              </div>
+
+              {/* Grid content */}
+              <div style={{ padding: '32px', background: '#ffffff', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                <p style={{ margin: '0 0 24px 0', color: '#475569', lineHeight: 1.6, fontSize: '1.05rem', fontWeight: 500 }}>
+                  Domain-specific delivery with strict compliance, extreme reliability, and intelligent workflow alignment.
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+                  {industries.slice(0, 4).map((industry) => (
+                    <motion.div
+                      key={industry.name}
+                      whileHover="hover"
+                      style={{
+                        borderRadius: '20px',
+                        border: '1px solid #f1f5f9',
+                        overflow: 'hidden',
+                        background: '#ffffff',
+                        boxShadow: '0 4px 12px rgba(15,23,42,0.03)',
+                        cursor: 'default'
+                      }}
+                    >
+                      <div style={{ position: 'relative', height: '110px', overflow: 'hidden' }}>
+                        <motion.img
+                          variants={{ hover: { scale: 1.08 } }}
+                          transition={{ duration: 0.6, ease }}
+                          src={industry.image}
+                          alt={industry.name}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.3) 100%)', pointerEvents: 'none' }} />
+                      </div>
+                      <motion.div 
+                        variants={{ hover: { backgroundColor: '#f8fafc' } }} 
+                        style={{ padding: '16px', transition: 'background-color 0.3s ease' }}
                       >
-                        <div style={{ position: 'relative', height: '86px' }}>
-                          <img
-                            src={industry.image}
-                            alt={industry.name}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                          />
-                          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2,6,23,0.05) 0%, rgba(2,6,23,0.48) 100%)' }} />
+                        <p style={{ margin: 0, color: '#0f172a', fontSize: '0.95rem', fontWeight: 800, lineHeight: 1.3, letterSpacing: '-0.01em' }}>
+                          {industry.name}
+                        </p>
+                        <p style={{ margin: '4px 0 0 0', color: '#64748b', fontSize: '0.8rem', lineHeight: 1.5 }}>
+                          {industry.detail}
+                        </p>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Footer rationale logic replacing old grey box */}
+                <div style={{ marginTop: 'auto', background: 'linear-gradient(140deg, #f8fafc 0%, #ffffff 100%)', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
+                  <h4 style={{ ...titleBaseStyle, fontSize: '1.05rem', color: '#0f172a' }}>
+                    Why this model <span style={{ color: '#2563eb' }}>works</span>
+                  </h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '12px', marginTop: '16px' }}>
+                    {['Lower technical debt', 'Faster release cycles', 'Elastic scaling'].map((point) => (
+                      <div key={point} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#475569', fontSize: '0.82rem', fontWeight: 700 }}>
+                        <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#eff6ff', border: '1px solid #bfdbfe', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <ShieldCheck size={12} strokeWidth={3} />
                         </div>
-                        <div style={{ padding: '10px' }}>
-                          <p style={{ margin: 0, color: '#0f172a', fontSize: '0.86rem', fontWeight: 700, lineHeight: 1.3 }}>
-                            {industry.name}
-                          </p>
-                          <p style={{ margin: '3px 0 0 0', color: '#64748b', fontSize: '0.75rem', lineHeight: 1.4 }}>
-                            {industry.detail}
-                          </p>
-                        </div>
+                        {point}
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-
-              <div style={{ background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', border: '1px solid #dbeafe', borderRadius: '20px', padding: '16px' }}>
-                <h4 style={{ ...titleBaseStyle, fontSize: '1rem', color: '#1e3a8a' }}>
-                  Why this model <span style={accentBlueStyle}>works</span>
-                </h4>
-                <div style={{ display: 'grid', gap: '7px', marginTop: '8px' }}>
-                  {['Lower technical debt', 'Faster release cycles', 'Easier long-term scaling'].map((point) => (
-                    <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155', fontSize: '0.9rem' }}>
-                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', marginTop: '6px', background: '#2563eb', flexShrink: 0 }} />
-                      <span>{point}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
