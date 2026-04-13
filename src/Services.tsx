@@ -656,6 +656,23 @@ export default function Services() {
                         </div>
                       ))}
                     </div>
+
+                    <div style={{ marginTop: '18px', border: '1px solid rgba(148,163,184,0.28)', borderRadius: '16px', background: 'rgba(15,23,42,0.34)', padding: '14px' }}>
+                      <p style={{ margin: 0, color: '#bfdbfe', fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.07em', fontWeight: 800 }}>
+                        Architecture priorities
+                      </p>
+                      <div style={{ marginTop: '10px', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '8px' }}>
+                        {[
+                          ['Reliability', '99.9%'],
+                          ['Response', '< 120ms'],
+                        ].map((item) => (
+                          <div key={item[0]} style={{ borderRadius: '10px', border: '1px solid rgba(148,163,184,0.25)', background: 'rgba(15,23,42,0.45)', padding: '8px', minHeight: '54px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.7rem', fontWeight: 700, lineHeight: 1.2 }}>{item[0]}</p>
+                            <p style={{ margin: '4px 0 0 0', color: '#f8fafc', fontSize: '0.76rem', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>{item[1]}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   {/* Sidebar boxes in dark mode */}
@@ -674,17 +691,18 @@ export default function Services() {
                       </div>
                     </div>
 
-                    <div style={{ border: '1px solid rgba(96,165,250,0.3)', borderRadius: '20px', background: 'linear-gradient(145deg, rgba(37,99,235,0.1) 0%, rgba(11,17,32,0.5) 100%)', padding: '20px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                      <p style={{ margin: 0, fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em', fontSize: '1rem' }}>Get a recommendation</p>
-                      <motion.button style={{
-                        marginTop: '16px', border: 'none', background: '#ffffff', color: '#0f172a', borderRadius: '12px', padding: '12px',
-                        fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', width: '100%', justifyContent: 'center', cursor: 'pointer'
-                      }}
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.96 }}
-                      >
-                        View architectures <ArrowRight size={16} />
-                      </motion.button>
+                    <div style={{ border: '1px solid rgba(96,165,250,0.3)', borderRadius: '20px', background: 'linear-gradient(145deg, rgba(37,99,235,0.1) 0%, rgba(11,17,32,0.5) 100%)', padding: '20px', flex: 1, display: 'grid', gap: '12px' }}>
+                      <p style={{ margin: 0, fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em', fontSize: '1rem' }}>Architecture insight</p>
+                      {[
+                        ['System fit', 'Matched to your team velocity and business stage'],
+                        ['Scale target', 'Designed for growth without frequent rewrites'],
+                        ['Risk posture', 'Security and reliability embedded from day one'],
+                      ].map((item) => (
+                        <div key={item[0]} style={{ border: '1px solid rgba(148,163,184,0.28)', borderRadius: '12px', background: 'rgba(15,23,42,0.42)', padding: '10px' }}>
+                          <p style={{ margin: 0, color: '#bfdbfe', fontSize: '0.76rem', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 800 }}>{item[0]}</p>
+                          <p style={{ margin: '5px 0 0 0', color: '#e2e8f0', fontSize: '0.84rem', lineHeight: 1.45, fontWeight: 600 }}>{item[1]}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
