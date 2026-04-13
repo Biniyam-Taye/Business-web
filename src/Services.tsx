@@ -552,7 +552,7 @@ export default function Services() {
         <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '40%', height: '80%', background: 'radial-gradient(circle, rgba(59,130,246,0.03) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
 
         <div className="container" style={{ maxWidth: '1240px', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'start' }}>
 
             {/* LEFT CARD: TECH STACK - DARK ELITE THEME */}
             <motion.div
@@ -732,7 +732,7 @@ export default function Services() {
               </div>
 
               {/* Grid content */}
-              <div style={{ padding: '32px', background: '#ffffff', display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <div style={{ padding: '32px', background: '#ffffff', display: 'flex', flexDirection: 'column' }}>
                 <p style={{ margin: '0 0 24px 0', color: '#475569', lineHeight: 1.6, fontSize: '1.05rem', fontWeight: 500 }}>
                   Domain-specific delivery with strict compliance, extreme reliability, and intelligent workflow alignment.
                 </p>
@@ -776,7 +776,7 @@ export default function Services() {
                 </div>
 
                 {/* Footer rationale logic replacing old grey box */}
-                <div style={{ marginTop: 'auto', background: 'linear-gradient(140deg, #f8fafc 0%, #ffffff 100%)', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
+                <div style={{ marginTop: '16px', background: 'linear-gradient(140deg, #f8fafc 0%, #ffffff 100%)', border: '1px solid #e2e8f0', borderRadius: '20px', padding: '24px' }}>
                   <h4 style={{ ...titleBaseStyle, fontSize: '1.05rem', color: '#0f172a' }}>
                     Why this model <span style={{ color: '#2563eb' }}>works</span>
                   </h4>
@@ -787,6 +787,24 @@ export default function Services() {
                           <ShieldCheck size={12} strokeWidth={3} />
                         </div>
                         {point}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ marginTop: '12px', border: '1px solid #dbeafe', borderRadius: '16px', background: '#eff6ff', padding: '14px' }}>
+                  <p style={{ margin: 0, color: '#1d4ed8', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                    Delivery assurance
+                  </p>
+                  <div style={{ marginTop: '8px', display: 'grid', gap: '7px' }}>
+                    {[
+                      'Weekly architecture review with your team',
+                      'Risk log with mitigation ownership',
+                      'Launch checklist and rollback readiness',
+                    ].map((item) => (
+                      <div key={item} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', color: '#334155', fontSize: '0.84rem', fontWeight: 600 }}>
+                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb', marginTop: '6px', flexShrink: 0 }} />
+                        <span style={{ lineHeight: 1.45 }}>{item}</span>
                       </div>
                     ))}
                   </div>
