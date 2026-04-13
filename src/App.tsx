@@ -110,23 +110,21 @@ function MainLayout() {
                   else if (link === 'About Us') navigate('/');
                 }}
               >
-                {activeNav === link && (
-                  <motion.div
-                    layoutId="nav-indicator"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      background: '#111',
-                      borderRadius: '9999px',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-                      zIndex: 0,
-                    }}
-                    transition={{ type: 'tween', duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                )}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: '#111',
+                    borderRadius: '9999px',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                    zIndex: 0,
+                    opacity: activeNav === link ? 1 : 0,
+                    transition: 'opacity 0.22s ease',
+                  }}
+                />
                 <span style={{ position: 'relative', zIndex: 1, color: activeNav === link ? '#fff' : '#444', transition: 'all 0.3s ease' }}>
                   {link}
                 </span>

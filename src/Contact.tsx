@@ -75,10 +75,10 @@ export default function ContactPage() {
           border-radius: 999px;
           transform: translateX(-50%) scaleX(0);
           transform-origin: center;
-          background: linear-gradient(90deg, #0ea5e9 0%, #6366f1 40%, #a855f7 75%, #0ea5e9 100%);
+          background: linear-gradient(90deg, #ffb8ad 0%, #EF4E39 32%, #f97316 58%, #EF4E39 82%, #ffb8ad 100%);
           background-size: 200% 100%;
           opacity: 0;
-          filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.55));
+          filter: drop-shadow(0 2px 10px rgba(239, 78, 57, 0.55));
           transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
           pointer-events: none;
           animation: cp-field-shimmer 2.6s linear infinite;
@@ -128,37 +128,37 @@ export default function ContactPage() {
         }
         .contact-page .cp-field-shell:hover .cp-input,
         .contact-page .cp-field-shell:hover .cp-textarea {
-          border-color: #818cf8;
-          background: linear-gradient(165deg, #ffffff 0%, #f5f7ff 55%, #eef2ff 100%);
+          border-color: #EF4E39;
+          background: linear-gradient(165deg, #ffffff 0%, #fff8f6 45%, #fff0ec 100%);
           box-shadow:
-            0 12px 32px rgba(59, 130, 246, 0.16),
-            0 4px 12px rgba(99, 102, 241, 0.1),
-            0 0 0 1px rgba(129, 140, 248, 0.35),
+            0 12px 32px rgba(239, 78, 57, 0.14),
+            0 4px 14px rgba(239, 78, 57, 0.1),
+            0 0 0 1px rgba(239, 78, 57, 0.28),
             inset 0 1px 0 rgba(255, 255, 255, 0.95);
         }
         .contact-page .cp-field-shell:hover .cp-select {
-          border-color: #818cf8;
-          background-color: #f4f6ff;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+          border-color: #EF4E39;
+          background-color: #fff5f2;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23EF4E39' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: right 14px center;
           box-shadow:
-            0 12px 32px rgba(59, 130, 246, 0.16),
-            0 4px 12px rgba(99, 102, 241, 0.1),
-            0 0 0 1px rgba(129, 140, 248, 0.35),
+            0 12px 32px rgba(239, 78, 57, 0.14),
+            0 4px 14px rgba(239, 78, 57, 0.1),
+            0 0 0 1px rgba(239, 78, 57, 0.28),
             inset 0 1px 0 rgba(255, 255, 255, 0.95);
         }
         .contact-page .cp-input:focus,
         .contact-page .cp-select:focus,
         .contact-page .cp-textarea:focus {
-          border-color: #2563eb;
+          border-color: #EF4E39;
           background: #ffffff;
-          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), 0 10px 28px rgba(37, 99, 235, 0.12);
+          box-shadow: 0 0 0 4px rgba(239, 78, 57, 0.22), 0 10px 28px rgba(239, 78, 57, 0.1);
         }
         .contact-page .cp-select {
           cursor: pointer;
           appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23EF4E39' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: right 14px center;
           padding-right: 44px;
@@ -166,6 +166,75 @@ export default function ContactPage() {
         .contact-page .cp-select option {
           font-weight: 700;
           color: #020617;
+        }
+        .contact-page .cp-track-row {
+          position: relative;
+          border-radius: 14px;
+          border: 2px solid #dbeafe;
+          padding: 12px 12px 14px;
+          background: #f8fbff;
+          overflow: hidden;
+          cursor: default;
+          transition:
+            transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            border-color 0.32s ease,
+            box-shadow 0.35s ease,
+            background 0.35s ease;
+        }
+        .contact-page .cp-track-row::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 0;
+          width: 92%;
+          height: 4px;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: center;
+          border-radius: 0 0 999px 999px;
+          background: linear-gradient(90deg, #ffb8ad 0%, #ef4e39 30%, #f97316 55%, #ef4e39 78%, #ffb8ad 100%);
+          background-size: 200% 100%;
+          opacity: 0;
+          filter: drop-shadow(0 3px 8px rgba(239, 78, 57, 0.45));
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease;
+          pointer-events: none;
+          animation: cp-track-shimmer 2.5s linear infinite;
+          animation-play-state: paused;
+        }
+        .contact-page .cp-track-row:hover::before {
+          transform: translateX(-50%) scaleX(1);
+          opacity: 1;
+          animation-play-state: running;
+        }
+        @keyframes cp-track-shimmer {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 200% 50%;
+          }
+        }
+        .contact-page .cp-track-row:hover {
+          transform: translateY(-5px);
+          border-color: rgba(239, 78, 57, 0.45);
+          background: linear-gradient(165deg, #ffffff 0%, #fff8f6 48%, #ffeeea 100%);
+          box-shadow:
+            0 14px 32px rgba(239, 78, 57, 0.12),
+            0 4px 14px rgba(239, 78, 57, 0.08),
+            0 0 0 1px rgba(239, 78, 57, 0.12);
+        }
+        .contact-page .cp-track-row .cp-track-duration {
+          color: #1d4ed8;
+          transition: color 0.28s ease, transform 0.28s ease;
+        }
+        .contact-page .cp-track-row:hover .cp-track-duration {
+          color: #ef4e39;
+          transform: translateX(-2px);
+        }
+        .contact-page .cp-track-row .cp-track-desc {
+          transition: color 0.28s ease;
+        }
+        .contact-page .cp-track-row:hover .cp-track-desc {
+          color: #1e293b;
         }
         @media (max-width: 960px) {
           .contact-page .cp-channels {
@@ -576,20 +645,18 @@ export default function ContactPage() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: 0.15 + i * 0.06, duration: 0.45, ease }}
-                          whileHover={{ backgroundColor: '#eff6ff', borderColor: '#93c5fd' }}
-                          style={{
-                            borderRadius: '14px',
-                            border: '2px solid #dbeafe',
-                            padding: '12px',
-                            background: '#f8fbff',
-                            transition: 'background-color 0.2s ease, border-color 0.2s ease',
-                          }}
                         >
-                          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', alignItems: 'center' }}>
-                            <strong style={{ color: '#020617', fontSize: '0.95rem', fontWeight: 800 }}>{track[0]}</strong>
-                            <span style={{ color: '#1d4ed8', fontSize: '0.82rem', fontWeight: 800 }}>{track[1]}</span>
+                          <div className="cp-track-row">
+                            <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', gap: '8px', alignItems: 'center' }}>
+                              <strong style={{ color: '#020617', fontSize: '0.95rem', fontWeight: 800 }}>{track[0]}</strong>
+                              <span className="cp-track-duration" style={{ fontSize: '0.82rem', fontWeight: 800 }}>
+                                {track[1]}
+                              </span>
+                            </div>
+                            <p className="cp-track-desc" style={{ margin: '6px 0 0 0', color: '#334155', lineHeight: 1.55, fontSize: '0.88rem', fontWeight: 700 }}>
+                              {track[2]}
+                            </p>
                           </div>
-                          <p style={{ margin: '6px 0 0 0', color: '#334155', lineHeight: 1.55, fontSize: '0.88rem', fontWeight: 700 }}>{track[2]}</p>
                         </motion.div>
                       ))}
                     </div>
