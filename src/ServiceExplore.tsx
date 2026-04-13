@@ -165,11 +165,11 @@ export default function ServiceExplorePage() {
           <h1 style={{ margin: '8px 0 0 0', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#020617', letterSpacing: '-0.03em' }}>{detail.title}</h1>
           <p style={{ margin: '10px 0 0 0', color: '#1e3a8a', fontWeight: 700 }}>{detail.subtitle}</p>
           <p style={{ margin: '14px 0 0 0', color: '#475569', lineHeight: 1.75, maxWidth: '860px' }}>{detail.summary}</p>
-          <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #fed7d2', background: '#fff7f5', padding: '12px 14px' }}>
-            <p style={{ margin: 0, fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#c2412f' }}>
+          <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #bfdbfe', background: '#eff6ff', padding: '12px 14px' }}>
+            <p style={{ margin: 0, fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#1d4ed8' }}>
               Business impact
             </p>
-            <p style={{ margin: '7px 0 0 0', color: '#7c2d12', lineHeight: 1.7 }}>{detail.impactDescription}</p>
+            <p style={{ margin: '7px 0 0 0', color: '#1e3a8a', lineHeight: 1.7 }}>{detail.impactDescription}</p>
           </div>
 
           <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
