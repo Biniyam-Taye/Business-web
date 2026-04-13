@@ -50,22 +50,19 @@ export default function App() {
 function MainLayout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [activeNav, setActiveNav] = useState('About Us');
+  const getNavFromPath = (path: string) => {
+    if (path.startsWith('/projects')) return 'Projects';
+    if (path === '/services') return 'Services';
+    if (path === '/pricing') return 'Pricing';
+    if (path === '/contact') return 'Contacts';
+    return 'About Us';
+  };
+  const [activeNav, setActiveNav] = useState(() => getNavFromPath(location.pathname));
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
   const navLinks = ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts'];
 
   useEffect(() => {
-    if (location.pathname.startsWith('/projects')) {
-      setActiveNav('Projects');
-    } else if (location.pathname === '/services') {
-      setActiveNav('Services');
-    } else if (location.pathname === '/pricing') {
-      setActiveNav('Pricing');
-    } else if (location.pathname === '/contact') {
-      setActiveNav('Contacts');
-    } else if (location.pathname === '/') {
-      setActiveNav('About Us');
-    }
+    setActiveNav(getNavFromPath(location.pathname));
   }, [location.pathname]);
 
   useEffect(() => {
