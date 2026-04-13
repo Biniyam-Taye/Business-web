@@ -140,13 +140,14 @@ function MainLayout() {
         </nav>
       </div>
 
-      <Routes>
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/" element={
+      <motion.div key={location.pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}>
+        <Routes>
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/" element={
           <>
       {/* Hero Wrapper */}
       <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '100px 0 72px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
@@ -1125,7 +1126,8 @@ function MainLayout() {
 
           </>
         } />
-      </Routes>
+        </Routes>
+      </motion.div>
 
       {/* ── Footer Section ── */}
       <footer style={{ background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b' }}>
