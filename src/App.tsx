@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-ro
 import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
 import ServicesPage from './Services';
+import ServiceExplorePage from './ServiceExplore';
 import PricingPage from './Pricing';
 import ContactPage from './Contact';
 
@@ -52,7 +53,7 @@ function MainLayout() {
   const navigate = useNavigate();
   const getNavFromPath = (path: string) => {
     if (path.startsWith('/projects')) return 'Projects';
-    if (path === '/services') return 'Services';
+    if (path.startsWith('/services')) return 'Services';
     if (path === '/pricing') return 'Pricing';
     if (path === '/contact') return 'Contacts';
     return 'About Us';
@@ -145,6 +146,7 @@ function MainLayout() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:serviceId" element={<ServiceExplorePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/" element={

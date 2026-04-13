@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -17,36 +18,42 @@ import {
 
 const offerings = [
   {
+    id: 'custom-web-platforms',
     title: 'Custom Web Platforms',
     icon: <Code2 size={22} />,
     desc: 'Conversion-focused platforms built for speed, reliability, and measurable growth.',
     points: ['Modern component-driven frontend', 'Secure API and payment integrations', 'Performance + SEO tuning'],
   },
   {
+    id: 'mobile-app-development',
     title: 'Mobile App Development',
     icon: <Smartphone size={22} />,
     desc: 'Native-feeling mobile apps that are scalable, delightful, and easy to maintain.',
     points: ['Cross-platform architecture', 'Offline-first and push notifications', 'Store deployment and support'],
   },
   {
+    id: 'ai-automation-systems',
     title: 'AI & Automation Systems',
     icon: <Bot size={22} />,
     desc: 'Practical automation to remove repetitive tasks and accelerate operations.',
     points: ['Process automation pipelines', 'Smart document/data processing', 'AI-enabled internal assistants'],
   },
   {
+    id: 'cloud-backend-engineering',
     title: 'Cloud & Backend Engineering',
     icon: <Cloud size={22} />,
     desc: 'Resilient backend systems designed for uptime, security, and future growth.',
     points: ['Serverless and microservice design', 'Database optimization and scaling', 'Observability and incident readiness'],
   },
   {
+    id: 'ui-ux-design-systems',
     title: 'UI/UX Design Systems',
     icon: <LayoutPanelTop size={22} />,
     desc: 'Design systems that align brand, usability, and conversion goals.',
     points: ['UX research and journey mapping', 'Reusable design tokens/components', 'Accessibility-first interfaces'],
   },
   {
+    id: 'data-security-foundations',
     title: 'Data & Security Foundations',
     icon: <ShieldCheck size={22} />,
     desc: 'Secure, compliant, and structured data layers powering better decisions.',
@@ -179,6 +186,7 @@ export default function Services() {
   const heroVisual = { duration: 1.2, delay: 0.28, ease };
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [hoveredServiceCard, setHoveredServiceCard] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div style={{ background: '#f8fafc', minHeight: '100vh', color: '#0f172a', paddingBottom: '140px' }}>
@@ -444,7 +452,22 @@ export default function Services() {
                     }}
                   >
                     <span style={{ fontSize: '0.84rem', fontWeight: 800, color: isHovered ? '#e2e8f0' : '#475569' }}>Delivery-ready track</span>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 800, color: isHovered ? '#93c5fd' : '#2563eb' }}>Explore</span>
+                    <button
+                      type="button"
+                      onClick={() => navigate(`/services/${item.id}`)}
+                      style={{
+                        border: 'none',
+                        background: 'transparent',
+                        padding: 0,
+                        margin: 0,
+                        fontSize: '0.86rem',
+                        fontWeight: 800,
+                        color: isHovered ? '#93c5fd' : '#2563eb',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      Explore
+                    </button>
                   </motion.div>
                 </motion.article>
               );
