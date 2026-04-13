@@ -839,25 +839,73 @@ export default function Services() {
             <h2 style={{ ...titleBaseStyle, fontSize: 'clamp(1.8rem, 3vw, 2.5rem)' }}>
               Engagement <span style={accentOrangeStyle}>Models</span>
             </h2>
-            <p style={{ margin: '8px 0 16px 0', color: '#64748b', maxWidth: '760px', lineHeight: 1.7 }}>
-              Flexible collaboration models designed for different delivery needs.
+            <p style={{ margin: '8px 0 16px 0', color: '#64748b', maxWidth: '860px', lineHeight: 1.7 }}>
+              Choose the collaboration model that best matches your delivery speed, technical ownership needs, and roadmap complexity.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+            <div style={{ display: 'grid', gap: '10px', marginBottom: '14px', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))' }}>
               {[
-                ['Project-Based', 'Best for fixed scope and clear timeline deliverables.'],
-                ['Dedicated Team', 'Best for long-term roadmaps requiring continuous iteration.'],
-                ['Advisory + Build', 'Best for teams needing architecture leadership and implementation.'],
+                ['Weekly reporting', 'Clear sprint updates and KPI visibility'],
+                ['Flexible scaling', 'Adjust team size by phase and priority'],
+                ['Outcome ownership', 'Milestone accountability from start to launch'],
+              ].map((item) => (
+                <div key={item[0]} style={{ border: '1px solid #dbeafe', borderRadius: '12px', background: '#eff6ff', padding: '10px' }}>
+                  <p style={{ margin: 0, color: '#1d4ed8', fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase' }}>{item[0]}</p>
+                  <p style={{ margin: '4px 0 0 0', color: '#334155', fontSize: '0.84rem', fontWeight: 600, lineHeight: 1.4 }}>{item[1]}</p>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '12px' }}>
+              {[
+                {
+                  name: 'Project-Based',
+                  desc: 'Best for fixed scope and clear timeline deliverables.',
+                  fit: 'Ideal when outcomes, scope boundaries, and launch date are defined upfront.',
+                  cadence: 'Milestone-based execution',
+                  support: ['Scope lock + change control', 'Defined delivery schedule', 'Launch handover package'],
+                },
+                {
+                  name: 'Dedicated Team',
+                  desc: 'Best for long-term roadmaps requiring continuous iteration.',
+                  fit: 'Ideal for products that need ongoing releases, experimentation, and fast adaptation.',
+                  cadence: 'Sprint-based continuous delivery',
+                  support: ['Embedded product + engineering squad', 'Weekly backlog prioritization', 'Continuous optimization cycles'],
+                },
+                {
+                  name: 'Advisory + Build',
+                  desc: 'Best for teams needing architecture leadership and implementation.',
+                  fit: 'Ideal when internal teams need senior technical direction with hands-on execution support.',
+                  cadence: 'Hybrid advisory + implementation',
+                  support: ['Architecture governance', 'Hands-on build acceleration', 'Enablement of in-house team'],
+                },
               ].map((m, idx) => (
                 <motion.div
-                  key={m[0]}
+                  key={m.name}
                   initial={{ opacity: 0, y: 22, scale: 0.99 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.78, delay: idx * 0.1, ease }}
+                  whileHover={{ y: -4, boxShadow: '0 12px 24px rgba(15,23,42,0.08)' }}
                   style={{ border: '1px solid #e2e8f0', borderRadius: '14px', background: '#f8fafc', padding: '14px' }}
                 >
-                  <h3 style={{ ...titleBaseStyle, fontSize: '1rem', lineHeight: 1.25 }}>{m[0]}</h3>
-                  <p style={{ margin: '6px 0 0 0', color: '#64748b', lineHeight: 1.6, fontSize: '0.92rem' }}>{m[1]}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', alignItems: 'center' }}>
+                    <h3 style={{ ...titleBaseStyle, fontSize: '1rem', lineHeight: 1.25 }}>{m.name}</h3>
+                    <span style={{ borderRadius: '999px', border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', padding: '4px 8px', fontSize: '0.72rem', fontWeight: 800 }}>
+                      Model
+                    </span>
+                  </div>
+                  <p style={{ margin: '6px 0 0 0', color: '#475569', lineHeight: 1.6, fontSize: '0.9rem', fontWeight: 600 }}>{m.desc}</p>
+                  <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.55, fontSize: '0.84rem' }}>{m.fit}</p>
+                  <div style={{ marginTop: '10px', borderTop: '1px solid #e2e8f0', paddingTop: '10px' }}>
+                    <p style={{ margin: 0, color: '#1d4ed8', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{m.cadence}</p>
+                    <div style={{ marginTop: '8px', display: 'grid', gap: '6px' }}>
+                      {m.support.map((s) => (
+                        <div key={s} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', color: '#334155', fontSize: '0.82rem', fontWeight: 600 }}>
+                          <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#2563eb', marginTop: '6px', flexShrink: 0 }} />
+                          <span>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
