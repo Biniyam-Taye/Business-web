@@ -552,7 +552,7 @@ export default function Services() {
         <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '40%', height: '80%', background: 'radial-gradient(circle, rgba(59,130,246,0.03) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
 
         <div className="container" style={{ maxWidth: '1240px', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
 
             {/* LEFT CARD: TECH STACK - DARK ELITE THEME */}
             <motion.div
@@ -716,7 +716,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2, ease }}
-              style={{ display: 'grid', gap: '0', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 24px 50px rgba(15,23,42,0.06)' }}
+              style={{ display: 'grid', gap: '0', height: '100%', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '32px', overflow: 'hidden', boxShadow: '0 24px 50px rgba(15,23,42,0.06)' }}
             >
               {/* Header Image Area */}
               <div style={{ position: 'relative', height: '200px' }}>
@@ -792,22 +792,33 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div style={{ marginTop: '12px', border: '1px solid #dbeafe', borderRadius: '16px', background: '#eff6ff', padding: '14px' }}>
+                <div style={{ marginTop: '10px', border: '1px solid #dbeafe', borderRadius: '14px', background: '#f8fbff', padding: '11px 12px' }}>
                   <p style={{ margin: 0, color: '#1d4ed8', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                     Delivery assurance
                   </p>
-                  <div style={{ marginTop: '8px', display: 'grid', gap: '7px' }}>
+                  <div style={{ marginTop: '7px', display: 'grid', gap: '6px' }}>
                     {[
                       'Weekly architecture review with your team',
                       'Risk log with mitigation ownership',
-                      'Launch checklist and rollback readiness',
                     ].map((item) => (
-                      <div key={item} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', color: '#334155', fontSize: '0.84rem', fontWeight: 600 }}>
-                        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb', marginTop: '6px', flexShrink: 0 }} />
+                      <div key={item} style={{ display: 'flex', gap: '7px', alignItems: 'flex-start', color: '#334155', fontSize: '0.8rem', fontWeight: 600 }}>
+                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#2563eb', marginTop: '6px', flexShrink: 0 }} />
                         <span style={{ lineHeight: 1.45 }}>{item}</span>
                       </div>
                     ))}
                   </div>
+                </div>
+
+                <div style={{ marginTop: '10px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                  {[
+                    ['Weekly', 'Stakeholder sync'],
+                    ['24h', 'Issue response'],
+                  ].map((item) => (
+                    <div key={item[0]} style={{ border: '1px solid #dbeafe', borderRadius: '12px', background: '#ffffff', padding: '8px 9px' }}>
+                      <p style={{ margin: 0, color: '#1d4ed8', fontSize: '0.78rem', fontWeight: 800 }}>{item[0]}</p>
+                      <p style={{ margin: '3px 0 0 0', color: '#475569', fontSize: '0.74rem', fontWeight: 600, lineHeight: 1.3 }}>{item[1]}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
