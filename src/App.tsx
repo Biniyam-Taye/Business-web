@@ -8,6 +8,7 @@ import ServicesPage from './Services';
 import ServiceExplorePage from './ServiceExplore';
 import PricingPage from './Pricing';
 import ContactPage from './Contact';
+import BookDemoPage from './BookDemo';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -130,7 +131,7 @@ function MainLayout() {
             ))}
           </div>
 
-          <button style={{
+          <button onClick={() => navigate('/book-demo')} style={{
             background: 'var(--accent-blue)', color: '#fff', border: 'none',
             borderRadius: '9999px', padding: '14px 28px', fontSize: '1.05rem', fontWeight: 700,
             display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer',
@@ -149,6 +150,7 @@ function MainLayout() {
           <Route path="/services/:serviceId" element={<ServiceExplorePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/book-demo" element={<BookDemoPage />} />
           <Route path="/" element={
           <>
       {/* Hero Wrapper */}
