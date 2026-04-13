@@ -140,7 +140,7 @@ function MainLayout() {
         </nav>
       </div>
 
-      <motion.div key={location.pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}>
+      <motion.div key={location.pathname} initial={{ opacity: 0.82 }} animate={{ opacity: 1 }} transition={{ duration: 0.42, ease: [0.25, 0.1, 0.25, 1] }}>
         <Routes>
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
