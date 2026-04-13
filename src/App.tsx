@@ -1132,7 +1132,7 @@ function MainLayout() {
       </motion.div>
 
       {/* ── Footer Section ── */}
-      <footer style={{ background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b' }}>
+      <footer style={{ position: 'relative', zIndex: 5, background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px', marginBottom: '80px' }}>
