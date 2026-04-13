@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 type ServiceDetail = {
@@ -252,11 +252,8 @@ export default function ServiceExplorePage() {
             </div>
           </div>
 
-          <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #bfdbfe', background: '#eff6ff', padding: '12px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px' }}>
+          <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #bfdbfe', background: '#eff6ff', padding: '12px 14px' }}>
             <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Typical timeline: {detail.timeline}</span>
-            <button type="button" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '10px', padding: '10px 14px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-              Request Proposal <ArrowUpRight size={16} />
-            </button>
           </div>
         </motion.section>
       </div>
