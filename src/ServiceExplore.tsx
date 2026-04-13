@@ -7,6 +7,7 @@ type ServiceDetail = {
   title: string;
   subtitle: string;
   summary: string;
+  impactDescription: string;
   outcomes: string[];
   deliverables: string[];
   businessValue: string[];
@@ -23,6 +24,8 @@ const serviceDetails: ServiceDetail[] = [
     subtitle: 'High-conversion web products built for growth',
     summary:
       'We design and build robust web platforms with clean architecture, fast UX, and analytics-ready foundations so your team can scale confidently.',
+    impactDescription:
+      'For the business, this service directly improves pipeline quality and revenue efficiency. Faster experiences and cleaner journeys reduce abandonment, while stronger architecture lowers rework costs and lets teams ship campaigns and features faster. The result is better conversion with less operational friction.',
     outcomes: ['Higher conversion rates', 'Faster page performance', 'Reliable maintainable codebase'],
     deliverables: ['Frontend architecture', 'API integration layer', 'Performance and SEO optimization', 'Launch and monitoring setup'],
     businessValue: ['Increase lead-to-customer conversion', 'Reduce bounce and checkout drop-off', 'Lower long-term maintenance costs'],
@@ -37,6 +40,8 @@ const serviceDetails: ServiceDetail[] = [
     subtitle: 'Cross-platform apps with native-level experience',
     summary:
       'We deliver mobile applications focused on usability, stability, and long-term maintainability with a release plan for both stores.',
+    impactDescription:
+      'For the business, mobile creates a direct relationship channel with customers. Better app reliability and UX increase repeat engagement, improve retention, and support recurring revenue models like subscriptions, booking, and loyalty. It also gives your team a faster channel for product updates and customer communication.',
     outcomes: ['Improved retention', 'Stable app performance', 'Faster release cycles'],
     deliverables: ['App architecture setup', 'Offline-first key flows', 'Push notifications', 'Store deployment package'],
     businessValue: ['Improve customer engagement frequency', 'Create direct retention channel', 'Enable new mobile-first revenue paths'],
@@ -51,6 +56,8 @@ const serviceDetails: ServiceDetail[] = [
     subtitle: 'Practical AI automation for real operations',
     summary:
       'From workflow automation to document intelligence, we build systems that reduce repetitive work and increase team output.',
+    impactDescription:
+      'For the business, automation converts manual effort into scalable process capacity. Teams spend less time on repetitive tasks, turnaround times improve, and output quality becomes more consistent. That means lower operating cost per transaction and more room to grow without linear headcount increases.',
     outcomes: ['Lower manual workload', 'Faster process throughput', 'Better operational accuracy'],
     deliverables: ['Automation workflow map', 'AI-assisted processing module', 'Integration with existing tools', 'Reporting dashboards'],
     businessValue: ['Reduce operational overhead', 'Shorten processing turnaround time', 'Improve output consistency at scale'],
@@ -65,6 +72,8 @@ const serviceDetails: ServiceDetail[] = [
     subtitle: 'Scalable backend systems and cloud reliability',
     summary:
       'We architect backend services and cloud infrastructure for performance, observability, and secure scaling as usage grows.',
+    impactDescription:
+      'For the business, reliable backend and cloud architecture protects revenue continuity. Fewer outages and better performance increase customer trust, while stronger deployment pipelines reduce release risk and engineering delays. This enables growth without costly platform resets.',
     outcomes: ['Better uptime', 'Lower latency', 'Clear system observability'],
     deliverables: ['Service architecture', 'Database optimization', 'Cloud deployment pipeline', 'Monitoring and alerts'],
     businessValue: ['Prevent downtime revenue loss', 'Support growth without system rework', 'Increase engineering delivery confidence'],
@@ -79,6 +88,8 @@ const serviceDetails: ServiceDetail[] = [
     subtitle: 'Consistent product experience at scale',
     summary:
       'We build design systems and product UX frameworks that align business goals, accessibility, and design consistency.',
+    impactDescription:
+      'For the business, a strong design system speeds execution and improves product quality at the same time. Teams build faster with reusable components, visual inconsistency drops, and user journeys become clearer. This improves adoption and lowers the cost of future product expansion.',
     outcomes: ['Higher design consistency', 'Faster UI iteration', 'Better usability'],
     deliverables: ['UX flows and wireframes', 'Design tokens and components', 'Accessibility review', 'Handoff documentation'],
     businessValue: ['Faster product iteration velocity', 'Lower UI inconsistency debt', 'Better customer task completion'],
@@ -93,6 +104,8 @@ const serviceDetails: ServiceDetail[] = [
     subtitle: 'Secure data layers and compliant access models',
     summary:
       'We establish strong data models, security baselines, and governance patterns to keep systems compliant and decision-ready.',
+    impactDescription:
+      'For the business, secure data foundations reduce legal and operational risk while improving decision confidence. Better governance and access controls protect critical assets, and cleaner data models improve reporting quality. This supports compliant growth and stronger executive decision-making.',
     outcomes: ['Improved data quality', 'Reduced security risk', 'Better access control'],
     deliverables: ['Data model architecture', 'Role-based access policies', 'Security baseline setup', 'Audit-ready documentation'],
     businessValue: ['Reduce compliance and breach risk', 'Improve trust in reporting and decisions', 'Protect critical business workflows'],
@@ -152,6 +165,12 @@ export default function ServiceExplorePage() {
           <h1 style={{ margin: '8px 0 0 0', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#020617', letterSpacing: '-0.03em' }}>{detail.title}</h1>
           <p style={{ margin: '10px 0 0 0', color: '#1e3a8a', fontWeight: 700 }}>{detail.subtitle}</p>
           <p style={{ margin: '14px 0 0 0', color: '#475569', lineHeight: 1.75, maxWidth: '860px' }}>{detail.summary}</p>
+          <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #fed7d2', background: '#fff7f5', padding: '12px 14px' }}>
+            <p style={{ margin: 0, fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#c2412f' }}>
+              Business impact
+            </p>
+            <p style={{ margin: '7px 0 0 0', color: '#7c2d12', lineHeight: 1.7 }}>{detail.impactDescription}</p>
+          </div>
 
           <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <div style={{ borderRadius: '16px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px' }}>
