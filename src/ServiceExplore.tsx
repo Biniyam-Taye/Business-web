@@ -9,6 +9,10 @@ type ServiceDetail = {
   summary: string;
   outcomes: string[];
   deliverables: string[];
+  businessValue: string[];
+  kpis: string[];
+  useCases: string[];
+  approach: string[];
   timeline: string;
 };
 
@@ -21,6 +25,10 @@ const serviceDetails: ServiceDetail[] = [
       'We design and build robust web platforms with clean architecture, fast UX, and analytics-ready foundations so your team can scale confidently.',
     outcomes: ['Higher conversion rates', 'Faster page performance', 'Reliable maintainable codebase'],
     deliverables: ['Frontend architecture', 'API integration layer', 'Performance and SEO optimization', 'Launch and monitoring setup'],
+    businessValue: ['Increase lead-to-customer conversion', 'Reduce bounce and checkout drop-off', 'Lower long-term maintenance costs'],
+    kpis: ['Conversion rate uplift', 'Core Web Vitals improvement', 'Revenue per visitor growth'],
+    useCases: ['Marketing websites', 'Customer portals', 'Internal operation platforms'],
+    approach: ['Business goal and funnel mapping', 'UX and architecture blueprint', 'Sprint delivery with measurable milestones', 'Post-launch optimization loop'],
     timeline: '4-10 weeks',
   },
   {
@@ -31,6 +39,10 @@ const serviceDetails: ServiceDetail[] = [
       'We deliver mobile applications focused on usability, stability, and long-term maintainability with a release plan for both stores.',
     outcomes: ['Improved retention', 'Stable app performance', 'Faster release cycles'],
     deliverables: ['App architecture setup', 'Offline-first key flows', 'Push notifications', 'Store deployment package'],
+    businessValue: ['Improve customer engagement frequency', 'Create direct retention channel', 'Enable new mobile-first revenue paths'],
+    kpis: ['30-day retention', 'Crash-free sessions', 'Feature adoption rate'],
+    useCases: ['Customer loyalty apps', 'Field workforce apps', 'Subscription and booking apps'],
+    approach: ['Use-case prioritization by business impact', 'Cross-platform architecture setup', 'QA and store readiness pipeline', 'Release analytics and iteration'],
     timeline: '6-12 weeks',
   },
   {
@@ -41,6 +53,10 @@ const serviceDetails: ServiceDetail[] = [
       'From workflow automation to document intelligence, we build systems that reduce repetitive work and increase team output.',
     outcomes: ['Lower manual workload', 'Faster process throughput', 'Better operational accuracy'],
     deliverables: ['Automation workflow map', 'AI-assisted processing module', 'Integration with existing tools', 'Reporting dashboards'],
+    businessValue: ['Reduce operational overhead', 'Shorten processing turnaround time', 'Improve output consistency at scale'],
+    kpis: ['Hours saved per week', 'Task automation coverage', 'Error-rate reduction'],
+    useCases: ['Document processing', 'Internal assistant bots', 'Approval and workflow automation'],
+    approach: ['Process audit and bottleneck mapping', 'Automation priority matrix', 'Pilot rollout with guardrails', 'Scale successful automations'],
     timeline: '4-9 weeks',
   },
   {
@@ -51,6 +67,10 @@ const serviceDetails: ServiceDetail[] = [
       'We architect backend services and cloud infrastructure for performance, observability, and secure scaling as usage grows.',
     outcomes: ['Better uptime', 'Lower latency', 'Clear system observability'],
     deliverables: ['Service architecture', 'Database optimization', 'Cloud deployment pipeline', 'Monitoring and alerts'],
+    businessValue: ['Prevent downtime revenue loss', 'Support growth without system rework', 'Increase engineering delivery confidence'],
+    kpis: ['Service uptime SLA', 'API latency percentiles', 'Deployment success rate'],
+    useCases: ['High-traffic APIs', 'Multi-tenant platforms', 'Mission-critical internal systems'],
+    approach: ['Current-state reliability assessment', 'Architecture modernization roadmap', 'CI/CD and observability setup', 'Resilience testing and hardening'],
     timeline: '5-12 weeks',
   },
   {
@@ -61,6 +81,10 @@ const serviceDetails: ServiceDetail[] = [
       'We build design systems and product UX frameworks that align business goals, accessibility, and design consistency.',
     outcomes: ['Higher design consistency', 'Faster UI iteration', 'Better usability'],
     deliverables: ['UX flows and wireframes', 'Design tokens and components', 'Accessibility review', 'Handoff documentation'],
+    businessValue: ['Faster product iteration velocity', 'Lower UI inconsistency debt', 'Better customer task completion'],
+    kpis: ['Design-to-dev handoff time', 'UI defect reduction', 'Task success rate'],
+    useCases: ['SaaS dashboards', 'Customer self-service journeys', 'Multi-product UI consistency'],
+    approach: ['User journey analysis', 'Reusable system definition', 'Component library rollout', 'Governance and adoption playbook'],
     timeline: '3-8 weeks',
   },
   {
@@ -71,6 +95,10 @@ const serviceDetails: ServiceDetail[] = [
       'We establish strong data models, security baselines, and governance patterns to keep systems compliant and decision-ready.',
     outcomes: ['Improved data quality', 'Reduced security risk', 'Better access control'],
     deliverables: ['Data model architecture', 'Role-based access policies', 'Security baseline setup', 'Audit-ready documentation'],
+    businessValue: ['Reduce compliance and breach risk', 'Improve trust in reporting and decisions', 'Protect critical business workflows'],
+    kpis: ['Security incident reduction', 'Audit readiness score', 'Data quality index'],
+    useCases: ['Compliance-sensitive products', 'Role-based enterprise platforms', 'Data-heavy decision systems'],
+    approach: ['Risk and data governance assessment', 'Policy and access design', 'Security controls implementation', 'Monitoring and audit preparation'],
     timeline: '4-9 weeks',
   },
 ];
@@ -144,6 +172,60 @@ export default function ServiceExplorePage() {
                 {detail.deliverables.map((item) => (
                   <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155' }}>
                     <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: '#2563eb', marginTop: '7px', flexShrink: 0 }} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '14px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+            <div style={{ borderRadius: '16px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px' }}>
+              <h3 style={{ margin: 0, fontSize: '1rem', color: '#0f172a' }}>Business value</h3>
+              <div style={{ marginTop: '10px', display: 'grid', gap: '8px' }}>
+                {detail.businessValue.map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155' }}>
+                    <CheckCircle2 size={16} color="#f5602a" style={{ marginTop: '1px', flexShrink: 0 }} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ borderRadius: '16px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px' }}>
+              <h3 style={{ margin: 0, fontSize: '1rem', color: '#0f172a' }}>KPIs to track</h3>
+              <div style={{ marginTop: '10px', display: 'grid', gap: '8px' }}>
+                {detail.kpis.map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155' }}>
+                    <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: '#f5602a', marginTop: '7px', flexShrink: 0 }} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '14px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+            <div style={{ borderRadius: '16px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px' }}>
+              <h3 style={{ margin: 0, fontSize: '1rem', color: '#0f172a' }}>Common use cases</h3>
+              <div style={{ marginTop: '10px', display: 'grid', gap: '8px' }}>
+                {detail.useCases.map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155' }}>
+                    <span style={{ width: '7px', height: '7px', borderRadius: '999px', background: '#2563eb', marginTop: '7px', flexShrink: 0 }} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ borderRadius: '16px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px' }}>
+              <h3 style={{ margin: 0, fontSize: '1rem', color: '#0f172a' }}>Execution approach</h3>
+              <div style={{ marginTop: '10px', display: 'grid', gap: '8px' }}>
+                {detail.approach.map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: '#334155' }}>
+                    <span style={{ width: '20px', height: '20px', borderRadius: '6px', background: '#eff6ff', border: '1px solid #bfdbfe', color: '#1d4ed8', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', fontWeight: 800, lineHeight: 1, flexShrink: 0 }}>
+                      {detail.approach.indexOf(item) + 1}
+                    </span>
                     <span>{item}</span>
                   </div>
                 ))}
