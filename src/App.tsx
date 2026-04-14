@@ -1241,7 +1241,7 @@ function MainLayout() {
               © {new Date().getFullYear()} NexTech. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem' }}>
-              <span style={{ color: '#f8fafc', fontWeight: 500 }}>Trusted by growth-stage and enterprise teams.</span>
+              <span style={{ color: '#f8fafc' }}>Delivering secure, scalable software for modern businesses.</span>
             </div>
           </div>
 
