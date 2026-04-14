@@ -23,12 +23,14 @@ const plans = [
     features: ['Everything in Starter', 'Advanced workflow automation', 'Third-party integrations (payments, APIs)', 'Admin dashboard', 'Performance optimization'],
     timeline: '4-8 weeks delivery',
     cta: 'Get Started',
+    urgency: 'Fills fast',
   },
   {
     name: 'Enterprise Scale',
     price: 'Custom Quote',
     period: 'Flexible milestone-based payments available',
-    badge: 'For complex systems',
+    badge: 'Best for Large-Scale Systems',
+    enterprise: true,
     description: 'Designed for high-scale systems requiring advanced architecture, security, and long-term support.',
     features: ['Everything in Growth', 'Microservices architecture', 'Role-based access & security', 'Audit logs & monitoring', 'Dedicated support'],
     timeline: 'Custom timeline',
@@ -124,6 +126,9 @@ export default function Pricing() {
           <p style={{ margin: '10px 0 16px 0', color: '#64748b', maxWidth: '760px', lineHeight: 1.7 }}>
             Organized packages to match startup, growth, and enterprise execution needs.
           </p>
+          <div style={{ marginBottom: '14px', display: 'inline-flex', alignItems: 'center', borderRadius: '999px', border: '1px solid #fde68a', background: '#fffbeb', padding: '7px 12px', color: '#92400e', fontSize: '0.82rem', fontWeight: 700 }}>
+            We only take a limited number of projects each month to ensure quality.
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '14px' }}>
             {plans.map((plan, idx) => (
@@ -138,10 +143,18 @@ export default function Pricing() {
                 onHoverEnd={() => setHoveredPlan((prev) => (prev === idx ? 1 : prev))}
                 style={{
                   borderRadius: '20px',
-                  border: hoveredPlan === idx ? '1px solid rgba(96,165,250,0.55)' : plan.featured ? '1px solid #2563eb' : '1px solid #e2e8f0',
+                  border: hoveredPlan === idx
+                    ? '1px solid rgba(96,165,250,0.55)'
+                    : plan.enterprise
+                      ? '1px solid #334155'
+                      : plan.featured
+                        ? '1px solid #2563eb'
+                        : '1px solid #e2e8f0',
                   background:
                     hoveredPlan === idx
                       ? 'linear-gradient(155deg, #3b82f6 0%, #4f46e5 55%, #7c3aed 100%)'
+                      : plan.enterprise
+                        ? 'linear-gradient(160deg, #f8fafc 0%, #eef2f7 100%)'
                       : plan.featured
                         ? 'linear-gradient(160deg, #eef2ff 0%, #e0e7ff 100%)'
                         : '#ffffff',
@@ -155,6 +168,7 @@ export default function Pricing() {
                   color: hoveredPlan === idx ? '#ffffff' : '#0f172a',
                   position: 'relative',
                   overflow: 'hidden',
+                  transition: 'all 0.3s ease',
                 }}
               >
                 {hoveredPlan === idx && (
@@ -173,10 +187,15 @@ export default function Pricing() {
                 )}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <h3 style={{ margin: 0, fontSize: '1.08rem', fontWeight: 900, color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.name}</h3>
-                  <span style={{ borderRadius: '999px', padding: '5px 9px', fontSize: '0.72rem', fontWeight: 800, background: hoveredPlan === idx ? 'rgba(255,255,255,0.2)' : plan.featured ? '#dbeafe' : '#f1f5f9', color: hoveredPlan === idx ? '#ffffff' : plan.featured ? '#1d4ed8' : '#334155', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.28)' : 'none' }}>
+                  <span style={{ borderRadius: '999px', padding: '5px 9px', fontSize: '0.72rem', fontWeight: 800, background: hoveredPlan === idx ? 'rgba(255,255,255,0.2)' : plan.enterprise ? '#e2e8f0' : plan.featured ? '#dbeafe' : '#f1f5f9', color: hoveredPlan === idx ? '#ffffff' : plan.featured ? '#1d4ed8' : '#334155', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.28)' : 'none' }}>
                     {plan.badge}
                   </span>
                 </div>
+                {plan.urgency && (
+                  <span style={{ marginTop: '8px', display: 'inline-flex', borderRadius: '999px', border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #fed7aa', background: hoveredPlan === idx ? 'rgba(255,255,255,0.1)' : '#fff7ed', color: hoveredPlan === idx ? '#ffffff' : '#c2410c', padding: '4px 8px', fontSize: '0.72rem', fontWeight: 800 }}>
+                    {plan.urgency}
+                  </span>
+                )}
                 <p style={{ margin: '10px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.88)' : '#64748b', lineHeight: 1.65, minHeight: '74px' }}>{plan.description}</p>
                 <motion.div
                   whileHover={{
@@ -221,26 +240,32 @@ export default function Pricing() {
                     Estimated timeline: <strong style={{ color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.timeline}</strong>
                   </span>
                 </div>
-                <button
+                <motion.button
                   className="project-btn-primary"
+                  whileHover={{ y: -1 }}
                   style={{
                     marginTop: '12px',
                     width: '100%',
                     border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.4)' : '1px solid transparent',
-                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : '#0f172a',
+                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : plan.featured ? '#1d4ed8' : '#0f172a',
                     color: '#fff',
                     borderRadius: '12px',
-                    padding: '12px 14px',
+                    padding: '14px 16px',
                     fontWeight: 800,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '8px',
                     cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    boxShadow: plan.featured ? '0 10px 22px rgba(37,99,235,0.28)' : '0 8px 18px rgba(15,23,42,0.2)',
                   }}
                 >
-                  {plan.cta} <ArrowUpRight size={15} />
-                </button>
+                  {plan.cta}
+                  <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
+                    <ArrowUpRight size={15} />
+                  </motion.span>
+                </motion.button>
               </motion.article>
             ))}
           </div>
@@ -257,6 +282,18 @@ export default function Pricing() {
             style={{ borderRadius: '20px', border: '1px solid #dbeafe', background: '#ffffff', padding: '20px', boxShadow: '0 12px 30px rgba(15,23,42,0.06)' }}
           >
             <p style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>Trusted by startups and growing businesses</p>
+            <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '10px' }}>
+              {[
+                ['20+', 'Projects Delivered'],
+                ['5+', 'Industries Served'],
+                ['High', 'Client Satisfaction'],
+              ].map((stat) => (
+                <div key={stat[0]} style={{ borderRadius: '12px', border: '1px solid #e2e8f0', background: '#ffffff', padding: '12px' }}>
+                  <p style={{ margin: 0, fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#0f172a' }}>{stat[0]}</p>
+                  <p style={{ margin: '3px 0 0 0', color: '#64748b', fontSize: '0.85rem', fontWeight: 700 }}>{stat[1]}</p>
+                </div>
+              ))}
+            </div>
             <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
               {trustLogos.map((logo) => (
                 <div key={logo} style={{ border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', fontWeight: 700, letterSpacing: '0.01em' }}>
@@ -276,19 +313,19 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section style={{ padding: '24px 0 8px' }}>
+      <section style={{ padding: '28px 0 16px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ borderRadius: '22px', border: '1px solid #dbeafe', background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', padding: '24px' }}>
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ borderRadius: '22px', border: '1px solid #dbeafe', background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', padding: '28px', textAlign: 'center' }}>
             <h2 style={{ margin: 0, fontSize: 'clamp(1.6rem, 2.5vw, 2.25rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
               Need something unique?
             </h2>
-            <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '800px' }}>
-              We design and build custom solutions tailored to your business needs.
+            <p style={{ margin: '8px auto 0 auto', color: '#64748b', lineHeight: 1.75, maxWidth: '760px' }}>
+              We design and build custom solutions tailored exactly to your business goals.
             </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '16px' }}>
-              <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 18px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Talk to Us <ArrowUpRight size={16} />
-              </button>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginTop: '16px' }}>
+              <motion.button className="project-btn-primary" whileHover={{ y: -1 }} style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '14px 22px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s ease', boxShadow: '0 10px 24px rgba(15,23,42,0.25)' }}>
+                Talk to Us <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.2 }}><ArrowUpRight size={16} /></motion.span>
+              </motion.button>
             </div>
           </motion.div>
         </div>
@@ -321,7 +358,7 @@ export default function Pricing() {
               </span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '10px', marginTop: '14px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px', marginTop: '14px' }}>
               {addOns.map(([name, price], idx) => (
                 <motion.div
                   key={name}
@@ -372,7 +409,7 @@ export default function Pricing() {
             <h2 style={{ margin: 0, fontSize: 'clamp(1.55rem, 2.4vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
               Payment & <span style={{ color: '#f5602a' }}>Engagement Terms</span>
             </h2>
-            <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '10px' }}>
+            <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
               {[
                 ['Milestone Billing', '40% kickoff, 40% mid-delivery, 20% on launch'],
                 ['Project Governance', 'Weekly reporting and sprint review checkpoints'],
