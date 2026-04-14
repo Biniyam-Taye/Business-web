@@ -1208,7 +1208,7 @@ function MainLayout() {
               <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Featured Resource</h4>
 
               <motion.a
-                href="/services"
+                href="/engineering-guide"
                 whileHover={{ scale: 1.02, y: -4 }}
                 style={{ textDecoration: 'none', padding: '20px', background: 'linear-gradient(145deg, #0f172a, #020617)', border: '1px solid #1e293b', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', overflow: 'hidden', position: 'relative' }}
               >
@@ -1241,8 +1241,7 @@ function MainLayout() {
               © {new Date().getFullYear()} NexTech. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem' }}>
-              Designed visually in <span style={{ color: '#f8fafc', fontWeight: 500 }}>Arba Minch</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              <span style={{ color: '#f8fafc', fontWeight: 500 }}>Trusted by growth-stage and enterprise teams.</span>
             </div>
           </div>
 
