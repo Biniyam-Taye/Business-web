@@ -1240,8 +1240,8 @@ function MainLayout() {
             <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
               © {new Date().getFullYear()} NexTech. All rights reserved.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem' }}>
-              <span style={{ color: '#f8fafc' }}>Delivering secure, scalable software for modern businesses.</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem', fontWeight: 400 }}>
+              <span style={{ color: 'inherit', fontWeight: 'inherit' }}>Delivering secure, scalable software for modern businesses.</span>
             </div>
           </div>
 
