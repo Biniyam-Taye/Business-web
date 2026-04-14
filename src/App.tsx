@@ -572,7 +572,7 @@ function MainLayout() {
                     <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px' }}>AI Powered</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#CCFF00', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                    <ArrowRight size={18} strokeWidth={2.5} />
                   </div>
                 </div>
                 <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>AI Web Apps</h3>
@@ -599,7 +599,7 @@ function MainLayout() {
                     <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Native</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#E0D8CC', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                    <ArrowRight size={18} strokeWidth={2.5} />
                   </div>
                 </div>
                 <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Application<br />Development</h3>
@@ -653,7 +653,7 @@ function MainLayout() {
                     <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Creative</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#C7D2FE', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                    <ArrowRight size={18} strokeWidth={2.5} />
                   </div>
                 </div>
                 <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>UI/UX Design</h3>
@@ -680,7 +680,7 @@ function MainLayout() {
                     <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Workflow</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#FDBA74', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                    <ArrowRight size={18} strokeWidth={2.5} />
                   </div>
                 </div>
                 <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#111', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>Automation<br />Systems</h3>
@@ -707,7 +707,7 @@ function MainLayout() {
                     <span style={{ background: '#fff', color: '#111', fontSize: '0.8rem', fontWeight: 600, padding: '6px 16px', borderRadius: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>Infrastructure</span>
                   </div>
                   <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#334155', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer' }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" /></svg>
+                    <ArrowRight size={18} strokeWidth={2.5} />
                   </div>
                 </div>
                 <h3 style={{ fontSize: '2.2rem', fontWeight: 400, color: '#fff', lineHeight: 1.1, marginBottom: '16px', letterSpacing: '-0.02em', fontFamily: '"Georgia", serif' }}>API & Backend</h3>
