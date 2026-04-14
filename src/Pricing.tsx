@@ -5,31 +5,34 @@ import { ArrowRight, ArrowUpRight, Check, ChevronDown, ShieldCheck, Sparkles, Za
 const plans = [
   {
     name: 'Starter Build',
-    price: 'ETB 120,000',
-    period: 'per project',
+    price: 'From ETB 120,000',
+    period: 'Flexible milestone-based payments available',
     badge: 'Best for MVP',
-    description: 'A focused package for startups and small teams launching fast with essential features.',
-    features: ['Discovery workshop + scope definition', 'Responsive web app UI', 'Core backend + database setup', 'Basic QA and launch support'],
-    timeline: '4-6 weeks',
+    description: 'Perfect for startups launching an MVP quickly with essential features.',
+    features: ['Discovery workshop + planning', 'Responsive UI/UX design', 'Core backend & database setup', 'Basic deployment'],
+    timeline: '2-4 weeks delivery',
+    cta: 'Start Your Project',
   },
   {
     name: 'Growth Platform',
-    price: 'ETB 280,000',
-    period: 'per project',
+    price: 'From ETB 280,000',
+    period: 'Flexible milestone-based payments available',
     badge: 'Most Popular',
     featured: true,
-    description: 'A complete product delivery plan for growing businesses that need reliability and room to scale.',
-    features: ['Everything in Starter', 'Advanced workflow automation', 'Third-party integrations + payment flow', 'Analytics dashboard + optimization setup'],
-    timeline: '8-12 weeks',
+    description: 'Built for growing businesses that need automation, integrations, and scalability.',
+    features: ['Everything in Starter', 'Advanced workflow automation', 'Third-party integrations (payments, APIs)', 'Admin dashboard', 'Performance optimization'],
+    timeline: '4-8 weeks delivery',
+    cta: 'Get Started',
   },
   {
     name: 'Enterprise Scale',
-    price: 'ETB 520,000+',
-    period: 'custom scope',
+    price: 'Custom Quote',
+    period: 'Flexible milestone-based payments available',
     badge: 'For complex systems',
-    description: 'For high-scale operations requiring robust architecture, security controls, and long-term support.',
-    features: ['Everything in Growth', 'Microservice-ready architecture', 'Role-based security + audit trails', 'SLA-backed support and training'],
-    timeline: '12-20+ weeks',
+    description: 'Designed for high-scale systems requiring advanced architecture, security, and long-term support.',
+    features: ['Everything in Growth', 'Microservices architecture', 'Role-based access & security', 'Audit logs & monitoring', 'Dedicated support'],
+    timeline: 'Custom timeline',
+    cta: 'Request Consultation',
   },
 ];
 
@@ -57,6 +60,8 @@ const faqs = [
     points: ['Bug fixes and reliability monitoring', 'Performance tuning and user-experience improvements', 'Ongoing roadmap implementation through monthly sprints'],
   },
 ];
+
+const trustLogos = ['FinCore', 'MedAxis', 'RetailNova', 'CloudPort', 'NexaOps'];
 
 export default function Pricing() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -120,7 +125,7 @@ export default function Pricing() {
             Organized packages to match startup, growth, and enterprise execution needs.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '14px' }}>
             {plans.map((plan, idx) => (
               <motion.article
                 key={plan.name}
@@ -138,7 +143,7 @@ export default function Pricing() {
                     hoveredPlan === idx
                       ? 'linear-gradient(155deg, #3b82f6 0%, #4f46e5 55%, #7c3aed 100%)'
                       : plan.featured
-                        ? 'linear-gradient(160deg, #ffffff 0%, #eff6ff 100%)'
+                        ? 'linear-gradient(160deg, #eef2ff 0%, #e0e7ff 100%)'
                         : '#ffffff',
                   boxShadow:
                     hoveredPlan === idx
@@ -216,9 +221,76 @@ export default function Pricing() {
                     Estimated timeline: <strong style={{ color: hoveredPlan === idx ? '#ffffff' : '#0f172a' }}>{plan.timeline}</strong>
                   </span>
                 </div>
+                <button
+                  className="project-btn-primary"
+                  style={{
+                    marginTop: '12px',
+                    width: '100%',
+                    border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.4)' : '1px solid transparent',
+                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : '#0f172a',
+                    color: '#fff',
+                    borderRadius: '12px',
+                    padding: '12px 14px',
+                    fontWeight: 800,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {plan.cta} <ArrowUpRight size={15} />
+                </button>
               </motion.article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section style={{ padding: '20px 0 10px' }}>
+        <div className="container" style={{ maxWidth: '1220px' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+            style={{ borderRadius: '20px', border: '1px solid #dbeafe', background: '#ffffff', padding: '20px', boxShadow: '0 12px 30px rgba(15,23,42,0.06)' }}
+          >
+            <p style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>Trusted by startups and growing businesses</p>
+            <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
+              {trustLogos.map((logo) => (
+                <div key={logo} style={{ border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', fontWeight: 700, letterSpacing: '0.01em' }}>
+                  {logo}
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #e2e8f0', background: '#f8fafc', padding: '14px' }}>
+              <p style={{ margin: 0, color: '#334155', lineHeight: 1.7, fontSize: '0.95rem' }}>
+                "NexTech delivered our platform faster than expected and gave us a scalable foundation we could confidently grow on."
+              </p>
+              <p style={{ margin: '8px 0 0 0', color: '#64748b', fontSize: '0.88rem', fontWeight: 700 }}>
+                COO, Growth-stage SaaS Company
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section style={{ padding: '24px 0 8px' }}>
+        <div className="container" style={{ maxWidth: '1220px' }}>
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ borderRadius: '22px', border: '1px solid #dbeafe', background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', padding: '24px' }}>
+            <h2 style={{ margin: 0, fontSize: 'clamp(1.6rem, 2.5vw, 2.25rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
+              Need something unique?
+            </h2>
+            <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '800px' }}>
+              We design and build custom solutions tailored to your business needs.
+            </p>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '16px' }}>
+              <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 18px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Talk to Us <ArrowUpRight size={16} />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -394,26 +466,6 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section style={{ padding: '56px 0 20px' }}>
-        <div className="container" style={{ maxWidth: '1220px' }}>
-          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ borderRadius: '22px', border: '1px solid #dbeafe', background: 'linear-gradient(140deg, #eff6ff 0%, #ffffff 100%)', padding: '24px' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.6rem, 2.5vw, 2.25rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
-              Need a custom quote?
-            </h2>
-            <p style={{ margin: '8px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '800px' }}>
-              Tell us your required modules, timeline, and integrations. We will send a clear proposal with detailed scope and transparent pricing.
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '16px' }}>
-              <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 18px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Request Custom Proposal <ArrowUpRight size={16} />
-              </button>
-              <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 18px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                Schedule Discovery Call <Zap size={16} />
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
