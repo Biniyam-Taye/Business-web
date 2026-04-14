@@ -14,6 +14,7 @@ import TermsOfServicePage from './TermsOfService';
 import SecurityStructurePage from './SecurityStructure';
 import CareersPage from './Careers';
 import PressMediaPage from './PressMedia';
+import EngineeringGuidePage from './EngineeringGuide';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -161,6 +162,7 @@ function MainLayout() {
           <Route path="/security-structure" element={<SecurityStructurePage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/press-media" element={<PressMediaPage />} />
+          <Route path="/engineering-guide" element={<EngineeringGuidePage />} />
           <Route path="/" element={
             <>
               {/* Hero Wrapper */}
@@ -1172,7 +1174,7 @@ function MainLayout() {
             <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', flex: 2, justifyContent: 'space-between' }}>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Projects</h4>
+                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Solutions</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <a href="/projects" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>All Projects</a>
                   <a href="/services/cloud-backend-engineering" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Cloud & Backend Engineering</a>
@@ -1182,7 +1184,7 @@ function MainLayout() {
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Company</h4>
+                <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Quick Links</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <a href="/" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>About Us</a>
                   <a href="/projects" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Projects</a>
@@ -1203,10 +1205,10 @@ function MainLayout() {
 
             {/* Featured Insight Container */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Latest Engineering Insight</h4>
+              <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Featured Resource</h4>
 
               <motion.a
-                href="/services/cloud-backend-engineering"
+                href="/services"
                 whileHover={{ scale: 1.02, y: -4 }}
                 style={{ textDecoration: 'none', padding: '20px', background: 'linear-gradient(145deg, #0f172a, #020617)', border: '1px solid #1e293b', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', overflow: 'hidden', position: 'relative' }}
               >
@@ -1215,18 +1217,18 @@ function MainLayout() {
 
                 {/* Tags */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '0.05em', background: 'rgba(59, 130, 246, 0.1)', padding: '4px 8px', borderRadius: '6px' }}>ARCHITECTURE</span>
-                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>4 min read</span>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 800, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '0.05em', background: 'rgba(59, 130, 246, 0.1)', padding: '4px 8px', borderRadius: '6px' }}>RESOURCE</span>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>Company page</span>
                 </div>
 
                 {/* Article Title */}
                 <h5 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: '#f8fafc', lineHeight: 1.5 }}>
-                  Scaling microservices seamlessly with edge Kubernetes logic.
+                  Explore how we build scalable software systems and digital infrastructure.
                 </h5>
 
                 {/* Read Link */}
                 <div style={{ display: 'flex', alignItems: 'center', color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600, marginTop: '2px', transition: 'color 0.2s' }}>
-                  Read Article <svg style={{ marginLeft: '6px' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                  Explore Page <svg style={{ marginLeft: '6px' }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </div>
               </motion.a>
             </div>
