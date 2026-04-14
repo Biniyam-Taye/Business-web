@@ -12,6 +12,8 @@ import BookDemoPage from './BookDemo';
 import PrivacyPolicyPage from './PrivacyPolicy';
 import TermsOfServicePage from './TermsOfService';
 import SecurityStructurePage from './SecurityStructure';
+import CareersPage from './Careers';
+import PressMediaPage from './PressMedia';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -157,6 +159,8 @@ function MainLayout() {
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
           <Route path="/security-structure" element={<SecurityStructurePage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/press-media" element={<PressMediaPage />} />
           <Route path="/" element={
             <>
               {/* Hero Wrapper */}
@@ -1181,8 +1185,8 @@ function MainLayout() {
                 <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Company</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   <a href="/" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>About Us</a>
-                  <a href="/contact" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Careers <span style={{ background: '#22c55e', color: '#fff', fontSize: '0.65rem', padding: '2px 6px', borderRadius: '10px', marginLeft: '6px', fontWeight: 700 }}>HIRING</span></a>
-                  <a href="/projects" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Press & Media</a>
+                  <a href="/careers" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Careers <span style={{ background: '#22c55e', color: '#fff', fontSize: '0.65rem', padding: '2px 6px', borderRadius: '10px', marginLeft: '6px', fontWeight: 700 }}>HIRING</span></a>
+                  <a href="/press-media" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Press & Media</a>
                   <a href="/contact" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#fff'} onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}>Contact</a>
                 </div>
               </div>
