@@ -205,9 +205,11 @@ export default function Pricing() {
                   style={{
                     marginTop: '12px',
                     padding: '12px',
-                    border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #e2e8f0',
+                    border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.3)' : '1px solid #bfdbfe',
                     borderRadius: '14px',
-                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.12)' : '#ffffff',
+                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.12)' : 'linear-gradient(140deg, #ffffff 0%, #eff6ff 100%)',
+                    boxShadow: hoveredPlan === idx ? 'none' : '0 8px 18px rgba(37,99,235,0.12)',
+                    transition: 'all 0.3s ease',
                   }}
                 >
                   <p
@@ -225,6 +227,9 @@ export default function Pricing() {
                   </p>
                   <p style={{ margin: '3px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.82)' : '#64748b', fontSize: '0.84rem' }}>{plan.period}</p>
                 </motion.div>
+                <p style={{ margin: '8px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.86)' : '#64748b', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                  Transparent process with regular updates and scalable architecture
+                </p>
                 <div style={{ marginTop: '11px', display: 'grid', gap: '8px' }}>
                   {plan.features.map((f) => (
                     <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: hoveredPlan === idx ? 'rgba(255,255,255,0.93)' : '#334155', fontSize: '0.9rem' }}>
@@ -247,7 +252,7 @@ export default function Pricing() {
                     marginTop: '12px',
                     width: '100%',
                     border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.4)' : '1px solid transparent',
-                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : plan.featured ? '#1d4ed8' : '#0f172a',
+                  background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : plan.featured ? '#1d4ed8' : '#0f172a',
                     color: '#fff',
                     borderRadius: '12px',
                     padding: '14px 16px',
@@ -260,6 +265,18 @@ export default function Pricing() {
                     transition: 'all 0.3s ease',
                     boxShadow: plan.featured ? '0 10px 22px rgba(37,99,235,0.28)' : '0 8px 18px rgba(15,23,42,0.2)',
                   }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.02)';
+                  e.currentTarget.style.boxShadow = plan.featured
+                    ? '0 14px 30px rgba(37,99,235,0.35)'
+                    : '0 12px 26px rgba(15,23,42,0.28)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = plan.featured
+                    ? '0 10px 22px rgba(37,99,235,0.28)'
+                    : '0 8px 18px rgba(15,23,42,0.2)';
+                }}
                 >
                   {plan.cta}
                   <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
@@ -286,7 +303,7 @@ export default function Pricing() {
               {[
                 ['20+', 'Projects Delivered'],
                 ['5+', 'Industries Served'],
-                ['High', 'Client Satisfaction'],
+                ['100%', 'Project Completion'],
               ].map((stat) => (
                 <div key={stat[0]} style={{ borderRadius: '12px', border: '1px solid #e2e8f0', background: '#ffffff', padding: '12px' }}>
                   <p style={{ margin: 0, fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#0f172a' }}>{stat[0]}</p>
@@ -323,7 +340,16 @@ export default function Pricing() {
               We design and build custom solutions tailored exactly to your business goals.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginTop: '16px' }}>
-              <motion.button className="project-btn-primary" whileHover={{ y: -1 }} style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '14px 22px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s ease', boxShadow: '0 10px 24px rgba(15,23,42,0.25)' }}>
+              <motion.button className="project-btn-primary" whileHover={{ y: -1 }} style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '14px 22px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s ease', boxShadow: '0 10px 24px rgba(15,23,42,0.25)' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.02)';
+                  e.currentTarget.style.boxShadow = '0 14px 30px rgba(15,23,42,0.32)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(15,23,42,0.25)';
+                }}
+              >
                 Talk to Us <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.2 }}><ArrowUpRight size={16} /></motion.span>
               </motion.button>
             </div>
