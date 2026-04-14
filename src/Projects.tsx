@@ -93,64 +93,64 @@ export default function Projects() {
             <div
               style={{ flex: '1 1 600px', display: 'flex', flexDirection: 'column' }}
             >
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.1, ease: springEase }}
-                style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '10px', 
-                background: 'rgba(255, 255, 255, 0.8)', 
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(37, 99, 235, 0.15)', 
-                borderRadius: '9999px', 
-                padding: '6px 20px', 
-                marginBottom: '32px',
-                width: 'fit-content',
-                boxShadow: '0 4px 12px rgba(37, 99, 235, 0.05)'
-              }}>
-                <motion.div 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  background: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(37, 99, 235, 0.15)',
+                  borderRadius: '9999px',
+                  padding: '6px 20px',
+                  marginBottom: '32px',
+                  width: 'fit-content',
+                  boxShadow: '0 4px 12px rgba(37, 99, 235, 0.05)'
+                }}>
+                <motion.div
                   animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
                   transition={{ repeat: Infinity, duration: 2.5 }}
-                  style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2563eb', boxShadow: '0 0 12px rgba(37,99,235,0.8)' }} 
+                  style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2563eb', boxShadow: '0 0 12px rgba(37,99,235,0.8)' }}
                 />
                 <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#2563eb', letterSpacing: '0.15em', textTransform: 'uppercase' }}>Our Works</span>
               </motion.div>
 
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.25, ease: springEase }}
                 style={{
-                fontSize: 'clamp(2.75rem, 5vw, 4.5rem)',
-                fontWeight: 800,
-                letterSpacing: '-0.04em',
-                lineHeight: 1.05,
-                margin: '0 0 24px 0',
-                color: '#0f172a',
-              }}>
-                Work That <br style={{ display: 'none' }} className="md-block" /> 
-                <span style={{ 
-                  background: 'linear-gradient(135deg, #F97316 0%, #ea580c 50%, #c2410c 100%)', 
-                  WebkitBackgroundClip: 'text', 
+                  fontSize: 'clamp(2.75rem, 5vw, 4.5rem)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.04em',
+                  lineHeight: 1.05,
+                  margin: '0 0 24px 0',
+                  color: '#0f172a',
+                }}>
+                Work That <br style={{ display: 'none' }} className="md-block" />
+                <span style={{
+                  background: 'linear-gradient(135deg, #F97316 0%, #ea580c 50%, #c2410c 100%)',
+                  WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  paddingRight: '10px' 
+                  paddingRight: '10px'
                 }}>Speaks.</span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.4, ease: springEase }}
                 style={{
-                fontSize: '1.15rem',
-                color: '#475569',
-                maxWidth: '560px',
-                margin: 0,
-                lineHeight: 1.7,
-                fontWeight: 400,
-              }}>
+                  fontSize: '1.15rem',
+                  color: '#475569',
+                  maxWidth: '560px',
+                  margin: 0,
+                  lineHeight: 1.7,
+                  fontWeight: 400,
+                }}>
                 Digital platforms, enterprise software, and high-performance systems engineered to give businesses an <strong style={{ color: '#0f172a', fontWeight: 700 }}>unfair advantage</strong>.
               </motion.p>
 
@@ -161,30 +161,30 @@ export default function Projects() {
                 style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '36px' }}
               >
                 {['Enterprise-Grade Security', 'Scalable Cloud Architecture', 'Conversion-Focused UX'].map((item) => (
-                  <span key={item} style={{ 
-                    padding: '10px 20px', 
-                    borderRadius: '9999px', 
-                    border: '1px solid rgba(15, 23, 42, 0.06)', 
-                    background: '#f8fafc', 
-                    color: '#334155', 
-                    fontSize: '0.85rem', 
-                    fontWeight: 600, 
+                  <span key={item} style={{
+                    padding: '10px 20px',
+                    borderRadius: '9999px',
+                    border: '1px solid rgba(15, 23, 42, 0.06)',
+                    background: '#f8fafc',
+                    color: '#334155',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
                     boxShadow: '0 2px 8px rgba(15, 23, 42, 0.02)',
                     transition: 'all 0.3s ease',
                     cursor: 'default'
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(37, 99, 235, 0.3)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(37, 99, 235, 0.08)';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.background = '#ffffff';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.06)';
-                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(15, 23, 42, 0.02)';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.background = '#f8fafc';
-                  }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(37, 99, 235, 0.3)';
+                      e.currentTarget.style.boxShadow = '0 6px 16px rgba(37, 99, 235, 0.08)';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.background = '#ffffff';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(15, 23, 42, 0.06)';
+                      e.currentTarget.style.boxShadow = '0 2px 8px rgba(15, 23, 42, 0.02)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.background = '#f8fafc';
+                    }}
                   >
                     {item}
                   </span>
@@ -194,10 +194,10 @@ export default function Projects() {
 
             {/* RIGHT: Elevated Stat Grid */}
             <div
-              style={{ 
-                flex: '1 1 420px', 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
+              style={{
+                flex: '1 1 420px',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
                 gap: '24px',
                 position: 'relative',
               }}
@@ -205,46 +205,46 @@ export default function Projects() {
               {[
                 { value: '50+', label: 'Projects Shipped', color: '#2563eb', bg: 'rgba(37, 99, 235, 0.05)' },
                 { value: '98%', label: 'Client Satisfaction', color: '#10b981', bg: 'rgba(16, 185, 129, 0.05)' },
-                { value: '4',   label: 'Industries Served', color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.05)' },
-                { value: '3x',  label: 'Avg. Speed Gain', color: '#f97316', bg: 'rgba(249, 115, 22, 0.05)' },
+                { value: '4', label: 'Industries Served', color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.05)' },
+                { value: '3x', label: 'Avg. Speed Gain', color: '#f97316', bg: 'rgba(249, 115, 22, 0.05)' },
               ].map((stat, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   initial={{ opacity: 0, scale: 0.9, y: 40 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ 
-                    duration: 1.1, 
-                    delay: 0.45 + (i * 0.15), 
+                  transition={{
+                    duration: 1.1,
+                    delay: 0.45 + (i * 0.15),
                     ease: springEase,
-                    scale: { duration: 0.3 }, 
+                    scale: { duration: 0.3 },
                     y: { duration: i * 0.1 } // Note: for entering we rely on the main transition
                   }}
                   style={{
-                  background: '#ffffff',
-                  padding: '36px 28px',
-                  borderRadius: '24px',
-                  boxShadow: '0 12px 40px rgba(15,23,42,0.06)',
-                  border: '1px solid rgba(15, 23, 42, 0.04)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  cursor: 'default'
-                }}>
+                    background: '#ffffff',
+                    padding: '36px 28px',
+                    borderRadius: '24px',
+                    boxShadow: '0 12px 40px rgba(15,23,42,0.06)',
+                    border: '1px solid rgba(15, 23, 42, 0.04)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    cursor: 'default'
+                  }}>
                   {/* Subtle background glow for each card */}
                   <div style={{ position: 'absolute', top: 0, right: 0, width: '120px', height: '120px', background: stat.bg, filter: 'blur(35px)', borderRadius: '50%', transform: 'translate(30%, -30%)' }} />
-                  
+
                   <div style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1, position: 'relative', zIndex: 1 }}>
                     {stat.value}
                   </div>
-                  <div style={{ 
-                    fontSize: '0.8rem', 
-                    color: '#64748b', 
-                    marginTop: '12px', 
-                    fontWeight: 700, 
-                    letterSpacing: '0.05em', 
+                  <div style={{
+                    fontSize: '0.8rem',
+                    color: '#64748b',
+                    marginTop: '12px',
+                    fontWeight: 700,
+                    letterSpacing: '0.05em',
                     textTransform: 'uppercase',
                     position: 'relative',
                     zIndex: 1
@@ -262,7 +262,7 @@ export default function Projects() {
       {/* Projects List - New Side-by-Side Card Layout */}
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
-          
+
           {paginatedProjects.map((project, idx) => (
             <motion.div
               key={idx}
@@ -271,19 +271,19 @@ export default function Projects() {
               viewport={{ once: true, margin: '-60px' }}
               whileHover={{ scale: 1.01, y: -6, boxShadow: '0 30px 60px rgba(15,23,42,0.08)' }}
               transition={{ duration: 0.95, delay: idx * 0.12, ease: springEase, scale: { duration: 0.4 }, y: { duration: 0.4 } }}
-              style={{ 
-              display: 'flex', 
-              flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
-              flexWrap: 'wrap',
-              gap: '48px',
-              background: '#ffffff',
-              borderRadius: '24px',
-              padding: '40px',
-              border: '1px solid #f1f5f9',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.04)',
-              alignItems: 'center'
-            }}>
-              
+              style={{
+                display: 'flex',
+                flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
+                flexWrap: 'wrap',
+                gap: '48px',
+                background: '#ffffff',
+                borderRadius: '24px',
+                padding: '40px',
+                border: '1px solid #f1f5f9',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.04)',
+                alignItems: 'center'
+              }}>
+
               {/* Image Side */}
               <motion.div
                 className="project-image-frame"
@@ -291,43 +291,43 @@ export default function Projects() {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 1, delay: 0.18 + idx * 0.1, ease: springEase }}
-                style={{ 
-                flex: '1 1 400px',
-                minWidth: '300px',
-                height: '450px', 
-                borderRadius: '16px', 
-                overflow: 'hidden', 
-                position: 'relative',
-                boxShadow: '0 25px 50px rgba(0,0,0,0.08)',
-                border: '8px solid #f8fafc'
-              }}>
+                style={{
+                  flex: '1 1 400px',
+                  minWidth: '300px',
+                  height: '450px',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  boxShadow: '0 25px 50px rgba(0,0,0,0.08)',
+                  border: '8px solid #f8fafc'
+                }}>
                 <motion.img
                   className="project-image-hover"
-                  src={project.image} 
-                  alt={project.title} 
+                  src={project.image}
+                  alt={project.title}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6, ease: springEase }}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.05, backgroundColor: '#0f172a', color: '#ffffff' }}
                   transition={{ duration: 0.2 }}
                   style={{
-                  position: 'absolute',
-                  top: '16px',
-                  right: '16px',
-                  background: 'rgba(255,255,255,0.95)',
-                  backdropFilter: 'blur(4px)',
-                  padding: '6px 12px',
-                  borderRadius: '999px',
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  color: '#0f172a',
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
-                  cursor: 'default'
-                }}>
+                    position: 'absolute',
+                    top: '16px',
+                    right: '16px',
+                    background: 'rgba(255,255,255,0.95)',
+                    backdropFilter: 'blur(4px)',
+                    padding: '6px 12px',
+                    borderRadius: '999px',
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    color: '#0f172a',
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                    cursor: 'default'
+                  }}>
                   {project.id}
                 </motion.div>
               </motion.div>
@@ -349,17 +349,17 @@ export default function Projects() {
                       viewport={{ once: true }}
                       whileHover={{ y: -3, scale: 1.05, backgroundColor: '#ffffff', borderColor: '#cbd5e1', boxShadow: '0 4px 12px rgba(15,23,42,0.06)', color: '#0f172a' }}
                       transition={{ duration: 0.45, ease: springEase, scale: { duration: 0.2 }, y: { duration: 0.2 } }}
-                      style={{ 
-                      padding: '8px 16px', 
-                      background: '#f8fafc',
-                      border: '1px solid #e2e8f0',
-                      borderRadius: '999px',
-                      fontSize: '0.78rem',
-                      fontWeight: 700,
-                      color: '#475569',
-                      letterSpacing: '0.02em',
-                      cursor: 'default',
-                    }}>
+                      style={{
+                        padding: '8px 16px',
+                        background: '#f8fafc',
+                        border: '1px solid #e2e8f0',
+                        borderRadius: '999px',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
+                        color: '#475569',
+                        letterSpacing: '0.02em',
+                        cursor: 'default',
+                      }}>
                       {role}
                     </motion.span>
                   ))}
@@ -368,7 +368,7 @@ export default function Projects() {
                 <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', fontWeight: 800, letterSpacing: '-0.03em', margin: '0 0 16px 0', color: '#0f172a', lineHeight: 1.1 }}>
                   {project.title}
                 </h2>
-                
+
                 <p style={{ fontSize: '1.05rem', color: '#475569', lineHeight: 1.6, margin: '0 0 32px 0' }}>
                   {project.description}
                 </p>
@@ -382,9 +382,9 @@ export default function Projects() {
                   transition={{ duration: 0.8, delay: 0.32 + idx * 0.08, ease: springEase }}
                   style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px', background: '#f8fafc', padding: '24px', borderRadius: '16px', border: '1px solid #f1f5f9' }}
                 >
-                  
-                  <motion.div 
-                    className="project-detail-row card-danger" 
+
+                  <motion.div
+                    className="project-detail-row card-danger"
                     whileHover={{ x: 6, backgroundColor: '#ffffff', scale: 1.01, boxShadow: '0 8px 24px rgba(0,0,0,0.04)' }}
                     transition={{ duration: 0.2 }}
                     style={{ display: 'flex', gap: '16px', padding: '12px', borderRadius: '12px', margin: '-12px', cursor: 'default' }}
@@ -400,8 +400,8 @@ export default function Projects() {
 
                   <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0', margin: '8px 0' }} />
 
-                  <motion.div 
-                    className="project-detail-row card-success" 
+                  <motion.div
+                    className="project-detail-row card-success"
                     whileHover={{ x: 6, backgroundColor: '#ffffff', scale: 1.01, boxShadow: '0 8px 24px rgba(0,0,0,0.04)' }}
                     transition={{ duration: 0.2 }}
                     style={{ display: 'flex', gap: '16px', padding: '12px', borderRadius: '12px', margin: '-12px', cursor: 'default' }}
@@ -417,8 +417,8 @@ export default function Projects() {
 
                   <div className="project-detail-divider" style={{ width: '100%', height: '1px', background: '#e2e8f0', margin: '8px 0' }} />
 
-                  <motion.div 
-                    className="project-detail-row card-info" 
+                  <motion.div
+                    className="project-detail-row card-info"
                     whileHover={{ x: 6, backgroundColor: '#ffffff', scale: 1.01, boxShadow: '0 8px 24px rgba(0,0,0,0.04)' }}
                     transition={{ duration: 0.2 }}
                     style={{ display: 'flex', gap: '16px', padding: '12px', borderRadius: '12px', margin: '-12px', cursor: 'default' }}
@@ -444,21 +444,21 @@ export default function Projects() {
                     whileHover={{ scale: 1.02, y: -2, boxShadow: '0 12px 24px rgba(15,23,42,0.25)' }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.65, delay: 0.38 + idx * 0.08, ease: springEase, scale: { duration: 0.2 }, y: { duration: 0.2 } }}
-                    style={{ 
-                    padding: '14px 28px', 
-                    background: '#0f172a', 
-                    color: '#ffffff', 
-                    border: 'none', 
-                    borderRadius: '12px', 
-                    fontWeight: 700, 
-                    fontSize: '0.95rem',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 14px rgba(15,23,42,0.2)',
-                    transition: 'all 0.2s ease',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px'
-                  }}>
+                    style={{
+                      padding: '14px 28px',
+                      background: '#0f172a',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '12px',
+                      fontWeight: 700,
+                      fontSize: '0.95rem',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 14px rgba(15,23,42,0.2)',
+                      transition: 'all 0.2s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                    }}>
                     View Live Space
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </motion.button>
@@ -471,17 +471,17 @@ export default function Projects() {
                     whileHover={{ scale: 1.02, y: -2, boxShadow: '0 8px 20px rgba(15,23,42,0.08)', backgroundColor: '#f8fafc' }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.72, delay: 0.45 + idx * 0.08, ease: springEase, scale: { duration: 0.2 }, y: { duration: 0.2 } }}
-                    style={{ 
-                    padding: '14px 28px', 
-                    background: '#ffffff', 
-                    color: '#0f172a', 
-                    border: '1px solid #cbd5e1', 
-                    borderRadius: '12px', 
-                    fontWeight: 700, 
-                    fontSize: '0.95rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}>
+                    style={{
+                      padding: '14px 28px',
+                      background: '#ffffff',
+                      color: '#0f172a',
+                      border: '1px solid #cbd5e1',
+                      borderRadius: '12px',
+                      fontWeight: 700,
+                      fontSize: '0.95rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease'
+                    }}>
                     Read Case Study
                   </motion.button>
                 </div>
