@@ -45,7 +45,7 @@ const CASE_STUDIES: CaseStudy[] = [
     challenge: 'Shipment blind spots created delays, spoilage risks, and expensive route unpredictability.',
     solution: 'We connected container sensors to predictive routing and alerts for end-to-end control.',
     impact: ['36% fewer route disruptions', '22% lower spoilage losses', 'Near real-time visibility across global lanes'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    image: '/project-automotive-care.png',
   },
   {
     id: '04',

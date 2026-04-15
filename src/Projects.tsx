@@ -41,7 +41,7 @@ export default function Projects() {
       problem: "Global supply chains faced massive blind spots during oceanic transit, leading to unpredictable delivery windows and significant financial losses from spoilage.",
       solution: "Integrated hundreds of thousands of low-energy IoT sensors into shipping containers, paired with cloud-native predictive routing algorithms to guarantee precision.",
       useCase: "Global shipping conglomerates and large-scale manufacturing distributors.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+      image: "/project-automotive-care.png",
       roles: ["Cloud Computing", "IoT Integrations", "Security"]
     },
     {
