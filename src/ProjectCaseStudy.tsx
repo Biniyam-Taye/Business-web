@@ -34,7 +34,7 @@ const CASE_STUDIES: CaseStudy[] = [
     challenge: 'The existing ordering flow made it hard for customers to browse menu items quickly and complete checkout without drop-off.',
     solution: 'We built a clean, mobile-friendly ordering journey with intuitive navigation, faster cart-to-checkout steps, and structured order handling.',
     impact: ['2.1x increase in completed online orders', 'Reduced checkout drop-off across mobile users', 'Faster order processing for restaurant teams'],
-    image: '/project-food-delivery.png',
+    image: '/case-study-food-delivery.png',
   },
   {
     id: '03',
