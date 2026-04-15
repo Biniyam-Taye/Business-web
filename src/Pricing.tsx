@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Check, ChevronDown, ShieldCheck, Sparkles, Zap } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BriefcaseBusiness, Check, ChevronDown, Quote, ShieldCheck, Sparkles, TrendingUp, Zap } from 'lucide-react';
 
 const plans = [
   {
@@ -212,7 +212,17 @@ export default function Pricing() {
                     transition: 'all 0.3s ease',
                   }}
                 >
-                  <p
+                  <motion.p
+                    whileHover={{
+                      x: [0, -2.8, 2.8, -2.2, 2.2, -1.4, 1.4, 0],
+                      transition: { duration: 0.42, ease: 'easeInOut' },
+                    }}
+                    animate={
+                      hoveredPlan === idx
+                        ? { x: [0, -2.8, 2.8, -2.2, 2.2, -1.4, 1.4, 0] }
+                        : { x: 0 }
+                    }
+                    transition={{ duration: 0.42, ease: 'easeInOut' }}
                     style={{
                       margin: 0,
                       fontSize: 'clamp(2rem, 2.5vw, 2.3rem)',
@@ -224,7 +234,7 @@ export default function Pricing() {
                     }}
                   >
                     {plan.price}
-                  </p>
+                  </motion.p>
                   <p style={{ margin: '3px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.82)' : '#64748b', fontSize: '0.84rem' }}>{plan.period}</p>
                 </motion.div>
                 <p style={{ margin: '8px 0 0 0', color: hoveredPlan === idx ? 'rgba(255,255,255,0.86)' : '#64748b', fontSize: '0.82rem', lineHeight: 1.5 }}>
@@ -289,43 +299,80 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section style={{ padding: '20px 0 10px' }}>
+      <section style={{ padding: '28px 0 18px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            style={{ borderRadius: '20px', border: '1px solid #dbeafe', background: '#ffffff', padding: '20px', boxShadow: '0 12px 30px rgba(15,23,42,0.06)' }}
+            style={{ borderRadius: '20px', border: '1px solid #dbeafe', background: 'linear-gradient(145deg, #ffffff 0%, #f8fbff 100%)', padding: '24px', boxShadow: '0 14px 34px rgba(15,23,42,0.08)' }}
           >
-            <p style={{ margin: 0, fontSize: '1rem', fontWeight: 800, color: '#0f172a' }}>Trusted by startups and growing businesses</p>
-            <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '10px' }}>
+            <h3 style={{ margin: 0, fontSize: 'clamp(1.2rem, 2vw, 1.45rem)', fontWeight: 900, letterSpacing: '-0.02em', color: '#0f172a' }}>
+              Trusted by startups and growing businesses
+            </h3>
+            <p style={{ margin: '6px 0 0 0', color: '#64748b', fontSize: '0.92rem', lineHeight: 1.65 }}>
+              Proven delivery outcomes with consistent quality, transparency, and long-term reliability.
+            </p>
+
+            <div style={{ marginTop: '14px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '12px' }}>
               {[
-                ['20+', 'Projects Delivered'],
-                ['5+', 'Industries Served'],
-                ['100%', 'Project Completion'],
+                ['20+', 'Projects Delivered', <TrendingUp key="s1" size={16} color="#2563eb" />],
+                ['5+', 'Industries Served', <BriefcaseBusiness key="s2" size={16} color="#2563eb" />],
+                ['100%', 'Project Completion', <ShieldCheck key="s3" size={16} color="#2563eb" />],
               ].map((stat) => (
-                <div key={stat[0]} style={{ borderRadius: '12px', border: '1px solid #e2e8f0', background: '#ffffff', padding: '12px' }}>
-                  <p style={{ margin: 0, fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.03em', color: '#0f172a' }}>{stat[0]}</p>
-                  <p style={{ margin: '3px 0 0 0', color: '#64748b', fontSize: '0.85rem', fontWeight: 700 }}>{stat[1]}</p>
-                </div>
+                <motion.div
+                  key={stat[0]}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  style={{ borderRadius: '14px', border: '1px solid #cfe1ff', background: 'linear-gradient(150deg, #ffffff 0%, #eff6ff 100%)', padding: '14px', boxShadow: '0 10px 24px rgba(37,99,235,0.12)', transition: 'all 0.3s ease' }}
+                >
+                  <span style={{ width: '30px', height: '30px', borderRadius: '9px', background: '#eff6ff', border: '1px solid #bfdbfe', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>{stat[2]}</span>
+                  <p style={{ margin: '10px 0 0 0', fontSize: '1.85rem', fontWeight: 900, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1 }}>{stat[0]}</p>
+                  <p style={{ margin: '5px 0 0 0', color: '#64748b', fontSize: '0.85rem', fontWeight: 700 }}>{stat[1]}</p>
+                </motion.div>
               ))}
             </div>
-            <div style={{ marginTop: '12px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
+
+            <div style={{ marginTop: '14px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px' }}>
               {trustLogos.map((logo) => (
-                <div key={logo} style={{ border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#475569', fontWeight: 700, letterSpacing: '0.01em' }}>
+                <motion.div
+                  key={logo}
+                  whileHover={{ y: -2, scale: 1.01 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  style={{ border: '1px solid #e2e8f0', borderRadius: '12px', background: '#f8fafc', minHeight: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontWeight: 800, letterSpacing: '0.01em', filter: 'grayscale(100%)', transition: 'all 0.3s ease' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'grayscale(0%)';
+                    e.currentTarget.style.color = '#334155';
+                    e.currentTarget.style.boxShadow = '0 8px 18px rgba(15,23,42,0.1)';
+                    e.currentTarget.style.borderColor = '#cbd5e1';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'grayscale(100%)';
+                    e.currentTarget.style.color = '#64748b';
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.borderColor = '#e2e8f0';
+                  }}
+                >
                   {logo}
-                </div>
+                </motion.div>
               ))}
             </div>
-            <div style={{ marginTop: '14px', borderRadius: '14px', border: '1px solid #e2e8f0', background: '#f8fafc', padding: '14px' }}>
-              <p style={{ margin: 0, color: '#334155', lineHeight: 1.7, fontSize: '0.95rem' }}>
+
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{ marginTop: '14px', borderRadius: '16px', border: '1px solid #dbeafe', background: 'linear-gradient(145deg, #ffffff 0%, #f1f5ff 100%)', padding: '16px', position: 'relative', boxShadow: '0 10px 24px rgba(15,23,42,0.08)', overflow: 'hidden' }}
+            >
+              <Quote size={84} color="rgba(37,99,235,0.1)" style={{ position: 'absolute', top: '-8px', right: '8px', pointerEvents: 'none' }} />
+              <div style={{ width: '34px', height: '34px', borderRadius: '999px', background: '#dbeafe', border: '1px solid #bfdbfe', marginBottom: '10px' }} />
+              <p style={{ margin: 0, color: '#334155', lineHeight: 1.8, fontSize: '1rem', maxWidth: '920px', position: 'relative', zIndex: 1 }}>
                 "NexTech delivered our platform faster than expected and gave us a scalable foundation we could confidently grow on."
               </p>
-              <p style={{ margin: '8px 0 0 0', color: '#64748b', fontSize: '0.88rem', fontWeight: 700 }}>
+              <p style={{ margin: '10px 0 0 0', color: '#64748b', fontSize: '0.84rem', fontWeight: 700, position: 'relative', zIndex: 1 }}>
                 COO, Growth-stage SaaS Company
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
