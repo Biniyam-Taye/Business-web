@@ -34,7 +34,7 @@ const CASE_STUDIES: CaseStudy[] = [
     challenge: 'Hospital teams worked with delayed diagnostics and disconnected patient records during critical shifts.',
     solution: 'We implemented an AI assistant that analyzes inputs in real time and syncs recommendations into EHR workflows.',
     impact: ['42% faster diagnostic turnaround', '27% reduction in admin overhead', 'Improved overnight triage consistency'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
+    image: '/project-food-delivery.png',
   },
   {
     id: '03',

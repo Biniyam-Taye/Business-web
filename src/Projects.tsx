@@ -29,7 +29,7 @@ export default function Projects() {
       problem: "Hospitals struggled with fragmented patient records and delayed diagnostic processing, creating high-friction environments for medical professionals on night shifts.",
       solution: "Deployed a neural-network driven diagnostic assistant that analyzes scans and vitals in real-time, syncing instantly with centralized electronic health records.",
       useCase: "Surgeons, frontline nurses, and hospital administrators prioritizing rapid patient care.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+      image: "/project-food-delivery.png",
       roles: ["Machine Learning", "System Integration", "UX Strategy"]
     },
     {
