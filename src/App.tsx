@@ -222,6 +222,7 @@ function MainLayout() {
                         border: 'none', cursor: 'pointer', boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
                         transition: 'all 0.3s ease'
                       }}
+                        onClick={() => navigate('/book-demo')}
                         onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.03)')}
                         onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}>
                         Get Started <ArrowRight size={18} color="#aaa" />
@@ -237,6 +238,7 @@ function MainLayout() {
                           boxShadow: '0 8px 20px rgba(37,99,235,0.28)',
                           transition: 'all 0.3s ease'
                         }}
+                        onClick={() => navigate('/projects')}
                         onMouseOver={e => {
                           e.currentTarget.style.background = '#fff';
                           e.currentTarget.style.color = 'var(--accent-blue)';
