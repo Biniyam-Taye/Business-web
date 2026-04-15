@@ -49,14 +49,14 @@ const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: '04',
-    title: 'Aura E-Commerce',
-    category: 'Retail Experience',
-    client: 'Aura Retail',
-    summary: 'Headless commerce platform built for speed, immersive product views, and conversion growth.',
-    challenge: 'Slow storefront performance and generic UX drove cart abandonment and weak repeat purchases.',
-    solution: 'We rebuilt the stack with a headless architecture and interactive product experiences.',
-    impact: ['2.3x conversion lift', 'Sub-second page loads on core flows', 'Significant repeat-customer growth'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    title: 'Student Career Launch Platform',
+    category: 'Career Platform',
+    client: 'Frelaunch',
+    summary: 'A digital bridge between student talent and hiring companies for internships and freelance opportunities.',
+    challenge: 'Students lacked structured visibility into quality opportunities, and employers found it difficult to identify prepared early-career candidates.',
+    solution: 'We developed a streamlined platform with portfolio-led profiles, smart opportunity discovery, and cleaner application management for both sides.',
+    impact: ['720+ active students onboarded', '112+ partner companies engaged', '85% placement success across listed opportunities'],
+    image: '/project-student-career-platform.png',
   },
 ];
 
@@ -149,7 +149,7 @@ export default function ProjectCaseStudy() {
             className="project-image-hover"
             src={caseStudy.image}
             alt={caseStudy.title}
-            style={{ width: '100%', height: '420px', objectFit: 'cover' }}
+            style={{ width: '100%', height: '420px', objectFit: 'cover', objectPosition: caseStudy.id === '04' ? 'center 22%' : 'center' }}
           />
         </div>
 

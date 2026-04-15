@@ -46,15 +46,15 @@ export default function Projects() {
     },
     {
       id: "04",
-      title: "Aura E-Commerce",
-      client: "Aura Retail",
-      category: "Retail Experience",
-      description: "High-conversion headless commerce frontend focused on sub-second load times and immersive 3D product visualizations, driving dramatic increases in engagement and recurring brand loyalty.",
-      problem: "Traditional monolithic platforms caused severe cart abandonment due to sluggish load times and a generic, uninspiring product browsing experience.",
-      solution: "Rebuilt the entire consumer journey using a headless architecture, featuring lightning-fast Next.js rendering and WebGL for interactive 3D product displays.",
-      useCase: "Direct-to-consumer premium brands looking for elite digital storefronts.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      roles: ["E-commerce", "3D Rendering", "Payment Gateways"]
+      title: "Student Career Launch Platform",
+      client: "Frelaunch",
+      category: "Career Platform",
+      description: "A student-focused platform connecting freelancers and interns with top companies through guided onboarding, opportunity matching, and portfolio-first profiles.",
+      problem: "Students struggled to find credible internships and freelance work, while companies lacked a clear pipeline to discover qualified emerging talent.",
+      solution: "Built a unified career portal with profile building, opportunity discovery, smart matching, and application workflows that improve student-company connections.",
+      useCase: "Ideal for students seeking career opportunities and organizations recruiting internship-ready and freelance talent.",
+      image: "/project-student-career-platform.png",
+      roles: ["React", "Node.js", "MongoDB", "Express", "JWT Auth", "Role-Based Access"]
     }
   ];
 
@@ -307,7 +307,7 @@ export default function Projects() {
                   alt={project.title}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6, ease: springEase }}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: project.id === "04" ? 'center 22%' : 'center' }}
                 />
                 <motion.div
                   whileHover={{ scale: 1.05, backgroundColor: '#0f172a', color: '#ffffff' }}
