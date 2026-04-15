@@ -835,9 +835,9 @@ function MainLayout() {
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '80px' }}>
 
                     {/* Top Pill */}
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid #BFDBFE', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '9999px', padding: '8px 24px', marginBottom: '24px' }}>
-                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#3b82f6' }} />
-                      <span style={{ fontSize: '0.875rem', fontWeight: 800, letterSpacing: '0.05em', color: '#3b82f6', textTransform: 'uppercase' }}>MEET THE TEAM</span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '1px solid #93C5FD', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '9999px', padding: '12px 30px', marginBottom: '24px', boxShadow: '0 8px 24px rgba(59,130,246,0.15)' }}>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB' }} />
+                      <span style={{ fontSize: '1.02rem', fontWeight: 900, letterSpacing: '0.08em', color: '#2563EB', textTransform: 'uppercase' }}>MEET THE TEAM</span>
                     </div>
 
                     {/* Gradient Title */}
