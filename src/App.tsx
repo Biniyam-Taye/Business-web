@@ -751,10 +751,20 @@ function MainLayout() {
 
                   {/* Left Side Info */}
                   <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '1px solid #93C5FD', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '9999px', padding: '12px 30px', marginBottom: '24px', boxShadow: '0 8px 24px rgba(59,130,246,0.15)' }}>
+                    <motion.div
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '1px solid #93C5FD', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '9999px', padding: '12px 30px', marginBottom: '24px', boxShadow: '0 8px 24px rgba(59,130,246,0.15)' }}
+                      whileHover={{
+                        y: -4,
+                        scale: 1.03,
+                        borderColor: 'rgba(96,165,250,0.65)',
+                        background: 'linear-gradient(155deg, rgba(59,130,246,0.16) 0%, rgba(79,70,229,0.12) 100%)',
+                        boxShadow: '0 16px 32px rgba(59,130,246,0.25)',
+                      }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    >
                       <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB' }} />
                       <span style={{ fontSize: '1.02rem', fontWeight: 900, letterSpacing: '0.08em', color: '#2563EB', textTransform: 'uppercase' }}>WHY CHOOSE US</span>
-                    </div>
+                    </motion.div>
 
                     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
                       We engineer <span style={{ color: '#F97316' }}>unfair</span><br /> market advantages.
@@ -835,10 +845,36 @@ function MainLayout() {
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '80px' }}>
 
                     {/* Top Pill */}
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '1px solid #93C5FD', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '9999px', padding: '12px 30px', marginBottom: '24px', boxShadow: '0 8px 24px rgba(59,130,246,0.15)' }}>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB' }} />
-                      <span style={{ fontSize: '1.02rem', fontWeight: 900, letterSpacing: '0.08em', color: '#2563EB', textTransform: 'uppercase' }}>MEET THE TEAM</span>
-                    </div>
+                    <motion.div
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', border: '1px solid #93C5FD', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '9999px', padding: '12px 30px', marginBottom: '24px', boxShadow: '0 8px 24px rgba(59,130,246,0.15)', position: 'relative', overflow: 'hidden' }}
+                      whileHover={{
+                        y: -4,
+                        scale: 1.03,
+                        borderColor: 'rgba(96,165,250,0.65)',
+                        background: 'linear-gradient(155deg, rgba(59,130,246,0.16) 0%, rgba(79,70,229,0.12) 100%)',
+                        boxShadow: '0 16px 32px rgba(59,130,246,0.25)',
+                      }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <motion.span
+                        aria-hidden
+                        style={{
+                          position: 'absolute',
+                          top: '-28%',
+                          left: '-52%',
+                          width: '42%',
+                          height: '160%',
+                          background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0) 100%)',
+                          transform: 'skewX(-24deg)',
+                          pointerEvents: 'none',
+                        }}
+                        initial={{ x: '0%' }}
+                        whileHover={{ x: '355%' }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB', position: 'relative', zIndex: 1 }} />
+                      <span style={{ fontSize: '1.02rem', fontWeight: 900, letterSpacing: '0.08em', color: '#2563EB', textTransform: 'uppercase', position: 'relative', zIndex: 1 }}>MEET THE TEAM</span>
+                    </motion.div>
 
                     {/* Gradient Title */}
                     <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.04em', margin: '0 0 24px 0', color: '#0f172a' }}>
