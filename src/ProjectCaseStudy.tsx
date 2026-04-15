@@ -16,14 +16,14 @@ type CaseStudy = {
 const CASE_STUDIES: CaseStudy[] = [
   {
     id: '01',
-    title: 'Fintech Dashboard Pro',
-    category: 'SaaS Platform',
-    client: 'Global Finance Corp',
-    summary: 'A unified financial command center with live tracking and predictive analytics for enterprise finance teams.',
-    challenge: 'Legacy systems fragmented reporting and slowed decision-making across business units.',
-    solution: 'We designed one real-time analytics workspace that merged transaction data, forecasting, and risk monitoring.',
-    impact: ['58% faster monthly reporting', '31% fewer manual reconciliation tasks', '98% stakeholder adoption in quarter one'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    title: 'Instant Luxury Car Booking',
+    category: 'Web App',
+    client: 'Luxury Cars on Rent',
+    summary: 'A complete car rental platform that delivers fast booking, real-time vehicle availability, secure authentication, and seamless payments.',
+    challenge: 'The rental process relied on manual coordination, which caused booking delays, scheduling conflicts, and poor visibility into live fleet status.',
+    solution: 'We built a streamlined booking experience with live availability updates, customer accounts, and secure checkout so users can reserve cars in minutes.',
+    impact: ['4x faster booking completion', 'Significant reduction in double-booking conflicts', 'Higher customer conversion from search to confirmed reservation'],
+    image: '/project-luxury-cars-rent.png',
   },
   {
     id: '02',

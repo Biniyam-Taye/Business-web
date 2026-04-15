@@ -10,15 +10,15 @@ export default function Projects() {
   const projects = [
     {
       id: "01",
-      title: "Fintech Dashboard Pro",
-      client: "Global Finance Corp",
-      category: "SaaS Platform",
-      description: "A comprehensive financial command center offering real-time transaction tracking, predictive analytics, and enterprise-grade security protocols designed exclusively to outpace legacy bank systems.",
-      problem: "Legacy banking systems provided a fragmented view of financial operations, resulting in slow decision-making and delayed reconciliation processes across multiple outdated platforms.",
-      solution: "Engineered a unified real-time tracking interface combined with predictive analytics, consolidating complex data pipelines into a single high-performance dashboard.",
-      useCase: "Enterprise financial teams, CFOs, and risk analysts requiring state-of-the-art insights.",
+      title: "Instant Luxury Car Booking",
+      client: "Luxury Cars on Rent",
+      category: "Web App",
+      description: "A complete car rental system with booking features, real-time availability, secure authentication, and end-to-end payment processing.",
+      problem: "Rental businesses struggled with manual booking workflows, double reservations, and no centralized way to manage fleet availability in real time.",
+      solution: "Built a MERN-based rental platform with live car availability, streamlined booking flows, user accounts, and integrated checkout for fast, reliable reservations.",
+      useCase: "Perfect for car rental companies that need online booking, customer account management, and real-time fleet operations.",
       image: "/project-luxury-cars-rent.png",
-      roles: ["Frontend UI", "Backend Architecture", "Data Vis"]
+      roles: ["React", "Express", "Node.js", "Clerk", "MongoDB", "Stripe"]
     },
     {
       id: "02",
