@@ -894,10 +894,18 @@ function MainLayout() {
                     {/* Person 1 */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                      whileHover={{ y: -10, boxShadow: '0 24px 55px rgba(0,0,0,0.14)' }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="CEO" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <motion.img
+                          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+                          alt="CEO"
+                          whileHover={{ scale: 1.08 }}
+                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
 
                         {/* Overlay Container */}
                         <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -950,10 +958,17 @@ function MainLayout() {
                     {/* Person 2 */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                      whileHover={{ y: -10, boxShadow: '0 24px 55px rgba(0,0,0,0.14)' }}
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="CTO" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <motion.img
+                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                          alt="CTO"
+                          whileHover={{ scale: 1.08 }}
+                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
 
                         {/* Overlay Container */}
                         <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -1006,10 +1021,17 @@ function MainLayout() {
                     {/* Person 3 */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+                      whileHover={{ y: -10, boxShadow: '0 24px 55px rgba(0,0,0,0.14)' }}
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" alt="Head of Design" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <motion.img
+                          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80"
+                          alt="Head of Design"
+                          whileHover={{ scale: 1.08 }}
+                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
 
                         {/* Overlay Container */}
                         <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
