@@ -17,7 +17,7 @@ export default function Projects() {
       problem: "Legacy banking systems provided a fragmented view of financial operations, resulting in slow decision-making and delayed reconciliation processes across multiple outdated platforms.",
       solution: "Engineered a unified real-time tracking interface combined with predictive analytics, consolidating complex data pipelines into a single high-performance dashboard.",
       useCase: "Enterprise financial teams, CFOs, and risk analysts requiring state-of-the-art insights.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      image: "/project-luxury-cars-rent.png",
       roles: ["Frontend UI", "Backend Architecture", "Data Vis"]
     },
     {
