@@ -34,15 +34,15 @@ export default function Projects() {
     },
     {
       id: "03",
-      title: "Nexus Supply Chain",
-      client: "Logistics International",
-      category: "Enterprise Software",
-      description: "Global logistics tracking platform combining IoT sensors with continuous machine learning to optimize complex delivery routes, guaranteeing unparalleled visibility from port to final destination.",
-      problem: "Global supply chains faced massive blind spots during oceanic transit, leading to unpredictable delivery windows and significant financial losses from spoilage.",
-      solution: "Integrated hundreds of thousands of low-energy IoT sensors into shipping containers, paired with cloud-native predictive routing algorithms to guarantee precision.",
-      useCase: "Global shipping conglomerates and large-scale manufacturing distributors.",
+      title: "Smart Vehicle Service Platform",
+      client: "Premium Auto Care",
+      category: "Web App",
+      description: "An end-to-end garage platform that streamlines vehicle servicing, customer communication, and booking workflows in one unified experience.",
+      problem: "Garage teams managed bookings, service tracking, and customer updates across disconnected tools, causing delays and inconsistent service delivery.",
+      solution: "Built a MERN-powered service platform with appointment booking, job-status tracking, and centralized customer records for faster operations.",
+      useCase: "Best for vehicle service centers that need digital booking, service management, and better customer retention.",
       image: "/project-automotive-care.png",
-      roles: ["Cloud Computing", "IoT Integrations", "Security"]
+      roles: ["React", "Node.js", "MongoDB", "Express", "RESTful API", "JWT Auth", "Cloudinary"]
     },
     {
       id: "04",
