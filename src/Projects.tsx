@@ -22,15 +22,15 @@ export default function Projects() {
     },
     {
       id: "02",
-      title: "HealthCore AI",
-      client: "MediTech Health",
-      category: "Healthcare Informatics",
-      description: "AI-driven diagnostic support system integrating seamlessly with existing hospital infrastructure for faster, more accurate patient care, significantly reducing operational friction in critical environments.",
-      problem: "Hospitals struggled with fragmented patient records and delayed diagnostic processing, creating high-friction environments for medical professionals on night shifts.",
-      solution: "Deployed a neural-network driven diagnostic assistant that analyzes scans and vitals in real-time, syncing instantly with centralized electronic health records.",
-      useCase: "Surgeons, frontline nurses, and hospital administrators prioritizing rapid patient care.",
+      title: "Fast Food Ordering Experience",
+      client: "Bink's Deli",
+      category: "Web App",
+      description: "A modern food delivery platform built for smooth ordering, efficient menu browsing, and reliable end-to-end order handling.",
+      problem: "Customers faced slow ordering flows and unclear menu navigation, while staff lacked a simple way to manage incoming orders quickly.",
+      solution: "Designed and shipped a responsive ordering app with clear menu discovery, faster checkout, and streamlined order flow for both users and admins.",
+      useCase: "Ideal for restaurants and food brands that want a polished online ordering experience with faster customer conversion.",
       image: "/project-food-delivery.png",
-      roles: ["Machine Learning", "System Integration", "UX Strategy"]
+      roles: ["React", "Node.js", "MongoDB", "RESTful API", "Express"]
     },
     {
       id: "03",
