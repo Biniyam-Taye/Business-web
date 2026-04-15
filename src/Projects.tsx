@@ -9,16 +9,16 @@ export default function Projects() {
   const springEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const projects = [
     {
-      id: "01",
-      title: "Instant Luxury Car Booking",
-      client: "Luxury Cars on Rent",
+      id: "03",
+      title: "Smart Vehicle Service Platform",
+      client: "Premium Auto Care",
       category: "Web App",
-      description: "A complete car rental system with booking features, real-time availability, secure authentication, and end-to-end payment processing.",
-      problem: "Rental businesses struggled with manual booking workflows, double reservations, and no centralized way to manage fleet availability in real time.",
-      solution: "Built a MERN-based rental platform with live car availability, streamlined booking flows, user accounts, and integrated checkout for fast, reliable reservations.",
-      useCase: "Perfect for car rental companies that need online booking, customer account management, and real-time fleet operations.",
-      image: "/project-luxury-cars-rent.png",
-      roles: ["React", "Express", "Node.js", "Clerk", "MongoDB", "Stripe"]
+      description: "An end-to-end garage platform that streamlines vehicle servicing, customer communication, and booking workflows in one unified experience.",
+      problem: "Garage teams managed bookings, service tracking, and customer updates across disconnected tools, causing delays and inconsistent service delivery.",
+      solution: "Built a MERN-powered service platform with appointment booking, job-status tracking, and centralized customer records for faster operations.",
+      useCase: "Best for vehicle service centers that need digital booking, service management, and better customer retention.",
+      image: "/project-automotive-care.png",
+      roles: ["React", "Node.js", "MongoDB", "Express", "RESTful API", "JWT Auth", "Cloudinary"]
     },
     {
       id: "02",
@@ -33,28 +33,28 @@ export default function Projects() {
       roles: ["React", "Node.js", "MongoDB", "RESTful API", "Express"]
     },
     {
-      id: "03",
-      title: "Smart Vehicle Service Platform",
-      client: "Premium Auto Care",
+      id: "01",
+      title: "Instant Luxury Car Booking",
+      client: "Luxury Cars on Rent",
       category: "Web App",
-      description: "An end-to-end garage platform that streamlines vehicle servicing, customer communication, and booking workflows in one unified experience.",
-      problem: "Garage teams managed bookings, service tracking, and customer updates across disconnected tools, causing delays and inconsistent service delivery.",
-      solution: "Built a MERN-powered service platform with appointment booking, job-status tracking, and centralized customer records for faster operations.",
-      useCase: "Best for vehicle service centers that need digital booking, service management, and better customer retention.",
-      image: "/project-automotive-care.png",
-      roles: ["React", "Node.js", "MongoDB", "Express", "RESTful API", "JWT Auth", "Cloudinary"]
+      description: "A complete car rental system with booking features, real-time availability, secure authentication, and end-to-end payment processing.",
+      problem: "Rental businesses struggled with manual booking workflows, double reservations, and no centralized way to manage fleet availability in real time.",
+      solution: "Built a MERN-based rental platform with live car availability, streamlined booking flows, user accounts, and integrated checkout for fast, reliable reservations.",
+      useCase: "Perfect for car rental companies that need online booking, customer account management, and real-time fleet operations.",
+      image: "/project-luxury-cars-rent.png",
+      roles: ["React", "Express", "Node.js", "Clerk", "MongoDB", "Stripe"]
     },
     {
       id: "04",
       title: "Student Career Launch Platform",
       client: "Frelaunch",
       category: "Career Platform",
-      description: "A student-focused platform connecting freelancers and interns with top companies through guided onboarding, opportunity matching, and portfolio-first profiles.",
+      description: "An AI-powered student career platform connecting freelancers and interns with top companies through guided onboarding, intelligent opportunity matching, and portfolio-first profiles.",
       problem: "Students struggled to find credible internships and freelance work, while companies lacked a clear pipeline to discover qualified emerging talent.",
-      solution: "Built a unified career portal with profile building, opportunity discovery, smart matching, and application workflows that improve student-company connections.",
+      solution: "Built a unified AI-powered career portal with profile building, opportunity discovery, intelligent matching, and application workflows that improve student-company connections.",
       useCase: "Ideal for students seeking career opportunities and organizations recruiting internship-ready and freelance talent.",
       image: "/project-student-career-platform.png",
-      roles: ["React", "Node.js", "MongoDB", "Express", "JWT Auth", "Role-Based Access"]
+      roles: ["React", "Node.js", "MongoDB", "Express", "AI Matching", "JWT Auth", "Role-Based Access"]
     }
   ];
 

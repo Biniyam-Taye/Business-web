@@ -245,7 +245,7 @@ export default function Services() {
                 transition={{ duration: 0.5, ease }}
                 style={{ position: 'absolute', right: '8%', top: '20px', width: '280px', height: '360px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 50px rgba(15,23,42,0.12)', border: '6px solid #ffffff', transform: 'rotate(5deg)', zIndex: 1, transformOrigin: 'center' }}
               >
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Team at work" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/service-hero-chatbot.png" alt="AI chatbot service experience" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.6) 100%)' }} />
               </motion.div>
 
@@ -255,7 +255,7 @@ export default function Services() {
                 transition={{ duration: 0.5, ease }}
                 style={{ position: 'absolute', left: '4%', bottom: '30px', width: '280px', height: '220px', borderRadius: '24px', overflow: 'hidden', boxShadow: '-10px 20px 40px rgba(15,23,42,0.15)', border: '6px solid #ffffff', transform: 'rotate(-4deg)', zIndex: 2 }}
               >
-                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" alt="Wireframing interface" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/service-hero-community.png" alt="Student and user community collaboration" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </motion.div>
 
               {/* Floating Badge 1 - Top Left */}
