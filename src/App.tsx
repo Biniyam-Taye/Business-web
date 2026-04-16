@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, type ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -65,13 +65,35 @@ function MainLayout() {
     if (path === '/contact') return 'Contacts';
     return 'About Us';
   };
-  const [activeNav, setActiveNav] = useState(() => getNavFromPath(location.pathname));
+  const activeNav = getNavFromPath(location.pathname);
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
-  const navLinks = ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts'];
+  const heroPosterUrl = "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80";
+  const heroVideoInputRef = useRef<HTMLInputElement | null>(null);
+  const [heroVideoSrc, setHeroVideoSrc] = useState<string | null>(null);
+
+  const handleHeroVideoChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Create a local object URL so the selected video can play immediately.
+    // NOTE: this URL won't persist across refresh/rebuild.
+    const nextUrl = URL.createObjectURL(file);
+    setHeroVideoSrc((prev) => {
+      if (prev) URL.revokeObjectURL(prev);
+      return nextUrl;
+    });
+
+    // Allow picking the same file again later.
+    e.target.value = '';
+  };
 
   useEffect(() => {
-    setActiveNav(getNavFromPath(location.pathname));
-  }, [location.pathname]);
+    return () => {
+      if (heroVideoSrc) URL.revokeObjectURL(heroVideoSrc);
+    };
+  }, [heroVideoSrc]);
+
+  const navLinks = ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts'];
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -107,7 +129,6 @@ function MainLayout() {
                 key={link}
                 style={{ position: 'relative', cursor: 'pointer', padding: '10px 24px', borderRadius: '9999px' }}
                 onClick={() => {
-                  setActiveNav(link);
                   if (link === 'Projects') navigate('/projects');
                   else if (link === 'Services') navigate('/services');
                   else if (link === 'Pricing') navigate('/pricing');
@@ -301,10 +322,75 @@ function MainLayout() {
                     style={{ flex: '1 1 500px', position: 'relative', minHeight: '720px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '-140px', alignSelf: 'stretch' }}
                   >
                     <div className="hero-img-wrapper">
-                      <img
-                        src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80"
-                        alt="Tech creative"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      <input
+                        ref={heroVideoInputRef}
+                        type="file"
+                        accept="video/*"
+                        style={{ display: 'none' }}
+                        onChange={handleHeroVideoChange}
+                      />
+
+                      {!heroVideoSrc ? (
+                        <button
+                          type="button"
+                          onClick={() => heroVideoInputRef.current?.click()}
+                          style={{
+                            position: 'absolute',
+                            top: '22px',
+                            left: '22px',
+                            zIndex: 20,
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            borderRadius: '9999px',
+                            padding: '12px 18px',
+                            fontWeight: 800,
+                            color: '#0f172a',
+                            boxShadow: '0 18px 40px rgba(0,0,0,0.16)',
+                          }}
+                        >
+                          Choose local video
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => heroVideoInputRef.current?.click()}
+                          style={{
+                            position: 'absolute',
+                            top: '22px',
+                            left: '22px',
+                            zIndex: 20,
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            borderRadius: '9999px',
+                            padding: '12px 18px',
+                            fontWeight: 800,
+                            color: '#0f172a',
+                            boxShadow: '0 18px 40px rgba(0,0,0,0.16)',
+                          }}
+                        >
+                          Change video
+                        </button>
+                      )}
+
+                      <video
+                        aria-hidden
+                        src={heroVideoSrc ?? undefined}
+                        poster={heroPosterUrl}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          zIndex: 0,
+                          pointerEvents: 'none',
+                        }}
                       />
 
                       {/* Top Right Cutout */}
