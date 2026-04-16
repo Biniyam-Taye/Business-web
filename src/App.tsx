@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -205,7 +205,7 @@ function MainLayout() {
                       transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       style={{ marginTop: '28px', fontSize: '1.1rem', color: '#64748b', lineHeight: 1.75, maxWidth: '460px', fontWeight: 400 }}
                     >
-                      From early-stage startups to scaling enterprises — we engineer the software, systems, and strategy your business needs to move fast and grow without limits.
+                      From early-stage startups to scaling enterprises â€” we engineer the software, systems, and strategy your business needs to move fast and grow without limits.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -352,7 +352,7 @@ function MainLayout() {
 
 
 
-              {/* Problem → Solution Section — Premium Redesign */}
+              {/* Problem â†’ Solution Section â€” Premium Redesign */}
               <section style={{ padding: '64px 0 40px', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
                 <div className="container">
 
@@ -385,14 +385,14 @@ function MainLayout() {
                       <span style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>moving.</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6b7280', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
-                      Sound familiar? Here's what we hear from SMBs every day — and exactly how we solve it.
+                      Sound familiar? Here's what we hear from SMBs every day â€” and exactly how we solve it.
                     </p>
                   </motion.div>
 
                   {/* Split Panel Dual-Card Layout */}
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
 
-                    {/* LEFT — Problems */}
+                    {/* LEFT â€” Problems */}
                     <motion.div
                       initial={{ opacity: 0, x: -80 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -418,7 +418,7 @@ function MainLayout() {
                         {[
                           { num: '01', title: "You're bleeding time on manual work", desc: "Hours lost every week on repetitive tasks that should be automated. Your team deserves better." },
                           { num: '02', title: "Generic software holds you back", desc: "Off-the-shelf tools weren't built for your business. You end up working around them, not with them." },
-                          { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible — until now." },
+                          { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible â€” until now." },
                         ].map((item, i) => {
                           const theme = i % 2 === 0 ? 'card-blue' : 'card-orange';
                           return (
@@ -442,7 +442,7 @@ function MainLayout() {
                       </div>
                     </motion.div>
 
-                    {/* RIGHT — Projects */}
+                    {/* RIGHT â€” Projects */}
                     <motion.div
                       initial={{ opacity: 0, x: 80 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -470,7 +470,7 @@ function MainLayout() {
                         {[
                           { num: '01', title: "Custom-built software, zero compromise", desc: "We design and build exactly what your business needs. No workarounds. Pure efficiency from day one." },
                           { num: '02', title: "One ecosystem. Everything connected.", desc: "Your apps, tools, and data all talk to each other. One source of truth. Zero manual syncing." },
-                          { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from — immediately." },
+                          { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from â€” immediately." },
                         ].map((item, i) => (
                           <motion.div
                             key={i}
@@ -560,7 +560,7 @@ function MainLayout() {
                 </div>
               </section>
 
-              {/* ── Features / Services Section ── */}
+              {/* â”€â”€ Features / Services Section â”€â”€ */}
               <section style={{ padding: '120px 0 60px', background: '#F8F9FA' }}>
                 <div className="container" style={{ maxWidth: '1400px' }}>
 
@@ -757,7 +757,7 @@ function MainLayout() {
                 </div>
               </section>
 
-              {/* ── Why Choose Us Section ── */}
+              {/* â”€â”€ Why Choose Us Section â”€â”€ */}
               <section style={{ padding: '80px 0 140px', background: '#ffffff', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
                 {/* Soft Background Glows matching the light theme */}
                 <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%)', filter: 'blur(60px)' }} />
@@ -853,7 +853,7 @@ function MainLayout() {
                 </div>
               </section>
 
-              {/* ── Meet the Team Section ── */}
+              {/* â”€â”€ Meet the Team Section â”€â”€ */}
               <section style={{ padding: '120px 0', background: '#fafafa', color: '#111' }}>
                 <div className="container" style={{ maxWidth: '1400px' }}>
 
@@ -900,7 +900,7 @@ function MainLayout() {
 
                     {/* Centered Subtext */}
                     <p style={{ margin: 0, fontSize: '1.2rem', color: '#6b7280', lineHeight: 1.6, maxWidth: '600px', fontWeight: 400 }}>
-                      Sound familiar? Here's who we hear from enterprises every day — and exactly how our leaders solve it.
+                      Sound familiar? Here's who we hear from enterprises every day â€” and exactly how our leaders solve it.
                     </p>
                   </div>
 
@@ -915,12 +915,12 @@ function MainLayout() {
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        {/* ── TEAM PHOTO 1 (Mentesinot Debele / CEO) ──
+                        {/* â”€â”€ TEAM PHOTO 1 (Mentesinot Debele / CEO) â”€â”€
                              Drop your photo into public/ and update the src below.
                              Example: src="/mentesinot.jpg" */}
                         <img
                           src="/team-member-1.jpg"
-                          alt="Mentesinot Debele – CEO"
+                          alt="Mentesinot Debele â€“ CEO"
                           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)' }}
                           onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
                           onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
@@ -940,7 +940,7 @@ function MainLayout() {
                           {/* Frosted Glass Content Card */}
                           <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                             <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
-                              CEO who focuses on enterprise strategy & global scaling.
+                              Co-founder & full-stack developer who builds scalable systems and drives product strategy from idea to launch.
                             </p>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -981,12 +981,12 @@ function MainLayout() {
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        {/* ── TEAM PHOTO 2 (Elena Rodriguez / CTO) ──
+                        {/* â”€â”€ TEAM PHOTO 2 (Elena Rodriguez / CTO) â”€â”€
                              Drop your photo into public/ and update the src below.
                              Example: src="/elena.jpg" */}
                         <img
                           src="/team-member-2.jpg"
-                          alt="Elena Rodriguez – CTO"
+                          alt="Elena Rodriguez â€“ CTO"
                           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)' }}
                           onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
                           onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
@@ -1006,7 +1006,7 @@ function MainLayout() {
                           {/* Frosted Glass Content Card */}
                           <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                             <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
-                              CTO who focuses on robust cloud systems & infrastructure.
+                              Co-founder & backend engineer who architects cloud infrastructure and engineers robust, scalable solutions.
                             </p>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -1047,12 +1047,12 @@ function MainLayout() {
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        {/* ── TEAM PHOTO 3 (David Chen / Product Designer) ──
+                        {/* â”€â”€ TEAM PHOTO 3 (David Chen / Product Designer) â”€â”€
                              Drop your photo into public/ and update the src below.
                              Example: src="/david.jpg" */}
                         <img
                           src="/team-member-3.jpg"
-                          alt="Meles Tesfaye – Product Designer"
+                          alt="Meles Tesfaye â€“ Product Designer"
                           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)' }}
                           onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
                           onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
@@ -1072,7 +1072,7 @@ function MainLayout() {
                           {/* Frosted Glass Content Card */}
                           <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                             <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
-                              Product Designer who focuses on simplicity & usability.
+                              Co-founder & frontend developer who crafts intuitive interfaces and delivers seamless user experiences.
                             </p>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -1109,7 +1109,7 @@ function MainLayout() {
                   </div>
                 </div>
               </section>
-              {/* ── Call To Action / Contact Section ── */}
+              {/* â”€â”€ Call To Action / Contact Section â”€â”€ */}
               <section style={{ padding: '140px 0', background: '#ffffff', color: '#0f172a', position: 'relative', overflow: 'hidden' }}>
 
                 {/* Soft Decorative Glows */}
@@ -1233,7 +1233,7 @@ function MainLayout() {
         </Routes>
       </motion.div>
 
-      {/* ── Footer Section ── */}
+      {/* â”€â”€ Footer Section â”€â”€ */}
       <footer style={{ position: 'relative', zIndex: 5, background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b', borderTopLeftRadius: '36px', borderTopRightRadius: '36px', overflow: 'hidden' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
 
@@ -1323,7 +1323,7 @@ function MainLayout() {
           {/* Bottom Row */}
           <div style={{ borderTop: '1px solid #1e293b', paddingTop: '32px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
             <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
-              © {new Date().getFullYear()} NexTech. All rights reserved.
+              Â© {new Date().getFullYear()} NexTech. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem', fontWeight: 400 }}>
               <span style={{ color: 'inherit', fontWeight: 'inherit' }}>Delivering secure, scalable software for modern businesses.</span>
@@ -1336,3 +1336,5 @@ function MainLayout() {
     </div>
   );
 }
+
+
