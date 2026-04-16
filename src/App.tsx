@@ -915,12 +915,15 @@ function MainLayout() {
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        <motion.img
-                          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
-                          alt="CEO"
-                          whileHover={{ scale: 1.08 }}
-                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        {/* ── TEAM PHOTO 1 (Mentesinot Debele / CEO) ──
+                             Drop your photo into public/ and update the src below.
+                             Example: src="/mentesinot.jpg" */}
+                        <img
+                          src="/team-member-1.jpg"
+                          alt="Mentesinot Debele – CEO"
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)' }}
+                          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
+                          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                         />
 
                         {/* Overlay Container */}
@@ -978,12 +981,15 @@ function MainLayout() {
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        <motion.img
-                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
-                          alt="CTO"
-                          whileHover={{ scale: 1.08 }}
-                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        {/* ── TEAM PHOTO 2 (Elena Rodriguez / CTO) ──
+                             Drop your photo into public/ and update the src below.
+                             Example: src="/elena.jpg" */}
+                        <img
+                          src="/team-member-2.jpg"
+                          alt="Elena Rodriguez – CTO"
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)' }}
+                          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
+                          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                         />
 
                         {/* Overlay Container */}
@@ -991,7 +997,7 @@ function MainLayout() {
 
                           {/* Frosted Glass Name Pill Card */}
                           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
-                            <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Elena Rodriguez</h3>
+                            <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Biniyam Taye</h3>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
                               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
@@ -1041,12 +1047,15 @@ function MainLayout() {
                       style={{ background: '#fff', borderRadius: '32px', overflow: 'hidden', padding: '12px', display: 'flex', flexDirection: 'column', boxShadow: '0 10px 40px rgba(0,0,0,0.04)', height: '480px' }}
                     >
                       <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                        <motion.img
-                          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80"
-                          alt="Head of Design"
-                          whileHover={{ scale: 1.08 }}
-                          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                        {/* ── TEAM PHOTO 3 (David Chen / Product Designer) ──
+                             Drop your photo into public/ and update the src below.
+                             Example: src="/david.jpg" */}
+                        <img
+                          src="/team-member-3.jpg"
+                          alt="David Chen – Product Designer"
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)' }}
+                          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.08)')}
+                          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                         />
 
                         {/* Overlay Container */}
