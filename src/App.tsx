@@ -610,7 +610,7 @@ function MainLayout() {
                       </div>
                       <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
                         <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Web Apps" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          <img src="/ai-web-app.png" alt="AI Web Apps" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                       </div>
                     </motion.div>
