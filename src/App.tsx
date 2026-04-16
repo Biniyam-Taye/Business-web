@@ -940,7 +940,7 @@ function MainLayout() {
                           {/* Frosted Glass Content Card */}
                           <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                             <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
-                              Co-founder & full-stack developer who builds scalable systems and drives product strategy from idea to launch.
+                              Builds scalable web applications, designs efficient backend systems, and delivers seamless user experiences from concept to production.
                             </p>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -1006,7 +1006,7 @@ function MainLayout() {
                           {/* Frosted Glass Content Card */}
                           <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                             <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
-                              Co-founder & backend engineer who architects cloud infrastructure and engineers robust, scalable solutions.
+                              Focuses on intuitive interfaces, performance optimization, and AI-powered features for smart, user-centered experiences.
                             </p>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -1072,7 +1072,7 @@ function MainLayout() {
                           {/* Frosted Glass Content Card */}
                           <div style={{ padding: '16px 20px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.4)' }}>
                             <p style={{ margin: '0 0 16px 0', fontSize: '0.95rem', color: '#475569', lineHeight: 1.5, fontWeight: 500 }}>
-                              Co-founder & frontend developer who crafts intuitive interfaces and delivers seamless user experiences.
+                              Specializes in backend architecture, API development, and high-performance systems that ensure reliability and scalability.
                             </p>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
