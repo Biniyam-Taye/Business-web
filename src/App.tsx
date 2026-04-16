@@ -694,7 +694,7 @@ function MainLayout() {
                       </div>
                       <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
                         <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="Design" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          <img src="/ui-design.jpg" alt="Design" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                       </div>
                     </motion.div>
@@ -721,7 +721,7 @@ function MainLayout() {
                       </div>
                       <div style={{ height: '200px', width: '100%', padding: '0 16px 16px 16px' }}>
                         <div style={{ width: '100%', height: '100%', borderRadius: '24px', overflow: 'hidden' }}>
-                          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Automation" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          <img src="/automation.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                       </div>
                     </motion.div>
@@ -928,7 +928,7 @@ function MainLayout() {
 
                           {/* Frosted Glass Name Pill Card */}
                           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 16px', background: 'rgba(255, 255, 255, 0.65)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.4)', width: 'fit-content', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
-                            <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Marcus Bowen</h3>
+                            <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: '#111' }}>Mentesinot Debele</h3>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#10B981', color: 'white', borderRadius: '50%', width: '18px', height: '18px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
                               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
