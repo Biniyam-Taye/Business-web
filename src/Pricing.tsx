@@ -338,7 +338,7 @@ export default function Pricing() {
                 ['100%', 'Project Completion', <ShieldCheck key="s3" size={18} color="#ffffff" />],
               ].map((stat) => (
                 <motion.div
-                  key={stat[0]}
+                  key={stat[0] as string}
                   whileHover={{ y: -6, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                   style={{
@@ -597,7 +597,7 @@ export default function Pricing() {
                 ['Quality Assurance', 'Performance, security, and UX validation before go-live', 'Release with confidence, stability, and polish.', ['Multi-layer testing before launch', 'Security and UX checks included']],
               ].map((item, idx) => (
                 <motion.div
-                  key={item[0]}
+                  key={item[0] as string}
                   whileHover={{ y: -5, scale: 1.03 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                   onHoverStart={() => setHoveredTerms(idx)}
