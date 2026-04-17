@@ -102,7 +102,7 @@ function MainLayout() {
             <img 
               src="/axmx-logo.jpg" 
               alt="AX MX Logo" 
-              style={{ height: '44px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+              style={{ height: '60px', width: 'auto', display: 'block', objectFit: 'contain' }} 
             />
           </div>
 
