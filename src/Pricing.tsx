@@ -1,28 +1,29 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, BriefcaseBusiness, Check, ChevronDown, Quote, ShieldCheck, Sparkles, TrendingUp, Zap } from 'lucide-react';
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Launch Package',
     tagline: 'Launch fast with a conversion-ready business website.',
-    price: 'ETB 120,000',
+    price: 'ETB 20,000',
     period: 'One-time project investment',
     badge: 'Fast Launch',
     description: 'For founders who need a polished web presence that is ready to win clients quickly.',
-    features: ['Strategy session and scope mapping', 'Premium responsive website UI', 'Core backend and CMS setup', 'Lead capture forms and analytics', 'SEO-ready structure and speed tuning', 'Production deployment and handoff'],
+    features: ['Landing page or simple web app', 'Clean, modern UI aligned with your brand', 'Basic backend / CMS setup', 'Contact forms + lead capture', 'Mobile responsive + performance optimized', 'Production deployment and handoff'],
     timeline: '2-4 weeks delivery',
     cta: 'Start Project',
   },
   {
     name: 'Business',
     tagline: 'Operate smarter with a full workflow system and dashboard.',
-    price: 'ETB 280,000',
+    price: 'ETB 69,999',
     period: 'Milestone-based delivery',
     badge: 'Most Popular',
     featured: true,
     description: 'Built for companies ready to unify operations, automate repetitive work, and scale with confidence.',
-    features: ['Everything in Starter plan', 'Custom admin dashboard and roles', 'Workflow automation and notifications', 'Payment, CRM, and API integrations', 'Reporting metrics and insights widgets', 'Performance and security hardening', 'Go-live support with optimization sprint'],
+    features: ['Full web application (dashboard + user system)', 'Admin panel with roles & permissions', 'Payment or manual transaction system (your coupon flow fits here)', 'Workflow automation (orders, notifications, tracking)', 'API integrations + scalable architecture', 'Performance and security hardening'],
     timeline: '4-8 weeks delivery',
     cta: 'Get Started',
     urgency: 'High demand',
@@ -35,17 +36,22 @@ const plans = [
     badge: 'Tailored Build',
     enterprise: true,
     description: 'For advanced products that require scalable infrastructure, deep security, and long-term technical partnership.',
-    features: ['Everything in Business plan', 'Custom SaaS architecture design', 'Multi-tenant and role-based access', 'Audit logs, observability, and SLOs', 'Advanced compliance and security setup', 'Scalable cloud infrastructure strategy', 'Dedicated senior engineering support'],
+    features: ['Complex SaaS architecture (multi-tenant systems)', 'High-performance backend + security layers', 'Advanced analytics, logging, and monitoring', 'Ongoing development & priority support', 'Advanced compliance and security setup', 'System design, scaling, and long-term upgrades', 'Dedicated senior engineering support'],
     timeline: 'Custom timeline',
     cta: 'Book Consultation',
   },
 ];
 
 const addOns = [
-  ['Launch Your Mobile App Experience', 'Native-ready app layer to reach users on iOS and Android with seamless UX.', 'ETB 95,000'],
-  ['Scale and Optimize for Performance', 'Upgrade cloud architecture for speed, reliability, and lower operational risk.', 'ETB 80,000'],
-  ['Automate Your Business with AI', 'Automate high-friction workflows with practical AI assistants and smart triggers.', 'ETB 70,000'],
-  ['Add Ongoing Growth Engineering', 'Retainer support for monthly improvements, monitoring, and roadmap execution.', 'From ETB 25,000'],
+  ['AI-Powered Growth System', 'Transform your product into a smart, scalable platform with automation, high-performance infrastructure, and intelligent features designed to increase efficiency and revenue.', 'From 65,000ETB'],
+  ['Scalable Backend & Infrastructure', 'Build a fast, secure, and scalable foundation with optimized APIs, robust databases, and cloud-ready architecture designed for growth.', 'From 45,000ETB'],
+  ['Mobile App Experience', 'Extend your product into a high-performance mobile app with seamless integration, real-time sync, and a smooth user experience.', 'From 55,000ETB'],
+  ['Automation & Workflow Engine', 'Streamline operations with advanced automation that handles repetitive tasks, triggers actions, and connects your entire system seamlessly.', 'From 45,000ETB'],
+  ['UI/UX Design System', 'Design clean, modern, and conversion-focused interfaces that elevate your product experience and align perfectly with your brand identity.', 'From 25,000ETB'],
+  ['Frontend Development', 'Build fast, responsive, and modern user interfaces that look clean and work smoothly across all devices.', 'From 20,000ETB'],
+  ['Website Maintenance & Support', 'Keep your website secure, updated, and performing smoothly with ongoing maintenance and support packages.', 'From 15,000ETB'],
+  ['E-Commerce Development', 'Build online stores with product management, payments, and smooth checkout experiences.', 'From 45,000ETB'],
+
 ];
 
 const faqs = [
@@ -69,6 +75,7 @@ const faqs = [
 const trustLogos = ['FinCore', 'MedAxis', 'RetailNova', 'CloudPort', 'NexaOps'];
 
 export default function Pricing() {
+  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [hoveredPlan, setHoveredPlan] = useState<number | null>(1);
   const [hoveredAddOn, setHoveredAddOn] = useState<number | null>(null);
@@ -94,10 +101,10 @@ export default function Pricing() {
                   Clear packages, clear scope, and clear delivery milestones. Pick a plan that fits your stage, then scale with add-ons as your needs evolve.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '20px' }}>
-                  <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button className="project-btn-primary" onClick={() => navigate('/contact')} style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
                     Get Pricing Consultation <ArrowUpRight size={16} />
                   </button>
-                  <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button className="project-btn-secondary" onClick={() => document.getElementById('plans-section')?.scrollIntoView({ behavior: 'smooth' })} style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
                     Compare Plans <ArrowRight size={16} />
                   </button>
                 </div>
@@ -123,7 +130,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section style={{ padding: '58px 0 16px' }}>
+      <section id="plans-section" style={{ padding: '58px 0 16px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <h2 style={{ margin: 0, fontSize: 'clamp(1.9rem, 3vw, 2.6rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
             Pricing <span style={{ color: '#f5602a' }}>Plans</span>
@@ -160,9 +167,9 @@ export default function Pricing() {
                       ? 'linear-gradient(155deg, #3b82f6 0%, #4f46e5 55%, #7c3aed 100%)'
                       : plan.enterprise
                         ? 'linear-gradient(160deg, #f8fafc 0%, #eef2f7 100%)'
-                      : plan.featured
-                        ? 'linear-gradient(160deg, #eef2ff 0%, #e0e7ff 100%)'
-                        : '#ffffff',
+                        : plan.featured
+                          ? 'linear-gradient(160deg, #eef2ff 0%, #e0e7ff 100%)'
+                          : '#ffffff',
                   boxShadow:
                     hoveredPlan === idx
                       ? '0 24px 46px rgba(59,130,246,0.35)'
@@ -263,11 +270,12 @@ export default function Pricing() {
                 <motion.button
                   className="project-btn-primary"
                   whileHover={{ y: -1 }}
+                  onClick={() => navigate('/contact')}
                   style={{
                     marginTop: '12px',
                     width: '100%',
                     border: hoveredPlan === idx ? '1px solid rgba(255,255,255,0.4)' : '1px solid transparent',
-                  background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : plan.featured ? '#1d4ed8' : '#0f172a',
+                    background: hoveredPlan === idx ? 'rgba(255,255,255,0.18)' : plan.featured ? '#1d4ed8' : '#0f172a',
                     color: '#fff',
                     borderRadius: '12px',
                     padding: '14px 16px',
@@ -280,18 +288,18 @@ export default function Pricing() {
                     transition: 'all 0.3s ease',
                     boxShadow: plan.featured ? '0 10px 22px rgba(37,99,235,0.28)' : '0 8px 18px rgba(15,23,42,0.2)',
                   }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.02)';
-                  e.currentTarget.style.boxShadow = plan.featured
-                    ? '0 14px 30px rgba(37,99,235,0.35)'
-                    : '0 12px 26px rgba(15,23,42,0.28)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.boxShadow = plan.featured
-                    ? '0 10px 22px rgba(37,99,235,0.28)'
-                    : '0 8px 18px rgba(15,23,42,0.2)';
-                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.02)';
+                    e.currentTarget.style.boxShadow = plan.featured
+                      ? '0 14px 30px rgba(37,99,235,0.35)'
+                      : '0 12px 26px rgba(15,23,42,0.28)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = plan.featured
+                      ? '0 10px 22px rgba(37,99,235,0.28)'
+                      : '0 8px 18px rgba(15,23,42,0.2)';
+                  }}
                 >
                   {plan.cta}
                   <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>

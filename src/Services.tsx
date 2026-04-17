@@ -219,10 +219,10 @@ export default function Services() {
                 We help teams move from idea to fully-operational products with robust architecture, beautiful UX, and measurable performance outcomes.
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={heroCtas} style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '24px' }}>
-                <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <button className="project-btn-primary" onClick={() => navigate('/contact')} style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
                   Start a Project <ArrowUpRight size={16} />
                 </button>
-                <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <button className="project-btn-secondary" onClick={() => document.getElementById('process-section')?.scrollIntoView({ behavior: 'smooth' })} style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
                   Explore Process <ArrowRight size={16} />
                 </button>
               </motion.div>
@@ -476,7 +476,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section style={{ padding: '62px 0 14px' }}>
+      <section id="process-section" style={{ padding: '62px 0 14px' }}>
         <div className="container" style={{ maxWidth: '1220px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1057,10 +1057,10 @@ export default function Services() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '18px' }}>
-                  <button className="project-btn-primary" style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button className="project-btn-primary" onClick={() => navigate('/contact')} style={{ border: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
                     Book Strategy Call <ArrowUpRight size={16} />
                   </button>
-                  <button className="project-btn-secondary" style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <button className="project-btn-secondary" onClick={() => navigate('/contact')} style={{ border: '1px solid #cbd5e1', background: '#fff', color: '#0f172a', borderRadius: '12px', padding: '12px 20px', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
                     Get Service Deck <ArrowRight size={16} />
                   </button>
                 </div>
