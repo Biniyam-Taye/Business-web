@@ -98,9 +98,53 @@ function MainLayout() {
             maxWidth: '1252px'
           }}
         >
-          <div style={{ fontWeight: 800, fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', letterSpacing: '-0.02em' }}>
-            <div style={{ width: '28px', height: '28px', background: 'var(--accent-blue)', borderRadius: '8px', boxShadow: '0 4px 12px rgba(37,99,235,0.4)' }}></div>
-            NexTech
+          <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/')}>
+            <svg 
+              viewBox="0 0 200 64" 
+              style={{ height: '44px', width: 'auto', display: 'block' }} 
+              fill="none" 
+              stroke="#111" 
+              strokeWidth="4" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* A */}
+              <path d="M 18 50 L 32 14 L 46 50" />
+              <path d="M 23 38 L 41 38" />
+
+              {/* X */}
+              <path d="M 58 16 L 82 50" />
+              <path d="M 82 16 L 58 50" />
+
+              {/* CENTER LOGO */}
+              <g transform="translate(108, 30)">
+                {/* Box at bottom */}
+                <rect x="-20" y="-1" width="40" height="24" rx="2.5" />
+                
+                {/* 6 Grid Squares */}
+                <rect x="-15" y="3" width="7" height="6" rx="1.5" />
+                <rect x="-3.5" y="3" width="7" height="6" rx="1.5" />
+                <rect x="8" y="3" width="7" height="6" rx="1.5" />
+                
+                <rect x="-15" y="13" width="7" height="6" rx="1.5" />
+                <rect x="-3.5" y="13" width="7" height="6" rx="1.5" />
+                <rect x="8" y="13" width="7" height="6" rx="1.5" />
+
+                {/* Inner Dome (Lightbulb Shape) */}
+                <path d="M -10 -1 L -10 -4 C -10 -9 -14 -11 -14 -17 A 14 14 0 0 1 14 -17 C 14 -11 10 -9 10 -4 L 10 -1" />
+
+                {/* Outer Dome */}
+                <path d="M -20 -1 L -20 -4 C -20 -12 -25 -15 -25 -22 A 25 25 0 0 1 25 -22 C 25 -15 20 -12 20 -4 L 20 -1" />
+              </g>
+
+              {/* M */}
+              <path d="M 134 50 L 134 16 L 148 34 L 162 16 L 162 50" />
+
+              {/* X */}
+              <path d="M 176 16 L 200 50" />
+              <path d="M 200 16 L 176 50" />
+            </svg>
           </div>
 
           <div style={{ display: 'flex', gap: '4px', fontSize: '1.05rem', fontWeight: 600, letterSpacing: '-0.01em' }} className="desktop-nav">
