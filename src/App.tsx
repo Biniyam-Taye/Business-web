@@ -1244,9 +1244,12 @@ function MainLayout() {
 
             {/* Brand Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #3b82f6, #2563eb)' }}></div>
-                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.02em' }}>NexTech</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+                <img 
+                  src="/axmx-logo-dark.jpg" 
+                  alt="AX MX Logo" 
+                  style={{ height: '60px', width: 'auto', display: 'block', objectFit: 'contain' }} 
+                />
               </div>
               <p style={{ margin: 0, color: '#94a3b8', lineHeight: 1.6, fontSize: '0.95rem', maxWidth: '300px' }}>
                 Engineering unfair market advantages through world-class software and globally scalable cloud infrastructure.
