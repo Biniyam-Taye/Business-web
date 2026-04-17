@@ -100,7 +100,7 @@ function MainLayout() {
         >
           <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/')}>
             <img 
-              src="/axmx-logo.jpg" 
+              src="/axmx-logo.png" 
               alt="AX MX Logo" 
               style={{ height: '60px', width: 'auto', display: 'block', objectFit: 'contain' }} 
             />
