@@ -1298,7 +1298,7 @@ function MainLayout() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => { navigate('/'); window.scrollTo(0,0); setActiveNav('About Us'); }}>
                 <img 
-                  src="/axmx-logo-dark.jpg" 
+                  src="/axmx-logo-dark.png" 
                   alt="AX MX Logo" 
                   style={{ height: '60px', width: 'auto', display: 'block', objectFit: 'contain' }} 
                 />
