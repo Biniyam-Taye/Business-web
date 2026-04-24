@@ -230,7 +230,7 @@ function MainLayout() {
 
                 <section className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center', justifyContent: 'space-between', zIndex: 1, position: 'relative' }}>
                   {/* Left Column */}
-                  <div style={{ flex: '0 1 550px' }}>
+                  <div className="home-hero-left" style={{ flex: '0 1 550px' }}>
 
                     {/* Hero Title */}
                     <motion.h1
@@ -349,6 +349,7 @@ function MainLayout() {
 
                   {/* Right Column (Complex Cutout Image) */}
                   <motion.div
+                    className="home-hero-right"
                     initial={{ opacity: 0, x: 120 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.4, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -1243,7 +1244,7 @@ function MainLayout() {
                         onSubmit={(e) => e.preventDefault()}
                         style={{ background: '#fff', padding: '48px', borderRadius: '32px', border: '1px solid #f1f5f9', boxShadow: '0 20px 60px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', gap: '24px' }}
                       >
-                        <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                        <div className="contact-form-row" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                           <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>First Name</label>
                             <input type="text" placeholder="John" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
@@ -1291,7 +1292,7 @@ function MainLayout() {
       <footer style={{ position: 'relative', zIndex: 5, background: '#020617', color: '#f8fafc', padding: '100px 0 40px 0', borderTop: '1px solid #1e293b', borderTopLeftRadius: '36px', borderTopRightRadius: '36px', overflow: 'hidden' }}>
         <div className="container" style={{ maxWidth: '1400px' }}>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px', marginBottom: '80px' }}>
+          <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '64px', marginBottom: '80px' }}>
 
             {/* Brand Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -1312,7 +1313,7 @@ function MainLayout() {
             </div>
 
             {/* Links Columns Container */}
-            <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', flex: 2, justifyContent: 'space-between' }}>
+            <div className="footer-links-container" style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', flex: 2, justifyContent: 'space-between' }}>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <h4 style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: '#fff' }}>Solutions</h4>
@@ -1377,7 +1378,7 @@ function MainLayout() {
           </div>
 
           {/* Bottom Row */}
-          <div style={{ borderTop: '1px solid #1e293b', paddingTop: '32px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+          <div className="footer-bottom-row" style={{ borderTop: '1px solid #1e293b', paddingTop: '32px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
             <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
               Â© {new Date().getFullYear()} NexTech. All rights reserved.
             </p>

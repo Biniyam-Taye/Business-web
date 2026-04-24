@@ -610,34 +610,33 @@ h4 {
   }
   
   /* Make sure columns flex to full width */
-  div[style*="flex: '0 1 550px'"],
-  div[style*="flex: 0 1 550px"] {
-    flex: 1 1 100% !important;
-  }
-  div[style*="flex: '1 1 500px'"],
-  div[style*="flex: 1 1 500px"] {
+  .home-hero-left,
+  .home-hero-right {
     flex: 1 1 100% !important;
   }
 
   /* Buttons in hero wrapping nicely */
-  [style*="gap: 16px"] button {
+  [style*="gap: 16px"] button,
+  .hero-cta-buttons button {
     width: 100%;
     justify-content: center;
   }
 
   /* Footer stack */
-  footer [style*="display: grid"] {
+  .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
   }
-  footer [style*="display: flex"][style*="flexWrap: 'wrap'"] {
+  
+  .footer-links-container,
+  .footer-bottom-row {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 24px !important;
   }
   
   /* Contact Form layout fix */
-  form[style*="display: flex"] > div:first-child {
+  .contact-form-row {
     flex-direction: column !important;
   }
 }
