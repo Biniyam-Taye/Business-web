@@ -100,7 +100,7 @@ function MainLayout() {
             maxWidth: '1252px'
           }}
         >
-          <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/')}>
+          <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => { navigate('/'); window.scrollTo(0,0); setActiveNav('About Us'); }}>
             <img 
               src="/axmx-logo.png" 
               alt="AX MX Logo" 
@@ -1296,7 +1296,7 @@ function MainLayout() {
 
             {/* Brand Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => navigate('/')}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => { navigate('/'); window.scrollTo(0,0); setActiveNav('About Us'); }}>
                 <img 
                   src="/axmx-logo-dark.jpg" 
                   alt="AX MX Logo" 
