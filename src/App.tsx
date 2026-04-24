@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow, Menu, X } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
@@ -56,6 +56,7 @@ export default function App() {
 }
 
 function MainLayout() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const getNavFromPath = (path: string) => {
@@ -77,6 +78,7 @@ function MainLayout() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    setIsMobileMenuOpen(false); // Close menu on route change
   }, [location.pathname]);
 
   return (
@@ -141,7 +143,7 @@ function MainLayout() {
             ))}
           </div>
 
-          <button onClick={() => navigate('/book-demo')} style={{
+          <button className="book-demo-btn-desktop" onClick={() => navigate('/book-demo')} style={{
             background: 'var(--accent-blue)', color: '#fff', border: 'none',
             borderRadius: '9999px', padding: '14px 28px', fontSize: '1.05rem', fontWeight: 700,
             display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer',
@@ -149,6 +151,54 @@ function MainLayout() {
           }}>
             Book Demo <ArrowUpRight size={18} strokeWidth={2.5} />
           </button>
+          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} style={{ display: 'none', background: 'transparent', border: 'none', cursor: 'pointer', padding: '8px' }}>
+            {isMobileMenuOpen ? <X size={28} color="#111" /> : <Menu size={28} color="#111" />}
+          </button>
+          
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                className="mobile-nav-overlay"
+                initial={{ opacity: 0, y: -20, scaleY: 0.95 }}
+                animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                exit={{ opacity: 0, y: -20, scaleY: 0.95 }}
+                transition={{ duration: 0.2 }}
+                style={{ position: 'absolute', top: 'calc(100% + 10px)', left: '0', right: '0', background: '#fff', borderRadius: '24px', padding: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '16px', pointerEvents: 'auto', border: '1px solid #f1f5f9' }}
+              >
+                {navLinks.map((link) => (
+                  <div
+                    key={link}
+                    style={{
+                      padding: '16px 24px',
+                      borderRadius: '16px',
+                      background: activeNav === link ? '#111' : 'transparent',
+                      color: activeNav === link ? '#fff' : '#444',
+                      fontWeight: activeNav === link ? 700 : 500,
+                      cursor: 'pointer',
+                      fontSize: '1.1rem'
+                    }}
+                    onClick={() => {
+                      if (link === 'Projects') navigate('/projects');
+                      else if (link === 'Services') navigate('/services');
+                      else if (link === 'Pricing') navigate('/pricing');
+                      else if (link === 'Contacts') navigate('/contact');
+                      else if (link === 'About Us') navigate('/');
+                    }}
+                  >
+                    {link}
+                  </div>
+                ))}
+                <button onClick={() => navigate('/book-demo')} style={{
+                  background: 'var(--accent-blue)', color: '#fff', border: 'none',
+                  borderRadius: '16px', padding: '16px', fontSize: '1.05rem', fontWeight: 700,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', cursor: 'pointer',
+                  marginTop: '8px', boxShadow: '0 8px 20px rgba(37,99,235,0.3)'
+                }}>
+                  Book Demo
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </nav>
       </div>
 

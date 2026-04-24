@@ -539,3 +539,124 @@ h4 {
     display: none !important;
   }
 }
+
+/* ========================================= */
+/* --- Comprehensive Mobile Responsiveness --- */
+/* ========================================= */
+@media (max-width: 991px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  .book-demo-btn-desktop {
+    display: none !important;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Typography Scale Down */
+  h1, .heading-xl {
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 7vw, 2.2rem) !important;
+  }
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Padding Scale Down */
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+  
+  /* Hero specific */
+  .hero-img-wrapper {
+    height: 400px;
+    margin-top: 20px !important;
+  }
+  .cutout-tr, .cutout-bl {
+    transform: scale(0.7);
+    transform-origin: bottom left;
+  }
+  .cutout-tr {
+    transform-origin: top right;
+  }
+  
+  /* Feature grids etc. */
+  .services-grid,
+  .stats-grid,
+  .problem-card,
+  .solution-vibrate-card,
+  .stat-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .app-container > div:first-child nav {
+    padding: 12px 16px !important;
+  }
+  
+  /* Make sure columns flex to full width */
+  div[style*="flex: '0 1 550px'"],
+  div[style*="flex: 0 1 550px"] {
+    flex: 1 1 100% !important;
+  }
+  div[style*="flex: '1 1 500px'"],
+  div[style*="flex: 1 1 500px"] {
+    flex: 1 1 100% !important;
+  }
+
+  /* Buttons in hero wrapping nicely */
+  [style*="gap: 16px"] button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer stack */
+  footer [style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  footer [style*="display: flex"][style*="flexWrap: 'wrap'"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
+  
+  /* Contact Form layout fix */
+  form[style*="display: flex"] > div:first-child {
+    flex-direction: column !important;
+  }
+}
+
+/* Fix mobile nav overlay */
+.mobile-nav-overlay {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: auto;
+  border: 1px solid rgba(0,0,0,0.05);
+  transform-origin: top;
+}
