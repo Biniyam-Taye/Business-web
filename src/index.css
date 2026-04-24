@@ -647,7 +647,18 @@ h4 {
   }
   .projects-hero-right {
     flex: 1 1 100% !important;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .projects-hero-right > div {
+    padding: 20px 16px !important;
+  }
+  .projects-hero-right > div > div:nth-child(2) {
+    font-size: 1.8rem !important;
+  }
+  .projects-hero-right > div > div:nth-child(3) {
+    font-size: 0.65rem !important;
+    margin-top: 6px !important;
   }
   .responsive-card-image {
     flex: 1 1 100% !important;
