@@ -51,7 +51,7 @@ export default function BookDemoPage() {
             </div>
 
             <div style={{ padding: '22px 28px 30px', display: 'grid', gap: '18px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '14px' }}>
+              <div className="bookdemo-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '14px' }}>
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function BookDemoPage() {
                 </motion.div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+              <div className="bookdemo-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}

@@ -551,7 +551,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <div className="contact-submit-row" style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#1e293b', fontSize: '0.9rem', fontWeight: 800 }}>
                       <span style={{ display: 'flex', color: '#2563eb' }}>
                         <ShieldCheck size={18} strokeWidth={2.25} />
