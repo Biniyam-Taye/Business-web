@@ -91,6 +91,7 @@ export default function Projects() {
 
             {/* LEFT: Label + Title + Description */}
             <div
+              className="projects-hero-left"
               style={{ flex: '1 1 600px', display: 'flex', flexDirection: 'column' }}
             >
               <motion.div
@@ -194,6 +195,7 @@ export default function Projects() {
 
             {/* RIGHT: Elevated Stat Grid */}
             <div
+              className="projects-hero-right"
               style={{
                 flex: '1 1 420px',
                 display: 'grid',
@@ -286,7 +288,7 @@ export default function Projects() {
 
               {/* Image Side */}
               <motion.div
-                className="project-image-frame"
+                className="project-image-frame responsive-card-image"
                 initial={{ opacity: 0, scale: 0.94, x: idx % 2 !== 0 ? 28 : -28 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
@@ -334,6 +336,7 @@ export default function Projects() {
 
               {/* Text Side */}
               <motion.div
+                className="responsive-card-text"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
