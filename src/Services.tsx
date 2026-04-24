@@ -230,6 +230,7 @@ export default function Services() {
 
             {/* RIGHT SIDE: Unique Visual Composition */}
             <motion.div
+              className="services-hero-visual"
               initial={{ opacity: 0, x: 84 }}
               animate={{ opacity: 1, x: 0 }}
               transition={heroVisual}
@@ -321,7 +322,7 @@ export default function Services() {
           >
             Every service module includes strategy, implementation, and measurable outcomes.
           </motion.p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
+          <div className="services-capabilities-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '16px' }}>
             {offerings.map((item, idx) => {
               const isHovered = hoveredServiceCard === idx;
               return (
@@ -502,6 +503,7 @@ export default function Services() {
               {processSteps.map((step, idx) => (
                 <motion.div
                   key={step.id}
+                  className="process-step-row"
                   initial={{ opacity: 0, x: -36 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
@@ -552,7 +554,7 @@ export default function Services() {
         <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '40%', height: '80%', background: 'radial-gradient(circle, rgba(59,130,246,0.03) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
 
         <div className="container" style={{ maxWidth: '1240px', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
+          <div className="services-elite-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
 
             {/* LEFT CARD: TECH STACK - DARK ELITE THEME */}
             <motion.div
@@ -622,7 +624,7 @@ export default function Services() {
                   ))}
                 </div>
 
-                <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '24px', alignItems: 'start' }}>
+                <div className="architecture-blueprint-grid" style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '24px', alignItems: 'start' }}>
 
                   {/* Blueprint details */}
                   <div>
@@ -736,7 +738,7 @@ export default function Services() {
                 <p style={{ margin: '0 0 24px 0', color: '#475569', lineHeight: 1.6, fontSize: '1.05rem', fontWeight: 500 }}>
                   Domain-specific delivery with strict compliance, extreme reliability, and intelligent workflow alignment.
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+                <div className="industries-2col-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
                   {industries.slice(0, 4).map((industry) => (
                     <motion.div
                       key={industry.name}
