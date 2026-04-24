@@ -89,7 +89,7 @@ export default function Pricing() {
             <div style={{ position: 'absolute', top: '-40px', right: '0', width: '240px', height: '240px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.11) 0%, rgba(37,99,235,0) 72%)', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: '-70px', left: '-50px', width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,96,42,0.1) 0%, rgba(245,96,42,0) 72%)', pointerEvents: 'none' }} />
 
-            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '24px', alignItems: 'start' }}>
+            <div className="pricing-hero-grid" style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '24px', alignItems: 'start' }}>
               <div>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', border: '1px solid #bfdbfe', background: '#eff6ff', padding: '7px 14px', color: '#1d4ed8', fontSize: '0.76rem', fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                   <Sparkles size={14} /> Pricing
@@ -454,7 +454,7 @@ export default function Pricing() {
               }}
             >
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg, rgba(59,130,246,0.08) 0%, rgba(124,58,237,0.08) 100%)', pointerEvents: 'none' }} />
-              <Quote size={112} color="rgba(67,56,202,0.16)" style={{ position: 'absolute', top: '-20px', right: '4px', pointerEvents: 'none' }} />
+              <Quote className="pricing-quote-icon" size={112} color="rgba(67,56,202,0.16)" style={{ position: 'absolute', top: '-20px', right: '4px', pointerEvents: 'none', transition: 'all 0.3s ease' }} />
               <div style={{ width: '44px', height: '44px', borderRadius: '999px', padding: '2px', background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', marginBottom: '12px', position: 'relative', zIndex: 1, boxShadow: '0 12px 24px rgba(79,70,229,0.32)' }}>
                 <div style={{ width: '100%', height: '100%', borderRadius: '999px', background: 'linear-gradient(145deg, #e0ecff 0%, #ede9fe 100%)', border: '1px solid rgba(255,255,255,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Sparkles size={16} color="#4338ca" />
@@ -486,7 +486,7 @@ export default function Pricing() {
               boxShadow: '0 18px 40px rgba(15,23,42,0.12)',
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div className="pricing-powerup-header" style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
               <div>
                 <h2 style={{ margin: 0, fontSize: 'clamp(1.55rem, 2.4vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.03em' }}>
                   <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Power-Up Your Product</span>
