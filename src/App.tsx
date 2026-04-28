@@ -68,7 +68,7 @@ function MainLayout() {
   };
   const activeNav = getNavFromPath(location.pathname);
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
-  const heroPosterUrl = "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80";
+  const [videoReady, setVideoReady] = useState(false);
   // Permanent video served from `public/` so it stays after refresh.
   const heroVideoSrc = "/hero-video.mp4";
   // Slight vertical shift so the video crop matches the card edges.
@@ -359,12 +359,12 @@ function MainLayout() {
                       <video
                         aria-hidden
                         src={heroVideoSrc}
-                        poster={heroPosterUrl}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        preload="metadata"
+                        preload="auto"
+                        onCanPlay={() => setVideoReady(true)}
                         style={{
                           position: 'absolute',
                           top: `${heroVideoShiftY}px`,
@@ -374,6 +374,8 @@ function MainLayout() {
                           objectFit: 'cover',
                           zIndex: 0,
                           pointerEvents: 'none',
+                          opacity: videoReady ? 1 : 0,
+                          transition: 'opacity 0.6s ease',
                         }}
                       />
 
