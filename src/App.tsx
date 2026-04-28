@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow, Menu, X } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -15,6 +15,8 @@ import SecurityStructurePage from './SecurityStructure';
 import CareersPage from './Careers';
 import PressMediaPage from './PressMedia';
 import EngineeringGuidePage from './EngineeringGuide';
+import ThankYouPage from './ThankYou';
+import { submitLeadForm } from './lib/formSubmit';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -69,6 +71,15 @@ function MainLayout() {
   const activeNav = getNavFromPath(location.pathname);
   const [activeFollowId, setActiveFollowId] = useState<string | null>(null);
   const [videoReady, setVideoReady] = useState(false);
+  const [isHomeSubmitting, setIsHomeSubmitting] = useState(false);
+  const [homeFormError, setHomeFormError] = useState('');
+  const [homeFormData, setHomeFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    projectDetails: '',
+    website: '',
+  });
   // Permanent video served from `public/` so it stays after refresh.
   const heroVideoSrc = "/hero-video.mp4";
   // Slight vertical shift so the video crop matches the card edges.
@@ -80,6 +91,33 @@ function MainLayout() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     setIsMobileMenuOpen(false); // Close menu on route change
   }, [location.pathname]);
+
+  const handleHomeFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setHomeFormError('');
+    setIsHomeSubmitting(true);
+
+    try {
+      await submitLeadForm({
+        formType: 'home-contact',
+        data: {
+          firstName: homeFormData.firstName.trim(),
+          lastName: homeFormData.lastName.trim(),
+          email: homeFormData.email.trim(),
+          projectDetails: homeFormData.projectDetails.trim(),
+        },
+        pageUrl: window.location.href,
+        userAgent: window.navigator.userAgent,
+        hpField: homeFormData.website,
+      });
+      navigate('/thank-you');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to submit. Please try again.';
+      setHomeFormError(message);
+    } finally {
+      setIsHomeSubmitting(false);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -211,6 +249,7 @@ function MainLayout() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/book-demo" element={<BookDemoPage />} />
+          <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
           <Route path="/security-structure" element={<SecurityStructurePage />} />
@@ -1243,37 +1282,48 @@ function MainLayout() {
                     {/* Right Column: Interactive CTA Form */}
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                       <form
-                        onSubmit={(e) => e.preventDefault()}
-                        style={{ background: '#fff', padding: '48px', borderRadius: '32px', border: '1px solid #f1f5f9', boxShadow: '0 20px 60px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', gap: '24px' }}
+                        onSubmit={handleHomeFormSubmit}
+                        style={{ background: '#fff', padding: '48px', borderRadius: '32px', border: '1px solid #f1f5f9', boxShadow: '0 20px 60px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', gap: '24px', position: 'relative' }}
                       >
                         <div className="contact-form-row" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                           <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>First Name</label>
-                            <input type="text" placeholder="John" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                            <input type="text" placeholder="John" value={homeFormData.firstName} onChange={(event) => setHomeFormData((prev) => ({ ...prev, firstName: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
                           </div>
                           <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Last Name</label>
-                            <input type="text" placeholder="Doe" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                            <input type="text" placeholder="Doe" value={homeFormData.lastName} onChange={(event) => setHomeFormData((prev) => ({ ...prev, lastName: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
                           </div>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                           <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Email Address</label>
-                          <input type="email" placeholder="john@company.com" style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                          <input type="email" placeholder="john@company.com" value={homeFormData.email} onChange={(event) => setHomeFormData((prev) => ({ ...prev, email: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                           <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Project Details</label>
-                          <textarea placeholder="Tell us about your next big idea..." rows={5} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', resize: 'vertical', minHeight: '140px', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)', fontFamily: 'inherit' }}></textarea>
+                          <textarea placeholder="Tell us about your next big idea..." rows={5} value={homeFormData.projectDetails} onChange={(event) => setHomeFormData((prev) => ({ ...prev, projectDetails: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', resize: 'vertical', minHeight: '140px', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)', fontFamily: 'inherit' }}></textarea>
                         </div>
+                        <input
+                          type="text"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          aria-hidden="true"
+                          value={homeFormData.website}
+                          onChange={(event) => setHomeFormData((prev) => ({ ...prev, website: event.target.value }))}
+                          style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+                        />
 
                         <motion.button
                           whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                          style={{ marginTop: '8px', padding: '20px', borderRadius: '16px', border: 'none', background: 'linear-gradient(135deg, #3b82f6, #2563eb)', color: '#fff', fontSize: '1.1rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', boxShadow: '0 10px 25px rgba(59,130,246,0.3)' }}
+                          disabled={isHomeSubmitting}
+                          style={{ marginTop: '8px', padding: '20px', borderRadius: '16px', border: 'none', background: 'linear-gradient(135deg, #3b82f6, #2563eb)', color: '#fff', fontSize: '1.1rem', fontWeight: 700, cursor: isHomeSubmitting ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', boxShadow: '0 10px 25px rgba(59,130,246,0.3)', opacity: isHomeSubmitting ? 0.7 : 1 }}
                         >
-                          Send Message
+                          {isHomeSubmitting ? 'Sending...' : 'Send Message'}
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
                         </motion.button>
+                        {homeFormError ? <p style={{ margin: '0', color: '#dc2626', fontSize: '0.9rem', fontWeight: 700, textAlign: 'center' }}>{homeFormError}</p> : null}
 
                         <p style={{ margin: '8px 0 0 0', fontSize: '0.85rem', color: '#94a3b8', textAlign: 'center' }}>
                           Your data is completely safe with us. We don't do spam.

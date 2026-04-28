@@ -1,7 +1,9 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, FormEvent } from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarCheck2, Clock3, Mail, MapPin, Phone, ShieldCheck, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { submitLeadForm } from './lib/formSubmit';
 
 const channels = [
   {
@@ -49,6 +51,45 @@ export default function ContactPage() {
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const stagger = { duration: 0.65, ease };
   const [hoveredChannel, setHoveredChannel] = useState<number | null>(null);
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    budget: '',
+    message: '',
+    website: '',
+  });
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrorMessage('');
+    setIsSubmitting(true);
+
+    try {
+      await submitLeadForm({
+        formType: 'contact-brief',
+        data: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          budget: formData.budget,
+          message: formData.message.trim(),
+        },
+        pageUrl: window.location.href,
+        userAgent: window.navigator.userAgent,
+        hpField: formData.website,
+      });
+      navigate('/thank-you');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to submit. Please try again.';
+      setErrorMessage(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="contact-page" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
@@ -478,7 +519,7 @@ export default function ContactPage() {
                     boxShadow: '0 20px 48px rgba(37,99,235,0.12)',
                     borderColor: '#93c5fd',
                   }}
-                  onSubmit={(e) => e.preventDefault()}
+                  onSubmit={handleSubmit}
                   style={{
                     borderRadius: '22px',
                     border: '2px solid #dbeafe',
@@ -488,6 +529,7 @@ export default function ContactPage() {
                     gap: '18px',
                     boxShadow: '0 14px 36px rgba(37,99,235,0.09)',
                     transition: 'border-color 0.28s ease, box-shadow 0.28s ease',
+                    position: 'relative',
                   }}
                 >
                   <p style={{ margin: 0, fontSize: '1.02rem', fontWeight: 900, color: '#020617', letterSpacing: '-0.02em' }}>Project brief</p>
@@ -498,7 +540,7 @@ export default function ContactPage() {
                         Full name
                       </label>
                       <div className="cp-field-shell">
-                        <input id="cp-name" className="cp-input" type="text" name="name" autoComplete="name" placeholder="Jane Cooper" />
+                        <input id="cp-name" className="cp-input" type="text" name="name" autoComplete="name" placeholder="Jane Cooper" value={formData.name} onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))} />
                       </div>
                     </div>
                     <div>
@@ -506,7 +548,7 @@ export default function ContactPage() {
                         Work email
                       </label>
                       <div className="cp-field-shell">
-                        <input id="cp-email" className="cp-input" type="email" name="email" autoComplete="email" placeholder="you@company.com" />
+                        <input id="cp-email" className="cp-input" type="email" name="email" autoComplete="email" placeholder="you@company.com" value={formData.email} onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))} />
                       </div>
                     </div>
                   </div>
@@ -516,7 +558,7 @@ export default function ContactPage() {
                         Company / team
                       </label>
                       <div className="cp-field-shell">
-                        <input id="cp-company" className="cp-input" type="text" name="company" autoComplete="organization" placeholder="Acme Inc." />
+                        <input id="cp-company" className="cp-input" type="text" name="company" autoComplete="organization" placeholder="Acme Inc." value={formData.company} onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))} />
                       </div>
                     </div>
                     <div>
@@ -524,8 +566,8 @@ export default function ContactPage() {
                         Budget range
                       </label>
                       <div className="cp-field-shell">
-                        <select id="cp-budget" className="cp-select" name="budget" defaultValue="">
-                          <option value="" disabled>
+                        <select id="cp-budget" className="cp-select" name="budget" value={formData.budget} onChange={(event) => setFormData((prev) => ({ ...prev, budget: event.target.value }))}>
+                          <option value="">
                             Select a range
                           </option>
                           <option value="5-15">$5k — $15k</option>
@@ -546,10 +588,21 @@ export default function ContactPage() {
                         name="message"
                         rows={5}
                         placeholder="Goals, timeline, tech stack, integrations, success metrics…"
+                        value={formData.message}
+                        onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value }))}
                         style={{ resize: 'vertical', minHeight: '148px', fontFamily: 'inherit' }}
                       />
                     </div>
                   </div>
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    value={formData.website}
+                    onChange={(event) => setFormData((prev) => ({ ...prev, website: event.target.value }))}
+                    style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+                  />
 
                   <div className="contact-submit-row" style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#1e293b', fontSize: '0.9rem', fontWeight: 800 }}>
@@ -563,6 +616,7 @@ export default function ContactPage() {
                       whileHover={{ scale: 1.03, boxShadow: '0 12px 28px rgba(37,99,235,0.35)' }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ type: 'tween', duration: 0.2 }}
+                      disabled={isSubmitting}
                       style={{
                         border: 'none',
                         borderRadius: '14px',
@@ -575,13 +629,15 @@ export default function ContactPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '10px',
-                        cursor: 'pointer',
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
                         boxShadow: '0 8px 24px rgba(37,99,235,0.28)',
+                        opacity: isSubmitting ? 0.7 : 1,
                       }}
                     >
-                      Send project brief <ArrowRight size={18} strokeWidth={2.25} />
+                      {isSubmitting ? 'Sending...' : 'Send project brief'} <ArrowRight size={18} strokeWidth={2.25} />
                     </motion.button>
                   </div>
+                  {errorMessage ? <p style={{ margin: 0, color: '#dc2626', fontSize: '0.85rem', fontWeight: 700 }}>{errorMessage}</p> : null}
                 </motion.form>
 
                 <div style={{ display: 'grid', gap: '14px', alignContent: 'start' }}>

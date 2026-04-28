@@ -1,6 +1,9 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, FormEvent } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarClock, CheckCircle2, Clock3, ShieldCheck, Users2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { submitLeadForm } from './lib/formSubmit';
 
 const demoOutcomes = [
   'Live walkthrough tailored to your business model',
@@ -25,6 +28,43 @@ const fitChecks = [
 
 export default function BookDemoPage() {
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    company: '',
+    message: '',
+    website: '',
+  });
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setErrorMessage('');
+    setIsSubmitting(true);
+
+    try {
+      await submitLeadForm({
+        formType: 'book-demo',
+        data: {
+          fullName: formData.fullName.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          message: formData.message.trim(),
+        },
+        pageUrl: window.location.href,
+        userAgent: window.navigator.userAgent,
+        hpField: formData.website,
+      });
+      navigate('/thank-you');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to submit. Please try again.';
+      setErrorMessage(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%)', padding: '112px 0 70px' }}>
@@ -122,22 +162,33 @@ export default function BookDemoPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.78, delay: 0.08, ease }}
-                  onSubmit={(e) => e.preventDefault()}
-                  style={{ borderRadius: '18px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px', display: 'grid', gap: '10px' }}
+                  onSubmit={handleSubmit}
+                  style={{ borderRadius: '18px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px', display: 'grid', gap: '10px', position: 'relative' }}
                 >
                   <h3 style={{ margin: 0, color: '#0f172a', fontSize: '1.02rem' }}>Book your slot</h3>
-                  <input type="text" placeholder="Full name" style={inputStyle} />
-                  <input type="email" placeholder="Work email" style={inputStyle} />
-                  <input type="text" placeholder="Company" style={inputStyle} />
-                  <textarea placeholder="What do you want to discuss in the demo?" rows={4} style={{ ...inputStyle, resize: 'vertical', minHeight: '110px', fontFamily: 'inherit' }} />
+                  <input type="text" placeholder="Full name" value={formData.fullName} onChange={(event) => setFormData((prev) => ({ ...prev, fullName: event.target.value }))} style={inputStyle} />
+                  <input type="email" placeholder="Work email" value={formData.email} onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))} style={inputStyle} />
+                  <input type="text" placeholder="Company" value={formData.company} onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))} style={inputStyle} />
+                  <textarea placeholder="What do you want to discuss in the demo?" rows={4} value={formData.message} onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value }))} style={{ ...inputStyle, resize: 'vertical', minHeight: '110px', fontFamily: 'inherit' }} />
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    value={formData.website}
+                    onChange={(event) => setFormData((prev) => ({ ...prev, website: event.target.value }))}
+                    style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+                  />
                   <motion.button
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    style={{ border: 'none', borderRadius: '12px', padding: '12px', background: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 100%)', color: '#fff', fontWeight: 800, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', cursor: 'pointer' }}
+                    disabled={isSubmitting}
+                    style={{ border: 'none', borderRadius: '12px', padding: '12px', background: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 100%)', color: '#fff', fontWeight: 800, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1 }}
                   >
-                    Request Demo <ArrowRight size={16} />
+                    {isSubmitting ? 'Sending...' : 'Request Demo'} <ArrowRight size={16} />
                   </motion.button>
+                  {errorMessage ? <p style={{ margin: 0, color: '#dc2626', fontSize: '0.84rem', fontWeight: 700 }}>{errorMessage}</p> : null}
                 </motion.form>
               </div>
 
