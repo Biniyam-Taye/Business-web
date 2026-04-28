@@ -33,11 +33,21 @@ const formSubmissionSchema = new mongoose.Schema(
   {
     formType: { type: String, required: true, trim: true },
     data: { type: mongoose.Schema.Types.Mixed, default: {} },
+    fields: {
+      type: [
+        {
+          key: { type: String, default: '' },
+          label: { type: String, default: '' },
+          value: { type: String, default: '' },
+        },
+      ],
+      default: [],
+    },
     pageUrl: { type: String, default: '' },
     userAgent: { type: String, default: '' },
     ip: { type: String, default: '' },
   },
-  { timestamps: true },
+  { timestamps: true, minimize: false },
 );
 
 const FormSubmission = mongoose.model('FormSubmission', formSubmissionSchema);
@@ -48,6 +58,63 @@ function sanitizeRecord(record) {
     sanitized[key] = String(value ?? '').trim().slice(0, 5000);
   }
   return sanitized;
+}
+
+const formFieldTemplates = {
+  'home-contact': [
+    ['firstName', 'First Name'],
+    ['lastName', 'Last Name'],
+    ['email', 'Email Address'],
+    ['projectDetails', 'Project Details'],
+  ],
+  'contact-brief': [
+    ['name', 'Full Name'],
+    ['email', 'Work Email'],
+    ['company', 'Company / Team'],
+    ['budget', 'Budget Range'],
+    ['message', 'What Should We Know?'],
+  ],
+  'book-demo': [
+    ['fullName', 'Full Name'],
+    ['email', 'Work Email'],
+    ['company', 'Company'],
+    ['message', 'Demo Discussion'],
+  ],
+};
+
+function toTitleCase(text) {
+  return text
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\b\w/g, (match) => match.toUpperCase());
+}
+
+function buildStoredFields(formType, sanitizedData) {
+  const template = formFieldTemplates[formType] ?? [];
+  const ordered = {};
+
+  for (const [key] of template) {
+    ordered[key] = sanitizedData[key] ?? '';
+  }
+  for (const [key, value] of Object.entries(sanitizedData)) {
+    if (!(key in ordered)) {
+      ordered[key] = value;
+    }
+  }
+
+  const labels = new Map(template.map(([key, label]) => [key, label]));
+  const fields = Object.entries(ordered).map(([key, value]) => ({
+    key,
+    label: labels.get(key) ?? toTitleCase(key),
+    value: String(value ?? ''),
+  }));
+
+  return {
+    normalizedData: ordered,
+    fields,
+  };
 }
 
 async function sendNotificationEmail(payload) {
@@ -110,9 +177,13 @@ app.post('/api/forms/submit', submitLimiter, async (req, res) => {
       return res.status(400).json({ message: 'Form type is required.' });
     }
 
+    const sanitizedData = sanitizeRecord(req.body?.data);
+    const { normalizedData, fields } = buildStoredFields(formType, sanitizedData);
+
     const payload = {
       formType,
-      data: sanitizeRecord(req.body?.data),
+      data: normalizedData,
+      fields,
       pageUrl: String(req.body?.pageUrl ?? '').slice(0, 2000),
       userAgent: String(req.body?.userAgent ?? '').slice(0, 1000),
       ip: String(req.headers['x-forwarded-for'] ?? req.socket.remoteAddress ?? ''),
