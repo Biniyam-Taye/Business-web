@@ -33,6 +33,7 @@ const formSubmissionSchema = new mongoose.Schema(
   {
     formType: { type: String, required: true, trim: true },
     data: { type: mongoose.Schema.Types.Mixed, default: {} },
+    submittedValues: { type: mongoose.Schema.Types.Mixed, default: {} },
     fields: {
       type: [
         {
@@ -110,9 +111,11 @@ function buildStoredFields(formType, sanitizedData) {
     label: labels.get(key) ?? toTitleCase(key),
     value: String(value ?? ''),
   }));
+  const submittedValues = Object.fromEntries(fields.map(({ label, value }) => [label, value]));
 
   return {
     normalizedData: ordered,
+    submittedValues,
     fields,
   };
 }
@@ -178,11 +181,12 @@ app.post('/api/forms/submit', submitLimiter, async (req, res) => {
     }
 
     const sanitizedData = sanitizeRecord(req.body?.data);
-    const { normalizedData, fields } = buildStoredFields(formType, sanitizedData);
+    const { normalizedData, submittedValues, fields } = buildStoredFields(formType, sanitizedData);
 
     const payload = {
       formType,
       data: normalizedData,
+      submittedValues,
       fields,
       pageUrl: String(req.body?.pageUrl ?? '').slice(0, 2000),
       userAgent: String(req.body?.userAgent ?? '').slice(0, 1000),
