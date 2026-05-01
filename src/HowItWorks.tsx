@@ -3,88 +3,81 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
-  ArrowUpRight,
   CheckCircle2,
   ChevronDown,
   Compass,
-  FlaskConical,
-  Handshake,
-  Layers,
   LayoutTemplate,
-  LifeBuoy,
-  Rocket,
+  Code2,
   ShieldCheck,
+  Rocket,
+  Zap,
+  Database,
   Sparkles,
-  Timer,
-  Workflow,
+  Layers
 } from 'lucide-react';
 
 const steps = [
   {
     id: '01',
-    title: 'Discovery & Consultation',
-    icon: Handshake,
-    description: 'We define business goals, user priorities, and technical constraints to align scope from day one.',
-    tone: '#2563eb',
+    title: 'Discovery & Architecture',
+    desc: 'We map your business logic into a scalable technical blueprint before writing a single line of code. No guesswork, just precision.',
+    icon: Compass,
+    color: '#2563eb',
+    bg: '#eff6ff',
+    details: ['Requirements Gathering', 'System Design', 'Tech Stack Selection']
   },
   {
     id: '02',
-    title: 'Strategy & Planning',
-    icon: Compass,
-    description: 'A practical roadmap is created with milestones, architecture direction, and measurable outcomes.',
-    tone: '#4f46e5',
+    title: 'UI/UX Prototyping',
+    desc: 'Award-winning interfaces that prioritize user retention, accessibility, and frictionless experiences. We design for conversion.',
+    icon: LayoutTemplate,
+    color: '#8b5cf6',
+    bg: '#f5f3ff',
+    details: ['Wireframing', 'Interactive Prototypes', 'Design Systems']
   },
   {
     id: '03',
-    title: 'Design & Prototyping',
-    icon: LayoutTemplate,
-    description: 'We build clean UX flows and prototypes so stakeholders validate direction before development.',
-    tone: '#0ea5e9',
+    title: 'Agile Development',
+    desc: 'Iterative sprints deliver functional software fast. You see progress weekly, not monthly, keeping the project aligned and moving.',
+    icon: Code2,
+    color: '#f59e0b',
+    bg: '#fffbeb',
+    details: ['Frontend Engineering', 'Backend APIs', 'Database Modeling']
   },
   {
     id: '04',
-    title: 'Development & Integration',
-    icon: Layers,
-    description: 'We ship in iterative sprints while integrating APIs, data systems, and core product logic.',
-    tone: '#7c3aed',
+    title: 'Testing & QA',
+    desc: 'Automated pipelines and rigorous manual testing ensure enterprise-grade stability and security before any user touches the app.',
+    icon: ShieldCheck,
+    color: '#10b981',
+    bg: '#ecfdf5',
+    details: ['Unit Testing', 'Performance Audits', 'Security Checks']
   },
   {
     id: '05',
-    title: 'Testing & Optimization',
-    icon: FlaskConical,
-    description: 'Performance, QA, and security checks ensure your product is stable and production-ready.',
-    tone: '#f97316',
+    title: 'Deployment & Scale',
+    desc: 'Zero-downtime launches backed by cloud infrastructure designed to scale effortlessly with your growing user base.',
+    icon: Rocket,
+    color: '#ec4899',
+    bg: '#fdf2f8',
+    details: ['CI/CD Pipelines', 'Cloud Hosting', 'Monitoring Setup']
   },
   {
     id: '06',
-    title: 'Launch & Ongoing Support',
-    icon: Rocket,
-    description: 'We launch with confidence and continue improving through post-release monitoring and support.',
-    tone: '#0891b2',
-  },
-];
-
-const benefits = [
-  { title: 'Fast Delivery', icon: Timer, text: 'Milestone-based execution accelerates time to value.' },
-  { title: 'Scalable Architecture', icon: Workflow, text: 'Built for future growth, integrations, and stability.' },
-  { title: 'Clean UI/UX', icon: Sparkles, text: 'A clear and modern interface users trust immediately.' },
-  { title: 'Secure Systems', icon: ShieldCheck, text: 'Security and reliability are embedded through delivery.' },
-  { title: 'Ongoing Support', icon: LifeBuoy, text: 'Post-launch iteration keeps your platform improving.' },
+    title: 'Iteration & Growth',
+    desc: 'Post-launch, we analyze user behavior and system metrics to optimize workflows and introduce high-impact features.',
+    icon: Layers,
+    color: '#06b6d4',
+    bg: '#ecfeff',
+    details: ['Usage Analytics', 'Feature Scaling', 'Continuous Support']
+  }
 ];
 
 const faqs = [
-  {
-    q: 'How long does a project take?',
-    a: 'Most projects take 6 to 16 weeks depending on complexity, integrations, and feedback cadence.',
-  },
-  {
-    q: 'How do payments work?',
-    a: 'Payments are milestone-based, aligned with delivery phases for transparency and predictability.',
-  },
-  {
-    q: 'Do you provide support after delivery?',
-    a: 'Yes. We provide post-launch support, optimization cycles, and long-term product improvement.',
-  },
+  { q: 'How long does a typical build take?', a: 'Depending on complexity, an MVP can be launched in 4-8 weeks, while enterprise platforms typically take 3-6 months. We break everything into 2-week deliverable sprints.' },
+  { q: 'Do you use templates or custom code?', a: 'Everything is custom-architected for your specific business logic. We use modern frameworks (React, Node, etc.) to ensure your platform is scalable and not locked into a rigid template.' },
+  { q: 'What happens after launch?', a: 'We provide continuous monitoring, performance optimization, and SLA-backed support to ensure your product remains fast, secure, and ready for user growth.' },
+  { q: 'How transparent is the process?', a: '100% transparent. You get a dedicated dashboard, weekly progress syncs, and direct access to the engineering team via Slack/Teams.' }
 ];
 
 export default function HowItWorksPage() {
@@ -92,310 +85,203 @@ export default function HowItWorksPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div style={{ background: '#f5f8ff', minHeight: '100vh', color: '#0f172a', paddingBottom: '110px' }}>
-      <section style={{ position: 'relative', overflow: 'hidden', padding: '118px 0 68px' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 18% 22%, rgba(37,99,235,0.16), transparent 42%), radial-gradient(circle at 82% 18%, rgba(79,70,229,0.13), transparent 36%), linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%)' }} />
-        <div className="container" style={{ position: 'relative', maxWidth: '1240px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', gap: '14px', alignItems: 'stretch' }}>
-            <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75 }} style={{ borderRadius: '26px', background: '#fff', border: '1px solid #dee7f5', boxShadow: '0 16px 34px rgba(15,23,42,0.08)', padding: '26px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', borderRadius: '999px', padding: '6px 12px', border: '1px solid #bfdbfe', background: '#eff6ff', marginBottom: '14px' }}>
-                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb' }} />
-                <span style={{ fontSize: '0.74rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#1d4ed8' }}>How It Works</span>
-              </div>
-              <h1 style={{ margin: 0, fontSize: 'clamp(2.1rem, 4.7vw, 4rem)', lineHeight: 1.08, letterSpacing: '-0.03em', fontWeight: 900 }}>
-                How We Turn Your Ideas Into
-                <span style={{ display: 'block', background: 'linear-gradient(135deg, #2563eb 0%, #4f46e5 52%, #f97316 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  Scalable Digital Products
-                </span>
-              </h1>
-              <p style={{ margin: '16px 0 0', color: '#526178', lineHeight: 1.78, maxWidth: '680px' }}>
-                Afrinia follows a structured delivery model that balances speed, quality, and long-term scalability.
-              </p>
-              <div style={{ marginTop: '24px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                <motion.button
-                  whileHover={{ y: -2, boxShadow: '0 12px 24px rgba(15,23,42,0.24)' }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate('/contact')}
-                  style={{ border: 'none', borderRadius: '999px', padding: '13px 22px', background: '#111827', color: '#fff', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}
-                >
-                  Get Started <ArrowRight size={16} />
-                </motion.button>
-                <motion.button
-                  whileHover={{ y: -2, backgroundColor: '#dbeafe' }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate('/book-demo')}
-                  style={{ border: '1px solid #bfdbfe', borderRadius: '999px', padding: '13px 22px', background: '#eff6ff', color: '#1d4ed8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}
-                >
-                  Book Demo <ArrowUpRight size={16} />
-                </motion.button>
-              </div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-              {[
-                {
-                  label: 'Execution Model',
-                  value: 'Milestone-driven',
-                  bg: 'linear-gradient(150deg, #1e3a8a 0%, #1d4ed8 100%)',
-                  fg: '#fff',
-                  image:
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
-                },
-                {
-                  label: 'Delivery Rhythm',
-                  value: 'Weekly visibility',
-                  bg: '#ffffff',
-                  fg: '#0f172a',
-                  image:
-                    'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80',
-                },
-                {
-                  label: 'Quality Standard',
-                  value: 'Performance + QA',
-                  bg: '#ffffff',
-                  fg: '#0f172a',
-                  image:
-                    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
-                },
-                {
-                  label: 'Support Layer',
-                  value: 'Post-launch growth',
-                  bg: 'linear-gradient(150deg, #312e81 0%, #4f46e5 100%)',
-                  fg: '#fff',
-                  image:
-                    'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80',
-                },
-              ].map((item) => (
-                <motion.div
-                  key={item.label}
-                  whileHover={{ y: -3 }}
-                  style={{
-                    borderRadius: '20px',
-                    border: item.fg === '#fff' ? '1px solid rgba(255,255,255,0.25)' : '1px solid #deebff',
-                    background: item.bg,
-                    color: item.fg,
-                    padding: '16px',
-                    boxShadow: '0 12px 24px rgba(15,23,42,0.08)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      backgroundImage: `url(${item.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      opacity: item.fg === '#fff' ? 0.18 : 0.1,
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: item.fg === '#fff'
-                        ? 'linear-gradient(140deg, rgba(15,23,42,0.34) 0%, rgba(30,58,138,0.2) 100%)'
-                        : 'linear-gradient(140deg, rgba(255,255,255,0.76) 0%, rgba(239,246,255,0.7) 100%)',
-                    }}
-                  />
-                  <div style={{ position: 'relative', zIndex: 1 }}>
-                  <p style={{ margin: 0, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.07em', opacity: 0.86, fontWeight: 800 }}>{item.label}</p>
-                  <h3 style={{ margin: '8px 0 0', fontSize: '1.08rem' }}>{item.value}</h3>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: '30px 0 52px' }}>
-        <div className="container" style={{ maxWidth: '1240px' }}>
-          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.85rem, 3.3vw, 2.7rem)', letterSpacing: '-0.02em' }}>Step-by-Step Process</h2>
-            <p style={{ margin: '10px 0 0', color: '#526178', maxWidth: '760px', lineHeight: 1.72 }}>
-              A bento-inspired process grid with corporate clarity and clear sequencing.
+    <div style={{ background: '#fcfcfc', minHeight: '100vh', color: '#0f172a' }}>
+      {/* Hero Section */}
+      <section style={{ position: 'relative', padding: '160px 0 100px', background: '#0b1120', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '60%', height: '80%', background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 18px', background: 'rgba(255,255,255,0.05)', borderRadius: '999px', border: '1px solid rgba(255,255,255,0.1)', marginBottom: '28px', backdropFilter: 'blur(10px)' }}>
+              <Sparkles size={16} color="#60a5fa" />
+              <span style={{ color: '#e2e8f0', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>The Engineering Blueprint</span>
+            </div>
+            <h1 style={{ fontSize: 'clamp(3rem, 7vw, 5.5rem)', fontWeight: 900, color: '#fff', lineHeight: 1.05, letterSpacing: '-0.03em', margin: '0 0 24px 0' }}>
+              How We Build{' '}
+              <span style={{ background: 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>The Future.</span>
+            </h1>
+            <p style={{ fontSize: '1.15rem', color: '#94a3b8', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 48px', fontWeight: 400 }}>
+              We don't just write code. We engineer scalable digital ecosystems designed for velocity, performance, and revenue growth.
             </p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }} style={{ display: 'flex', justifyContent: 'center' }}>
+               <button onClick={() => {
+                 document.getElementById('process-grid')?.scrollIntoView({ behavior: 'smooth' });
+               }} style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'all 0.3s ease', color: '#fff' }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}>
+                 <ArrowRight size={24} style={{ transform: 'rotate(90deg)' }} />
+               </button>
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
 
-          <div style={{ marginTop: '20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '10px' }}>
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isWide = index === 0 || index === 3;
-              return (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -4, boxShadow: '0 18px 30px rgba(37,99,235,0.16)' }}
-                  style={{
-                    gridColumn: isWide ? 'span 2' : 'span 1',
-                    borderRadius: '22px',
-                    border: '1px solid #dce7f7',
-                    background: '#fff',
-                    padding: '16px',
-                    boxShadow: '0 10px 20px rgba(15,23,42,0.06)',
-                    minHeight: '170px',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '10px' }}>
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '9px' }}>
-                      <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: step.tone, color: '#fff', display: 'grid', placeItems: 'center' }}>
-                        <Icon size={17} />
+      {/* Process Steps / Bento Grid */}
+      <section id="process-grid" style={{ padding: '120px 0', background: '#f8fafc' }}>
+        <div className="container" style={{ maxWidth: '1280px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.03em', margin: 0 }}>The Execution Engine</h2>
+            <p style={{ fontSize: '1.1rem', color: '#64748b', marginTop: '16px', maxWidth: '600px', margin: '16px auto 0', lineHeight: 1.6 }}>Our battle-tested methodology transforms complex problems into elegant, high-performance software solutions.</p>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
+            {steps.map((step, idx) => (
+              <motion.div
+                key={step.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -8, boxShadow: '0 24px 48px rgba(0,0,0,0.06)' }}
+                style={{
+                  flex: '1 1 350px',
+                  background: '#fff',
+                  borderRadius: '32px',
+                  padding: '40px',
+                  border: '1px solid #f1f5f9',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.02)',
+                  transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+              >
+                <div style={{ position: 'absolute', top: '-10px', right: '-10px', fontSize: '10rem', fontWeight: 900, color: step.bg, zIndex: 0, lineHeight: 1, pointerEvents: 'none', transition: 'color 0.4s ease' }}>
+                  {step.id}
+                </div>
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: step.bg, color: step.color, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '32px', border: `1px solid ${step.bg.replace('ff', 'e0')}` }}>
+                    <step.icon size={26} strokeWidth={2.5} />
+                  </div>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.02em' }}>{step.title}</h3>
+                  <p style={{ fontSize: '1.05rem', color: '#64748b', lineHeight: 1.6, marginBottom: '32px', minHeight: '80px' }}>{step.desc}</p>
+                  
+                  <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '14px', paddingTop: '24px', borderTop: '1px solid #f1f5f9' }}>
+                    {step.details.map(detail => (
+                      <div key={detail} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: step.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <CheckCircle2 size={12} color={step.color} strokeWidth={3} />
+                        </div>
+                        <span style={{ fontSize: '0.95rem', fontWeight: 600, color: '#334155' }}>{detail}</span>
                       </div>
-                      <span style={{ fontSize: '0.8rem', color: step.tone, fontWeight: 800, letterSpacing: '0.06em' }}>STEP {step.id}</span>
-                    </div>
-                    <span style={{ borderRadius: '999px', padding: '6px 10px', background: '#eff6ff', color: '#1e3a8a', border: '1px solid #bfdbfe', fontSize: '0.78rem', fontWeight: 700 }}>
-                      Milestone {step.id}
-                    </span>
+                    ))}
                   </div>
-                  <h3 style={{ margin: '0 0 8px', fontSize: '1.14rem' }}>{step.title}</h3>
-                  <p style={{ margin: 0, color: '#4b5d74', lineHeight: 1.66 }}>{step.description}</p>
-                </motion.div>
-              );
-            })}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '0 0 52px' }}>
-        <div className="container" style={{ maxWidth: '1240px' }}>
-          <div style={{ borderRadius: '26px', overflow: 'hidden', border: '1px solid #c8d8f2', boxShadow: '0 20px 42px rgba(37,99,235,0.14)' }}>
-            <div style={{ padding: '24px', background: 'linear-gradient(135deg, #1e3a8a 0%, #312e81 54%, #0f172a 100%)' }}>
-              <h2 style={{ margin: 0, color: '#fff', fontSize: 'clamp(1.7rem, 2.9vw, 2.4rem)' }}>Visual Workflow</h2>
-              <p style={{ margin: '10px 0 0', color: '#dbeafe', maxWidth: '720px' }}>Idea to launch, connected with a clean decision flow.</p>
-              <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                {['Idea', 'Strategy', 'Design', 'Build', 'Launch'].map((item, index) => (
-                  <div key={item} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                    <motion.div whileHover={{ scale: 1.04 }} style={{ borderRadius: '999px', padding: '9px 14px', border: '1px solid rgba(255,255,255,0.3)', background: 'rgba(255,255,255,0.12)', color: '#fff', fontWeight: 700 }}>
-                      {item}
-                    </motion.div>
-                    {index < 4 && <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.6 }} style={{ color: '#bfdbfe', fontWeight: 800 }}>&rarr;</motion.span>}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ background: '#fff', padding: '16px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
-              {['Scope alignment', 'Sprint execution', 'QA checks', 'Launch support'].map((item) => (
-                <div key={item} style={{ borderRadius: '12px', border: '1px solid #dbe7f9', background: '#f8fbff', padding: '10px 12px', color: '#1e3a8a', fontWeight: 650 }}>{item}</div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: '0 0 52px' }}>
-        <div className="container" style={{ maxWidth: '1240px' }}>
-          <h2 style={{ margin: 0, fontSize: 'clamp(1.8rem, 3vw, 2.45rem)' }}>What You Get</h2>
-          <p style={{ margin: '10px 0 0', color: '#526178', maxWidth: '760px', lineHeight: 1.72 }}>
-            Enterprise-ready delivery standards presented in a modern visual system.
-          </p>
-          <div style={{ marginTop: '18px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
-            {benefits.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -4, borderColor: '#93c5fd', boxShadow: '0 14px 26px rgba(37,99,235,0.14)' }}
-                  style={{ borderRadius: '18px', border: '1px solid #dce7f7', background: '#fff', padding: '16px', boxShadow: '0 8px 16px rgba(15,23,42,0.05)' }}
-                >
-                  <div style={{ width: '36px', height: '36px', borderRadius: '11px', background: '#eff6ff', color: '#2563eb', display: 'grid', placeItems: 'center' }}>
-                    <Icon size={17} />
-                  </div>
-                  <h3 style={{ margin: '10px 0 6px', fontSize: '1.05rem' }}>{item.title}</h3>
-                  <p style={{ margin: 0, color: '#4b5d74', lineHeight: 1.62 }}>{item.text}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: '0 0 52px' }}>
-        <div className="container" style={{ maxWidth: '1240px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '10px' }}>
-            <div style={{ borderRadius: '22px', border: '1px solid #dce7f7', background: '#fff', padding: '20px', boxShadow: '0 10px 20px rgba(15,23,42,0.06)' }}>
-              <h2 style={{ margin: 0, fontSize: 'clamp(1.65rem, 2.8vw, 2.2rem)' }}>Real Experience</h2>
-              <p style={{ margin: '10px 0 0', color: '#4b5d74', lineHeight: 1.72 }}>
-                Clients experience a transparent, calm, and high-accountability process with clear milestones and regular progress reviews.
+      {/* Speed & Velocity Dark Section */}
+      <section style={{ padding: '120px 0', background: '#040a15', color: '#fff', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '1280px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '80px', alignItems: 'center' }}>
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+              <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1.1, margin: '0 0 24px 0' }}>
+                Engineered for <br/><span style={{ background: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Velocity.</span>
+              </h2>
+              <p style={{ fontSize: '1.15rem', color: '#94a3b8', lineHeight: 1.7, marginBottom: '48px', maxWidth: '500px' }}>
+                Traditional agencies measure progress in months. We measure it in days. Our highly optimized pipelines and AI-assisted workflows let us build complex systems in a fraction of the time, without compromising on quality.
               </p>
-              <div style={{ marginTop: '12px', display: 'grid', gap: '7px' }}>
-                {['Weekly visibility', 'Milestone approvals', 'Structured communication', 'Delivery confidence'].map((item) => (
-                  <div key={item} style={{ borderRadius: '12px', border: '1px solid #dbeafe', background: '#f8fbff', padding: '9px 10px', color: '#1e3a8a', fontWeight: 650, display: 'flex', alignItems: 'center', gap: '7px' }}>
-                    <CheckCircle2 size={15} />
-                    {item}
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                {[
+                  { metric: '3x', label: 'Faster Time-to-Market', color: '#60a5fa' },
+                  { metric: '99.9%', label: 'Code Reliability', color: '#34d399' },
+                  { metric: '0', label: 'Technical Debt', color: '#a78bfa' },
+                  { metric: '24/7', label: 'Monitoring & Support', color: '#f472b6' }
+                ].map(stat => (
+                  <div key={stat.label} style={{ background: 'rgba(255,255,255,0.02)', borderRadius: '24px', padding: '24px', border: '1px solid rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)' }}>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 900, color: stat.color, marginBottom: '4px', letterSpacing: '-0.02em' }}>{stat.metric}</div>
+                    <div style={{ fontSize: '0.9rem', color: '#cbd5e1', fontWeight: 600 }}>{stat.label}</div>
                   </div>
                 ))}
               </div>
-            </div>
-            <div style={{ borderRadius: '22px', border: '1px solid rgba(148,163,184,0.26)', background: 'linear-gradient(155deg, #111827 0%, #1e3a8a 100%)', padding: '20px', color: '#fff', boxShadow: '0 16px 32px rgba(30,58,138,0.24)' }}>
-              <h3 style={{ margin: 0, fontSize: '1.28rem' }}>Snapshot Results</h3>
-              <div style={{ marginTop: '12px', display: 'grid', gap: '8px' }}>
-                {[
-                  { name: 'Commerce Redesign', result: '+43% conversion uplift' },
-                  { name: 'Ops Automation', result: '-38% manual workload' },
-                ].map((item) => (
-                  <motion.div key={item.name} whileHover={{ x: 3 }} style={{ borderRadius: '13px', padding: '11px', border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.08)' }}>
-                    <p style={{ margin: 0, color: '#e2e8f0', fontWeight: 650 }}>{item.name}</p>
-                    <p style={{ margin: '4px 0 0', color: '#93c5fd', fontWeight: 700 }}>{item.result}</p>
-                  </motion.div>
-                ))}
+            </motion.div>
+            
+            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} style={{ position: 'relative', height: '600px', background: 'linear-gradient(145deg, #0f172a, #020617)', borderRadius: '40px', border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
+              {/* Animated abstract UI */}
+              <div style={{ position: 'absolute', width: '340px', height: '340px', borderRadius: '50%', border: '1px solid rgba(96,165,250,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: 'linear' }} style={{ width: '100%', height: '100%', borderRadius: '50%', border: '1px dashed rgba(96,165,250,0.3)' }} />
               </div>
-            </div>
+              <div style={{ position: 'absolute', width: '220px', height: '220px', borderRadius: '50%', border: '1px solid rgba(167,139,250,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                 <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} style={{ width: '100%', height: '100%', borderRadius: '50%', border: '2px solid rgba(167,139,250,0.1)', borderTopColor: '#a78bfa', borderBottomColor: '#60a5fa' }} />
+              </div>
+              <div style={{ width: '100px', height: '100px', borderRadius: '50%', background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', boxShadow: '0 0 60px rgba(96,165,250,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
+                <Zap size={40} color="#fff" />
+              </div>
+              
+              {/* Floating elements */}
+              <motion.div animate={{ y: [-15, 15, -15] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} style={{ position: 'absolute', top: '15%', left: '10%', background: 'rgba(15,23,42,0.9)', backdropFilter: 'blur(12px)', padding: '16px 20px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(96,165,250,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Database size={18} color="#60a5fa" /></div>
+                <span style={{ color: '#f8fafc', fontWeight: 600, fontSize: '0.95rem' }}>Data Scaled</span>
+              </motion.div>
+              
+              <motion.div animate={{ y: [15, -15, 15] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} style={{ position: 'absolute', bottom: '15%', right: '10%', background: 'rgba(15,23,42,0.9)', backdropFilter: 'blur(12px)', padding: '16px 20px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(52,211,153,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ShieldCheck size={18} color="#34d399" /></div>
+                <span style={{ color: '#f8fafc', fontWeight: 600, fontSize: '0.95rem' }}>Secure Core</span>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '0 0 52px' }}>
-        <div className="container" style={{ maxWidth: '940px' }}>
-          <h2 style={{ margin: 0, textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>Frequently Asked Questions</h2>
-          <div style={{ marginTop: '12px', display: 'grid', gap: '8px' }}>
+      {/* FAQ Section */}
+      <section style={{ padding: '120px 0', background: '#fff' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Common Questions</h2>
+            <p style={{ fontSize: '1.1rem', color: '#64748b', marginTop: '16px' }}>Everything you need to know about our process.</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
-                <div key={faq.q} style={{ borderRadius: '14px', border: '1px solid #dce7f7', background: '#fff', overflow: 'hidden' }}>
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    style={{ width: '100%', border: 'none', cursor: 'pointer', background: isOpen ? '#eff6ff' : '#fff', padding: '14px 15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#0f172a', fontWeight: 700, fontSize: '0.98rem', textAlign: 'left' }}
-                  >
-                    {faq.q}
-                    <ChevronDown size={17} style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
+                <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} style={{ border: '1px solid #e2e8f0', borderRadius: '24px', overflow: 'hidden', background: isOpen ? '#f8fafc' : '#fff', transition: 'all 0.3s ease' }}>
+                  <button onClick={() => setOpenFaq(isOpen ? null : index)} style={{ width: '100%', padding: '28px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                    <span style={{ fontSize: '1.15rem', fontWeight: 700, color: isOpen ? '#2563eb' : '#0f172a', transition: 'color 0.3s ease', paddingRight: '20px' }}>{faq.q}</span>
+                    <div style={{ width: '36px', height: '36px', flexShrink: 0, borderRadius: '50%', background: isOpen ? '#dbeafe' : '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease' }}>
+                      <ChevronDown size={20} color={isOpen ? '#2563eb' : '#64748b'} style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }} />
+                    </div>
                   </button>
-                  <AnimatePresence initial={false}>
+                  <AnimatePresence>
                     {isOpen && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }}>
-                        <div style={{ padding: '0 15px 14px', color: '#4b5d74', lineHeight: 1.68 }}>{faq.a}</div>
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}>
+                        <div style={{ padding: '0 32px 32px', color: '#64748b', fontSize: '1.05rem', lineHeight: 1.7 }}>
+                          {faq.a}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
-              );
+                </motion.div>
+              )
             })}
           </div>
         </div>
       </section>
 
-      <section style={{ padding: 0 }}>
-        <div className="container" style={{ maxWidth: '1020px' }}>
-          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ borderRadius: '28px', border: '1px solid rgba(191,219,254,0.28)', background: 'linear-gradient(140deg, #111827 0%, #1e3a8a 54%, #312e81 100%)', color: '#fff', textAlign: 'center', padding: '40px 24px', boxShadow: '0 24px 46px rgba(30,58,138,0.34)' }}>
-            <h2 style={{ margin: 0, fontSize: 'clamp(1.95rem, 4vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}>Ready to Build Something Powerful?</h2>
-            <p style={{ margin: '11px auto 0', maxWidth: '690px', color: '#dbeafe', lineHeight: 1.74 }}>
-              Work with a team that combines structured execution with modern product thinking.
+      {/* CTA Section */}
+      <section style={{ padding: '0 24px 100px', background: '#fff' }}>
+        <div className="container" style={{ maxWidth: '1200px', background: '#0b1120', borderRadius: '48px', padding: '80px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '6px', background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)' }} />
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: '#fff', letterSpacing: '-0.03em', margin: '0 0 24px 0' }}>Ready to start building?</h2>
+            <p style={{ fontSize: '1.2rem', color: '#94a3b8', maxWidth: '640px', margin: '0 auto 48px', lineHeight: 1.6 }}>
+              Skip the traditional agency bloat. Let's engineer a solution that scales your business efficiently and elegantly.
             </p>
-            <div style={{ marginTop: '18px', display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
-              <motion.button whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/contact')} style={{ border: 'none', borderRadius: '999px', padding: '12px 21px', background: '#fff', color: '#111827', fontWeight: 750, display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                Get Started <CheckCircle2 size={16} />
-              </motion.button>
-              <motion.button whileHover={{ y: -2, backgroundColor: 'rgba(255,255,255,0.14)' }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/contact')} style={{ border: '1px solid rgba(255,255,255,0.35)', borderRadius: '999px', padding: '12px 21px', background: 'rgba(255,255,255,0.08)', color: '#fff', fontWeight: 750, display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                Contact Us <ArrowUpRight size={16} />
-              </motion.button>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+              <button onClick={() => navigate('/contact')} className="cta-vibrate-btn" style={{ padding: '20px 40px', fontSize: '1.1rem', borderRadius: '999px', border: 'none', background: '#2563eb', color: '#fff', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 25px rgba(37,99,235,0.4)' }}>
+                Start Your Project
+                <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <ArrowRight size={16} />
+                </div>
+              </button>
+              <button onClick={() => navigate('/book-demo')} style={{ padding: '20px 40px', fontSize: '1.1rem', fontWeight: 700, borderRadius: '999px', background: 'transparent', color: '#fff', border: '2px solid rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease' }} onMouseOver={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; }} onMouseOut={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}>
+                Book a Demo
+              </button>
             </div>
           </motion.div>
         </div>
@@ -403,4 +289,3 @@ export default function HowItWorksPage() {
     </div>
   );
 }
-
