@@ -18,7 +18,8 @@ import {
   FlaskConical,
   MessageSquare,
   Sparkles,
-  Users
+  Users,
+  Zap
 } from 'lucide-react';
 
 const workflows = [
@@ -69,11 +70,12 @@ const processSteps = [
 ];
 
 const benefits = [
-  { title: 'Fast Delivery Cycles', icon: Timer, text: 'Our milestone-based execution framework accelerates your time-to-value. By utilizing parallel work streams and agile methodologies, we guarantee rapid deployment without cutting corners.', glowColor: 'rgba(59,130,246,0.15)', iconColor: '#3b82f6' },
-  { title: 'Scalable Architecture', icon: Workflow, text: 'We don’t just build for today. Your infrastructure is engineered from the ground up for future growth, supporting massive user loads and complex enterprise integrations seamlessly.', glowColor: 'rgba(139,92,246,0.15)', iconColor: '#8b5cf6' },
-  { title: 'Clean, Intuitive UI/UX', icon: Sparkles, text: 'First impressions matter. We deliver crystal-clear, modern interfaces that your users will immediately trust, drastically reducing onboarding friction and boosting platform retention.', glowColor: 'rgba(236,72,153,0.15)', iconColor: '#ec4899' },
-  { title: 'Enterprise-Grade Security', icon: ShieldCheck, text: 'Security isn’t an afterthought. We embed rigorous enterprise-grade security protocols, end-to-end encryption, and compliance checks directly into our delivery pipeline from day one.', glowColor: 'rgba(16,185,129,0.15)', iconColor: '#10b981' },
-  { title: 'Reliable Ongoing Support', icon: LifeBuoy, text: 'Our partnership extends far beyond launch day. Post-launch iterations, real-time monitoring, and dedicated engineering support keep your platform running smoothly 24/7.', glowColor: 'rgba(14,165,233,0.15)', iconColor: '#0ea5e9' },
+  { title: 'Fast Delivery Cycles', icon: Timer, text: 'Our milestone-based execution framework accelerates your time-to-value. By utilizing parallel work streams and agile methodologies, we guarantee rapid deployment without cutting corners.', baseColor: '#3b82f6', color1: '#2563eb', color2: '#93c5fd' },
+  { title: 'Scalable Architecture', icon: Workflow, text: 'We don’t just build for today. Your infrastructure is engineered from the ground up for future growth, supporting massive user loads and complex enterprise integrations seamlessly.', baseColor: '#8b5cf6', color1: '#7c3aed', color2: '#c4b5fd' },
+  { title: 'Clean, Intuitive UI/UX', icon: Sparkles, text: 'First impressions matter. We deliver crystal-clear, modern interfaces that your users will immediately trust, drastically reducing onboarding friction and boosting platform retention.', baseColor: '#ec4899', color1: '#db2777', color2: '#f9a8d4' },
+  { title: 'Enterprise-Grade Security', icon: ShieldCheck, text: 'Security isn’t an afterthought. We embed rigorous enterprise-grade security protocols, end-to-end encryption, and compliance checks directly into our delivery pipeline from day one.', baseColor: '#10b981', color1: '#059669', color2: '#6ee7b7' },
+  { title: 'Reliable Ongoing Support', icon: LifeBuoy, text: 'Our partnership extends far beyond launch day. Post-launch iterations, real-time monitoring, and dedicated engineering support keep your platform running smoothly 24/7.', baseColor: '#0ea5e9', color1: '#0284c7', color2: '#7dd3fc' },
+  { title: 'Performance Optimization', icon: Zap, text: 'We meticulously optimize every layer of the application for lightning-fast load times. We ensure peak performance that drives maximum user retention and superior SEO rankings.', baseColor: '#f59e0b', color1: '#d97706', color2: '#fcd34d' }
 ];
 
 const faqs = [
@@ -128,89 +130,85 @@ function WorkflowCard({ wf, i, isLast }: any) {
   )
 }
 
-function TiltCard({ benefit }: any) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x, { stiffness: 400, damping: 40 });
-  const mouseYSpring = useSpring(y, { stiffness: 400, damping: 40 });
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["6deg", "-6deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-6deg", "6deg"]);
-  
+function PremiumAuroraCard({ benefit }: any) {
   const [isHovered, setIsHovered] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    x.set(mouseX / width - 0.5);
-    y.set(mouseY / height - 0.5);
-    
-    setMousePos({ x: mouseX, y: mouseY });
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
-  };
-
+  
   return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-        perspective: 1500,
-        position: 'relative',
-        borderRadius: '32px',
-        background: '#fff',
-        border: '1px solid #f1f5f9',
-        boxShadow: isHovered ? '0 30px 60px rgba(0,0,0,0.06)' : '0 10px 30px rgba(0,0,0,0.02)',
-        cursor: 'default',
-        transition: 'box-shadow 0.3s ease'
-      }}
+    <motion.div 
+       onHoverStart={() => setIsHovered(true)}
+       onHoverEnd={() => setIsHovered(false)}
+       animate={{ 
+         y: isHovered ? -10 : 0, 
+         scale: isHovered ? 1.02 : 1,
+         background: isHovered ? '#0f172a' : '#fff',
+         borderColor: isHovered ? benefit.baseColor : '#f1f5f9',
+         boxShadow: isHovered ? `0 30px 60px ${benefit.color1}40` : '0 10px 30px rgba(0,0,0,0.02)'
+       }}
+       transition={{ duration: 0.4 }}
+       style={{ position: 'relative', overflow: 'hidden', borderRadius: '32px', border: '1px solid', padding: '48px', cursor: 'default' }}
     >
-       <div style={{ position: 'absolute', inset: 0, borderRadius: '32px', overflow: 'hidden' }}>
-          <motion.div
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, ${benefit.glowColor}, transparent 40%)`,
-              zIndex: 0,
-              pointerEvents: 'none',
-            }}
+       {/* Saturated Aurora Orbs */}
+       <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden', opacity: isHovered ? 1 : 0, transition: 'opacity 0.4s ease' }}>
+          <motion.div 
+             animate={isHovered ? { 
+                scale: [1, 2.5, 1.5, 2], 
+                x: [0, 80, -20, 0],
+                y: [0, -40, 30, 0],
+                rotate: [0, 90, 180, 360]
+             } : { scale: 1, x: 0, y: 0 }}
+             transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+             style={{ position: 'absolute', top: '10%', left: '10%', width: '120px', height: '120px', background: benefit.color1, borderRadius: '50%', filter: 'blur(45px)', opacity: 0.6 }}
+          />
+          <motion.div 
+             animate={isHovered ? { 
+                scale: [1, 1.5, 2.5, 1], 
+                x: [0, -60, 40, 0],
+                y: [0, 50, -20, 0],
+                rotate: [0, -90, -180, -360]
+             } : { scale: 1, x: 0, y: 0 }}
+             transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+             style={{ position: 'absolute', bottom: '10%', right: '10%', width: '150px', height: '150px', background: benefit.color2, borderRadius: '50%', filter: 'blur(55px)', opacity: 0.6 }}
           />
        </div>
 
-      <motion.div style={{ position: 'relative', zIndex: 1, padding: '48px', transform: isHovered ? 'translateZ(40px)' : 'translateZ(0)', transition: 'transform 0.3s ease' }}>
-        <motion.div 
-           animate={{ scale: isHovered ? 1.15 : 1, backgroundColor: isHovered ? '#fff' : '#eff6ff', boxShadow: isHovered ? `0 15px 30px ${benefit.glowColor}` : 'none', color: isHovered ? benefit.iconColor : '#2563eb' }}
-           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-           style={{ width: '64px', height: '64px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}
-        >
-          <motion.div animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }} transition={{ duration: 0.4 }}>
-            <benefit.icon size={32} strokeWidth={2} />
+       {/* Overlay to ensure text readability */}
+       <div style={{ position: 'absolute', inset: 0, background: 'rgba(15,23,42,0.4)', zIndex: 0, opacity: isHovered ? 1 : 0, transition: 'opacity 0.4s' }} />
+
+       {/* Content */}
+       <div style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div 
+             animate={{ 
+               backgroundColor: isHovered ? 'rgba(255,255,255,0.1)' : '#eff6ff', 
+               color: isHovered ? '#fff' : benefit.baseColor,
+               backdropFilter: isHovered ? 'blur(10px)' : 'none',
+               border: isHovered ? '1px solid rgba(255,255,255,0.2)' : '1px solid transparent'
+             }}
+             transition={{ duration: 0.3 }}
+             style={{ width: '64px', height: '64px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}
+          >
+             <motion.div animate={{ rotate: isHovered ? 360 : 0 }} transition={{ duration: 0.8, ease: "backOut" }}>
+               <benefit.icon size={32} strokeWidth={2} />
+             </motion.div>
           </motion.div>
-        </motion.div>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.01em', position: 'relative', display: 'inline-block' }}>
-          {benefit.title}
-          <motion.div animate={{ width: isHovered ? '100%' : '0%', opacity: isHovered ? 1 : 0 }} style={{ height: '3px', background: benefit.iconColor, marginTop: '6px', borderRadius: '4px' }} transition={{ duration: 0.3 }} />
-        </h3>
-        <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{benefit.text}</p>
-      </motion.div>
+          
+          <motion.h3 
+            animate={{ color: isHovered ? '#fff' : '#0f172a' }} 
+            transition={{ duration: 0.3 }}
+            style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '16px', letterSpacing: '-0.01em' }}
+          >
+             {benefit.title}
+          </motion.h3>
+          <motion.div animate={{ width: isHovered ? '40px' : '0px', opacity: isHovered ? 1 : 0, marginBottom: isHovered ? '16px' : '0px' }} style={{ height: '3px', background: benefit.color1, borderRadius: '4px' }} transition={{ duration: 0.3 }} />
+          <motion.p 
+            animate={{ color: isHovered ? 'rgba(255,255,255,0.8)' : '#64748b' }} 
+            transition={{ duration: 0.3 }}
+            style={{ fontSize: '1.1rem', lineHeight: 1.7, margin: 0 }}
+          >
+             {benefit.text}
+          </motion.p>
+       </div>
     </motion.div>
-  );
+  )
 }
 
 function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
@@ -444,7 +442,7 @@ export default function HowItWorksPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px', perspective: 1200 }}>
             {benefits.map((benefit, idx) => (
               <motion.div key={benefit.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
-                <TiltCard benefit={benefit} />
+                <PremiumAuroraCard benefit={benefit} />
               </motion.div>
             ))}
           </div>
