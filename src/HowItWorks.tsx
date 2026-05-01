@@ -21,12 +21,12 @@ import {
 } from 'lucide-react';
 
 const processSteps = [
-  { id: '01', title: 'Discovery & Consultation', icon: Handshake, desc: 'We define business goals, user priorities, and technical constraints to align scope from day one.' },
-  { id: '02', title: 'Strategy & Planning', icon: Compass, desc: 'A practical roadmap is created with milestones, architecture direction, and measurable outcomes.' },
-  { id: '03', title: 'Design & Prototyping', icon: LayoutTemplate, desc: 'We build clean UX flows and prototypes so stakeholders validate direction before development.' },
-  { id: '04', title: 'Development & Integration', icon: Code2, desc: 'We ship in iterative sprints while integrating APIs, data systems, and core product logic.' },
-  { id: '05', title: 'Testing & Optimization', icon: FlaskConical, desc: 'Performance, QA, and security checks ensure your product is stable and production-ready.' },
-  { id: '06', title: 'Launch & Ongoing Support', icon: Rocket, desc: 'We launch with confidence and continue improving through post-release monitoring and support.' },
+  { id: '01', title: 'Discovery & Consultation', icon: Handshake, desc: 'We define business goals, user priorities, and technical constraints to align scope from day one.', hoverColor: '#2563eb', hoverGradient: 'linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(124,58,237,0.04) 100%)', borderAccent: 'rgba(37,99,235,0.4)' },
+  { id: '02', title: 'Strategy & Planning', icon: Compass, desc: 'A practical roadmap is created with milestones, architecture direction, and measurable outcomes.', hoverColor: '#7c3aed', hoverGradient: 'linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(219,39,119,0.04) 100%)', borderAccent: 'rgba(124,58,237,0.4)' },
+  { id: '03', title: 'Design & Prototyping', icon: LayoutTemplate, desc: 'We build clean UX flows and prototypes so stakeholders validate direction before development.', hoverColor: '#db2777', hoverGradient: 'linear-gradient(135deg, rgba(219,39,119,0.06) 0%, rgba(234,88,12,0.04) 100%)', borderAccent: 'rgba(219,39,119,0.4)' },
+  { id: '04', title: 'Development & Integration', icon: Code2, desc: 'We ship in iterative sprints while integrating APIs, data systems, and core product logic.', hoverColor: '#ea580c', hoverGradient: 'linear-gradient(135deg, rgba(234,88,12,0.06) 0%, rgba(202,138,4,0.04) 100%)', borderAccent: 'rgba(234,88,12,0.4)' },
+  { id: '05', title: 'Testing & Optimization', icon: FlaskConical, desc: 'Performance, QA, and security checks ensure your product is stable and production-ready.', hoverColor: '#059669', hoverGradient: 'linear-gradient(135deg, rgba(5,150,105,0.06) 0%, rgba(13,148,136,0.04) 100%)', borderAccent: 'rgba(5,150,105,0.4)' },
+  { id: '06', title: 'Launch & Ongoing Support', icon: Rocket, desc: 'We launch with confidence and continue improving through post-release monitoring and support.', hoverColor: '#0284c7', hoverGradient: 'linear-gradient(135deg, rgba(2,132,199,0.06) 0%, rgba(37,99,235,0.04) 100%)', borderAccent: 'rgba(2,132,199,0.4)' },
 ];
 
 const benefits = [
@@ -46,6 +46,9 @@ const faqs = [
 export default function HowItWorksPage() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [hoveredStep, setHoveredStep] = useState<string | null>(null);
+
+  const activeColor = hoveredStep ? processSteps.find(s => s.id === hoveredStep)?.hoverColor : null;
 
   return (
     <div style={{ background: '#fcfcfc', minHeight: '100vh', color: '#0f172a', paddingBottom: '40px' }}>
@@ -111,32 +114,97 @@ export default function HowItWorksPage() {
 
           <div style={{ position: 'relative' }}>
             {/* Vertical connecting line */}
-            <div style={{ position: 'absolute', top: '20px', bottom: '20px', left: '39px', width: '2px', background: 'linear-gradient(180deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.2) 15%, rgba(37,99,235,0.2) 85%, rgba(37,99,235,0) 100%)', zIndex: 0 }} />
+            <div style={{ position: 'absolute', top: '20px', bottom: '20px', left: '39px', width: '2px', background: 'linear-gradient(180deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.2) 15%, rgba(37,99,235,0.2) 85%, rgba(37,99,235,0) 100%)', zIndex: 0 }}>
+              <motion.div 
+                animate={{ 
+                  opacity: activeColor ? 1 : 0, 
+                  background: activeColor || 'transparent',
+                  boxShadow: activeColor ? `0 0 12px ${activeColor}` : 'none'
+                }} 
+                transition={{ duration: 0.4 }}
+                style={{ position: 'absolute', inset: 0 }} 
+              />
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-              {processSteps.map((step, idx) => (
-                <motion.div key={step.id} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, delay: idx * 0.1 }} style={{ display: 'flex', gap: '32px', position: 'relative', zIndex: 1 }}>
-                  
-                  {/* Timeline Icon Node */}
-                  <div style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
-                    <motion.div whileHover={{ scale: 1.05 }} style={{ width: '64px', height: '64px', borderRadius: '20px', background: '#fff', border: '2px solid #eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,235,0.08)', color: '#2563eb' }}>
-                      <step.icon size={28} strokeWidth={2.5} />
-                    </motion.div>
-                  </div>
+              {processSteps.map((step, idx) => {
+                const isHovered = hoveredStep === step.id;
+                return (
+                  <motion.div 
+                    key={step.id} 
+                    initial={{ opacity: 0, x: -20 }} 
+                    whileInView={{ opacity: 1, x: 0 }} 
+                    viewport={{ once: true, margin: '-50px' }} 
+                    transition={{ duration: 0.6, delay: idx * 0.1 }} 
+                    style={{ display: 'flex', gap: '32px', position: 'relative', zIndex: 1 }}
+                    onHoverStart={() => setHoveredStep(step.id)}
+                    onHoverEnd={() => setHoveredStep(null)}
+                    onTap={() => setHoveredStep(isHovered ? null : step.id)}
+                  >
+                    
+                    {/* Timeline Icon Node */}
+                    <div style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
+                      <motion.div 
+                        animate={{ 
+                          scale: isHovered ? 1.15 : 1, 
+                          background: isHovered ? step.hoverColor : '#fff',
+                          borderColor: isHovered ? step.hoverColor : '#eff6ff',
+                          color: isHovered ? '#fff' : '#2563eb'
+                        }}
+                        transition={{ duration: 0.3 }}
+                        style={{ width: '64px', height: '64px', borderRadius: '20px', border: '2px solid #eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,235,0.08)' }}
+                      >
+                        <motion.div animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }} transition={{ duration: 0.4 }}>
+                          <step.icon size={28} strokeWidth={2.5} />
+                        </motion.div>
+                      </motion.div>
+                    </div>
 
-                  {/* Card Content */}
-                  <div style={{ flex: 1 }}>
-                    <motion.div whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.05)', borderColor: '#dbeafe' }} style={{ background: '#fff', borderRadius: '24px', padding: '40px', border: '1px solid #f1f5f9', boxShadow: '0 10px 30px rgba(0,0,0,0.02)', transition: 'all 0.3s ease' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                        <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#94a3b8', letterSpacing: '0.08em', textTransform: 'uppercase' }}>STEP {step.id}</span>
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.01em' }}>{step.title}</h3>
-                      </div>
-                      <p style={{ fontSize: '1.05rem', color: '#64748b', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
-                    </motion.div>
-                  </div>
-                  
-                </motion.div>
-              ))}
+                    {/* Card Content */}
+                    <div style={{ flex: 1 }}>
+                      <motion.div 
+                        animate={{ 
+                          y: isHovered ? -6 : 0, 
+                          scale: isHovered ? 1.02 : 1,
+                          boxShadow: isHovered ? `0 20px 40px rgba(0,0,0,0.08), 0 0 0 1px ${step.borderAccent}` : '0 10px 30px rgba(0,0,0,0.02), 0 0 0 1px transparent',
+                          background: isHovered ? step.hoverGradient : '#fff',
+                        }}
+                        transition={{ duration: 0.3 }}
+                        style={{ borderRadius: '24px', padding: '40px', border: '1px solid #f1f5f9', position: 'relative', overflow: 'hidden' }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                            <motion.span 
+                               animate={{ color: isHovered ? step.hoverColor : '#94a3b8' }}
+                               transition={{ duration: 0.3 }}
+                               style={{ fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}
+                            >
+                              STEP {step.id}
+                            </motion.span>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.01em' }}>{step.title}</h3>
+                          </div>
+                          
+                          <AnimatePresence>
+                            {isHovered && (
+                              <motion.div 
+                                initial={{ opacity: 0, x: -10 }} 
+                                animate={{ opacity: 1, x: 0 }} 
+                                exit={{ opacity: 0, x: -10 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <ArrowRight size={24} color={step.hoverColor} />
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                        
+                        <p style={{ fontSize: '1.05rem', color: '#64748b', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                      </motion.div>
+                    </div>
+                    
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
