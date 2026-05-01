@@ -126,6 +126,8 @@ const testimonials = [
 export default function HowItWorksPage() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [hoveredStep, setHoveredStep] = useState<string | null>(null);
+  const [hoveredOutcome, setHoveredOutcome] = useState<string | null>(null);
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
@@ -162,18 +164,22 @@ export default function HowItWorksPage() {
             transition={{ duration: 0.82, delay: 0.42, ease }}
             style={{ marginTop: '32px', display: 'flex', flexWrap: 'wrap', gap: '12px' }}
           >
-            <button
+            <motion.button
               onClick={() => navigate('/contact')}
+              whileHover={{ y: -2, boxShadow: '0 16px 28px rgba(37,99,235,0.32)' }}
+              whileTap={{ scale: 0.98 }}
               style={{ border: 'none', background: '#111827', color: '#fff', borderRadius: '999px', padding: '13px 24px', fontWeight: 700, fontSize: '1rem', display: 'inline-flex', alignItems: 'center', gap: '9px', cursor: 'pointer', boxShadow: '0 10px 20px rgba(2,6,23,0.18)' }}
             >
               Get Started <ArrowRight size={18} />
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               onClick={() => navigate('/book-demo')}
+              whileHover={{ y: -2, backgroundColor: '#dbeafe', borderColor: '#93c5fd' }}
+              whileTap={{ scale: 0.98 }}
               style={{ border: '1px solid #bfdbfe', background: '#eff6ff', color: '#1d4ed8', borderRadius: '999px', padding: '13px 24px', fontWeight: 700, fontSize: '1rem', display: 'inline-flex', alignItems: 'center', gap: '9px', cursor: 'pointer' }}
             >
               Book Demo <ArrowUpRight size={18} />
-            </button>
+            </motion.button>
           </motion.div>
         </div>
       </section>
@@ -188,10 +194,11 @@ export default function HowItWorksPage() {
           </motion.div>
 
           <div style={{ position: 'relative', marginTop: '30px' }}>
-            <div style={{ position: 'absolute', top: '18px', left: '26px', bottom: '18px', width: '2px', background: 'linear-gradient(180deg, rgba(37,99,235,0.3), rgba(99,102,241,0.15))' }} />
+            <div style={{ position: 'absolute', top: '18px', left: '26px', bottom: '18px', width: '2px', background: 'linear-gradient(180deg, rgba(37,99,235,0.55), rgba(99,102,241,0.28), rgba(249,115,22,0.2))' }} />
             <div style={{ display: 'grid', gap: '14px' }}>
               {processSteps.map((step, index) => {
                 const Icon = step.icon;
+                const isHovered = hoveredStep === step.id;
                 return (
                   <motion.div
                     key={step.id}
@@ -199,19 +206,48 @@ export default function HowItWorksPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: '-40px' }}
                     transition={{ duration: 0.45, delay: index * 0.05 }}
-                    whileHover={{ y: -3 }}
-                    style={{ marginLeft: '12px', borderRadius: '24px', border: '1px solid #e2e8f0', background: 'linear-gradient(160deg, #ffffff 0%, #f8fafc 100%)', boxShadow: '0 12px 26px rgba(15,23,42,0.06)', padding: '18px 20px 18px 58px', position: 'relative' }}
+                    onMouseEnter={() => setHoveredStep(step.id)}
+                    onMouseLeave={() => setHoveredStep(null)}
+                    whileHover={{ y: -4, boxShadow: '0 18px 30px rgba(37,99,235,0.18)' }}
+                    style={{
+                      marginLeft: '12px',
+                      borderRadius: '24px',
+                      border: isHovered ? '1px solid #93c5fd' : '1px solid #e2e8f0',
+                      background: isHovered
+                        ? 'linear-gradient(140deg, #ffffff 0%, #eef4ff 55%, #eff6ff 100%)'
+                        : 'linear-gradient(160deg, #ffffff 0%, #f8fafc 100%)',
+                      boxShadow: isHovered ? '0 18px 30px rgba(37,99,235,0.18)' : '0 12px 26px rgba(15,23,42,0.06)',
+                      padding: '18px 20px 18px 58px',
+                      position: 'relative',
+                      transition: 'all 0.25s ease',
+                    }}
                   >
-                    <div style={{ position: 'absolute', top: '16px', left: '-4px', width: '38px', height: '38px', borderRadius: '12px', background: 'linear-gradient(135deg, #2563eb 0%, #6366f1 100%)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(37,99,235,0.35)' }}>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '16px',
+                        left: '-4px',
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '12px',
+                        background: isHovered ? 'linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%)' : 'linear-gradient(135deg, #2563eb 0%, #6366f1 100%)',
+                        color: '#fff',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: isHovered ? '0 12px 24px rgba(59,130,246,0.48)' : '0 8px 20px rgba(37,99,235,0.35)',
+                        transition: 'all 0.25s ease',
+                      }}
+                    >
                       <Icon size={18} />
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: '14px', alignItems: 'start', flexWrap: 'wrap' }}>
                       <div>
-                        <div style={{ fontSize: '0.8rem', color: '#2563eb', fontWeight: 800, letterSpacing: '0.06em' }}>STEP {step.id}</div>
+                        <div style={{ fontSize: '0.8rem', color: isHovered ? '#1d4ed8' : '#2563eb', fontWeight: 800, letterSpacing: '0.06em', transition: 'color 0.25s ease' }}>STEP {step.id}</div>
                         <h3 style={{ margin: '5px 0 8px', fontSize: '1.16rem', color: '#0f172a' }}>{step.title}</h3>
-                        <p style={{ margin: 0, color: '#64748b', lineHeight: 1.65 }}>{step.description}</p>
+                        <p style={{ margin: 0, color: isHovered ? '#334155' : '#64748b', lineHeight: 1.65, transition: 'color 0.25s ease' }}>{step.description}</p>
                       </div>
-                      <div style={{ minWidth: '180px', borderRadius: '14px', border: '1px solid #dbeafe', background: '#eff6ff', padding: '10px 12px', color: '#1e3a8a', fontSize: '0.9rem', fontWeight: 650 }}>
+                      <div style={{ minWidth: '180px', borderRadius: '14px', border: isHovered ? '1px solid #93c5fd' : '1px solid #dbeafe', background: isHovered ? '#dbeafe' : '#eff6ff', padding: '10px 12px', color: '#1e3a8a', fontSize: '0.9rem', fontWeight: 650, transition: 'all 0.25s ease' }}>
                         Milestone {step.id}
                       </div>
                     </div>
@@ -236,7 +272,7 @@ export default function HowItWorksPage() {
             <div style={{ marginTop: '22px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
               {['Idea', 'Strategy', 'Design', 'Build', 'Launch'].map((item, index) => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <motion.div whileHover={{ y: -2 }} style={{ borderRadius: '999px', padding: '10px 16px', background: '#f8fafc', border: '1px solid #e2e8f0', fontWeight: 700, color: '#0f172a' }}>
+                  <motion.div whileHover={{ y: -2, backgroundColor: '#e0ecff', borderColor: '#93c5fd', color: '#1d4ed8' }} style={{ borderRadius: '999px', padding: '10px 16px', background: '#f8fafc', border: '1px solid #e2e8f0', fontWeight: 700, color: '#0f172a' }}>
                     {item}
                   </motion.div>
                   {index < 4 && (
@@ -260,6 +296,7 @@ export default function HowItWorksPage() {
           <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '14px' }}>
             {outcomes.map((item, index) => {
               const Icon = item.icon;
+              const isHovered = hoveredOutcome === item.title;
               return (
                 <motion.div
                   key={item.title}
@@ -267,14 +304,23 @@ export default function HowItWorksPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.06 }}
-                  whileHover={{ y: -3 }}
-                  style={{ background: '#fff', borderRadius: '20px', border: '1px solid #e2e8f0', boxShadow: '0 10px 20px rgba(15,23,42,0.05)', padding: '18px' }}
+                  onMouseEnter={() => setHoveredOutcome(item.title)}
+                  onMouseLeave={() => setHoveredOutcome(null)}
+                  whileHover={{ y: -4 }}
+                  style={{
+                    background: isHovered ? 'linear-gradient(145deg, #ffffff 0%, #eff6ff 100%)' : '#fff',
+                    borderRadius: '20px',
+                    border: isHovered ? '1px solid #bfdbfe' : '1px solid #e2e8f0',
+                    boxShadow: isHovered ? '0 16px 28px rgba(37,99,235,0.14)' : '0 10px 20px rgba(15,23,42,0.05)',
+                    padding: '18px',
+                    transition: 'all 0.25s ease',
+                  }}
                 >
-                  <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: '#eff6ff', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: isHovered ? '#2563eb' : '#eff6ff', color: isHovered ? '#fff' : '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.25s ease' }}>
                     <Icon size={18} />
                   </div>
-                  <h3 style={{ margin: '12px 0 8px', fontSize: '1.08rem' }}>{item.title}</h3>
-                  <p style={{ margin: 0, color: '#64748b', lineHeight: 1.6 }}>{item.text}</p>
+                  <h3 style={{ margin: '12px 0 8px', fontSize: '1.08rem', color: isHovered ? '#1e3a8a' : '#0f172a', transition: 'color 0.25s ease' }}>{item.title}</h3>
+                  <p style={{ margin: 0, color: isHovered ? '#334155' : '#64748b', lineHeight: 1.6, transition: 'color 0.25s ease' }}>{item.text}</p>
                 </motion.div>
               );
             })}
