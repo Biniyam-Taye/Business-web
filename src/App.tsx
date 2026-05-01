@@ -18,6 +18,8 @@ import EngineeringGuidePage from './EngineeringGuide';
 import ThankYouPage from './ThankYou';
 import { submitLeadForm } from './lib/formSubmit';
 
+const SHOW_PRICING_PAGE = false;
+
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
   const [inView, setInView] = useState(false);
@@ -64,7 +66,7 @@ function MainLayout() {
   const getNavFromPath = (path: string) => {
     if (path.startsWith('/projects')) return 'Projects';
     if (path.startsWith('/services')) return 'Services';
-    if (path === '/pricing') return 'Pricing';
+    if (SHOW_PRICING_PAGE && path === '/pricing') return 'Pricing';
     if (path === '/contact') return 'Contacts';
     return 'About Us';
   };
@@ -85,7 +87,9 @@ function MainLayout() {
   // Slight vertical shift so the video crop matches the card edges.
   const heroVideoShiftY = -20;
 
-  const navLinks = ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts'];
+  const navLinks = SHOW_PRICING_PAGE
+    ? ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts']
+    : ['About Us', 'Projects', 'Services', 'Contacts'];
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -246,7 +250,7 @@ function MainLayout() {
           <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:serviceId" element={<ServiceExplorePage />} />
-          <Route path="/pricing" element={<PricingPage />} />
+          {SHOW_PRICING_PAGE && <Route path="/pricing" element={<PricingPage />} />}
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/book-demo" element={<BookDemoPage />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
