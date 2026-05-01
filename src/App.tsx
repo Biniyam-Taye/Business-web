@@ -8,6 +8,7 @@ import ServicesPage from './Services';
 import ServiceExplorePage from './ServiceExplore';
 import PricingPage from './Pricing';
 import ContactPage from './Contact';
+import HowItWorksPage from './HowItWorks';
 import BookDemoPage from './BookDemo';
 import PrivacyPolicyPage from './PrivacyPolicy';
 import TermsOfServicePage from './TermsOfService';
@@ -66,6 +67,7 @@ function MainLayout() {
   const getNavFromPath = (path: string) => {
     if (path.startsWith('/projects')) return 'Projects';
     if (path.startsWith('/services')) return 'Services';
+    if (path.startsWith('/how-it-works')) return 'How It Works';
     if (SHOW_PRICING_PAGE && path === '/pricing') return 'Pricing';
     if (path === '/contact') return 'Contacts';
     return 'About Us';
@@ -88,8 +90,8 @@ function MainLayout() {
   const heroVideoShiftY = -20;
 
   const navLinks = SHOW_PRICING_PAGE
-    ? ['About Us', 'Projects', 'Services', 'Pricing', 'Contacts']
-    : ['About Us', 'Projects', 'Services', 'Contacts'];
+    ? ['About Us', 'Projects', 'Services', 'How It Works', 'Pricing', 'Contacts']
+    : ['About Us', 'Projects', 'Services', 'How It Works', 'Contacts'];
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -158,6 +160,7 @@ function MainLayout() {
                 onClick={() => {
                   if (link === 'Projects') navigate('/projects');
                   else if (link === 'Services') navigate('/services');
+                  else if (link === 'How It Works') navigate('/how-it-works');
                   else if (link === 'Pricing') navigate('/pricing');
                   else if (link === 'Contacts') navigate('/contact');
                   else if (link === 'About Us') navigate('/');
@@ -222,6 +225,7 @@ function MainLayout() {
                     onClick={() => {
                       if (link === 'Projects') navigate('/projects');
                       else if (link === 'Services') navigate('/services');
+                      else if (link === 'How It Works') navigate('/how-it-works');
                       else if (link === 'Pricing') navigate('/pricing');
                       else if (link === 'Contacts') navigate('/contact');
                       else if (link === 'About Us') navigate('/');
@@ -250,6 +254,7 @@ function MainLayout() {
           <Route path="/projects/:projectId" element={<ProjectCaseStudy />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:serviceId" element={<ServiceExplorePage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
           {SHOW_PRICING_PAGE && <Route path="/pricing" element={<PricingPage />} />}
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/book-demo" element={<BookDemoPage />} />
