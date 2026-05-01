@@ -317,37 +317,238 @@ function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
   )
 }
 
-function MetricCard({ value, label }: any) {
+function ClientExperienceItem({ item }: any) {
   const [isHovered, setIsHovered] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  return (
+    <motion.div 
+      onHoverStart={() => setIsHovered(true)} 
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{ x: isHovered ? 10 : 0, background: isHovered ? '#eff6ff' : 'transparent' }} 
+      style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '12px 20px', borderRadius: '16px', cursor: 'default', marginLeft: '-20px' }}
+    >
+      <motion.div 
+         animate={{ background: isHovered ? '#2563eb' : '#eff6ff', scale: isHovered ? 1.1 : 1 }}
+         style={{ width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+      >
+        <motion.div animate={{ rotate: isHovered ? 360 : 0, color: isHovered ? '#fff' : '#2563eb' }} transition={{ duration: 0.5 }}>
+          <item.icon size={20} strokeWidth={2.5} />
+        </motion.div>
+      </motion.div>
+      <motion.span animate={{ color: isHovered ? '#1d4ed8' : '#334155' }} style={{ fontSize: '1.15rem', fontWeight: 600 }}>{item.title}</motion.span>
+    </motion.div>
+  );
+}
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
+function TestimonialCard() {
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <motion.div 
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{ 
+        y: isHovered ? -10 : 0, 
+        scale: isHovered ? 1.02 : 1,
+        boxShadow: isHovered ? '0 30px 60px rgba(37, 99, 235, 0.15)' : '0 20px 40px rgba(0,0,0,0.03)',
+        background: isHovered ? 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)' : '#fff'
+      }} 
+      style={{ borderRadius: '32px', padding: '48px', border: '1px solid #e2e8f0', position: 'relative', overflow: 'hidden', cursor: 'default' }}
+    >
+      <motion.div 
+        animate={{ 
+          scale: isHovered ? 5 : 1, 
+          opacity: isHovered ? 0.1 : 1, 
+          color: isHovered ? '#fff' : '#cbd5e1',
+          x: isHovered ? 50 : 0,
+          y: isHovered ? -30 : 0
+        }} 
+        transition={{ duration: 0.5 }}
+        style={{ position: 'absolute', top: '32px', right: '32px', zIndex: 0 }}
+      >
+        <MessageSquare size={60} />
+      </motion.div>
+      
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <motion.div animate={{ opacity: isHovered ? 0 : 1 }} transition={{ duration: 0.2 }} style={{ marginBottom: '24px' }}>
+          <MessageSquare size={40} color="#cbd5e1" />
+        </motion.div>
+        
+        <motion.p 
+          animate={{ color: isHovered ? '#fff' : '#0f172a' }}
+          style={{ fontSize: '1.35rem', fontWeight: 500, lineHeight: 1.6, marginBottom: '40px' }}
+        >
+          "The most organized and transparent engineering team we've ever partnered with. They delivered exactly what was promised, on time, and the code quality was exceptional across the board."
+        </motion.p>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', borderTop: '1px solid', borderColor: isHovered ? 'rgba(255,255,255,0.2)' : '#f1f5f9', paddingTop: '24px', transition: 'border-color 0.3s' }}>
+          <motion.div 
+            animate={{ 
+              background: isHovered ? '#fff' : '#f1f5f9',
+              color: isHovered ? '#2563eb' : '#2563eb',
+              borderColor: isHovered ? 'transparent' : '#e2e8f0',
+              rotate: isHovered ? 360 : 0
+            }}
+            transition={{ duration: 0.5 }}
+            style={{ width: '64px', height: '64px', borderRadius: '50%', border: '1px solid', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '1.5rem' }}
+          >
+            D
+          </motion.div>
+          <div>
+            <motion.div animate={{ color: isHovered ? '#fff' : '#0f172a' }} style={{ fontWeight: 800, fontSize: '1.2rem' }}>Derara Business</motion.div>
+            <motion.div animate={{ color: isHovered ? 'rgba(255,255,255,0.8)' : '#64748b' }} style={{ fontSize: '1rem', fontWeight: 600 }}>Enterprise Client</motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+function MetricCard({ value, label, color }: any) {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div 
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
-      whileHover={{ y: -8, scale: 1.05 }} 
-      style={{ background: '#fff', borderRadius: '24px', padding: '32px', border: '1px solid #e2e8f0', textAlign: 'center', transition: 'all 0.3s ease', boxShadow: isHovered ? '0 20px 40px rgba(37,99,235,0.1)' : '0 10px 20px rgba(0,0,0,0.02)', position: 'relative', overflow: 'hidden' }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{ y: isHovered ? -8 : 0, scale: isHovered ? 1.05 : 1, boxShadow: isHovered ? `0 20px 40px ${color}40` : '0 10px 20px rgba(0,0,0,0.02)', borderColor: isHovered ? 'transparent' : '#e2e8f0' }} 
+      style={{ background: '#fff', borderRadius: '24px', padding: '32px', textAlign: 'center', border: '1px solid', position: 'relative', overflow: 'hidden', cursor: 'default' }}
     >
       <motion.div
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        style={{ position: 'absolute', inset: 0, background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(37,99,235,0.08), transparent 60%)`, zIndex: 0, pointerEvents: 'none' }}
+        initial={false}
+        animate={{ y: isHovered ? '0%' : '100%', borderRadius: isHovered ? '0%' : '50%' }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        style={{ position: 'absolute', inset: -20, background: color, zIndex: 0 }}
       />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <motion.div animate={{ scale: isHovered ? 1.1 : 1, color: isHovered ? '#1d4ed8' : '#2563eb' }} transition={{ type: "spring", stiffness: 300 }} style={{ fontSize: '3.5rem', fontWeight: 900, lineHeight: 1 }}>{value}</motion.div>
-        <div style={{ fontSize: '1.05rem', color: '#64748b', fontWeight: 700, marginTop: '12px' }}>{label}</div>
+        <motion.div animate={{ scale: isHovered ? 1.15 : 1, color: isHovered ? '#fff' : '#2563eb' }} transition={{ type: "spring", stiffness: 300 }} style={{ fontSize: '3.5rem', fontWeight: 900, lineHeight: 1 }}>{value}</motion.div>
+        <motion.div animate={{ color: isHovered ? 'rgba(255,255,255,0.9)' : '#64748b' }} transition={{ duration: 0.3 }} style={{ fontSize: '1.05rem', fontWeight: 700, marginTop: '12px' }}>{label}</motion.div>
       </div>
     </motion.div>
   )
 }
 
 // --- Main Page Component ---
+const headingWords = "How We Turn Your Ideas Into".split(" ");
+const highlightWords = "Scalable Digital Products".split(" ");
+
+function AnimatedWord({ text, highlight, idx }: { text: string, highlight?: boolean, idx: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <motion.span
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{ 
+        y: isHovered ? -12 : 0, 
+        scale: isHovered ? 1.08 : 1,
+        rotate: isHovered ? (idx % 2 === 0 ? 4 : -4) : 0,
+        textShadow: isHovered ? (highlight ? '0 15px 30px rgba(124,58,237,0.5)' : '0 15px 30px rgba(37,99,235,0.4)') : 'none',
+      }}
+      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+      style={{ 
+        display: 'inline-block', 
+        marginRight: '0.25em', 
+        cursor: 'default',
+        color: isHovered ? (highlight ? '#9333ea' : '#2563eb') : (highlight ? 'transparent' : '#0f172a'),
+        background: (highlight && !isHovered) ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' : 'none',
+        WebkitBackgroundClip: (highlight && !isHovered) ? 'text' : 'unset',
+        WebkitTextFillColor: (highlight && !isHovered) ? 'transparent' : 'unset',
+      }}
+    >
+      {text}
+    </motion.span>
+  );
+}
+
+function WhiteBlueCTA() {
+  const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div 
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      initial={{ opacity: 0, y: 30 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true }} 
+      animate={{
+        scale: isHovered ? 1.02 : 1,
+        y: isHovered ? -5 : 0,
+        boxShadow: isHovered ? '0 30px 60px rgba(37,99,235,0.2)' : '0 20px 40px rgba(0,0,0,0.05)',
+      }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
+      style={{ 
+        borderRadius: '32px', 
+        padding: '60px 40px', 
+        textAlign: 'center', 
+        position: 'relative', 
+        overflow: 'hidden',
+        background: '#ffffff',
+        border: '1px solid #e2e8f0'
+      }}
+    >
+      <motion.div 
+        animate={{ 
+          clipPath: isHovered ? 'circle(150% at 50% 100%)' : 'circle(0% at 50% 100%)'
+        }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        style={{ 
+          position: 'absolute', 
+          top: 0, left: 0, right: 0, bottom: 0, 
+          background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', 
+          zIndex: 0 
+        }} 
+      />
+      
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <motion.h2 
+          animate={{ color: isHovered ? '#ffffff' : '#0f172a' }}
+          style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '20px' }}
+        >
+          Ready to Build Something Powerful?
+        </motion.h2>
+        <motion.p 
+          animate={{ color: isHovered ? 'rgba(255,255,255,0.9)' : '#475569' }}
+          style={{ fontSize: '1.1rem', maxWidth: '650px', margin: '0 auto 32px', lineHeight: 1.6 }}
+        >
+          Work with a high-performance team that combines structured execution with modern product engineering to deliver robust digital solutions. Let's discuss your next breakthrough project.
+        </motion.p>
+        
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+          <motion.button 
+            onClick={() => navigate('/contact')} 
+            animate={{
+              background: isHovered ? '#ffffff' : '#2563eb',
+              color: isHovered ? '#1d4ed8' : '#ffffff',
+              boxShadow: isHovered ? '0 10px 25px rgba(255,255,255,0.3)' : '0 8px 25px rgba(37,99,235,0.3)'
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ padding: '16px 36px', borderRadius: '999px', fontSize: '1.05rem', fontWeight: 800, border: 'none', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
+          >
+            Get Started <ArrowRight size={18} />
+          </motion.button>
+          
+          <motion.button 
+            onClick={() => navigate('/contact')} 
+            animate={{
+              backgroundColor: isHovered ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)',
+              color: isHovered ? '#ffffff' : '#0f172a',
+              borderColor: isHovered ? 'rgba(255, 255, 255, 0.8)' : '#cbd5e1'
+            }}
+            whileHover={{ 
+              scale: 1.05, 
+              backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.15)' : '#f8fafc',
+              borderColor: isHovered ? 'rgba(255, 255, 255, 1)' : '#cbd5e1'
+            }}
+            whileTap={{ scale: 0.95 }}
+            style={{ padding: '16px 36px', borderRadius: '999px', fontSize: '1.05rem', fontWeight: 800, border: '1px solid', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
+          >
+            Contact Us
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function HowItWorksPage() {
   const navigate = useNavigate();
@@ -360,7 +561,7 @@ export default function HowItWorksPage() {
     <div style={{ background: '#fcfcfc', minHeight: '100vh', color: '#0f172a', paddingBottom: '40px' }}>
       
       {/* 1. Hero Section */}
-      <section style={{ position: 'relative', padding: '160px 0 80px', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '80px 0 60px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
         
@@ -370,21 +571,18 @@ export default function HowItWorksPage() {
               <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
               <span style={{ color: '#1d4ed8', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Our Process</span>
             </div>
-            <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', fontWeight: 900, color: '#0f172a', lineHeight: 1.1, letterSpacing: '-0.03em', margin: '0 0 24px 0' }}>
-              How We Turn Your Ideas Into{' '}
-              <span style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>Scalable Digital Products</span>
+            <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.03em', margin: '0 0 24px 0' }}>
+              {headingWords.map((word, i) => (
+                <AnimatedWord key={`hw-${i}`} text={word} idx={i} />
+              ))}
+              <br style={{ display: 'block', margin: '8px 0' }} />
+              {highlightWords.map((word, i) => (
+                <AnimatedWord key={`hl-${i}`} text={word} highlight idx={i + headingWords.length} />
+              ))}
             </h1>
-            <p style={{ fontSize: '1.2rem', color: '#64748b', lineHeight: 1.7, maxWidth: '700px', margin: '0 auto 48px', fontWeight: 400 }}>
+            <p style={{ fontSize: '1.2rem', color: '#64748b', lineHeight: 1.7, maxWidth: '700px', margin: '0 auto', fontWeight: 400 }}>
               Afrinia follows a highly structured delivery model that perfectly balances rapid market speed, premium engineering quality, and long-term enterprise scalability. No guesswork, just precision.
             </p>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }} style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-              <button onClick={() => navigate('/contact')} style={{ background: '#111', color: '#fff', padding: '16px 36px', borderRadius: '999px', fontSize: '1.05rem', fontWeight: 600, border: 'none', display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', boxShadow: '0 10px 25px rgba(0,0,0,0.1)', transition: 'all 0.3s ease' }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
-                Get Started <ArrowRight size={18} />
-              </button>
-              <button onClick={() => navigate('/book-demo')} style={{ background: '#fff', color: '#0f172a', padding: '16px 36px', borderRadius: '999px', fontSize: '1.05rem', fontWeight: 600, border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.03)', transition: 'all 0.3s ease' }} onMouseOver={e => {e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#f8fafc';}} onMouseOut={e => {e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.background = '#fff';}}>
-                Book Demo <ArrowUpRight size={18} color="#64748b" />
-              </button>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -462,42 +660,23 @@ export default function HowItWorksPage() {
               <p style={{ fontSize: '1.2rem', color: '#64748b', lineHeight: 1.7, marginBottom: '40px' }}>
                 We believe that phenomenal software is fundamentally built on trust. Our clients experience a beautifully clear roadmap filled with weekly visibility, highly structured communication channels, and absolutely no surprises. You are consistently in the loop.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {[
                   { title: 'Weekly progress reports & interactive demos', icon: Users },
                   { title: 'Direct Slack/Teams access to your dedicated engineers', icon: MessageSquare },
                   { title: 'Milestone-based approvals for absolute predictability', icon: CheckCircle2 }
                 ].map((item, i) => (
-                  <motion.div key={i} whileHover={{ x: 5 }} transition={{ duration: 0.2 }} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <item.icon size={18} color="#2563eb" strokeWidth={2.5} />
-                    </div>
-                    <span style={{ fontSize: '1.15rem', color: '#334155', fontWeight: 600 }}>{item.title}</span>
-                  </motion.div>
+                  <ClientExperienceItem key={i} item={item} />
                 ))}
               </div>
             </motion.div>
             
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <motion.div whileHover={{ y: -8, boxShadow: '0 30px 60px rgba(0,0,0,0.06)' }} style={{ background: '#fff', borderRadius: '32px', padding: '48px', border: '1px solid #e2e8f0', boxShadow: '0 20px 40px rgba(0,0,0,0.03)', position: 'relative', transition: 'all 0.4s ease' }}>
-                <MessageSquare size={40} color="#cbd5e1" style={{ marginBottom: '24px' }} />
-                <p style={{ fontSize: '1.35rem', color: '#0f172a', fontWeight: 500, lineHeight: 1.6, marginBottom: '40px' }}>
-                  "The most organized and transparent engineering team we've ever partnered with. They delivered exactly what was promised, on time, and the code quality was exceptional across the board."
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', borderTop: '1px solid #f1f5f9', paddingTop: '24px' }}>
-                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#f8fafc', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#64748b', fontSize: '1.4rem' }}>
-                    A
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 800, color: '#0f172a', fontSize: '1.2rem' }}>Global SaaS Platform</div>
-                    <div style={{ fontSize: '1rem', color: '#64748b', fontWeight: 600 }}>Enterprise Client</div>
-                  </div>
-                </div>
-              </motion.div>
+              <TestimonialCard />
               
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-                <MetricCard value="98%" label="On-Time Delivery" />
-                <MetricCard value="40+" label="Enterprise Launches" />
+                <MetricCard value="98%" label="On-Time Delivery" color="#2563eb" />
+                <MetricCard value="40+" label="Enterprise Launches" color="#7c3aed" />
               </div>
             </motion.div>
           </div>
@@ -539,23 +718,9 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 7. Final CTA Section */}
-      <section style={{ padding: '40px 0 100px', background: '#fff' }}>
-        <div className="container" style={{ maxWidth: '1100px' }}>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%)', borderRadius: '48px', padding: '100px 60px', textAlign: 'center', border: '1px solid #bfdbfe', boxShadow: '0 30px 60px rgba(37,99,235,0.05)', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '8px', background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }} />
-            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '24px' }}>Ready to Build Something Powerful?</h2>
-            <p style={{ fontSize: '1.25rem', color: '#475569', maxWidth: '700px', margin: '0 auto 48px', lineHeight: 1.7 }}>
-              Work with a high-performance team that combines structured execution with modern product engineering to deliver robust digital solutions. Let's discuss your next breakthrough project.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-              <button onClick={() => navigate('/contact')} style={{ background: '#2563eb', color: '#fff', padding: '20px 48px', borderRadius: '999px', fontSize: '1.15rem', fontWeight: 800, border: 'none', display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', boxShadow: '0 10px 30px rgba(37,99,235,0.3)', transition: 'all 0.3s ease' }} onMouseOver={e => e.currentTarget.style.background = '#1d4ed8'} onMouseOut={e => e.currentTarget.style.background = '#2563eb'}>
-                Get Started <ArrowRight size={20} />
-              </button>
-              <button onClick={() => navigate('/contact')} style={{ background: '#fff', color: '#0f172a', padding: '20px 48px', borderRadius: '999px', fontSize: '1.15rem', fontWeight: 800, border: '1px solid #cbd5e1', display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', transition: 'all 0.3s ease', boxShadow: '0 4px 10px rgba(0,0,0,0.02)' }} onMouseOver={e => {e.currentTarget.style.background = '#f8fafc'; e.currentTarget.style.borderColor = '#94a3b8';}} onMouseOut={e => {e.currentTarget.style.background = '#fff'; e.currentTarget.style.borderColor = '#cbd5e1';}}>
-                Contact Us
-              </button>
-            </div>
-          </motion.div>
+      <section style={{ padding: '40px 0 80px', background: '#f8fafc' }}>
+        <div className="container" style={{ maxWidth: '900px' }}>
+          <WhiteBlueCTA />
         </div>
       </section>
       
