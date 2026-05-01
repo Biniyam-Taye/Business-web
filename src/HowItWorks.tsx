@@ -133,14 +133,76 @@ export default function HowItWorksPage() {
 
             <motion.div initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               {[
-                { label: 'Execution Model', value: 'Milestone-driven', bg: 'linear-gradient(150deg, #1e3a8a 0%, #1d4ed8 100%)', fg: '#fff' },
-                { label: 'Delivery Rhythm', value: 'Weekly visibility', bg: '#ffffff', fg: '#0f172a' },
-                { label: 'Quality Standard', value: 'Performance + QA', bg: '#ffffff', fg: '#0f172a' },
-                { label: 'Support Layer', value: 'Post-launch growth', bg: 'linear-gradient(150deg, #312e81 0%, #4f46e5 100%)', fg: '#fff' },
+                {
+                  label: 'Execution Model',
+                  value: 'Milestone-driven',
+                  bg: 'linear-gradient(150deg, #1e3a8a 0%, #1d4ed8 100%)',
+                  fg: '#fff',
+                  image:
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
+                },
+                {
+                  label: 'Delivery Rhythm',
+                  value: 'Weekly visibility',
+                  bg: '#ffffff',
+                  fg: '#0f172a',
+                  image:
+                    'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80',
+                },
+                {
+                  label: 'Quality Standard',
+                  value: 'Performance + QA',
+                  bg: '#ffffff',
+                  fg: '#0f172a',
+                  image:
+                    'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+                },
+                {
+                  label: 'Support Layer',
+                  value: 'Post-launch growth',
+                  bg: 'linear-gradient(150deg, #312e81 0%, #4f46e5 100%)',
+                  fg: '#fff',
+                  image:
+                    'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80',
+                },
               ].map((item) => (
-                <motion.div key={item.label} whileHover={{ y: -3 }} style={{ borderRadius: '20px', border: item.fg === '#fff' ? '1px solid rgba(255,255,255,0.25)' : '1px solid #deebff', background: item.bg, color: item.fg, padding: '16px', boxShadow: '0 12px 24px rgba(15,23,42,0.08)' }}>
+                <motion.div
+                  key={item.label}
+                  whileHover={{ y: -3 }}
+                  style={{
+                    borderRadius: '20px',
+                    border: item.fg === '#fff' ? '1px solid rgba(255,255,255,0.25)' : '1px solid #deebff',
+                    background: item.bg,
+                    color: item.fg,
+                    padding: '16px',
+                    boxShadow: '0 12px 24px rgba(15,23,42,0.08)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      backgroundImage: `url(${item.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      opacity: item.fg === '#fff' ? 0.18 : 0.1,
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: item.fg === '#fff'
+                        ? 'linear-gradient(140deg, rgba(15,23,42,0.34) 0%, rgba(30,58,138,0.2) 100%)'
+                        : 'linear-gradient(140deg, rgba(255,255,255,0.76) 0%, rgba(239,246,255,0.7) 100%)',
+                    }}
+                  />
+                  <div style={{ position: 'relative', zIndex: 1 }}>
                   <p style={{ margin: 0, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.07em', opacity: 0.86, fontWeight: 800 }}>{item.label}</p>
                   <h3 style={{ margin: '8px 0 0', fontSize: '1.08rem' }}>{item.value}</h3>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
