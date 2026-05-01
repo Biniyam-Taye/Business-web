@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
@@ -34,46 +34,46 @@ const processSteps = [
     id: '01', title: 'Discovery & Consultation', icon: Handshake, 
     desc: 'We begin by defining your core business goals, target audience, and primary technical constraints. This ensures our entire team aligns perfectly with your scope from day one, minimizing risks and preventing costly pivots later in the cycle.', 
     details: ['Market & Competitor Analysis', 'Technical Feasibility Study', 'Resource & Timeline Estimation'],
-    hoverColor: '#2563eb', hoverGradient: 'linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(124,58,237,0.04) 100%)', borderAccent: 'rgba(37,99,235,0.4)' 
+    hoverColor: '#2563eb', borderAccent: 'rgba(37,99,235,0.25)' 
   },
   { 
     id: '02', title: 'Strategy & Planning', icon: Compass, 
     desc: 'With a clear understanding of your goals, we craft a practical and aggressive roadmap. We map out the exact architecture, technology stack, and establish measurable milestones so you know exactly what to expect and when.', 
     details: ['System Architecture Design', 'Milestone & Sprint Planning', 'Risk Mitigation Strategy'],
-    hoverColor: '#7c3aed', hoverGradient: 'linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(219,39,119,0.04) 100%)', borderAccent: 'rgba(124,58,237,0.4)' 
+    hoverColor: '#7c3aed', borderAccent: 'rgba(124,58,237,0.25)' 
   },
   { 
     id: '03', title: 'Design & Prototyping', icon: LayoutTemplate, 
     desc: 'Before writing a single line of code, we build clean UX flows and interactive prototypes. This allows key stakeholders to visualize the product, validate user journeys, and provide feedback on the direction seamlessly.', 
     details: ['Wireframing & User Flows', 'High-Fidelity UI Mockups', 'Interactive Clickable Prototypes'],
-    hoverColor: '#db2777', hoverGradient: 'linear-gradient(135deg, rgba(219,39,119,0.06) 0%, rgba(234,88,12,0.04) 100%)', borderAccent: 'rgba(219,39,119,0.4)' 
+    hoverColor: '#db2777', borderAccent: 'rgba(219,39,119,0.25)' 
   },
   { 
     id: '04', title: 'Development & Integration', icon: Code2, 
     desc: 'Our engineering team ships in structured, iterative sprints. We focus on writing clean, scalable code while simultaneously integrating essential third-party APIs, robust data systems, and your core business logic.', 
     details: ['Agile Sprint Execution', 'Custom API Development', 'Third-Party Systems Integration'],
-    hoverColor: '#ea580c', hoverGradient: 'linear-gradient(135deg, rgba(234,88,12,0.06) 0%, rgba(202,138,4,0.04) 100%)', borderAccent: 'rgba(234,88,12,0.4)' 
+    hoverColor: '#ea580c', borderAccent: 'rgba(234,88,12,0.25)' 
   },
   { 
     id: '05', title: 'Testing & Optimization', icon: FlaskConical, 
     desc: 'Quality is absolute and non-negotiable. We conduct rigorous manual and automated testing, covering performance benchmarking, security audits, and cross-platform QA to ensure your product is truly production-ready.', 
     details: ['Automated Unit & E2E Testing', 'Load & Performance Benchmarking', 'Vulnerability & Security Audits'],
-    hoverColor: '#059669', hoverGradient: 'linear-gradient(135deg, rgba(5,150,105,0.06) 0%, rgba(13,148,136,0.04) 100%)', borderAccent: 'rgba(5,150,105,0.4)' 
+    hoverColor: '#059669', borderAccent: 'rgba(5,150,105,0.25)' 
   },
   { 
     id: '06', title: 'Launch & Ongoing Support', icon: Rocket, 
     desc: 'We execute a highly orchestrated launch sequence to ensure zero downtime. Post-launch, we shift into active monitoring mode, providing continuous optimization cycles and immediate engineering support for any scaling needs.', 
     details: ['Zero-Downtime Deployment', 'Real-Time System Monitoring', 'Continuous Feature Optimization'],
-    hoverColor: '#0284c7', hoverGradient: 'linear-gradient(135deg, rgba(2,132,199,0.06) 0%, rgba(37,99,235,0.04) 100%)', borderAccent: 'rgba(2,132,199,0.4)' 
+    hoverColor: '#0284c7', borderAccent: 'rgba(2,132,199,0.25)' 
   },
 ];
 
 const benefits = [
-  { title: 'Fast Delivery Cycles', icon: Timer, text: 'Our milestone-based execution framework accelerates your time-to-value. By utilizing parallel work streams and agile methodologies, we guarantee rapid deployment without cutting corners.', gradient: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)' },
-  { title: 'Scalable Architecture', icon: Workflow, text: 'We don’t just build for today. Your infrastructure is engineered from the ground up for future growth, supporting massive user loads and complex enterprise integrations seamlessly.', gradient: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)' },
-  { title: 'Clean, Intuitive UI/UX', icon: Sparkles, text: 'First impressions matter. We deliver crystal-clear, modern interfaces that your users will immediately trust, drastically reducing onboarding friction and boosting platform retention.', gradient: 'linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%)' },
-  { title: 'Enterprise-Grade Security', icon: ShieldCheck, text: 'Security isn’t an afterthought. We embed rigorous enterprise-grade security protocols, end-to-end encryption, and compliance checks directly into our delivery pipeline from day one.', gradient: 'linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)' },
-  { title: 'Reliable Ongoing Support', icon: LifeBuoy, text: 'Our partnership extends far beyond launch day. Post-launch iterations, real-time monitoring, and dedicated engineering support keep your platform running smoothly 24/7.', gradient: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)' },
+  { title: 'Fast Delivery Cycles', icon: Timer, text: 'Our milestone-based execution framework accelerates your time-to-value. By utilizing parallel work streams and agile methodologies, we guarantee rapid deployment without cutting corners.', glowColor: 'rgba(59,130,246,0.15)', iconColor: '#3b82f6' },
+  { title: 'Scalable Architecture', icon: Workflow, text: 'We don’t just build for today. Your infrastructure is engineered from the ground up for future growth, supporting massive user loads and complex enterprise integrations seamlessly.', glowColor: 'rgba(139,92,246,0.15)', iconColor: '#8b5cf6' },
+  { title: 'Clean, Intuitive UI/UX', icon: Sparkles, text: 'First impressions matter. We deliver crystal-clear, modern interfaces that your users will immediately trust, drastically reducing onboarding friction and boosting platform retention.', glowColor: 'rgba(236,72,153,0.15)', iconColor: '#ec4899' },
+  { title: 'Enterprise-Grade Security', icon: ShieldCheck, text: 'Security isn’t an afterthought. We embed rigorous enterprise-grade security protocols, end-to-end encryption, and compliance checks directly into our delivery pipeline from day one.', glowColor: 'rgba(16,185,129,0.15)', iconColor: '#10b981' },
+  { title: 'Reliable Ongoing Support', icon: LifeBuoy, text: 'Our partnership extends far beyond launch day. Post-launch iterations, real-time monitoring, and dedicated engineering support keep your platform running smoothly 24/7.', glowColor: 'rgba(14,165,233,0.15)', iconColor: '#0ea5e9' },
 ];
 
 const faqs = [
@@ -82,6 +82,230 @@ const faqs = [
   { q: 'Do you provide engineering support after the product launches?', a: 'Yes, absolutely. We provide comprehensive post-launch support SLA packages. This includes continuous system optimization cycles, security patching, real-time uptime monitoring, and long-term product improvement services.' },
   { q: 'Can you integrate with our existing internal software?', a: 'Definitely. We specialize in building custom API layers and secure middleware to ensure our new solutions communicate seamlessly with your legacy databases, CRMs, or any proprietary software your team currently utilizes.' },
 ];
+
+// --- Unique Interactive Components ---
+
+function TiltCard({ benefit }: any) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const mouseXSpring = useSpring(x, { stiffness: 400, damping: 40 });
+  const mouseYSpring = useSpring(y, { stiffness: 400, damping: 40 });
+  
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["6deg", "-6deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-6deg", "6deg"]);
+  
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    x.set(mouseX / width - 0.5);
+    y.set(mouseY / height - 0.5);
+    
+    setMousePos({ x: mouseX, y: mouseY });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+        perspective: 1500,
+        position: 'relative',
+        borderRadius: '32px',
+        background: '#fff',
+        border: '1px solid #f1f5f9',
+        boxShadow: isHovered ? '0 30px 60px rgba(0,0,0,0.06)' : '0 10px 30px rgba(0,0,0,0.02)',
+        cursor: 'default',
+        transition: 'box-shadow 0.3s ease'
+      }}
+    >
+       <div style={{ position: 'absolute', inset: 0, borderRadius: '32px', overflow: 'hidden' }}>
+          <motion.div
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, ${benefit.glowColor}, transparent 40%)`,
+              zIndex: 0,
+              pointerEvents: 'none',
+            }}
+          />
+       </div>
+
+      <motion.div style={{ position: 'relative', zIndex: 1, padding: '48px', transform: isHovered ? 'translateZ(40px)' : 'translateZ(0)', transition: 'transform 0.3s ease' }}>
+        <motion.div 
+           animate={{ scale: isHovered ? 1.15 : 1, backgroundColor: isHovered ? '#fff' : '#eff6ff', boxShadow: isHovered ? `0 15px 30px ${benefit.glowColor}` : 'none', color: isHovered ? benefit.iconColor : '#2563eb' }}
+           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+           style={{ width: '64px', height: '64px', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}
+        >
+          <motion.div animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }} transition={{ duration: 0.4 }}>
+            <benefit.icon size={32} strokeWidth={2} />
+          </motion.div>
+        </motion.div>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.01em', position: 'relative', display: 'inline-block' }}>
+          {benefit.title}
+          <motion.div animate={{ width: isHovered ? '100%' : '0%', opacity: isHovered ? 1 : 0 }} style={{ height: '3px', background: benefit.iconColor, marginTop: '6px', borderRadius: '4px' }} transition={{ duration: 0.3 }} />
+        </h3>
+        <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{benefit.text}</p>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
+  const isHovered = hoveredStep === step.id;
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+     <motion.div 
+        initial={{ opacity: 0, x: -20 }} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        viewport={{ once: true, margin: '-50px' }} 
+        transition={{ duration: 0.6, delay: idx * 0.1 }} 
+        style={{ display: 'flex', gap: '40px', position: 'relative', zIndex: 1 }}
+        onHoverStart={() => setHoveredStep(step.id)}
+        onHoverEnd={() => setHoveredStep(null)}
+        onTap={() => setHoveredStep(isHovered ? null : step.id)}
+      >
+        <div style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
+          <motion.div 
+            animate={{ 
+              scale: isHovered ? 1.15 : 1, 
+              background: isHovered ? step.hoverColor : '#fff',
+              borderColor: isHovered ? step.hoverColor : '#eff6ff',
+              color: isHovered ? '#fff' : '#2563eb'
+            }}
+            transition={{ duration: 0.3 }}
+            style={{ width: '64px', height: '64px', borderRadius: '20px', border: '2px solid #eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,235,0.08)' }}
+          >
+            <motion.div animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }} transition={{ duration: 0.4 }}>
+              <step.icon size={28} strokeWidth={2.5} />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <div style={{ flex: 1 }}>
+          <motion.div 
+            onMouseMove={handleMouseMove}
+            animate={{ 
+              y: isHovered ? -6 : 0, 
+              scale: isHovered ? 1.02 : 1,
+              boxShadow: isHovered ? `0 20px 40px rgba(0,0,0,0.08), 0 0 0 1px ${step.borderAccent}` : '0 10px 30px rgba(0,0,0,0.02), 0 0 0 1px transparent',
+            }}
+            transition={{ duration: 0.3 }}
+            style={{ borderRadius: '28px', padding: '48px', border: '1px solid #f1f5f9', position: 'relative', overflow: 'hidden', background: '#fff' }}
+          >
+            <motion.div
+              animate={{ opacity: isHovered ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, ${step.borderAccent}, transparent 40%)`,
+                zIndex: 0,
+                pointerEvents: 'none',
+              }}
+            />
+            <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <motion.span 
+                        animate={{ color: isHovered ? step.hoverColor : '#94a3b8' }}
+                        transition={{ duration: 0.3 }}
+                        style={{ fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+                    >
+                      STEP {step.id}
+                    </motion.span>
+                    <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.01em' }}>{step.title}</h3>
+                  </div>
+                  
+                  <AnimatePresence>
+                    {isHovered && (
+                      <motion.div 
+                        initial={{ opacity: 0, x: -10 }} 
+                        animate={{ opacity: 1, x: 0 }} 
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ArrowRight size={28} color={step.hoverColor} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                
+                <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{step.desc}</p>
+                
+                <div style={{ marginTop: '28px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                  {step.details.map((detail: string, i: number) => (
+                    <motion.div key={i} animate={{ x: isHovered ? 4 : 0 }} transition={{ duration: 0.3, delay: isHovered ? i * 0.05 : 0 }} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                      <motion.div animate={{ color: isHovered ? step.hoverColor : '#cbd5e1' }} style={{ marginTop: '2px' }}>
+                        <CheckCircle2 size={18} strokeWidth={2.5} />
+                      </motion.div>
+                      <span style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 500, lineHeight: 1.5 }}>{detail}</span>
+                    </motion.div>
+                  ))}
+                </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+  )
+}
+
+function MetricCard({ value, label }: any) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  return (
+    <motion.div 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      whileHover={{ y: -8, scale: 1.05 }} 
+      style={{ background: '#fff', borderRadius: '24px', padding: '32px', border: '1px solid #e2e8f0', textAlign: 'center', transition: 'all 0.3s ease', boxShadow: isHovered ? '0 20px 40px rgba(37,99,235,0.1)' : '0 10px 20px rgba(0,0,0,0.02)', position: 'relative', overflow: 'hidden' }}
+    >
+      <motion.div
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{ position: 'absolute', inset: 0, background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(37,99,235,0.08), transparent 60%)`, zIndex: 0, pointerEvents: 'none' }}
+      />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <motion.div animate={{ scale: isHovered ? 1.1 : 1, color: isHovered ? '#1d4ed8' : '#2563eb' }} transition={{ type: "spring", stiffness: 300 }} style={{ fontSize: '3.5rem', fontWeight: 900, lineHeight: 1 }}>{value}</motion.div>
+        <div style={{ fontSize: '1.05rem', color: '#64748b', fontWeight: 700, marginTop: '12px' }}>{label}</div>
+      </div>
+    </motion.div>
+  )
+}
+
+// --- Main Page Component ---
 
 export default function HowItWorksPage() {
   const navigate = useNavigate();
@@ -95,7 +319,6 @@ export default function HowItWorksPage() {
       
       {/* 1. Hero Section */}
       <section style={{ position: 'relative', padding: '160px 0 80px', overflow: 'hidden' }}>
-        {/* Light subtle background gradients */}
         <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
         
@@ -174,96 +397,9 @@ export default function HowItWorksPage() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
-              {processSteps.map((step, idx) => {
-                const isHovered = hoveredStep === step.id;
-                return (
-                  <motion.div 
-                    key={step.id} 
-                    initial={{ opacity: 0, x: -20 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    viewport={{ once: true, margin: '-50px' }} 
-                    transition={{ duration: 0.6, delay: idx * 0.1 }} 
-                    style={{ display: 'flex', gap: '40px', position: 'relative', zIndex: 1 }}
-                    onHoverStart={() => setHoveredStep(step.id)}
-                    onHoverEnd={() => setHoveredStep(null)}
-                    onTap={() => setHoveredStep(isHovered ? null : step.id)}
-                  >
-                    
-                    {/* Timeline Icon Node */}
-                    <div style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
-                      <motion.div 
-                        animate={{ 
-                          scale: isHovered ? 1.15 : 1, 
-                          background: isHovered ? step.hoverColor : '#fff',
-                          borderColor: isHovered ? step.hoverColor : '#eff6ff',
-                          color: isHovered ? '#fff' : '#2563eb'
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ width: '64px', height: '64px', borderRadius: '20px', border: '2px solid #eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,235,0.08)' }}
-                      >
-                        <motion.div animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }} transition={{ duration: 0.4 }}>
-                          <step.icon size={28} strokeWidth={2.5} />
-                        </motion.div>
-                      </motion.div>
-                    </div>
-
-                    {/* Card Content */}
-                    <div style={{ flex: 1 }}>
-                      <motion.div 
-                        animate={{ 
-                          y: isHovered ? -6 : 0, 
-                          scale: isHovered ? 1.02 : 1,
-                          boxShadow: isHovered ? `0 20px 40px rgba(0,0,0,0.08), 0 0 0 1px ${step.borderAccent}` : '0 10px 30px rgba(0,0,0,0.02), 0 0 0 1px transparent',
-                          background: isHovered ? step.hoverGradient : '#fff',
-                        }}
-                        transition={{ duration: 0.3 }}
-                        style={{ borderRadius: '28px', padding: '48px', border: '1px solid #f1f5f9', position: 'relative', overflow: 'hidden' }}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                            <motion.span 
-                               animate={{ color: isHovered ? step.hoverColor : '#94a3b8' }}
-                               transition={{ duration: 0.3 }}
-                               style={{ fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}
-                            >
-                              STEP {step.id}
-                            </motion.span>
-                            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.01em' }}>{step.title}</h3>
-                          </div>
-                          
-                          <AnimatePresence>
-                            {isHovered && (
-                              <motion.div 
-                                initial={{ opacity: 0, x: -10 }} 
-                                animate={{ opacity: 1, x: 0 }} 
-                                exit={{ opacity: 0, x: -10 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <ArrowRight size={28} color={step.hoverColor} />
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                        
-                        <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{step.desc}</p>
-                        
-                        <div style={{ marginTop: '28px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-                          {step.details.map((detail, i) => (
-                            <motion.div key={i} animate={{ x: isHovered ? 4 : 0 }} transition={{ duration: 0.3, delay: isHovered ? i * 0.05 : 0 }} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                              <motion.div animate={{ color: isHovered ? step.hoverColor : '#cbd5e1' }} style={{ marginTop: '2px' }}>
-                                <CheckCircle2 size={18} strokeWidth={2.5} />
-                              </motion.div>
-                              <span style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 500, lineHeight: 1.5 }}>{detail}</span>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                      </motion.div>
-                    </div>
-                    
-                  </motion.div>
-                );
-              })}
+              {processSteps.map((step, idx) => (
+                <StepRow key={step.id} step={step} idx={idx} hoveredStep={hoveredStep} setHoveredStep={setHoveredStep} />
+              ))}
             </div>
           </div>
         </div>
@@ -277,40 +413,10 @@ export default function HowItWorksPage() {
             <p style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px', maxWidth: '650px', margin: '16px auto 0' }}>We refuse to compromise on quality. Every digital product we ship is equipped with enterprise-ready features and built to perform securely.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px', perspective: 1200 }}>
             {benefits.map((benefit, idx) => (
-              <motion.div 
-                key={benefit.title} 
-                initial={{ opacity: 0, y: 30 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                viewport={{ once: true }} 
-                transition={{ delay: idx * 0.1 }} 
-                whileHover="hover"
-                style={{ background: '#f8fafc', borderRadius: '32px', padding: '48px', border: '1px solid #f1f5f9', display: 'flex', flexDirection: 'column', gap: '24px', position: 'relative', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}
-              >
-                {/* Background Hover Gradient Overlay */}
-                <motion.div 
-                  variants={{ hover: { opacity: 1 } }}
-                  initial={{ opacity: 0 }}
-                  style={{ position: 'absolute', inset: 0, background: benefit.gradient, zIndex: 0 }}
-                  transition={{ duration: 0.4 }}
-                />
-                
-                <div style={{ position: 'relative', zIndex: 1 }}>
-                  <motion.div 
-                     variants={{ hover: { scale: 1.1, backgroundColor: '#fff', boxShadow: '0 10px 25px rgba(37,99,235,0.1)' } }}
-                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                     style={{ width: '64px', height: '64px', borderRadius: '20px', background: '#eff6ff', color: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}
-                  >
-                    <benefit.icon size={32} strokeWidth={2} />
-                  </motion.div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.01em', position: 'relative', display: 'inline-block' }}>
-                    {benefit.title}
-                    {/* Animated Underline */}
-                    <motion.div variants={{ hover: { width: '100%', opacity: 1 } }} initial={{ width: '0%', opacity: 0 }} style={{ height: '3px', background: '#2563eb', marginTop: '6px', borderRadius: '4px' }} transition={{ duration: 0.3 }} />
-                  </h3>
-                  <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{benefit.text}</p>
-                </div>
+              <motion.div key={benefit.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
+                <TiltCard benefit={benefit} />
               </motion.div>
             ))}
           </div>
@@ -364,14 +470,8 @@ export default function HowItWorksPage() {
               </motion.div>
               
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-                <motion.div whileHover={{ y: -5, scale: 1.02 }} style={{ background: '#fff', borderRadius: '24px', padding: '32px', border: '1px solid #e2e8f0', textAlign: 'center', transition: 'all 0.3s ease', boxShadow: '0 10px 20px rgba(0,0,0,0.02)' }}>
-                  <div style={{ fontSize: '3rem', fontWeight: 900, color: '#2563eb', lineHeight: 1 }}>98%</div>
-                  <div style={{ fontSize: '1.05rem', color: '#64748b', fontWeight: 700, marginTop: '12px' }}>On-Time Delivery</div>
-                </motion.div>
-                <motion.div whileHover={{ y: -5, scale: 1.02 }} style={{ background: '#fff', borderRadius: '24px', padding: '32px', border: '1px solid #e2e8f0', textAlign: 'center', transition: 'all 0.3s ease', boxShadow: '0 10px 20px rgba(0,0,0,0.02)' }}>
-                  <div style={{ fontSize: '3rem', fontWeight: 900, color: '#2563eb', lineHeight: 1 }}>40+</div>
-                  <div style={{ fontSize: '1.05rem', color: '#64748b', fontWeight: 700, marginTop: '12px' }}>Enterprise Launches</div>
-                </motion.div>
+                <MetricCard value="98%" label="On-Time Delivery" />
+                <MetricCard value="40+" label="Enterprise Launches" />
               </div>
             </motion.div>
           </div>
