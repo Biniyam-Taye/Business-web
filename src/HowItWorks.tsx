@@ -22,11 +22,11 @@ import {
 } from 'lucide-react';
 
 const workflows = [
-  { step: 'Idea', sub: 'Concept Validation' },
-  { step: 'Strategy', sub: 'Roadmap & Architecture' },
-  { step: 'Design', sub: 'UX/UI Prototyping' },
-  { step: 'Build', sub: 'Agile Engineering' },
-  { step: 'Launch', sub: 'Deployment & Scale' },
+  { step: 'Idea', sub: 'Concept Validation', gradient: 'linear-gradient(135deg, #2563eb 0%, #60a5fa 100%)', color: '#2563eb' },
+  { step: 'Strategy', sub: 'Roadmap & Architecture', gradient: 'linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%)', color: '#7c3aed' },
+  { step: 'Design', sub: 'UX/UI Prototyping', gradient: 'linear-gradient(135deg, #db2777 0%, #f472b6 100%)', color: '#db2777' },
+  { step: 'Build', sub: 'Agile Engineering', gradient: 'linear-gradient(135deg, #ea580c 0%, #fb923c 100%)', color: '#ea580c' },
+  { step: 'Launch', sub: 'Deployment & Scale', gradient: 'linear-gradient(135deg, #059669 0%, #34d399 100%)', color: '#059669' },
 ];
 
 const processSteps = [
@@ -84,6 +84,49 @@ const faqs = [
 ];
 
 // --- Unique Interactive Components ---
+
+function WorkflowCard({ wf, i, isLast }: any) {
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+      <motion.div 
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        animate={{ 
+           y: isHovered ? -8 : 0, 
+           scale: isHovered ? 1.05 : 1,
+           boxShadow: isHovered ? `0 20px 40px ${wf.color}50` : '0 4px 15px rgba(0,0,0,0.02)',
+           borderColor: isHovered ? 'transparent' : '#e2e8f0' 
+        }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        style={{ background: '#fff', border: '1px solid #e2e8f0', padding: '24px 40px', borderRadius: '24px', textAlign: 'center', cursor: 'default', position: 'relative', overflow: 'hidden' }}
+      >
+        {/* Liquid Gradient Bubble Fill */}
+        <motion.div 
+           initial={false}
+           animate={{ clipPath: isHovered ? 'circle(150% at 50% 100%)' : 'circle(0% at 50% 100%)' }}
+           transition={{ duration: 0.4, ease: "easeOut" }}
+           style={{ position: 'absolute', inset: 0, background: wf.gradient, zIndex: 0 }}
+        />
+        
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div animate={{ color: isHovered ? '#fff' : '#0f172a' }} transition={{ duration: 0.2 }} style={{ fontSize: '1.35rem', fontWeight: 800 }}>
+             {wf.step}
+          </motion.div>
+          <motion.div animate={{ color: isHovered ? 'rgba(255,255,255,0.9)' : '#64748b' }} transition={{ duration: 0.2 }} style={{ fontSize: '0.95rem', fontWeight: 600, marginTop: '6px' }}>
+             {wf.sub}
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {!isLast && (
+        <motion.div animate={{ x: isHovered ? 5 : [0, 5, 0], scale: isHovered ? 1.2 : 1 }} transition={isHovered ? { duration: 0.3 } : { repeat: Infinity, duration: 2, ease: "easeInOut" }}>
+          <ArrowRight size={24} color={isHovered ? wf.color : "#cbd5e1"} />
+        </motion.div>
+      )}
+    </div>
+  )
+}
 
 function TiltCard({ benefit }: any) {
   const x = useMotionValue(0);
@@ -172,12 +215,6 @@ function TiltCard({ benefit }: any) {
 
 function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
   const isHovered = hoveredStep === step.id;
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
 
   return (
      <motion.div 
@@ -193,13 +230,14 @@ function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
         <div style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
           <motion.div 
             animate={{ 
-              scale: isHovered ? 1.15 : 1, 
+              scale: isHovered ? 1.1 : 1, 
               background: isHovered ? step.hoverColor : '#fff',
               borderColor: isHovered ? step.hoverColor : '#eff6ff',
-              color: isHovered ? '#fff' : '#2563eb'
+              color: isHovered ? '#fff' : '#2563eb',
+              boxShadow: isHovered ? `0 10px 25px ${step.hoverColor}60` : '0 10px 25px rgba(37,99,235,0.08)'
             }}
             transition={{ duration: 0.3 }}
-            style={{ width: '64px', height: '64px', borderRadius: '20px', border: '2px solid #eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,235,0.08)' }}
+            style={{ width: '64px', height: '64px', borderRadius: '20px', border: '2px solid #eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
             <motion.div animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }} transition={{ duration: 0.4 }}>
               <step.icon size={28} strokeWidth={2.5} />
@@ -209,65 +247,71 @@ function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
 
         <div style={{ flex: 1 }}>
           <motion.div 
-            onMouseMove={handleMouseMove}
             animate={{ 
-              y: isHovered ? -6 : 0, 
-              scale: isHovered ? 1.02 : 1,
-              boxShadow: isHovered ? `0 20px 40px rgba(0,0,0,0.08), 0 0 0 1px ${step.borderAccent}` : '0 10px 30px rgba(0,0,0,0.02), 0 0 0 1px transparent',
+              y: isHovered ? -5 : 0, 
+              boxShadow: isHovered ? `0 25px 50px rgba(0,0,0,0.05), 0 0 0 1px ${step.borderAccent}` : '0 4px 20px rgba(0,0,0,0.02), 0 0 0 1px transparent',
             }}
             transition={{ duration: 0.3 }}
-            style={{ borderRadius: '28px', padding: '48px', border: '1px solid #f1f5f9', position: 'relative', overflow: 'hidden', background: '#fff' }}
+            style={{ borderRadius: '24px', padding: '40px 48px', border: '1px solid #f1f5f9', background: '#fff', position: 'relative', overflow: 'hidden' }}
           >
-            <motion.div
-              animate={{ opacity: isHovered ? 1 : 0 }}
+            {/* Sliding Left Border Accent */}
+            <motion.div 
+              animate={{ width: isHovered ? '8px' : '0px' }}
               transition={{ duration: 0.3 }}
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, ${step.borderAccent}, transparent 40%)`,
-                zIndex: 0,
-                pointerEvents: 'none',
-              }}
+              style={{ position: 'absolute', left: 0, top: 0, bottom: 0, background: step.hoverColor }}
             />
+
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <motion.span 
-                        animate={{ color: isHovered ? step.hoverColor : '#94a3b8' }}
+                    <motion.div 
+                        animate={{ 
+                          background: isHovered ? `${step.hoverColor}15` : 'transparent',
+                          color: isHovered ? step.hoverColor : '#94a3b8',
+                          padding: isHovered ? '4px 12px' : '0px 0px',
+                          borderRadius: '8px'
+                        }}
                         transition={{ duration: 0.3 }}
-                        style={{ fontSize: '0.9rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}
+                        style={{ fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}
                     >
                       STEP {step.id}
-                    </motion.span>
+                    </motion.div>
                     <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', margin: 0, letterSpacing: '-0.01em' }}>{step.title}</h3>
                   </div>
                   
-                  <AnimatePresence>
-                    {isHovered && (
-                      <motion.div 
-                        initial={{ opacity: 0, x: -10 }} 
-                        animate={{ opacity: 1, x: 0 }} 
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ArrowRight size={28} color={step.hoverColor} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <motion.div 
+                    animate={{ x: isHovered ? 0 : -10, opacity: isHovered ? 1 : 0 }} 
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ArrowRight size={28} color={step.hoverColor} />
+                  </motion.div>
                 </div>
                 
                 <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.7, margin: 0 }}>{step.desc}</p>
                 
-                <div style={{ marginTop: '28px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-                  {step.details.map((detail: string, i: number) => (
-                    <motion.div key={i} animate={{ x: isHovered ? 4 : 0 }} transition={{ duration: 0.3, delay: isHovered ? i * 0.05 : 0 }} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                      <motion.div animate={{ color: isHovered ? step.hoverColor : '#cbd5e1' }} style={{ marginTop: '2px' }}>
-                        <CheckCircle2 size={18} strokeWidth={2.5} />
-                      </motion.div>
-                      <span style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 500, lineHeight: 1.5 }}>{detail}</span>
+                {/* Accordion Details */}
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                      animate={{ height: 'auto', opacity: 1, marginTop: '28px' }}
+                      exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', paddingBottom: '8px' }}>
+                        {step.details.map((detail: string, i: number) => (
+                          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                            <div style={{ marginTop: '2px', color: step.hoverColor }}>
+                              <CheckCircle2 size={18} strokeWidth={2.5} />
+                            </div>
+                            <span style={{ fontSize: '0.95rem', color: '#475569', fontWeight: 500, lineHeight: 1.5 }}>{detail}</span>
+                          </div>
+                        ))}
+                      </div>
                     </motion.div>
-                  ))}
-                </div>
+                  )}
+                </AnimatePresence>
             </div>
           </motion.div>
         </div>
@@ -349,26 +393,10 @@ export default function HowItWorksPage() {
 
       {/* 3. Visual Workflow Section */}
       <section style={{ padding: '20px 0 100px', background: '#fcfcfc' }}>
-        <div className="container" style={{ maxWidth: '1100px' }}>
+        <div className="container" style={{ maxWidth: '1200px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '20px' }}>
             {workflows.map((wf, i) => (
-              <div key={wf.step} style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <motion.div 
-                  whileHover="hover"
-                  style={{ background: '#fff', border: '1px solid #e2e8f0', padding: '20px 36px', borderRadius: '24px', textAlign: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.02)', cursor: 'default', transition: 'all 0.3s ease' }}
-                  variants={{ hover: { y: -5, boxShadow: '0 15px 30px rgba(37,99,235,0.08)', borderColor: '#bfdbfe' } }}
-                >
-                  <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0f172a' }}>{wf.step}</div>
-                  <motion.div variants={{ hover: { color: '#2563eb' } }} style={{ fontSize: '0.95rem', color: '#64748b', fontWeight: 600, marginTop: '6px', transition: 'color 0.3s' }}>
-                    {wf.sub}
-                  </motion.div>
-                </motion.div>
-                {i < workflows.length - 1 && (
-                  <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
-                    <ArrowRight size={24} color="#cbd5e1" />
-                  </motion.div>
-                )}
-              </div>
+              <WorkflowCard key={wf.step} wf={wf} i={i} isLast={i === workflows.length - 1} />
             ))}
           </div>
         </div>
