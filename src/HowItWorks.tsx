@@ -140,56 +140,70 @@ function WorkflowCard({ wf, i, isLast }: any) {
             position: 'relative',
             borderRadius: '20px',
             overflow: 'hidden',
-            background: wf.gradient,
-            padding: '20px 20px 20px 24px',
+            background: 'linear-gradient(145deg, #ffffff 0%, #f4f6f9 100%)',
+            padding: '18px 20px 18px 20px',
             display: 'flex',
             alignItems: 'center',
             gap: '16px',
-            boxShadow: `0 8px 28px ${wf.color}40`,
+            boxShadow: '0 4px 20px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04)',
+            border: '1px solid rgba(226,232,240,0.9)',
           }}
           animate={{ scale: isHovered ? 0.97 : 1 }}
           transition={{ duration: 0.2 }}
         >
+          {/* Colored left accent bar */}
+          <div style={{
+            position: 'absolute', left: 0, top: 0, bottom: 0,
+            width: '4px',
+            background: wf.gradient,
+            borderRadius: '20px 0 0 20px',
+          }} />
+
           {/* Step number badge */}
           <div style={{
-            width: '40px', height: '40px', borderRadius: '50%',
-            background: 'rgba(255,255,255,0.22)',
-            border: '1.5px solid rgba(255,255,255,0.45)',
+            width: '42px', height: '42px', borderRadius: '14px',
+            background: wf.gradient,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0,
-            fontWeight: 900, fontSize: '0.85rem', color: '#fff',
-            backdropFilter: 'blur(4px)',
+            fontWeight: 900, fontSize: '0.82rem', color: '#fff',
+            boxShadow: `0 4px 12px ${wf.color}40`,
+            marginLeft: '8px',
           }}>
             {String(i + 1).padStart(2, '0')}
           </div>
+
           {/* Text */}
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>{wf.step}</div>
-            <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginTop: '2px' }}>{wf.sub}</div>
+            <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.01em' }}>{wf.step}</div>
+            <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#64748b', marginTop: '2px' }}>{wf.sub}</div>
           </div>
-          {/* Decorative orb */}
+
+          {/* Right chevron dot */}
           <div style={{
-            position: 'absolute', right: '-16px', top: '-16px',
-            width: '72px', height: '72px', borderRadius: '50%',
-            background: 'rgba(255,255,255,0.12)',
-            pointerEvents: 'none',
-          }} />
+            width: '28px', height: '28px', borderRadius: '50%',
+            background: '#f1f5f9',
+            border: '1px solid #e2e8f0',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0,
+          }}>
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: wf.color }} />
+          </div>
         </motion.div>
 
         {/* Down arrow connector */}
         {!isLast && (
           <motion.div
-            animate={{ y: [0, 5, 0] }}
+            animate={{ y: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
-            style={{ display: 'flex', justifyContent: 'center', margin: '4px 0' }}
+            style={{ display: 'flex', justifyContent: 'center', margin: '6px 0' }}
           >
             <div style={{
-              width: '32px', height: '32px', borderRadius: '50%',
-              background: `${wf.color}18`,
-              border: `1.5px solid ${wf.color}40`,
+              width: '28px', height: '28px', borderRadius: '50%',
+              background: '#f8fafc',
+              border: '1px solid #e2e8f0',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              <ArrowDown size={16} color={wf.color} strokeWidth={2.5} />
+              <ArrowDown size={14} color="#94a3b8" strokeWidth={2.5} />
             </div>
           </motion.div>
         )}
