@@ -278,78 +278,51 @@ export default function ContactPage() {
           color: #1e293b;
         }
 
-        /* --- Channels Premium Hover Styles --- */
+        /* --- Channels Premium Liquid Hover Styles --- */
         .contact-page .cp-channel-card {
           position: relative;
-          border-radius: 22px;
-          padding: 2px;
-          background: transparent;
+          overflow: hidden;
+          border-radius: 20px;
+          border: 2px solid #dbeafe;
+          background: #ffffff;
+          padding: 24px;
+          box-shadow: 0 10px 28px rgba(37,99,235,0.06);
           cursor: pointer;
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
           z-index: 1;
         }
 
+        /* The liquid expanding circle */
         .contact-page .cp-channel-card::before {
           content: '';
           position: absolute;
-          inset: 0;
-          border-radius: 22px;
-          background: #dbeafe;
-          transition: background 0.4s ease, opacity 0.4s ease;
-          z-index: 0;
+          top: 46px; /* center of the icon roughly */
+          left: 46px;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+          transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                      height 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                      top 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                      left 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                      opacity 0.4s ease;
+          z-index: -1;
+          opacity: 0.95;
         }
 
         .contact-page .cp-channel-card:hover::before {
-          background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
-          background-size: 300% 100%;
-          animation: channelGlowMove 2.5s linear infinite;
+          width: 900px;
+          height: 900px;
+          top: -400px;
+          left: -400px;
+          opacity: 1;
         }
 
         .contact-page .cp-channel-card:hover {
           transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 24px 48px rgba(59, 130, 246, 0.25), 0 0 24px rgba(139, 92, 246, 0.2);
-        }
-
-        @keyframes channelGlowMove {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 100% 50%; }
-        }
-
-        .contact-page .cp-channel-card-inner {
-          position: relative;
-          border-radius: 20px;
-          background: linear-gradient(155deg, #ffffff 0%, #f8fbff 100%);
-          padding: 20px;
-          height: 100%;
-          box-sizing: border-box;
-          transition: background 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 2;
-          overflow: hidden;
-        }
-
-        .contact-page .cp-channel-card:hover .cp-channel-card-inner {
-          background: linear-gradient(155deg, #0f172a 0%, #1e1b4b 100%);
-        }
-
-        .contact-page .cp-channel-card-inner::before {
-          content: '';
-          position: absolute;
-          top: -40px;
-          right: -40px;
-          width: 140px;
-          height: 140px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
-          opacity: 0;
-          transform: scale(0.5);
-          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 0;
-          pointer-events: none;
-        }
-
-        .contact-page .cp-channel-card:hover .cp-channel-card-inner::before {
-          opacity: 1;
-          transform: scale(1.5);
+          border-color: transparent;
+          box-shadow: 0 24px 48px rgba(37,99,235,0.25);
         }
 
         .contact-page .cp-channel-icon {
@@ -363,21 +336,22 @@ export default function ContactPage() {
           color: #1d4ed8;
           background: #eff6ff;
           border: 2px solid #bfdbfe;
-          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: all 0.4s ease;
           z-index: 2;
         }
 
+        /* Subtle icon pop on hover */
         .contact-page .cp-channel-card:hover .cp-channel-icon {
-          color: #ffffff;
-          background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(255, 255, 255, 0.2);
-          transform: scale(1.1) rotate(4deg);
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          color: #2563eb;
+          background: #ffffff;
+          border-color: #ffffff;
+          transform: scale(1.1) rotate(-5deg);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .contact-page .cp-channel-title {
           position: relative;
-          margin: 16px 0 0 0;
+          margin: 18px 0 0 0;
           font-weight: 800;
           color: #020617;
           font-size: 1.05rem;
@@ -401,12 +375,12 @@ export default function ContactPage() {
         }
 
         .contact-page .cp-channel-card:hover .cp-channel-detail {
-          color: #a78bfa;
+          color: #e0e7ff;
         }
 
         .contact-page .cp-channel-note {
           position: relative;
-          margin: 8px 0 0 0;
+          margin: 10px 0 0 0;
           color: #334155;
           font-size: 0.9rem;
           line-height: 1.55;
@@ -416,7 +390,7 @@ export default function ContactPage() {
         }
 
         .contact-page .cp-channel-card:hover .cp-channel-note {
-          color: #cbd5e1;
+          color: #c7d2fe;
         }
 
         @media (max-width: 960px) {
@@ -560,20 +534,18 @@ export default function ContactPage() {
                     transition={{ ...stagger, delay: idx * 0.08 }}
                     className="cp-channel-card"
                   >
-                    <div className="cp-channel-card-inner">
-                      <div className="cp-channel-icon">
-                        {channel.icon}
-                      </div>
-                      <p className="cp-channel-title">
-                        {channel.title}
-                      </p>
-                      <p className="cp-channel-detail">
-                        {channel.detail}
-                      </p>
-                      <p className="cp-channel-note">
-                        {channel.note}
-                      </p>
+                    <div className="cp-channel-icon">
+                      {channel.icon}
                     </div>
+                    <p className="cp-channel-title">
+                      {channel.title}
+                    </p>
+                    <p className="cp-channel-detail">
+                      {channel.detail}
+                    </p>
+                    <p className="cp-channel-note">
+                      {channel.note}
+                    </p>
                   </motion.article>
                 ))}
               </div>
