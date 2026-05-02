@@ -82,7 +82,7 @@ export default function EngineeringGuidePage() {
             Engineering Resource Hub
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '860px' }}>
-            A static, production-focused reference for how NexTech plans, builds, and operates scalable digital systems.
+            A static, production-focused reference for how AfriNia Digital Solution plans, builds, and operates scalable digital systems.
           </motion.p>
         </div>
       </section>

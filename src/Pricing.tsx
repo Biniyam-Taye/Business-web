@@ -461,7 +461,7 @@ export default function Pricing() {
                 </div>
               </div>
               <p style={{ margin: 0, color: '#1e293b', lineHeight: 1.9, fontSize: 'clamp(1.02rem, 2vw, 1.13rem)', maxWidth: '920px', position: 'relative', zIndex: 1, fontWeight: 600 }}>
-                "NexTech delivered our platform faster than expected and gave us a scalable foundation we could confidently grow on."
+                "AfriNia Digital Solution delivered our platform faster than expected and gave us a scalable foundation we could confidently grow on."
               </p>
               <p style={{ margin: '11px 0 0 0', color: '#334155', fontSize: '0.86rem', fontWeight: 800, position: 'relative', zIndex: 1 }}>
                 COO, Growth-stage SaaS Company

@@ -4,7 +4,7 @@ const sections = [
   {
     title: '1. Acceptance of Terms',
     points: [
-      'These Terms of Service govern access to and use of NexTech websites, digital platforms, products, and related professional services.',
+      'These Terms of Service govern access to and use of AfriNia Digital Solution websites, digital platforms, products, and related professional services.',
       'By using this website or engaging with our services, you agree to these terms and any related policies referenced within them.',
       'If you do not agree, you must discontinue use of the website and related services.',
     ],
@@ -28,7 +28,7 @@ const sections = [
   {
     title: '4. Delivery and Change Management',
     points: [
-      'NexTech delivers services according to agreed scope and timeline assumptions documented in project artifacts.',
+      'AfriNia Digital Solution delivers services according to agreed scope and timeline assumptions documented in project artifacts.',
       'Requested changes outside baseline scope may require timeline updates, revised pricing, or change orders before implementation.',
       'Client-side delays, approval delays, unavailable dependencies, or external vendor constraints may impact delivery timelines.',
     ],
@@ -38,7 +38,7 @@ const sections = [
     points: [
       'Each party retains ownership of its pre-existing intellectual property, tools, methods, and proprietary materials.',
       'Ownership and licensing of project deliverables are defined in the governing contract and transfer conditions, typically tied to completed payment obligations.',
-      'NexTech may retain generalized know-how, reusable patterns, and non-client-specific frameworks developed during service delivery.',
+      'AfriNia Digital Solution may retain generalized know-how, reusable patterns, and non-client-specific frameworks developed during service delivery.',
     ],
   },
   {
@@ -53,7 +53,7 @@ const sections = [
     title: '7. Security and Responsible Use',
     points: [
       'Users may not attempt unauthorized access, service disruption, reverse engineering, malware delivery, data scraping abuse, or abusive automation.',
-      'NexTech may restrict or terminate access for activities that threaten platform security, legal compliance, or operational integrity.',
+      'AfriNia Digital Solution may restrict or terminate access for activities that threaten platform security, legal compliance, or operational integrity.',
       'Security controls and incident procedures are further described in the Security Structure documentation.',
     ],
   },
@@ -61,14 +61,14 @@ const sections = [
     title: '8. Warranties and Disclaimers',
     points: [
       'Unless explicitly stated in contract terms, website content and informational materials are provided on an "as is" and "as available" basis.',
-      'NexTech does not guarantee uninterrupted availability, error-free operation, or compatibility with every third-party system unless contractually specified.',
+      'AfriNia Digital Solution does not guarantee uninterrupted availability, error-free operation, or compatibility with every third-party system unless contractually specified.',
       'Any performance commitments or service levels are enforceable only when documented in signed service agreements or SLAs.',
     ],
   },
   {
     title: '9. Limitation of Liability',
     points: [
-      'To the maximum extent permitted by law, NexTech is not liable for indirect, incidental, special, punitive, or consequential damages.',
+      'To the maximum extent permitted by law, AfriNia Digital Solution is not liable for indirect, incidental, special, punitive, or consequential damages.',
       'Aggregate liability is limited as specified in applicable contracts and may be capped by fees paid for the relevant service period.',
       'No limitation applies where liability cannot be excluded under governing law (for example, fraud or willful misconduct where legally applicable).',
     ],
@@ -76,14 +76,14 @@ const sections = [
   {
     title: '10. Indemnification',
     points: [
-      'You agree to defend and indemnify NexTech against claims resulting from unlawful use of services, breach of these terms, or infringement caused by client-provided materials.',
-      'NexTech will provide reasonable notice and cooperation in claim handling where indemnification obligations are triggered.',
+      'You agree to defend and indemnify AfriNia Digital Solution against claims resulting from unlawful use of services, breach of these terms, or infringement caused by client-provided materials.',
+      'AfriNia Digital Solution will provide reasonable notice and cooperation in claim handling where indemnification obligations are triggered.',
     ],
   },
   {
     title: '11. Suspension and Termination',
     points: [
-      'NexTech may suspend access for legal, security, operational, or payment-risk reasons when necessary to protect services and stakeholders.',
+      'AfriNia Digital Solution may suspend access for legal, security, operational, or payment-risk reasons when necessary to protect services and stakeholders.',
       'Either party may terminate based on contractual termination rights, cure periods, and notice requirements.',
       'Upon termination, outstanding obligations including fees, confidentiality, and IP clauses continue as defined by contract.',
     ],
@@ -91,7 +91,7 @@ const sections = [
   {
     title: '12. Governing Law and Dispute Resolution',
     points: [
-      'These terms are governed by applicable laws specified in the relevant contract or, absent a contract, by the jurisdiction of NexTech operations.',
+      'These terms are governed by applicable laws specified in the relevant contract or, absent a contract, by the jurisdiction of AfriNia Digital Solution operations.',
       'Parties agree to attempt good-faith resolution before formal legal action.',
       'Venue and dispute process details are governed by executed agreements where available.',
     ],
@@ -110,7 +110,7 @@ export default function TermsOfServicePage() {
             Terms of Service
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '860px' }}>
-            Effective date: {new Date().toLocaleDateString()}. These terms define responsibilities, commercial expectations, and legal conditions for using NexTech website and services.
+            Effective date: {new Date().toLocaleDateString()}. These terms define responsibilities, commercial expectations, and legal conditions for using AfriNia Digital Solution website and services.
           </motion.p>
         </div>
       </section>

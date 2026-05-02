@@ -475,7 +475,7 @@ function MainLayout() {
                     }}>
                       <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-blue)' }} />
                       <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent-blue)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                        Why NexTech
+                        Why AfriNia Digital Solution
                       </span>
                     </div>
                     <h2 style={{
@@ -567,7 +567,7 @@ function MainLayout() {
                         <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'linear-gradient(135deg, rgba(74,222,128,0.2), rgba(34,197,94,0.1))', border: '1px solid rgba(74,222,128,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 16px rgba(74,222,128,0.1)' }}>
                           <CheckCircle2 color="#4ade80" size={20} strokeWidth={2.5} />
                         </div>
-                        <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.1em' }}>The NexTech Fix</span>
+                        <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.1em' }}>The AfriNia Digital Solution Fix</span>
                       </div>
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative' }}>
@@ -1266,7 +1266,7 @@ function MainLayout() {
                           </div>
                           <div>
                             <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Email</p>
-                            <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>hello@nextech.com</h4>
+                            <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>hello@afriniadigitalsolution.com</h4>
                           </div>
                         </motion.div>
                       </div>
@@ -1441,7 +1441,7 @@ function MainLayout() {
           {/* Bottom Row */}
           <div className="footer-bottom-row" style={{ borderTop: '1px solid #1e293b', paddingTop: '32px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
             <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
-              Â© {new Date().getFullYear()} NexTech. All rights reserved.
+              Â© {new Date().getFullYear()} AfriNia Digital Solution. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem', fontWeight: 400 }}>
               <span style={{ color: 'inherit', fontWeight: 'inherit' }}>Delivering secure, scalable software for modern businesses.</span>

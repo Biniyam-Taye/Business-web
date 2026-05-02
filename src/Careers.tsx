@@ -51,7 +51,7 @@ export default function CareersPage() {
             Build products that move industries forward.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '860px' }}>
-            Join NexTech to solve meaningful technical challenges, ship high-impact systems, and grow in a team that values ownership, quality, and collaboration.
+            Join AfriNia Digital Solution to solve meaningful technical challenges, ship high-impact systems, and grow in a team that values ownership, quality, and collaboration.
           </motion.p>
           <motion.a href="/contact" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.14 }} style={{ marginTop: '22px', display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 18px', fontWeight: 800 }}>
             Apply or Ask About Roles <ArrowUpRight size={16} />
@@ -90,7 +90,7 @@ export default function CareersPage() {
 
       <section style={{ padding: '28px 0 0' }}>
         <div className="container" style={{ maxWidth: '1160px' }}>
-          <h2 style={{ margin: 0, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.02em' }}>Why People Join NexTech</h2>
+          <h2 style={{ margin: 0, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.02em' }}>Why People Join AfriNia Digital Solution</h2>
           <div style={{ marginTop: '14px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
             {values.map((value, idx) => (
               <motion.div key={value[0]} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.04 }} style={{ borderRadius: '16px', border: '1px solid #dbeafe', background: '#eff6ff', padding: '14px' }}>

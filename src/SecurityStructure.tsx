@@ -101,7 +101,7 @@ export default function SecurityStructurePage() {
             Security Structure
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ margin: '14px 0 0 0', color: '#475569', lineHeight: 1.75, maxWidth: '900px' }}>
-            This page outlines the security model NexTech applies across engineering, operations, and delivery. The controls below represent practical safeguards designed for modern production systems and enterprise collaboration.
+            This page outlines the security model AfriNia Digital Solution applies across engineering, operations, and delivery. The controls below represent practical safeguards designed for modern production systems and enterprise collaboration.
           </motion.p>
         </div>
       </section>

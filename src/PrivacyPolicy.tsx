@@ -4,9 +4,9 @@ const sections = [
   {
     title: '1. Scope and Commitment',
     points: [
-      'This Privacy Policy explains how NexTech collects, uses, stores, and protects personal data when you use our website, submit forms, or engage with our services.',
+      'This Privacy Policy explains how AfriNia Digital Solution collects, uses, stores, and protects personal data when you use our website, submit forms, or engage with our services.',
       'We process personal data with transparency, proportionality, and purpose limitation. We only collect data needed for legitimate business and service operations.',
-      'This policy applies to website visitors, prospects, clients, and authorized representatives who interact with NexTech through digital channels.',
+      'This policy applies to website visitors, prospects, clients, and authorized representatives who interact with AfriNia Digital Solution through digital channels.',
     ],
   },
   {
@@ -55,7 +55,7 @@ const sections = [
   {
     title: '7. Security Controls',
     points: [
-      'NexTech applies layered administrative, technical, and organizational safeguards to reduce unauthorized access, alteration, loss, or disclosure.',
+      'AfriNia Digital Solution applies layered administrative, technical, and organizational safeguards to reduce unauthorized access, alteration, loss, or disclosure.',
       'Safeguards include access control, encryption in transit, restricted environments, audit logging, change controls, and secure operational procedures.',
       'No system is absolutely risk-free; however, we continuously improve controls and incident readiness practices.',
     ],
@@ -72,7 +72,7 @@ const sections = [
     points: [
       'Subject to applicable law, you may request access, correction, deletion, restriction, portability, or objection regarding your personal data.',
       'You may also withdraw previously given consent where processing relies on consent.',
-      'To submit a request, contact us at hello@nextech.com. We may verify identity before actioning rights requests.',
+      'To submit a request, contact us at hello@afriniadigitalsolution.com. We may verify identity before actioning rights requests.',
     ],
   },
   {
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '840px' }}>
-            Effective date: {new Date().toLocaleDateString()}. This policy explains how NexTech handles personal data with a security-first and transparency-focused approach.
+            Effective date: {new Date().toLocaleDateString()}. This policy explains how AfriNia Digital Solution handles personal data with a security-first and transparency-focused approach.
           </motion.p>
         </div>
       </section>

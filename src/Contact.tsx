@@ -14,7 +14,7 @@ const channels = [
   },
   {
     title: 'Project Inbox',
-    detail: 'hello@nextech.com',
+    detail: 'hello@afriniadigitalsolution.com',
     note: 'Share docs, RFPs, and requirements',
     icon: <Mail size={18} strokeWidth={2.25} />,
   },
@@ -813,7 +813,7 @@ export default function ContactPage() {
                 >
                   <div>
                     <p style={{ margin: 0, color: '#1e3a8a', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 800 }}>Visit us</p>
-                    <h3 style={{ margin: '6px 0 0 0', color: '#020617', fontSize: '1.12rem', letterSpacing: '-0.02em', fontWeight: 900 }}>NexTech office location</h3>
+                    <h3 style={{ margin: '6px 0 0 0', color: '#020617', fontSize: '1.12rem', letterSpacing: '-0.02em', fontWeight: 900 }}>AfriNia Digital Solution office location</h3>
                   </div>
                   <span
                     style={{
@@ -842,7 +842,7 @@ export default function ContactPage() {
                       style={{ border: 0 }}
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="NexTech office location map"
+                      title="AfriNia Digital Solution office location map"
                     />
                   </motion.div>
                 </div>

@@ -4,23 +4,23 @@ import { ArrowUpRight, CalendarDays, Mic2, Newspaper, RadioTower, Sparkles } fro
 const releases = [
   {
     date: 'Apr 2026',
-    title: 'NexTech Announces Expanded Enterprise Delivery Program',
+    title: 'AfriNia Digital Solution Announces Expanded Enterprise Delivery Program',
     summary: 'New delivery track combines product strategy, cloud architecture, and growth optimization for scaling teams.',
   },
   {
     date: 'Jan 2026',
-    title: 'NexTech Launches AI Automation Practice',
+    title: 'AfriNia Digital Solution Launches AI Automation Practice',
     summary: 'The new practice helps businesses automate repetitive workflows and improve operational speed.',
   },
   {
     date: 'Oct 2025',
-    title: 'NexTech Recognized for High-Impact Platform Delivery',
+    title: 'AfriNia Digital Solution Recognized for High-Impact Platform Delivery',
     summary: 'Industry spotlight highlights successful launches across fintech, healthcare, and retail sectors.',
   },
 ];
 
 const resources = [
-  ['Press Contact', 'press@nextech.com'],
+  ['Press Contact', 'press@afriniadigitalsolution.com'],
   ['Media Kit', 'Brand assets, company profile, and leadership bios available on request.'],
   ['Interview Requests', 'Submit interview requests for founders, technical leads, and product leadership.'],
 ];
@@ -44,7 +44,7 @@ export default function PressMediaPage() {
             Newsroom, announcements, and media resources.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} style={{ margin: '14px 0 0 0', color: '#64748b', lineHeight: 1.75, maxWidth: '860px' }}>
-            Explore the latest NexTech updates, company announcements, leadership commentary, and information for journalists and media partners.
+            Explore the latest AfriNia Digital Solution updates, company announcements, leadership commentary, and information for journalists and media partners.
           </motion.p>
           <motion.a href="/contact" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.14 }} style={{ marginTop: '22px', display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none', background: '#0f172a', color: '#fff', borderRadius: '12px', padding: '12px 18px', fontWeight: 800 }}>
             Contact Press Team <ArrowUpRight size={16} />
@@ -55,7 +55,7 @@ export default function PressMediaPage() {
       <section style={{ padding: '34px 0 0' }}>
         <div className="container" style={{ maxWidth: '1160px' }}>
           <h2 style={{ margin: 0, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.02em' }}>Latest Announcements</h2>
-          <p style={{ margin: '8px 0 16px 0', color: '#64748b', lineHeight: 1.7 }}>Official updates from NexTech leadership and teams.</p>
+          <p style={{ margin: '8px 0 16px 0', color: '#64748b', lineHeight: 1.7 }}>Official updates from AfriNia Digital Solution leadership and teams.</p>
           <div style={{ display: 'grid', gap: '12px' }}>
             {releases.map((release, idx) => (
               <motion.article key={release.title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.04 }} style={{ borderRadius: '18px', border: '1px solid #e2e8f0', background: '#fff', padding: '18px', boxShadow: '0 8px 20px rgba(15,23,42,0.04)' }}>
