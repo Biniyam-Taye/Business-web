@@ -306,7 +306,7 @@ function MainLayout() {
                       transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       style={{ marginTop: '28px', fontSize: '1.1rem', color: '#64748b', lineHeight: 1.75, maxWidth: '460px', fontWeight: 400 }}
                     >
-                      From early-stage startups to scaling enterprises â€” we engineer the software, systems, and strategy your business needs to move fast and grow without limits.
+                      From early-stage startups to scaling enterprises — we engineer the software, systems, and strategy your business needs to move fast and grow without limits.
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -456,7 +456,7 @@ function MainLayout() {
 
 
 
-              {/* Problem â†’ Solution Section â€” Premium Redesign */}
+              {/* Problem → Solution Section — Premium Redesign */}
               <section style={{ padding: '64px 0 40px', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
                 <div className="container">
 
@@ -489,7 +489,7 @@ function MainLayout() {
                       <span style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>moving.</span>
                     </h2>
                     <p style={{ fontSize: '1.1rem', color: '#6b7280', maxWidth: '520px', margin: '0 auto', lineHeight: 1.7 }}>
-                      Sound familiar? Here's what we hear from SMBs every day â€” and exactly how we solve it.
+                      Sound familiar? Here's what we hear from SMBs every day — and exactly how we solve it.
                     </p>
                   </motion.div>
 
@@ -1441,7 +1441,7 @@ function MainLayout() {
           {/* Bottom Row */}
           <div className="footer-bottom-row" style={{ borderTop: '1px solid #1e293b', paddingTop: '32px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
             <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem' }}>
-              Â© {new Date().getFullYear()} AfriNia Digital Solution. All rights reserved.
+              © {new Date().getFullYear()} AfriNia Digital Solution. All rights reserved.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem', fontWeight: 400 }}>
               <span style={{ color: 'inherit', fontWeight: 'inherit' }}>Delivering secure, scalable software for modern businesses.</span>
