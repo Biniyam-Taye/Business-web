@@ -277,6 +277,148 @@ export default function ContactPage() {
         .contact-page .cp-track-row:hover .cp-track-desc {
           color: #1e293b;
         }
+
+        /* --- Channels Premium Hover Styles --- */
+        .contact-page .cp-channel-card {
+          position: relative;
+          border-radius: 22px;
+          padding: 2px;
+          background: transparent;
+          cursor: pointer;
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+          z-index: 1;
+        }
+
+        .contact-page .cp-channel-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 22px;
+          background: #dbeafe;
+          transition: background 0.4s ease, opacity 0.4s ease;
+          z-index: 0;
+        }
+
+        .contact-page .cp-channel-card:hover::before {
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+          background-size: 300% 100%;
+          animation: channelGlowMove 2.5s linear infinite;
+        }
+
+        .contact-page .cp-channel-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 24px 48px rgba(59, 130, 246, 0.25), 0 0 24px rgba(139, 92, 246, 0.2);
+        }
+
+        @keyframes channelGlowMove {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
+        }
+
+        .contact-page .cp-channel-card-inner {
+          position: relative;
+          border-radius: 20px;
+          background: linear-gradient(155deg, #ffffff 0%, #f8fbff 100%);
+          padding: 20px;
+          height: 100%;
+          box-sizing: border-box;
+          transition: background 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 2;
+          overflow: hidden;
+        }
+
+        .contact-page .cp-channel-card:hover .cp-channel-card-inner {
+          background: linear-gradient(155deg, #0f172a 0%, #1e1b4b 100%);
+        }
+
+        .contact-page .cp-channel-card-inner::before {
+          content: '';
+          position: absolute;
+          top: -40px;
+          right: -40px;
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+          opacity: 0;
+          transform: scale(0.5);
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        .contact-page .cp-channel-card:hover .cp-channel-card-inner::before {
+          opacity: 1;
+          transform: scale(1.5);
+        }
+
+        .contact-page .cp-channel-icon {
+          position: relative;
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: #1d4ed8;
+          background: #eff6ff;
+          border: 2px solid #bfdbfe;
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 2;
+        }
+
+        .contact-page .cp-channel-card:hover .cp-channel-icon {
+          color: #ffffff;
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.2);
+          transform: scale(1.1) rotate(4deg);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-page .cp-channel-title {
+          position: relative;
+          margin: 16px 0 0 0;
+          font-weight: 800;
+          color: #020617;
+          font-size: 1.05rem;
+          letter-spacing: -0.02em;
+          transition: color 0.4s ease;
+          z-index: 2;
+        }
+
+        .contact-page .cp-channel-card:hover .cp-channel-title {
+          color: #ffffff;
+        }
+
+        .contact-page .cp-channel-detail {
+          position: relative;
+          margin: 6px 0 0 0;
+          color: #1e3a8a;
+          font-weight: 800;
+          font-size: 0.95rem;
+          transition: color 0.4s ease;
+          z-index: 2;
+        }
+
+        .contact-page .cp-channel-card:hover .cp-channel-detail {
+          color: #a78bfa;
+        }
+
+        .contact-page .cp-channel-note {
+          position: relative;
+          margin: 8px 0 0 0;
+          color: #334155;
+          font-size: 0.9rem;
+          line-height: 1.55;
+          font-weight: 700;
+          transition: color 0.4s ease;
+          z-index: 2;
+        }
+
+        .contact-page .cp-channel-card:hover .cp-channel-note {
+          color: #cbd5e1;
+        }
+
         @media (max-width: 960px) {
           .contact-page .cp-channels {
             grid-template-columns: 1fr !important;
@@ -409,104 +551,31 @@ export default function ContactPage() {
 
             <div style={{ padding: '20px 30px 32px', display: 'grid', gap: '20px' }}>
               <div className="cp-channels" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '14px' }}>
-                {channels.map((channel, idx) => {
-                  const isHovered = hoveredChannel === idx;
-                  return (
-                    <motion.article
-                      key={channel.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: '-40px' }}
-                      transition={{ ...stagger, delay: idx * 0.08 }}
-                      whileHover={{ y: -8, scale: 1.01 }}
-                      onHoverStart={() => setHoveredChannel(idx)}
-                      onHoverEnd={() => setHoveredChannel((prev) => (prev === idx ? null : prev))}
-                      style={{
-                        position: 'relative',
-                        overflow: 'hidden',
-                        borderRadius: '20px',
-                        border: isHovered ? '2px solid rgba(96,165,250,0.55)' : '2px solid #dbeafe',
-                        background: isHovered
-                          ? 'linear-gradient(155deg, #3b82f6 0%, #4f46e5 55%, #7c3aed 100%)'
-                          : 'linear-gradient(155deg, #ffffff 0%, #f8fbff 100%)',
-                        padding: '16px',
-                        boxShadow: isHovered ? '0 24px 46px rgba(59,130,246,0.35)' : '0 10px 28px rgba(37,99,235,0.09)',
-                        color: isHovered ? '#ffffff' : '#0f172a',
-                        cursor: 'default',
-                        transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
-                      }}
-                    >
-                      {isHovered && (
-                        <div
-                          style={{
-                            position: 'absolute',
-                            top: '-56px',
-                            right: '-48px',
-                            width: '160px',
-                            height: '160px',
-                            borderRadius: '50%',
-                            background: 'radial-gradient(circle, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 72%)',
-                            pointerEvents: 'none',
-                          }}
-                        />
-                      )}
-                      <div
-                        style={{
-                          position: 'relative',
-                          width: '38px',
-                          height: '38px',
-                          borderRadius: '12px',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: isHovered ? '#4f46e5' : '#1d4ed8',
-                          border: isHovered ? '2px solid rgba(255,255,255,0.35)' : '2px solid #bfdbfe',
-                          background: isHovered ? '#ffffff' : '#eff6ff',
-                        }}
-                      >
+                {channels.map((channel, idx) => (
+                  <motion.article
+                    key={channel.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ ...stagger, delay: idx * 0.08 }}
+                    className="cp-channel-card"
+                  >
+                    <div className="cp-channel-card-inner">
+                      <div className="cp-channel-icon">
                         {channel.icon}
                       </div>
-                      <p
-                        style={{
-                          position: 'relative',
-                          margin: '12px 0 0 0',
-                          fontWeight: 800,
-                          color: isHovered ? '#ffffff' : '#020617',
-                          fontSize: '1.02rem',
-                          letterSpacing: '-0.02em',
-                          textShadow: isHovered ? '0 1px 2px rgba(0,0,0,0.2)' : 'none',
-                        }}
-                      >
+                      <p className="cp-channel-title">
                         {channel.title}
                       </p>
-                      <p
-                        style={{
-                          position: 'relative',
-                          margin: '6px 0 0 0',
-                          color: isHovered ? '#f1f5f9' : '#1e3a8a',
-                          fontWeight: 800,
-                          fontSize: '0.95rem',
-                          textShadow: isHovered ? '0 1px 3px rgba(0,0,0,0.22)' : 'none',
-                        }}
-                      >
+                      <p className="cp-channel-detail">
                         {channel.detail}
                       </p>
-                      <p
-                        style={{
-                          position: 'relative',
-                          margin: '8px 0 0 0',
-                          color: isHovered ? '#e2e8f0' : '#334155',
-                          fontSize: '0.9rem',
-                          lineHeight: 1.55,
-                          fontWeight: 700,
-                          textShadow: isHovered ? '0 1px 2px rgba(0,0,0,0.18)' : 'none',
-                        }}
-                      >
+                      <p className="cp-channel-note">
                         {channel.note}
                       </p>
-                    </motion.article>
-                  );
-                })}
+                    </div>
+                  </motion.article>
+                ))}
               </div>
 
               <div className="cp-main-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '16px' }}>
