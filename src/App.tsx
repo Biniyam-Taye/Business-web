@@ -1,4 +1,4 @@
-import { useState, useEffect, type FormEvent } from 'react';
+﻿import { useState, useEffect, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow, Menu, X } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -496,7 +496,7 @@ function MainLayout() {
                   {/* Split Panel Dual-Card Layout */}
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px', alignItems: 'stretch' }}>
 
-                    {/* LEFT â€” Problems */}
+                    {/* LEFT — Problems */}
                     <motion.div
                       initial={{ opacity: 0, x: -80 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -522,7 +522,7 @@ function MainLayout() {
                         {[
                           { num: '01', title: "You're bleeding time on manual work", desc: "Hours lost every week on repetitive tasks that should be automated. Your team deserves better." },
                           { num: '02', title: "Generic software holds you back", desc: "Off-the-shelf tools weren't built for your business. You end up working around them, not with them." },
-                          { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible â€” until now." },
+                          { num: '03', title: "AI feels like a mystery, not a tool", desc: "You know AI could transform your operations, but nobody's made it practical or accessible — until now." },
                         ].map((item, i) => {
                           const theme = i % 2 === 0 ? 'card-blue' : 'card-orange';
                           return (
@@ -546,7 +546,7 @@ function MainLayout() {
                       </div>
                     </motion.div>
 
-                    {/* RIGHT â€” Projects */}
+                    {/* RIGHT — Projects */}
                     <motion.div
                       initial={{ opacity: 0, x: 80 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -574,7 +574,7 @@ function MainLayout() {
                         {[
                           { num: '01', title: "Custom-built software, zero compromise", desc: "We design and build exactly what your business needs. No workarounds. Pure efficiency from day one." },
                           { num: '02', title: "One ecosystem. Everything connected.", desc: "Your apps, tools, and data all talk to each other. One source of truth. Zero manual syncing." },
-                          { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from â€” immediately." },
+                          { num: '03', title: "AI that actually works for you", desc: "We implement practical AI automation that you can see, measure, and profit from — immediately." },
                         ].map((item, i) => (
                           <motion.div
                             key={i}
@@ -1005,7 +1005,7 @@ function MainLayout() {
 
                     {/* Centered Subtext */}
                     <p style={{ margin: 0, fontSize: '1.2rem', color: '#6b7280', lineHeight: 1.6, maxWidth: '600px', fontWeight: 400 }}>
-                      Sound familiar? Here's who we hear from enterprises every day â€” and exactly how our leaders solve it.
+                      Sound familiar? Here's who we hear from enterprises every day — and exactly how our leaders solve it.
                     </p>
                   </div>
 
