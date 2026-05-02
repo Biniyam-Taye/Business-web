@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
+  ArrowDown,
   ArrowUpRight,
   CheckCircle2,
   ChevronDown,
@@ -90,44 +91,111 @@ const faqs = [
 function WorkflowCard({ wf, i, isLast }: any) {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-      <motion.div 
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        animate={{ 
-           y: isHovered ? -8 : 0, 
-           scale: isHovered ? 1.05 : 1,
-           boxShadow: isHovered ? `0 20px 40px ${wf.color}50` : '0 4px 15px rgba(0,0,0,0.02)',
-           borderColor: isHovered ? 'transparent' : '#e2e8f0' 
-        }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        style={{ background: '#fff', border: '1px solid #e2e8f0', padding: '24px 40px', borderRadius: '24px', textAlign: 'center', cursor: 'default', position: 'relative', overflow: 'hidden' }}
-      >
-        {/* Liquid Gradient Bubble Fill */}
-        <motion.div 
-           initial={false}
-           animate={{ clipPath: isHovered ? 'circle(150% at 50% 100%)' : 'circle(0% at 50% 100%)' }}
-           transition={{ duration: 0.4, ease: "easeOut" }}
-           style={{ position: 'absolute', inset: 0, background: wf.gradient, zIndex: 0 }}
-        />
-        
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <motion.div animate={{ color: isHovered ? '#fff' : '#0f172a' }} transition={{ duration: 0.2 }} style={{ fontSize: '1.35rem', fontWeight: 800 }}>
-             {wf.step}
-          </motion.div>
-          <motion.div animate={{ color: isHovered ? 'rgba(255,255,255,0.9)' : '#64748b' }} transition={{ duration: 0.2 }} style={{ fontSize: '0.95rem', fontWeight: 600, marginTop: '6px' }}>
-             {wf.sub}
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {!isLast && (
-        <motion.div animate={{ x: isHovered ? 5 : [0, 5, 0], scale: isHovered ? 1.2 : 1 }} transition={isHovered ? { duration: 0.3 } : { repeat: Infinity, duration: 2, ease: "easeInOut" }}>
-          <ArrowRight size={24} color={isHovered ? wf.color : "#cbd5e1"} />
+    <>
+      {/* ── Desktop layout wrapper ── */}
+      <div className="hiw-wf-desktop" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <motion.div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          animate={{
+            y: isHovered ? -8 : 0,
+            scale: isHovered ? 1.05 : 1,
+            boxShadow: isHovered ? `0 20px 40px ${wf.color}50` : '0 4px 15px rgba(0,0,0,0.02)',
+            borderColor: isHovered ? 'transparent' : '#e2e8f0',
+          }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          style={{ background: '#fff', border: '1px solid #e2e8f0', padding: '24px 40px', borderRadius: '24px', textAlign: 'center', cursor: 'default', position: 'relative', overflow: 'hidden' }}
+        >
+          <motion.div
+            initial={false}
+            animate={{ clipPath: isHovered ? 'circle(150% at 50% 100%)' : 'circle(0% at 50% 100%)' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            style={{ position: 'absolute', inset: 0, background: wf.gradient, zIndex: 0 }}
+          />
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <motion.div animate={{ color: isHovered ? '#fff' : '#0f172a' }} transition={{ duration: 0.2 }} style={{ fontSize: '1.35rem', fontWeight: 800 }}>
+              {wf.step}
+            </motion.div>
+            <motion.div animate={{ color: isHovered ? 'rgba(255,255,255,0.9)' : '#64748b' }} transition={{ duration: 0.2 }} style={{ fontSize: '0.95rem', fontWeight: 600, marginTop: '6px' }}>
+              {wf.sub}
+            </motion.div>
+          </div>
         </motion.div>
-      )}
-    </div>
-  )
+        {!isLast && (
+          <motion.div
+            animate={{ x: isHovered ? 5 : [0, 5, 0], scale: isHovered ? 1.2 : 1 }}
+            transition={isHovered ? { duration: 0.3 } : { repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          >
+            <ArrowRight size={24} color={isHovered ? wf.color : '#cbd5e1'} />
+          </motion.div>
+        )}
+      </div>
+
+      {/* ── Mobile layout card ── */}
+      <div className="hiw-wf-mobile">
+        <motion.div
+          onTapStart={() => setIsHovered(true)}
+          onTap={() => setIsHovered(false)}
+          style={{
+            position: 'relative',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            background: wf.gradient,
+            padding: '20px 20px 20px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+            boxShadow: `0 8px 28px ${wf.color}40`,
+          }}
+          animate={{ scale: isHovered ? 0.97 : 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          {/* Step number badge */}
+          <div style={{
+            width: '40px', height: '40px', borderRadius: '50%',
+            background: 'rgba(255,255,255,0.22)',
+            border: '1.5px solid rgba(255,255,255,0.45)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0,
+            fontWeight: 900, fontSize: '0.85rem', color: '#fff',
+            backdropFilter: 'blur(4px)',
+          }}>
+            {String(i + 1).padStart(2, '0')}
+          </div>
+          {/* Text */}
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>{wf.step}</div>
+            <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginTop: '2px' }}>{wf.sub}</div>
+          </div>
+          {/* Decorative orb */}
+          <div style={{
+            position: 'absolute', right: '-16px', top: '-16px',
+            width: '72px', height: '72px', borderRadius: '50%',
+            background: 'rgba(255,255,255,0.12)',
+            pointerEvents: 'none',
+          }} />
+        </motion.div>
+
+        {/* Down arrow connector */}
+        {!isLast && (
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
+            style={{ display: 'flex', justifyContent: 'center', margin: '4px 0' }}
+          >
+            <div style={{
+              width: '32px', height: '32px', borderRadius: '50%',
+              background: `${wf.color}18`,
+              border: `1.5px solid ${wf.color}40`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <ArrowDown size={16} color={wf.color} strokeWidth={2.5} />
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </>
+  );
 }
 
 function PremiumAuroraCard({ benefit }: any) {
@@ -562,6 +630,10 @@ export default function HowItWorksPage() {
   return (
     <div style={{ background: '#fcfcfc', minHeight: '100vh', color: '#0f172a', paddingBottom: '40px' }}>
       <style>{`
+        /* ── How It Works – Base (Desktop) ── */
+        .hiw-wf-mobile  { display: none; }
+        .hiw-wf-desktop { display: flex; align-items: center; gap: 20px; }
+
         /* ── How It Works – Mobile Responsive ── */
         @media (max-width: 768px) {
           /* Hero */
@@ -570,18 +642,15 @@ export default function HowItWorksPage() {
           .hiw-hero-inner h1 { font-size: clamp(2rem, 9vw, 2.8rem) !important; line-height: 1.15 !important; }
           .hiw-hero-inner p  { font-size: 1rem !important; }
 
-          /* Workflow pills → vertical */
+          /* Workflow pills → mobile vertical stack */
+          .hiw-wf-desktop { display: none !important; }
+          .hiw-wf-mobile  { display: block !important; width: 100%; }
           .hiw-workflow-wrap {
             flex-direction: column !important;
             align-items: stretch !important;
             gap: 0 !important;
+            padding: 0 4px !important;
           }
-          .hiw-workflow-wrap > div {
-            flex-direction: column !important;
-            align-items: center !important;
-            gap: 0 !important;
-          }
-          .hiw-workflow-arrow { transform: rotate(90deg); margin: 4px 0 !important; }
 
           /* Process steps – stack icon above card */
           .hiw-step-row {
