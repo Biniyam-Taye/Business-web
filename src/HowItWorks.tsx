@@ -220,12 +220,13 @@ function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
         whileInView={{ opacity: 1, x: 0 }} 
         viewport={{ once: true, margin: '-50px' }} 
         transition={{ duration: 0.6, delay: idx * 0.1 }} 
+        className="hiw-step-row"
         style={{ display: 'flex', gap: '40px', position: 'relative', zIndex: 1 }}
         onHoverStart={() => setHoveredStep(step.id)}
         onHoverEnd={() => setHoveredStep(null)}
         onTap={() => setHoveredStep(isHovered ? null : step.id)}
       >
-        <div style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
+        <div className="hiw-step-icon-col" style={{ width: '80px', flexShrink: 0, display: 'flex', justifyContent: 'center' }}>
           <motion.div 
             animate={{ 
               scale: isHovered ? 1.1 : 1, 
@@ -250,6 +251,7 @@ function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
               boxShadow: isHovered ? `0 25px 50px rgba(0,0,0,0.05), 0 0 0 1px ${step.borderAccent}` : '0 4px 20px rgba(0,0,0,0.02), 0 0 0 1px transparent',
             }}
             transition={{ duration: 0.3 }}
+            className="hiw-step-card"
             style={{ borderRadius: '24px', padding: '40px 48px', border: '1px solid #f1f5f9', background: '#fff', position: 'relative', overflow: 'hidden' }}
           >
             {/* Sliding Left Border Accent */}
@@ -297,7 +299,7 @@ function StepRow({ step, idx, hoveredStep, setHoveredStep }: any) {
                       transition={{ duration: 0.3, ease: 'easeOut' }}
                       style={{ overflow: 'hidden' }}
                     >
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', paddingBottom: '8px' }}>
+                      <div className="hiw-step-details-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', paddingBottom: '8px' }}>
                         {step.details.map((detail: string, i: number) => (
                           <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                             <div style={{ marginTop: '2px', color: step.hoverColor }}>
@@ -498,7 +500,7 @@ function WhiteBlueCTA() {
         }} 
       />
       
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div className="hiw-cta-box" style={{ position: 'relative', zIndex: 1 }}>
         <motion.h2 
           animate={{ color: isHovered ? '#ffffff' : '#0f172a' }}
           style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: '20px' }}
@@ -512,7 +514,7 @@ function WhiteBlueCTA() {
           Work with a high-performance team that combines structured execution with modern product engineering to deliver robust digital solutions. Let's discuss your next breakthrough project.
         </motion.p>
         
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+        <div className="hiw-cta-btns" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <motion.button 
             onClick={() => navigate('/contact')} 
             animate={{
@@ -559,14 +561,112 @@ export default function HowItWorksPage() {
 
   return (
     <div style={{ background: '#fcfcfc', minHeight: '100vh', color: '#0f172a', paddingBottom: '40px' }}>
+      <style>{`
+        /* ── How It Works – Mobile Responsive ── */
+        @media (max-width: 768px) {
+          /* Hero */
+          .hiw-hero-section { padding: 56px 0 36px !important; }
+          .hiw-hero-inner { text-align: center; padding: 0 4px; }
+          .hiw-hero-inner h1 { font-size: clamp(2rem, 9vw, 2.8rem) !important; line-height: 1.15 !important; }
+          .hiw-hero-inner p  { font-size: 1rem !important; }
+
+          /* Workflow pills → vertical */
+          .hiw-workflow-wrap {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 0 !important;
+          }
+          .hiw-workflow-wrap > div {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 0 !important;
+          }
+          .hiw-workflow-arrow { transform: rotate(90deg); margin: 4px 0 !important; }
+
+          /* Process steps – stack icon above card */
+          .hiw-step-row {
+            flex-direction: column !important;
+            gap: 16px !important;
+          }
+          .hiw-step-icon-col {
+            width: 100% !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 16px !important;
+          }
+          .hiw-step-icon-col > div:first-child {
+            width: 52px !important;
+            height: 52px !important;
+          }
+          .hiw-step-card {
+            padding: 24px 20px !important;
+            border-radius: 18px !important;
+          }
+          .hiw-step-card h3 { font-size: 1.2rem !important; }
+          .hiw-step-card p  { font-size: 0.95rem !important; }
+          .hiw-step-details-grid {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+          /* Hide the vertical connector line */
+          .hiw-connector-line { display: none !important; }
+
+          /* Benefits grid → 1 column */
+          .hiw-benefits-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          .hiw-aurora-card { padding: 28px 24px !important; border-radius: 24px !important; }
+          .hiw-aurora-card h3 { font-size: 1.2rem !important; }
+          .hiw-aurora-card p  { font-size: 0.95rem !important; }
+
+          /* Client Experience → stack */
+          .hiw-experience-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
+          .hiw-experience-grid > div:first-child h2 { font-size: clamp(1.6rem,7vw,2.2rem) !important; }
+
+          /* Testimonial */
+          .hiw-testimonial-card { padding: 28px 20px !important; border-radius: 20px !important; }
+          .hiw-testimonial-card p { font-size: 1rem !important; }
+
+          /* Metrics */
+          .hiw-metrics-grid { gap: 12px !important; }
+          .hiw-metric-card  { padding: 20px 12px !important; border-radius: 16px !important; }
+          .hiw-metric-value { font-size: 2.4rem !important; }
+
+          /* Section headings */
+          .hiw-section-heading { font-size: clamp(1.6rem,7vw,2.4rem) !important; }
+          .hiw-section-sub     { font-size: 0.95rem !important; }
+
+          /* FAQ */
+          .hiw-faq-btn  { padding: 20px 20px !important; }
+          .hiw-faq-btn span { font-size: 1rem !important; }
+          .hiw-faq-body { padding: 0 20px 24px !important; font-size: 0.95rem !important; }
+
+          /* CTA */
+          .hiw-cta-box  { padding: 40px 20px !important; border-radius: 24px !important; }
+          .hiw-cta-box h2 { font-size: clamp(1.5rem,7vw,2rem) !important; }
+          .hiw-cta-btns { flex-direction: column !important; width: 100% !important; }
+          .hiw-cta-btns button { width: 100% !important; justify-content: center !important; }
+
+          /* Section paddings */
+          .hiw-section-process  { padding: 60px 0 !important; }
+          .hiw-section-benefits { padding: 60px 0 !important; }
+          .hiw-section-exp      { padding: 60px 0 !important; }
+          .hiw-section-faq      { padding: 60px 0 !important; }
+          .hiw-section-cta      { padding: 24px 0 60px !important; }
+        }
+      `}</style>
       
       {/* 1. Hero Section */}
-      <section style={{ position: 'relative', padding: '80px 0 60px', overflow: 'hidden' }}>
+      <section className="hiw-hero-section" style={{ position: 'relative', padding: '80px 0 60px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 60%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
         
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto' }}>
+          <motion.div className="hiw-hero-inner" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} style={{ textAlign: 'center', maxWidth: '840px', margin: '0 auto' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 18px', background: '#eff6ff', borderRadius: '999px', border: '1px solid #bfdbfe', marginBottom: '28px' }}>
               <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb' }} />
               <span style={{ color: '#1d4ed8', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Our Process</span>
@@ -588,9 +688,9 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 3. Visual Workflow Section */}
-      <section style={{ padding: '20px 0 100px', background: '#fcfcfc' }}>
+      <section style={{ padding: '20px 0 60px', background: '#fcfcfc' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          <div className="hiw-workflow-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '20px' }}>
             {workflows.map((wf, i) => (
               <WorkflowCard key={wf.step} wf={wf} i={i} isLast={i === workflows.length - 1} />
             ))}
@@ -599,16 +699,16 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 2. Step-by-Step Process */}
-      <section style={{ padding: '120px 0', background: '#f8fafc', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
+      <section className="hiw-section-process" style={{ padding: '120px 0', background: '#f8fafc', borderTop: '1px solid #f1f5f9', borderBottom: '1px solid #f1f5f9' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Step-by-Step Process</h2>
-            <p style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px', maxWidth: '600px', margin: '16px auto 0' }}>Our proven, milestone-driven methodology guarantees clarity, transparency, and accountability at every stage of the lifecycle.</p>
+            <h2 className="hiw-section-heading" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Step-by-Step Process</h2>
+            <p className="hiw-section-sub" style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px', maxWidth: '600px', margin: '16px auto 0' }}>Our proven, milestone-driven methodology guarantees clarity, transparency, and accountability at every stage of the lifecycle.</p>
           </div>
 
           <div style={{ position: 'relative' }}>
             {/* Vertical connecting line */}
-            <div style={{ position: 'absolute', top: '20px', bottom: '20px', left: '39px', width: '2px', background: 'linear-gradient(180deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.2) 15%, rgba(37,99,235,0.2) 85%, rgba(37,99,235,0) 100%)', zIndex: 0 }}>
+            <div className="hiw-connector-line" style={{ position: 'absolute', top: '20px', bottom: '20px', left: '39px', width: '2px', background: 'linear-gradient(180deg, rgba(37,99,235,0) 0%, rgba(37,99,235,0.2) 15%, rgba(37,99,235,0.2) 85%, rgba(37,99,235,0) 100%)', zIndex: 0 }}>
               <motion.div 
                 animate={{ 
                   opacity: activeColor ? 1 : 0, 
@@ -630,14 +730,14 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 4. What You Get Section (Interactive Grid) */}
-      <section style={{ padding: '140px 0', background: '#fff' }}>
+      <section className="hiw-section-benefits" style={{ padding: '140px 0', background: '#fff' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Premium Engineering Standards</h2>
-            <p style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px', maxWidth: '650px', margin: '16px auto 0' }}>We refuse to compromise on quality. Every digital product we ship is equipped with enterprise-ready features and built to perform securely.</p>
+            <h2 className="hiw-section-heading" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Premium Engineering Standards</h2>
+            <p className="hiw-section-sub" style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px', maxWidth: '650px', margin: '16px auto 0' }}>We refuse to compromise on quality. Every digital product we ship is equipped with enterprise-ready features and built to perform securely.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px', perspective: 1200 }}>
+          <div className="hiw-benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px', perspective: 1200 }}>
             {benefits.map((benefit, idx) => (
               <motion.div key={benefit.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
                 <PremiumAuroraCard benefit={benefit} />
@@ -648,9 +748,9 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 5. Real Experience Section */}
-      <section style={{ padding: '120px 0', background: '#f8fafc', borderTop: '1px solid #f1f5f9' }}>
+      <section className="hiw-section-exp" style={{ padding: '120px 0', background: '#f8fafc', borderTop: '1px solid #f1f5f9' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '80px', alignItems: 'center' }}>
+          <div className="hiw-experience-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '80px', alignItems: 'center' }}>
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: '#fef2f2', borderRadius: '999px', border: '1px solid #fecaca', marginBottom: '24px' }}>
                 <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ef4444' }} />
@@ -674,7 +774,7 @@ export default function HowItWorksPage() {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <TestimonialCard />
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+              <div className="hiw-metrics-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
                 <MetricCard value="98%" label="On-Time Delivery" color="#2563eb" />
                 <MetricCard value="40+" label="Enterprise Launches" color="#7c3aed" />
               </div>
@@ -684,18 +784,18 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 6. FAQ Section */}
-      <section style={{ padding: '140px 0', background: '#fff' }}>
+      <section className="hiw-section-faq" style={{ padding: '140px 0', background: '#fff' }}>
         <div className="container" style={{ maxWidth: '850px' }}>
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Common Questions</h2>
-            <p style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px' }}>Everything you need to know about partnering with our technical teams.</p>
+            <h2 className="hiw-section-heading" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', margin: 0 }}>Common Questions</h2>
+            <p className="hiw-section-sub" style={{ fontSize: '1.2rem', color: '#64748b', marginTop: '16px' }}>Everything you need to know about partnering with our technical teams.</p>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} style={{ border: '1px solid #e2e8f0', borderRadius: '24px', overflow: 'hidden', background: isOpen ? '#f8fafc' : '#fff', transition: 'all 0.3s ease' }}>
-                  <button onClick={() => setOpenFaq(isOpen ? null : index)} style={{ width: '100%', padding: '32px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                  <button className="hiw-faq-btn" onClick={() => setOpenFaq(isOpen ? null : index)} style={{ width: '100%', padding: '32px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                     <span style={{ fontSize: '1.25rem', fontWeight: 800, color: isOpen ? '#2563eb' : '#0f172a', transition: 'color 0.3s ease', paddingRight: '20px' }}>{faq.q}</span>
                     <div style={{ width: '40px', height: '40px', flexShrink: 0, borderRadius: '50%', background: isOpen ? '#dbeafe' : '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease' }}>
                       <ChevronDown size={24} color={isOpen ? '#2563eb' : '#64748b'} style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }} />
@@ -704,7 +804,7 @@ export default function HowItWorksPage() {
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}>
-                        <div style={{ padding: '0 40px 40px', color: '#64748b', fontSize: '1.15rem', lineHeight: 1.7 }}>
+                        <div className="hiw-faq-body" style={{ padding: '0 40px 40px', color: '#64748b', fontSize: '1.15rem', lineHeight: 1.7 }}>
                           {faq.a}
                         </div>
                       </motion.div>
@@ -718,7 +818,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 7. Final CTA Section */}
-      <section style={{ padding: '40px 0 80px', background: '#f8fafc' }}>
+      <section className="hiw-section-cta" style={{ padding: '40px 0 80px', background: '#f8fafc' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
           <WhiteBlueCTA />
         </div>
