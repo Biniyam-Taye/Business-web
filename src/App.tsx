@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, type FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow, Menu, X } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -1253,7 +1253,7 @@ function MainLayout() {
                           </div>
                           <div>
                             <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Phone</p>
-                            <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#0f172a', fontWeight: 700 }}>+251 900 000 000</h4>
+                            <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#0f172a', fontWeight: 700 }}>+251 936 016 511</h4>
                           </div>
                         </motion.div>
 
@@ -1266,7 +1266,7 @@ function MainLayout() {
                           </div>
                           <div>
                             <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Email</p>
-                            <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>hello@afriniadigitalsolution.com</h4>
+                            <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>afriniadigitalsolutions@gmail.com</h4>
                           </div>
                         </motion.div>
                       </div>
@@ -1297,17 +1297,17 @@ function MainLayout() {
                         <div className="contact-form-row" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
                           <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>First Name</label>
-                            <input type="text" placeholder="John" value={homeFormData.firstName} onChange={(event) => setHomeFormData((prev) => ({ ...prev, firstName: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                            <input type="text" placeholder="First Name" value={homeFormData.firstName} onChange={(event) => setHomeFormData((prev) => ({ ...prev, firstName: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
                           </div>
                           <div style={{ flex: '1 1 200px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Last Name</label>
-                            <input type="text" placeholder="Doe" value={homeFormData.lastName} onChange={(event) => setHomeFormData((prev) => ({ ...prev, lastName: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                            <input type="text" placeholder="Last Name" value={homeFormData.lastName} onChange={(event) => setHomeFormData((prev) => ({ ...prev, lastName: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
                           </div>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                           <label style={{ fontSize: '0.95rem', fontWeight: 600, color: '#475569' }}>Email Address</label>
-                          <input type="email" placeholder="john@company.com" value={homeFormData.email} onChange={(event) => setHomeFormData((prev) => ({ ...prev, email: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
+                          <input type="email" placeholder="Enter your email" value={homeFormData.email} onChange={(event) => setHomeFormData((prev) => ({ ...prev, email: event.target.value }))} style={{ width: '100%', boxSizing: 'border-box', padding: '16px 20px', borderRadius: '16px', border: '1px solid #e2e8f0', background: '#f8fafc', fontSize: '1rem', outline: 'none', color: '#0f172a', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.01)' }} />
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>

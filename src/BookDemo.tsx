@@ -166,9 +166,9 @@ export default function BookDemoPage() {
                   style={{ borderRadius: '18px', border: '1px solid #dbeafe', background: '#ffffff', padding: '16px', display: 'grid', gap: '10px', position: 'relative' }}
                 >
                   <h3 style={{ margin: 0, color: '#0f172a', fontSize: '1.02rem' }}>Book your slot</h3>
-                  <input type="text" placeholder="Full name" value={formData.fullName} onChange={(event) => setFormData((prev) => ({ ...prev, fullName: event.target.value }))} style={inputStyle} />
-                  <input type="email" placeholder="Work email" value={formData.email} onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))} style={inputStyle} />
-                  <input type="text" placeholder="Company" value={formData.company} onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))} style={inputStyle} />
+                  <input type="text" placeholder="Enter your full name" value={formData.fullName} onChange={(event) => setFormData((prev) => ({ ...prev, fullName: event.target.value }))} style={inputStyle} />
+                  <input type="email" placeholder="Enter your work email" value={formData.email} onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))} style={inputStyle} />
+                  <input type="text" placeholder="Enter your company name" value={formData.company} onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))} style={inputStyle} />
                   <textarea placeholder="What do you want to discuss in the demo?" rows={4} value={formData.message} onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value }))} style={{ ...inputStyle, resize: 'vertical', minHeight: '110px', fontFamily: 'inherit' }} />
                   <input
                     type="text"

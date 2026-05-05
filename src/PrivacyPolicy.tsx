@@ -72,7 +72,7 @@ const sections = [
     points: [
       'Subject to applicable law, you may request access, correction, deletion, restriction, portability, or objection regarding your personal data.',
       'You may also withdraw previously given consent where processing relies on consent.',
-      'To submit a request, contact us at hello@afriniadigitalsolution.com. We may verify identity before actioning rights requests.',
+      'To submit a request, contact us at afriniadigitalsolutions@gmail.com. We may verify identity before actioning rights requests.',
     ],
   },
   {

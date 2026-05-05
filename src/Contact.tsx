@@ -8,13 +8,13 @@ import { submitLeadForm } from './lib/formSubmit';
 const channels = [
   {
     title: 'Strategy Call',
-    detail: '+251 900 000 000',
+    detail: '+251 936 016 511',
     note: 'Best for urgent project scoping',
     icon: <Phone size={18} strokeWidth={2.25} />,
   },
   {
     title: 'Project Inbox',
-    detail: 'hello@afriniadigitalsolution.com',
+    detail: 'afriniadigitalsolutions@gmail.com',
     note: 'Share docs, RFPs, and requirements',
     icon: <Mail size={18} strokeWidth={2.25} />,
   },
@@ -581,7 +581,7 @@ export default function ContactPage() {
                         Full name
                       </label>
                       <div className="cp-field-shell">
-                        <input id="cp-name" className="cp-input" type="text" name="name" autoComplete="name" placeholder="Jane Cooper" value={formData.name} onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))} />
+                        <input id="cp-name" className="cp-input" type="text" name="name" autoComplete="name" placeholder="Enter your full name" value={formData.name} onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))} />
                       </div>
                     </div>
                     <div>
@@ -589,7 +589,7 @@ export default function ContactPage() {
                         Work email
                       </label>
                       <div className="cp-field-shell">
-                        <input id="cp-email" className="cp-input" type="email" name="email" autoComplete="email" placeholder="you@company.com" value={formData.email} onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))} />
+                        <input id="cp-email" className="cp-input" type="email" name="email" autoComplete="email" placeholder="Enter your email address" value={formData.email} onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))} />
                       </div>
                     </div>
                   </div>
@@ -599,7 +599,7 @@ export default function ContactPage() {
                         Company / team
                       </label>
                       <div className="cp-field-shell">
-                        <input id="cp-company" className="cp-input" type="text" name="company" autoComplete="organization" placeholder="Acme Inc." value={formData.company} onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))} />
+                        <input id="cp-company" className="cp-input" type="text" name="company" autoComplete="organization" placeholder="Enter your company name" value={formData.company} onChange={(event) => setFormData((prev) => ({ ...prev, company: event.target.value }))} />
                       </div>
                     </div>
                     <div>
