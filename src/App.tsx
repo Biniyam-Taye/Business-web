@@ -1253,7 +1253,7 @@ function MainLayout() {
                           </div>
                           <div>
                             <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Phone</p>
-                            <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#0f172a', fontWeight: 700 }}>+251 936 016 511</h4>
+                            <h4 style={{ margin: 0, fontSize: '1.2rem', color: '#0f172a', fontWeight: 700 }}>+251931619083</h4>
                           </div>
                         </motion.div>
 
@@ -1266,7 +1266,7 @@ function MainLayout() {
                           </div>
                           <div>
                             <p style={{ margin: '0 0 4px 0', fontSize: '0.9rem', color: '#64748b', fontWeight: 600, textTransform: 'uppercase' }}>Email</p>
-                            <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>afriniadigitalsolutions@gmail.com</h4>
+                            <h4 style={{ margin: 0, fontSize: '1.1rem', color: '#0f172a', fontWeight: 700 }}>afriniadigitalsolution@gmail.com</h4>
                           </div>
                         </motion.div>
                       </div>

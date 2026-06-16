@@ -20,7 +20,7 @@ const releases = [
 ];
 
 const resources = [
-  ['Press Contact', 'afriniadigitalsolutions@gmail.com'],
+  ['Press Contact', 'afriniadigitalsolution@gmail.com'],
   ['Media Kit', 'Brand assets, company profile, and leadership bios available on request.'],
   ['Interview Requests', 'Submit interview requests for founders, technical leads, and product leadership.'],
 ];

@@ -8,13 +8,13 @@ import { submitLeadForm } from './lib/formSubmit';
 const channels = [
   {
     title: 'Strategy Call',
-    detail: '+251 936 016 511',
+    detail: '+251931619083',
     note: 'Best for urgent project scoping',
     icon: <Phone size={18} strokeWidth={2.25} />,
   },
   {
     title: 'Project Inbox',
-    detail: 'afriniadigitalsolutions@gmail.com',
+    detail: 'afriniadigitalsolution@gmail.com',
     note: 'Share docs, RFPs, and requirements',
     icon: <Mail size={18} strokeWidth={2.25} />,
   },
