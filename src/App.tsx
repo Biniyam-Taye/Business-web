@@ -511,7 +511,7 @@ function MainLayout() {
 
 
               {/* Problem → Solution Section — Premium Redesign */}
-              <section style={{ padding: '64px 0 40px', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
+              <section className="problem-solution-section" style={{ padding: '64px 0 40px', background: 'linear-gradient(180deg, #fff 0%, #f7f8fc 100%)' }}>
                 <div className="container">
 
                   {/* Section Label + Headline */}

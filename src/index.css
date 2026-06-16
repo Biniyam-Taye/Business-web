@@ -590,9 +590,13 @@ h4 {
   /* Hero specific */
   .hero-wrapper {
     padding-top: 10px !important;
+    padding-bottom: 0 !important;
   }
   .hero-section {
     padding-top: 10px !important;
+  }
+  .problem-solution-section {
+    padding-top: 20px !important;
   }
   .hero-img-wrapper {
     height: 400px;
