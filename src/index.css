@@ -444,12 +444,10 @@ h4 {
   left: -120%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(
-    110deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.35),
-    rgba(255, 255, 255, 0)
-  );
+  background: linear-gradient(110deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0));
   transform: skewX(-20deg);
   transition: left 0.6s ease;
 }
@@ -547,9 +545,11 @@ h4 {
   .desktop-nav {
     display: none !important;
   }
+
   .mobile-menu-btn {
     display: flex !important;
   }
+
   .book-demo-btn-desktop {
     display: none !important;
   }
@@ -566,13 +566,17 @@ h4 {
 }
 
 @media (max-width: 768px) {
+
   /* Typography Scale Down */
-  h1, .heading-xl {
+  h1,
+  .heading-xl {
     font-size: clamp(2rem, 8vw, 2.5rem) !important;
   }
+
   h2 {
     font-size: clamp(1.8rem, 7vw, 2.2rem) !important;
   }
+
   h3 {
     font-size: 1.5rem !important;
   }
@@ -582,20 +586,29 @@ h4 {
     padding-top: 60px !important;
     padding-bottom: 60px !important;
   }
-  
+
   /* Hero specific */
+  .hero-wrapper {
+    padding-top: 10px !important;
+  }
+  .hero-section {
+    padding-top: 10px !important;
+  }
   .hero-img-wrapper {
     height: 400px;
     margin-top: 20px !important;
   }
-  .cutout-tr, .cutout-bl {
+
+  .cutout-tr,
+  .cutout-bl {
     transform: scale(0.7);
     transform-origin: bottom left;
   }
+
   .cutout-tr {
     transform-origin: top right;
   }
-  
+
   /* Feature grids etc. */
   .services-grid,
   .stats-grid,
@@ -605,10 +618,10 @@ h4 {
     grid-template-columns: 1fr !important;
   }
 
-  .app-container > div:first-child nav {
+  .app-container>div:first-child nav {
     padding: 12px 16px !important;
   }
-  
+
   /* Make sure columns flex to full width */
   .home-hero-left,
   .home-hero-right {
@@ -627,39 +640,44 @@ h4 {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
   }
-  
+
   .footer-links-container,
   .footer-bottom-row {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 24px !important;
   }
-  
+
   /* Contact Form layout fix */
   .contact-form-row {
     flex-direction: column !important;
   }
-  
+
   /* Projects Page fixes */
   .projects-hero-left,
   .responsive-card-text {
     flex: 1 1 100% !important;
   }
+
   .projects-hero-right {
     flex: 1 1 100% !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
   }
-  .projects-hero-right > div {
+
+  .projects-hero-right>div {
     padding: 20px 16px !important;
   }
-  .projects-hero-right > div > div:nth-child(2) {
+
+  .projects-hero-right>div>div:nth-child(2) {
     font-size: 1.8rem !important;
   }
-  .projects-hero-right > div > div:nth-child(3) {
+
+  .projects-hero-right>div>div:nth-child(3) {
     font-size: 0.65rem !important;
     margin-top: 6px !important;
   }
+
   .responsive-card-image {
     flex: 1 1 100% !important;
     height: 300px !important;
@@ -672,12 +690,14 @@ h4 {
     min-height: 380px !important;
     margin-top: -20px !important;
   }
+
   .services-capabilities-grid,
   .services-elite-grid,
   .architecture-blueprint-grid,
   .industries-2col-grid {
     grid-template-columns: 1fr !important;
   }
+
   .process-step-row {
     display: flex !important;
     flex-direction: column !important;
@@ -689,10 +709,12 @@ h4 {
   .pricing-hero-grid {
     grid-template-columns: 1fr !important;
   }
+
   .pricing-powerup-header {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
+
   .pricing-quote-icon {
     transform: scale(0.7) translate(20%, -20%) !important;
     opacity: 0.7 !important;
@@ -702,11 +724,13 @@ h4 {
   .bookdemo-grid {
     grid-template-columns: 1fr !important;
   }
+
   .contact-submit-row {
     flex-direction: column !important;
     align-items: stretch !important;
   }
-  .contact-submit-row > button {
+
+  .contact-submit-row>button {
     width: 100% !important;
     justify-content: center !important;
   }
@@ -721,12 +745,12 @@ h4 {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   pointer-events: auto;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transform-origin: top;
 }

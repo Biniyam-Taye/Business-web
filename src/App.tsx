@@ -1,6 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow, Menu, X } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Globe, XCircle, CheckCircle2, Database, Cloud, Bot, Smartphone, LayoutPanelTop, Workflow, Menu, X, Home, FolderOpen, Briefcase, HelpCircle, Mail, CreditCard } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ProjectsPage from './Projects';
 import ProjectCaseStudy from './ProjectCaseStudy';
@@ -207,41 +207,73 @@ function MainLayout() {
                 initial={{ opacity: 0, y: -20, scaleY: 0.95 }}
                 animate={{ opacity: 1, y: 0, scaleY: 1 }}
                 exit={{ opacity: 0, y: -20, scaleY: 0.95 }}
-                transition={{ duration: 0.2 }}
-                style={{ position: 'absolute', top: 'calc(100% + 10px)', left: '0', right: '0', background: '#fff', borderRadius: '24px', padding: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', display: 'flex', flexDirection: 'column', gap: '16px', pointerEvents: 'auto', border: '1px solid #f1f5f9' }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                style={{ position: 'absolute', top: 'calc(100% + 16px)', left: '16px', right: '16px', background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'blur(30px)', borderRadius: '28px', padding: '24px', boxShadow: '0 30px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.5)', display: 'flex', flexDirection: 'column', gap: '8px', pointerEvents: 'auto', border: '1px solid rgba(255,255,255,0.4)', transformOrigin: 'top' }}
               >
-                {navLinks.map((link) => (
-                  <div
-                    key={link}
-                    style={{
-                      padding: '16px 24px',
-                      borderRadius: '16px',
-                      background: activeNav === link ? '#111' : 'transparent',
-                      color: activeNav === link ? '#fff' : '#444',
-                      fontWeight: activeNav === link ? 700 : 500,
-                      cursor: 'pointer',
-                      fontSize: '1.1rem'
-                    }}
-                    onClick={() => {
-                      if (link === 'Projects') navigate('/projects');
-                      else if (link === 'Services') navigate('/services');
-                      else if (link === 'How It Works') navigate('/how-it-works');
-                      else if (link === 'Pricing') navigate('/pricing');
-                      else if (link === 'Contacts') navigate('/contact');
-                      else if (link === 'About Us') navigate('/');
-                    }}
-                  >
-                    {link}
-                  </div>
-                ))}
-                <button onClick={() => navigate('/book-demo')} style={{
-                  background: 'var(--accent-blue)', color: '#fff', border: 'none',
-                  borderRadius: '16px', padding: '16px', fontSize: '1.05rem', fontWeight: 700,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', cursor: 'pointer',
-                  marginTop: '8px', boxShadow: '0 8px 20px rgba(37,99,235,0.3)'
-                }}>
+                {navLinks.map((link, i) => {
+                  const getIcon = () => {
+                    if (link === 'About Us') return <Home size={20} />;
+                    if (link === 'Projects') return <FolderOpen size={20} />;
+                    if (link === 'Services') return <Briefcase size={20} />;
+                    if (link === 'How It Works') return <HelpCircle size={20} />;
+                    if (link === 'Pricing') return <CreditCard size={20} />;
+                    if (link === 'Contacts') return <Mail size={20} />;
+                    return null;
+                  };
+                  return (
+                    <motion.div
+                      key={link}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ delay: i * 0.05, duration: 0.3 }}
+                      whileHover={{ scale: 1.02, x: 5, backgroundColor: activeNav === link ? '#111' : 'rgba(0,0,0,0.03)' }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '16px',
+                        padding: '16px 20px',
+                        borderRadius: '20px',
+                        background: activeNav === link ? '#111' : 'transparent',
+                        color: activeNav === link ? '#fff' : '#444',
+                        fontWeight: activeNav === link ? 700 : 500,
+                        cursor: 'pointer',
+                        fontSize: '1.1rem',
+                        transition: 'color 0.2s, background 0.2s'
+                      }}
+                      onClick={() => {
+                        if (link === 'Projects') navigate('/projects');
+                        else if (link === 'Services') navigate('/services');
+                        else if (link === 'How It Works') navigate('/how-it-works');
+                        else if (link === 'Pricing') navigate('/pricing');
+                        else if (link === 'Contacts') navigate('/contact');
+                        else if (link === 'About Us') navigate('/');
+                      }}
+                    >
+                      <motion.div whileHover={{ rotate: 10, scale: 1.1 }} whileTap={{ scale: 0.8 }} style={{ display: 'flex', alignItems: 'center' }}>
+                        {getIcon()}
+                      </motion.div>
+                      {link}
+                    </motion.div>
+                  );
+                })}
+                <motion.button 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navLinks.length * 0.05, duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate('/book-demo')} 
+                  style={{
+                    background: 'linear-gradient(135deg, var(--accent-blue) 0%, #4f46e5 100%)', color: '#fff', border: 'none',
+                    borderRadius: '20px', padding: '18px', fontSize: '1.1rem', fontWeight: 700,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', cursor: 'pointer',
+                    marginTop: '12px', boxShadow: '0 10px 25px rgba(37,99,235,0.3)'
+                  }}
+                >
                   Book Demo
-                </button>
+                </motion.button>
               </motion.div>
             )}
           </AnimatePresence>
@@ -268,7 +300,7 @@ function MainLayout() {
           <Route path="/" element={
             <>
               {/* Hero Wrapper */}
-              <div style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '100px 0 72px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+              <div className="hero-wrapper" style={{ position: 'relative', width: '100%', overflow: 'hidden', padding: '100px 0 72px 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
                 {/* Hero Background Clean Theme */}
                 <div style={{
                   position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
@@ -276,7 +308,7 @@ function MainLayout() {
                   zIndex: -2,
                 }} />
 
-                <section className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center', justifyContent: 'space-between', zIndex: 1, position: 'relative' }}>
+                <section className="container hero-section" style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center', justifyContent: 'space-between', zIndex: 1, position: 'relative' }}>
                   {/* Left Column */}
                   <div className="home-hero-left" style={{ flex: '0 1 550px' }}>
 
