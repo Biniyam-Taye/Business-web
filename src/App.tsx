@@ -63,6 +63,16 @@ export default function App() {
 function MainLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const heroKeywords = ['High-Performance', 'Scalable', 'Intelligent', 'Revenue-Driven', 'Future-Proof'];
+  const [currentKeywordIndex, setCurrentKeywordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentKeywordIndex((prev) => (prev + 1) % heroKeywords.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const navigate = useNavigate();
   const getNavFromPath = (path: string) => {
     if (path.startsWith('/projects')) return 'Projects';
@@ -320,14 +330,26 @@ function MainLayout() {
                       style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.03em', margin: 0, color: '#0f172a' }}
                     >
                       We Turn Ideas Into{' '}
-                      <span style={{
-                        background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 55%, #F97316 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                      }}>
-                        High-Performance
-                      </span>
+                      <br className="mobile-only-br" style={{ display: 'none' }} />
+                      <AnimatePresence mode="wait">
+                        <motion.span
+                          key={currentKeywordIndex}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          style={{
+                            display: 'inline-block',
+                            background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 55%, #F97316 100%)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text',
+                            whiteSpace: 'nowrap'
+                          }}
+                        >
+                          {heroKeywords[currentKeywordIndex]}
+                        </motion.span>
+                      </AnimatePresence>
                       <br />Digital Infrastructure.
                     </motion.h1>
 
