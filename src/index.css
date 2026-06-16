@@ -599,6 +599,28 @@ h4 {
     margin-top: 20px !important;
   }
 
+  /* Hero CTA Mobile */
+  .hero-cta-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .hero-cta-btn {
+    flex: 1 !important;
+    padding: 12px 8px !important;
+    gap: 8px !important;
+    font-size: 0.85rem !important;
+  }
+  .hero-cta-btn span {
+    white-space: nowrap;
+  }
+  .hero-cta-icon {
+    width: 14px;
+    height: 14px;
+  }
+
   .cutout-tr,
   .cutout-bl {
     transform: scale(0.7);
