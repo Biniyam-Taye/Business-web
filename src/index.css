@@ -538,6 +538,15 @@ h4 {
   }
 }
 
+/* Base form styles (desktop defaults) */
+.home-contact-form {
+  padding: 48px;
+  gap: 24px;
+}
+.contact-form-row {
+  gap: 24px;
+}
+
 /* ========================================= */
 /* --- Comprehensive Mobile Responsiveness --- */
 /* ========================================= */
@@ -592,15 +601,25 @@ h4 {
     padding-top: 10px !important;
     padding-bottom: 0 !important;
   }
+
   .hero-section {
     padding-top: 10px !important;
   }
+
   .problem-solution-section {
     padding-top: 20px !important;
   }
+
   .hero-img-wrapper {
     height: 400px;
     margin-top: 20px !important;
+  }
+
+  /* Team Cards Mobile */
+  .team-grid p {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 12px !important;
   }
 
   /* Hero CTA Mobile */
@@ -611,18 +630,84 @@ h4 {
     gap: 10px !important;
     width: 100% !important;
   }
+
   .hero-cta-btn {
     flex: 1 !important;
     padding: 12px 8px !important;
     gap: 8px !important;
     font-size: 0.85rem !important;
   }
+
   .hero-cta-btn span {
     white-space: nowrap;
   }
+
   .hero-cta-icon {
     width: 14px;
     height: 14px;
+  }
+
+  /* Colorful Feature Cards on Mobile */
+  .feature-fast {
+    background: rgba(245,158,11,0.05) !important;
+    border-color: rgba(245,158,11,0.3) !important;
+    box-shadow: none !important;
+  }
+  .feature-clean {
+    background: rgba(236,72,153,0.05) !important;
+    border-color: rgba(236,72,153,0.3) !important;
+    box-shadow: none !important;
+  }
+  .feature-scalable {
+    background: rgba(59,130,246,0.05) !important;
+    border-color: rgba(59,130,246,0.3) !important;
+    box-shadow: none !important;
+  }
+  .feature-secure {
+    background: rgba(16,185,129,0.05) !important;
+    border-color: rgba(16,185,129,0.3) !important;
+    box-shadow: none !important;
+  }
+
+  /* Contact Section Mobile Fix */
+  .contact-section {
+    padding: 40px 0 !important;
+  }
+  .contact-header {
+    margin-bottom: 32px !important;
+  }
+  .contact-grid {
+    gap: 24px !important;
+  }
+  .home-contact-form {
+    padding: 20px !important;
+    gap: 14px !important;
+    border-radius: 24px !important;
+  }
+  .home-contact-form input,
+  .home-contact-form textarea {
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    font-size: 0.9rem !important;
+  }
+  .home-contact-form textarea {
+    min-height: 100px !important;
+  }
+  .home-contact-form label {
+    font-size: 0.85rem !important;
+  }
+  .home-contact-form button {
+    padding: 14px !important;
+    margin-top: 4px !important;
+    font-size: 1rem !important;
+  }
+  .contact-form-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .contact-form-row > div {
+    width: 100% !important;
+    flex: 1 1 auto !important;
   }
 
   .cutout-tr,
