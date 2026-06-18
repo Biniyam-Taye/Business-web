@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowDown,
-  ArrowUpRight,
   CheckCircle2,
   ChevronDown,
   Compass,
@@ -635,7 +634,6 @@ function WhiteBlueCTA() {
 }
 
 export default function HowItWorksPage() {
-  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [hoveredStep, setHoveredStep] = useState<string | null>(null);
 

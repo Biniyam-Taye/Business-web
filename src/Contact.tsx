@@ -50,7 +50,6 @@ const labelStyle: CSSProperties = {
 export default function ContactPage() {
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
   const stagger = { duration: 0.65, ease };
-  const [hoveredChannel, setHoveredChannel] = useState<number | null>(null);
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
